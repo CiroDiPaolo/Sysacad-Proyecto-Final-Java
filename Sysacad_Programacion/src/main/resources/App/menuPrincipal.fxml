@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="556.0" prefWidth="860.0" style="-fx-background-color: #2A3B47;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.inicioSesionController">
+   <children>
+      <Label fx:id="tctMenuPrincipal" layoutX="321.0" layoutY="14.0" text="Menu principal" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
