@@ -1,43 +1,35 @@
 package Control;
 
-import App.App;
-import Path.Path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
-public class controlMenuPrincipal {
+import static Path.Path.*;
 
+
+public class controlMenuPrincipal  {
 
     @FXML
     private Label tctMenuPrincipal;
 
-    public static void mostrarMenuPrincipal(){
+    @FXML
+    private Button op1;
 
-        try {
+    private Stage stage;
 
-            Stage stage = new Stage();
+    @FXML
+    private void clicOp1(ActionEvent event) {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(Path.menuPrincipal));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
-            stage.setTitle("Sysacad Programación");
+        stage = (Stage) op1.getScene().getWindow();
 
-            Control.inicioSesionController controller = fxmlLoader.getController();
-            controller.setStage(stage);
-            stage.setScene(scene);
-            stage.show();
+        EscenaControl escena = new EscenaControl();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        escena.cambiarEscena(verDatos,stage);
 
     }
+
 
 }

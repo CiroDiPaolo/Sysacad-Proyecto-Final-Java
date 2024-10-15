@@ -1,6 +1,6 @@
 package domain;
 
-import User.Alumno;
+import Modelo.Alumno;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

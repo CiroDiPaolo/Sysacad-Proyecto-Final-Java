@@ -1,20 +1,14 @@
 package Control;
 
-import App.App;
 import Path.Path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import domain.inicioSesion;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class inicioSesionController {
 
@@ -32,40 +26,35 @@ public class inicioSesionController {
     private TextField txtLegajo;
 
     @FXML
-    void clicBtnAcceder(ActionEvent event) {
+    public void clicBtnAcceder(ActionEvent event) {
 
-        if(inicioSesionLegajo() == true){
+        //Si el inicion de sesion es correcto, cambiar de escena
+        if (inicioSesionLegajo() && inicioSesionContrasenia()) {//Verifica si el legajo y la contraseña son correctos
 
-            if(inicioSesionContrasenia() == true){
+            System.out.println("correcto");
 
-                System.out.println("correcto");
+            // Obtener el Stage actual
+            Stage stage = (Stage) btnAcceder.getScene().getWindow();
 
-                stage.close();
+            // Cambiar la escena
+            EscenaControl escenaControl = new EscenaControl();
 
-                controlMenuPrincipal.mostrarMenuPrincipal();
+            escenaControl.cambiarEscena("/App/menuPrincipal.fxml", stage);
 
-
-
-            }else{
-
-                System.out.println("incorrecto");
-
-            }
-
-        }else{
+        } else {
 
             System.out.println("incorrecto");
 
         }
 
-
     }
 
     @FXML
-    boolean inicioSesionContrasenia() {
+    boolean inicioSesionContrasenia() {//Verifica si la contraseña es correcta, si es correcta retorna true
 
         boolean flag = false;
 
+        //Busca en el JSON si se encuentra la contasenia y si es correcta
         if (inicioSesion.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia") == true) {
 
             flag = true;
@@ -76,10 +65,11 @@ public class inicioSesionController {
     }
 
     @FXML
-    boolean inicioSesionLegajo() {
+    boolean inicioSesionLegajo() {//Verifica si el legajo es correcto, si es correcto retorna true
 
         boolean flag = false;
 
+        //Busca en el JSON si se encuentra el legajo
         if (inicioSesion.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {
 
                 flag = true;
@@ -90,12 +80,7 @@ public class inicioSesionController {
         return flag;
     }
 
-
     public void setStage(Stage stage) {
-
         this.stage = stage;
-
     }
-
-
 }
