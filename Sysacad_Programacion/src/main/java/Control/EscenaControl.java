@@ -12,7 +12,7 @@ import static Path.Path.icono;
 public class EscenaControl {
 
     // Cambiar de ventana, recibiendo el Path por parametros
-    public void cambiarVentana(String fxml,String titloVentana){
+    public void cambiarVentana(String fxml,String tituloVentana){
 
         // Abrir la nueva ventana
         try {
@@ -21,7 +21,10 @@ public class EscenaControl {
             Parent root = loader.load();
             Stage newStage = new Stage();
             newStage.setScene(new Scene(root));
-            newStage.setTitle(titloVentana);
+            newStage.setTitle(tituloVentana);
+            //Maximiza la ventana
+            newStage.setMaximized(true);
+
             newStage.show();
 
             Image icon = new Image(getClass().getResourceAsStream(Path.icono));
@@ -43,6 +46,8 @@ public class EscenaControl {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            //Maximiza la ventana
+            stage.setMaximized(true);
             stage.show();
 
         } catch (IOException e) {

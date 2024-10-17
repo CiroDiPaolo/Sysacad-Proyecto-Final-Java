@@ -1,22 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="556.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.controlMenuPrincipal">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #252732;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.menuPrincipalAlumnoControl">
    <children>
-      <Label fx:id="tctMenuPrincipal" layoutX="321.0" layoutY="14.0" text="Menu principal" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="31.0" />
-         </font>
-      </Label>
-      <Rectangle fill="#2a3b47" height="388.0" layoutX="83.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="695.0" />
-      <Button fx:id="op1" layoutX="369.0" layoutY="114.0" mnemonicParsing="false" onAction="#clicOp1" prefHeight="36.0" prefWidth="123.0" text="Button" textFill="#14c8ff" underline="true">
-         <font>
-            <Font name="Arial" size="29.0" />
-         </font></Button>
+      <Rectangle fill="#2a3b47" height="542.0" layoutX="653.0" layoutY="277.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="634.0" AnchorPane.bottomAnchor="271.0" AnchorPane.leftAnchor="643.0" AnchorPane.rightAnchor="643.0" AnchorPane.topAnchor="267.0" />
+      <VBox alignment="CENTER" layoutX="644.0" layoutY="272.0" prefHeight="556.0" prefWidth="649.0">
+         <children>
+            <Button fx:id="btnOp8" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp8" prefHeight="58.0" prefWidth="469.0" style="-fx-background-color: transparent;" text="Cambiar contraseña" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp2" prefHeight="58.0" prefWidth="382.0" style="-fx-background-color: transparent;" text="Estado academico" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp1" alignment="CENTER" blendMode="SRC_ATOP" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp1" prefHeight="58.0" prefWidth="384.0" style="-fx-background-color: transparent;" text="Materias del plan" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="54.0" prefWidth="215.0" style="-fx-background-color: transparent;" text="Notas" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp4" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp4" prefHeight="58.0" prefWidth="517.0" style="-fx-background-color: transparent;" text="Correlatividad para cursar" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="58.0" prefWidth="566.0" style="-fx-background-color: transparent;" text="Inscripcion a examen final" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp7" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp7" prefHeight="58.0" prefWidth="476.0" style="-fx-background-color: transparent;" text="Inscripcion a cursada" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp5" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickBtnOp5" prefHeight="58.0" prefWidth="538.0" style="-fx-background-color: transparent;" text="Correlatividad para rendir" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnOp9" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnOp9" prefHeight="82.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="464.0" layoutY="31.0" prefHeight="351.0" prefWidth="1029.0">
+         <children>
+            <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="96.0" />
+               </font>
+            </Label>
+            <Text fill="#475d6b" strokeType="OUTSIDE" strokeWidth="0.0" text="Universidad Tecnológica Nacional Facultad Regional Mar del Plata" textAlignment="CENTER" wrappingWidth="534.13671875">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

@@ -1,25 +1,30 @@
 package Modelo;
 
+import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
 
 public class Comision {
 
     //Atributos
 
-    private String id;
+    private static int id = 0;
+    private String nombre;
     private Turno turno;
-    private HashSet<Materia> materias;
+    private HashSet<String> codigoMateria;
+    private String nombreProfe;
+    private int anio;
+    private int cupos;
 
     //Constructores
 
-    public Comision(String id, Turno turno) {
-
-        this.id = id;
+    public Comision(String nombre, Turno turno, HashSet<String> codigoMateria, String nombreProfe, Date anio, int cupos) {
+        id = id++;
+        this.nombre = nombre;
         this.turno = turno;
-        this.materias = new HashSet<>();
-
+        this.codigoMateria = new HashSet<>();
+        this.nombreProfe = nombreProfe;
+        this.anio = anio.getYear();
+        this.cupos = cupos;
     }
 
     public Comision() {
@@ -27,48 +32,67 @@ public class Comision {
 
     //Getters
 
+    public static int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public Turno getTurno() {
         return turno;
     }
 
-    public String getId() {
-        return id;
+    public HashSet<String> getCodigoMateria() {
+        return codigoMateria;
+    }
+
+    public String getNombreProfe() {
+        return nombreProfe;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public int getCupos() {
+        return cupos;
     }
 
     //Setters
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setTurno(Turno turno) {
         this.turno = turno;
     }
 
-    //metodos
-
-    public String agregarMateria(Materia m){
-
-        String mensaje = "";
-
-        if(!materias.contains(m)){
-
-            materias.add(m);
-
-            mensaje = "La materia " + m.getNombre() + "se añadio con exito";
-
-        }else{
-
-            mensaje = "La materia ya esta cargada";
-
-        }
-
-        return mensaje;
-
+    public void setNombreProfe(String nombreProfe) {
+        this.nombreProfe = nombreProfe;
     }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public void setCupos(int cupos) {
+        this.cupos = cupos;
+    }
+
+    //Metodos
 
     @Override
     public String toString() {
-        return "Comision " + id + " Turno " + turno + "\n" + materias + "\n";
+        return "Comision{" +
+                "nombre='" + nombre + '\'' +
+                ", turno=" + turno +
+                ", codigoMateria=" + codigoMateria +
+                ", nombreProfe='" + nombreProfe + '\'' +
+                ", anio=" + anio +
+                ", cupos=" + cupos +
+                '}';
     }
 }

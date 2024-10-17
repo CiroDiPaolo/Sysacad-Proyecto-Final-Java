@@ -1,29 +1,26 @@
 package Modelo;
 
+import Usuarios.Estudiante;
+import Usuarios.Profesor;
+
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 
-public class Materia {
+public final class Materia {
 
     //Atributos
 
+    private String id;
     private String nombre;
-    private Profesor profesor;
-    private String salon;
-    private LinkedHashSet<Alumno> alumnos;
-    private LinkedHashSet<String> horario;
+    private HashSet<String> codigoCarrera;
 
-    //Contructores
+    //Constructores
 
-    public Materia(String nombre, Profesor profesor, String salon) {
-
+    public Materia(String id, String nombre, HashSet<String> codigoCarrera) {
+        this.id = id;
         this.nombre = nombre;
-        this.horario = new LinkedHashSet<>();
-        this.profesor = profesor;
-        this.salon = salon;
-        this.alumnos = new LinkedHashSet<Alumno>();
-
+        this.codigoCarrera = codigoCarrera;
     }
 
     public Materia() {
@@ -31,71 +28,41 @@ public class Materia {
 
     //Getters
 
+    public String getId() {
+        return id;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-    public Profesor getProfesor() {
-        return profesor;
+    public HashSet<String> getCodigoCarrera() {
+        return codigoCarrera;
     }
 
-    public String getSalon() {
-        return salon;
-    }
+    //Setters
 
-    //Setter
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
+    public void setCodigoCarrera(HashSet<String> codigoCarrera) {
+        this.codigoCarrera = codigoCarrera;
     }
 
-    public void setSalon(String salon) {
-        this.salon = salon;
-    }
-
-    public void agregarAlumno(Alumno a){
-
-        Iterator<Alumno> iterator = alumnos.iterator();
-
-        for(int i = 0; i< alumnos.size(); i++){
-
-            if(!a.equals(iterator.next())){
-
-                alumnos.add(a);
-
-            }
-
-        }
-
-    }
-
-    public String agregarHorarios(String h){
-
-        String mensaje = "";
-
-        if(!horario.contains(h)){
-
-            horario.add(h);
-
-            mensaje = "El horario se cargo correctamente";
-
-        }else{
-
-            mensaje = "El horario ya esta cargado en la materia";
-
-        }
-
-        return mensaje;
-
-    }
+    //Metodos
 
     @Override
     public String toString() {
-        return " | Materias: " + nombre + " | Horario: " + horario + " " + profesor + " | Salon:" + salon + "\n";
+        return "Materia{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", codigoCarrera=" + codigoCarrera +
+                '}';
     }
 
 }
