@@ -1,6 +1,7 @@
 package Control;
 
 import Data.inicioSesionData;
+import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,10 +28,100 @@ public class inicioSesionControl {
     private TextField txtLegajo;
 
     @FXML
-    public void clicBtnAcceder(ActionEvent event) {
+    public void clicBtnAcceder(ActionEvent event) throws DatosIncorrectosException{
 
-        //Si el inicion de sesion es correcto, cambiar de escena
-        if (inicioSesionLegajo() && inicioSesionContrasenia()) {//Verifica si el legajo y la contraseña son correctos
+        int index;
+
+        //Si el inicio de sesion es correcto y retornan 1
+        if (inicioSesionLegajo() == 1 && inicioSesionContrasenia() ==1){//Verifica si el legajo y la contraseña son correctos
+
+            index = 1;
+
+            redireccionDeEscena(index);
+
+        } else if (inicioSesionLegajo() == 2 && inicioSesionContrasenia() == 2){
+
+            index = 2;
+
+            redireccionDeEscena(index);
+
+       }else if (inicioSesionLegajo() == 3 && inicioSesionContrasenia() == 3){
+
+            index = 3;
+
+            redireccionDeEscena(index);
+
+        }else{
+
+            throw new DatosIncorrectosException("Datos incorrectos, verifique los datos ingresados");
+
+        }
+
+    }
+
+    @FXML
+    int inicioSesionContrasenia() {//Verifica si la contraseña es correcta, si es correcta retorna true
+
+        int flag = 0;
+
+        //Busca en el JSON si se encuentra el legajo alumno
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {//verifica si el inicio de sesion es de un alumno
+
+            flag = 1;
+
+        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){//verifica si el inicio de sesion es de un profesor
+
+            flag = 2;
+
+        } /*else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {Verifica si el inicio de sesion fue de un administrador
+
+            flag = 3;
+
+        }*/
+
+        return flag;
+    }
+
+    @FXML
+    int inicioSesionLegajo() {//Verifica si el legajo es correcto, si es correcto retorna true
+
+        int flag = 0;
+
+        //Busca en el JSON si se encuentra el legajo alumno
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {//verifica si el inicio de sesion es de un alumno
+
+            flag = 1;
+
+        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){//verifica si el inicio de sesion es de un profesor
+
+            flag = 2;
+
+        } /*else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {Verifica si el inicio de sesion fue de un administrador
+
+            flag = 3;
+
+        }*/
+
+        return flag;
+    }
+
+    void redireccionDeEscena(int index){
+
+            String constante = "";
+
+            if(index == 1){
+
+                constante = Path.menuPrincipalAlumnos;
+
+            }/*else if (index == 2){
+
+                constante = Path.menuPrincipalProfesores;
+
+            }else{
+
+                constante = Path.menuPrincipalAdministrador;
+
+            }*/
 
             String legajo = txtLegajo.getText();
 
@@ -46,45 +137,11 @@ public class inicioSesionControl {
 
             stage.close();
 
-            escenaControl.cambiarVentana(Path.menuPrincipal, "Menu Principal");
+            escenaControl.cambiarVentana(constante, "Menu Principal");
 
-        } else {
-
-            System.out.println("incorrecto");
-
-       }
 
     }
 
-    @FXML
-    boolean inicioSesionContrasenia() {//Verifica si la contraseña es correcta, si es correcta retorna true
-
-        boolean flag = false;
-
-        //Busca en el JSON si se encuentra la contasenia y si es correcta
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia") == true) {
-
-            flag = true;
-
-        }
-
-        return flag;
-    }
-
-    @FXML
-    boolean inicioSesionLegajo() {//Verifica si el legajo es correcto, si es correcto retorna true
-
-        boolean flag = false;
-
-        //Busca en el JSON si se encuentra el legajo
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {
-
-            flag = true;
-
-        }
-
-        return flag;
-    }
 
     public void setStage(Stage stage) {
         this.stage = stage;

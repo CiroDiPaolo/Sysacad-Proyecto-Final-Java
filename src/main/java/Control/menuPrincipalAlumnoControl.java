@@ -58,8 +58,6 @@ public class menuPrincipalAlumnoControl {
 
         EscenaControl escena = new EscenaControl();
 
-        escena.cambiarEscena(verDatos,stage);
-
     }
 
     @FXML
