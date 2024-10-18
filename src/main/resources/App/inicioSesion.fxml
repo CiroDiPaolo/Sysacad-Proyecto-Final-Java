@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.inicioSesionControl">
+   <children>
+      <ImageView fitHeight="1298.0" fitWidth="1942.0" layoutX="-6.0" layoutY="-198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/lenguaje-min.jpg" />
+         </image>
+         <effect>
+            <BoxBlur />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/utn.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2a3b47" focusTraversable="true" height="515.0" layoutX="738.0" layoutY="264.0" stroke="#2a3b47" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="30.0" width="470.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="794.0" layoutY="446.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="794.0" layoutY="550.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
+      <Label layoutX="803.0" layoutY="293.0" prefHeight="71.0" prefWidth="340.0" text="Inicio Sesion" textAlignment="CENTER" textFill="#fbfbfe">
+         <font>
+            <Font name="Arial Bold" size="55.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtLegajo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="794.0" layoutY="446.0" onAction="#inicioSesionLegajo" prefHeight="53.0" prefWidth="360.0" promptText="Ingrese su legajo" style="-fx-background-radius: 15;">
+         <font>
+            <Font name="Arial" size="29.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="870.0" layoutY="708.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label layoutX="655.0" layoutY="43.0" prefHeight="119.0" prefWidth="635.0" text="Sysacad PRO" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="96.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="793.0" layoutY="550.0" onAction="#inicioSesionContrasenia" prefHeight="53.0" prefWidth="360.0" promptText="***********" style="-fx-background-radius: 15;">
+         <font>
+            <Font name="Century Gothic" size="29.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>
