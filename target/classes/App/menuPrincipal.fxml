@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" layoutX="809.0" layoutY="410.0" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="54.0" prefWidth="302.0" style="-fx-background-color: transparent; -fx-underline: true;" text="Notas" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="809.0" AnchorPane.rightAnchor="809.0">
+      <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" layoutX="809.0" layoutY="407.0" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="54.0" prefWidth="302.0" style="-fx-background-color: transparent; -fx-underline: true;" text="Notas" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="809.0" AnchorPane.rightAnchor="809.0">
          <font>
             <Font size="40.0" />
          </font>

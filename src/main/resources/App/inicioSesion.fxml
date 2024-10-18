@@ -15,18 +15,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.inicioSesionControl">
    <children>
-      <ImageView fitHeight="1298.0" fitWidth="1942.0" layoutX="-6.0" layoutY="-198.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/utn.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="1545.0" fitWidth="3478.0" layoutX="-320.0" layoutY="-437.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/lenguaje-min.jpg" />
          </image>
          <effect>
             <BoxBlur />
          </effect>
-      </ImageView>
-      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/utn.png" />
-         </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2a3b47" focusTraversable="true" height="515.0" layoutX="738.0" layoutY="264.0" stroke="#2a3b47" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="30.0" width="470.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="794.0" layoutY="446.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />

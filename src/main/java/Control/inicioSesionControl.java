@@ -65,11 +65,11 @@ public class inicioSesionControl {
         int flag = 0;
 
         //Busca en el JSON si se encuentra el legajo alumno
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {//verifica si el inicio de sesion es de un alumno
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia") == true) {//verifica si el inicio de sesion es de un alumno
 
             flag = 1;
 
-        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){//verifica si el inicio de sesion es de un profesor
+        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtContrasenia.getText(), "contrasenia") == true){//verifica si el inicio de sesion es de un profesor
 
             flag = 2;
 
