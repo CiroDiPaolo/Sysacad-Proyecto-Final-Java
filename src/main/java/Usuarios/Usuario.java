@@ -3,6 +3,10 @@ package Usuarios;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * La clase Usuario es una clase abstracta ya que sirve como base para las clases Estudiantes, Administrador, Profesor
+ * Tiene un nombre(name), apellido, dni, legajo, contraseña y una fecha de alta del usuario.
+ */
 public abstract class Usuario {
 
     private String name;
