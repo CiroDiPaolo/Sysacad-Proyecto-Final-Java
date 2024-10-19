@@ -53,51 +53,74 @@ public final class menuPrincipalEstudianteControl {
     private Stage stage;
 
     @FXML
+    //Materias del Plan
     private void clickBtnOp1(ActionEvent event) {
 
-        stage = (Stage) op1.getScene().getWindow();
+        stage = (Stage) btnOp1.getScene().getWindow();
 
         EscenaControl escena = new EscenaControl();
 
+        escena.cambiarEscena(materiasDelPlanEstudiante,stage,"Materias del plan");
+
     }
 
     @FXML
+    //Estado academico
     void clickBtnOp2(ActionEvent event) {
 
+        stage = (Stage) btnOp2.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(estadoAcademico, stage, "Estado Academico");
+
     }
 
     @FXML
+    //Notas
     void clickBtnOp3(ActionEvent event) {
 
+        stage = (Stage) btnOp3.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(notasEstudiante, stage, "Notas");
+
     }
 
     @FXML
+    //Correlatividad para cursar
     void clickBtnOp4(ActionEvent event) {
 
     }
 
     @FXML
+    //Correlatividad para rendir
     void clickBtnOp5(ActionEvent event) {
 
     }
 
     @FXML
+    //Inscripcion a examenes finales
     void clickBtnOp6(ActionEvent event) {
 
     }
 
     @FXML
+    //Inscripcion a cursada
     void clickBtnOp7(ActionEvent event) {
 
     }
 
     @FXML
+    //Cambiar contraseña
     void clickBtnOp8(ActionEvent event) {
 
     }
 
     @FXML
+    //salir
     void clickBtnOp9(ActionEvent event) {
+
+        stage = (Stage) btnOp9.getScene().getWindow();
+
+        stage.close();
 
     }
 
