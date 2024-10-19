@@ -3,6 +3,10 @@ package Modelo;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * La clase Carrera identifica una carrera segun su id y el año del plan;
+ * Tiene un nombre y un HashMap de Materia.
+ */
 public final class Carrera {
 
     //Atributos
