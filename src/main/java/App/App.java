@@ -1,6 +1,6 @@
 package App;
 
-import Control.inicioSesionControl;
+import Control.InicioSesion.inicioSesionControl;
 import Path.Path;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -45,4 +45,5 @@ public class App extends Application {
         launch();
 
     }
+
 }

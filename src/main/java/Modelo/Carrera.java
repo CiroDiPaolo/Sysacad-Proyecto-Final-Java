@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.Objects;
 
-public class Carrera {
+public final class Carrera {
 
     //Atributos
 

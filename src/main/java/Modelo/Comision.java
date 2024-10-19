@@ -3,7 +3,7 @@ package Modelo;
 import java.util.Date;
 import java.util.HashSet;
 
-public class Comision {
+public final class Comision {
 
     //Atributos
 

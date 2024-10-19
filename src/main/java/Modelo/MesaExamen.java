@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.HashSet;
 
-public class MesaExamen {
+public final class MesaExamen {
 
     private int id;
     private String fecha;

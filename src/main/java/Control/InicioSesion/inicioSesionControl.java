@@ -1,6 +1,6 @@
-package Control;
+package Control.InicioSesion;
 
-import Data.inicioSesionData;
+import Control.EscenaControl;
 import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import javafx.event.ActionEvent;
@@ -12,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class inicioSesionControl {
+public final class inicioSesionControl {
 
     private Stage stage;
     private Scene scene;
@@ -28,7 +28,21 @@ public class inicioSesionControl {
     private TextField txtLegajo;
 
     @FXML
-    public void clicBtnAcceder(ActionEvent event) throws DatosIncorrectosException{
+    public void clicBtnAcceder(ActionEvent event){
+
+        try {
+
+            inicioSesion();
+
+        }catch (DatosIncorrectosException e){
+
+            System.out.println(e.getMessage());
+
+        }
+
+    }
+
+    void inicioSesion() throws DatosIncorrectosException {
 
         int index;
 
@@ -39,13 +53,13 @@ public class inicioSesionControl {
 
             redireccionDeEscena(index);
 
-        } else if (inicioSesionLegajo() == 2 && inicioSesionContrasenia() == 2){
+        }else if (inicioSesionLegajo() == 2 && inicioSesionContrasenia() == 2){
 
             index = 2;
 
             redireccionDeEscena(index);
 
-       }else if (inicioSesionLegajo() == 3 && inicioSesionContrasenia() == 3){
+        }else if (inicioSesionLegajo() == 3 && inicioSesionContrasenia() == 3){
 
             index = 3;
 
@@ -65,19 +79,13 @@ public class inicioSesionControl {
         int flag = 0;
 
         //Busca en el JSON si se encuentra el legajo alumno
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia") == true) {//verifica si el inicio de sesion es de un alumno
-
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia")) { // verifica si el inicio de sesión es de un alumno
             flag = 1;
-
-        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtContrasenia.getText(), "contrasenia") == true){//verifica si el inicio de sesion es de un profesor
-
+        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtContrasenia.getText(), "contrasenia")) { // verifica si el inicio de sesión es de un profesor
             flag = 2;
-
-        } /*else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {Verifica si el inicio de sesion fue de un administrador
-
+        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtContrasenia.getText(), "contrasenia")) { // Verifica si el inicio de sesión fue de un administrador
             flag = 3;
-
-        }*/
+        }
 
         return flag;
     }
@@ -92,15 +100,17 @@ public class inicioSesionControl {
 
             flag = 1;
 
-        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){//verifica si el inicio de sesion es de un profesor
+        //verifica si el inicio de sesion es de un profesor
+        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){
 
             flag = 2;
 
-        } /*else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {Verifica si el inicio de sesion fue de un administrador
+        //Verifica si el inicio de sesion fue de un administrador
+        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {
 
             flag = 3;
 
-        }*/
+        }
 
         return flag;
     }
@@ -113,15 +123,15 @@ public class inicioSesionControl {
 
                 constante = Path.menuPrincipalAlumnos;
 
-            }/*else if (index == 2){
+            }else if (index == 2){
 
                 constante = Path.menuPrincipalProfesores;
 
-            }else{
+            }else if (index ==3){
 
                 constante = Path.menuPrincipalAdministrador;
 
-            }*/
+            }
 
             String legajo = txtLegajo.getText();
 
@@ -142,8 +152,8 @@ public class inicioSesionControl {
 
     }
 
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+
 }

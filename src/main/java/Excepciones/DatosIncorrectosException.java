@@ -1,6 +1,6 @@
 package Excepciones;
 
-public class DatosIncorrectosException extends Exception{
+public final class DatosIncorrectosException extends Exception{
 
     public DatosIncorrectosException(String mensaje) {
 

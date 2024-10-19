@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class manejoArchivos {
+public final class manejoArchivos {
 
     public static void crearArchivoJSON(String fileName, JSONArray arreglo) {
 

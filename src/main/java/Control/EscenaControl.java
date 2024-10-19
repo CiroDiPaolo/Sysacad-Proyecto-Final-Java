@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import static Path.Path.icono;
 
-public class EscenaControl {
+public final class EscenaControl {
 
     // Cambiar de ventana, recibiendo el Path por parametros
     public void cambiarVentana(String fxml,String tituloVentana){
