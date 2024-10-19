@@ -36,26 +36,29 @@ public final class EscenaControl {
     }
 
     // Cambiar de contenido de la ventana, recibiendo el Path por parametros y el Stage
-    public FXMLLoader cambiarEscena(String fxml, Stage stage) {
+    public FXMLLoader cambiarEscena(String fxml, Stage stage, String tituloVentana) {
+        {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            Parent root = loader.load();
+            try {
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+                Parent root = loader.load();
 
-            return loader;
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle(tituloVentana);
+                stage.setMaximized(true);
+                stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+                return loader;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
         }
 
-        return null;
     }
-
-
 
 }
