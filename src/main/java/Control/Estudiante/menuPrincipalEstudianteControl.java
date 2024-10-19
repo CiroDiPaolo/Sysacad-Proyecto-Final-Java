@@ -88,11 +88,19 @@ public final class menuPrincipalEstudianteControl {
     //Correlatividad para cursar
     void clickBtnOp4(ActionEvent event) {
 
+        stage = (Stage) btnOp4.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(correlatividadCursar,stage,"Correlatividad para cursar");
+
     }
 
     @FXML
     //Correlatividad para rendir
     void clickBtnOp5(ActionEvent event) {
+
+        stage = (Stage) btnOp5.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(correlatividadRendir,stage,"Correlatividad para rendir");
 
     }
 
@@ -100,17 +108,29 @@ public final class menuPrincipalEstudianteControl {
     //Inscripcion a examenes finales
     void clickBtnOp6(ActionEvent event) {
 
+        stage = (Stage) btnOp6.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(inscripcionExamenFinal,stage,"Inscripcion a examenes finales");
+
     }
 
     @FXML
     //Inscripcion a cursada
     void clickBtnOp7(ActionEvent event) {
 
+        stage = (Stage) btnOp7.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(inscripcionCursada,stage,"Inscripcion a cursada");
+
     }
 
     @FXML
     //Cambiar contraseña
     void clickBtnOp8(ActionEvent event) {
+
+        stage = (Stage) btnOp8.getScene().getWindow();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(cambiarContra,stage,"Cambiar contraseña");
 
     }
 
