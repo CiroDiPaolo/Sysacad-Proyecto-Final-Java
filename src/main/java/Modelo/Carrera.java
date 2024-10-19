@@ -11,21 +11,20 @@ public final class Carrera {
     private String nombre;
     private String plan;
     private HashMap<String, Materia> materias;
-    private String duracion;
-    private String coordinador;
 
     //Constructores
 
-    public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias, String duracion, String coordinador) {
+    public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias) {
         this.id = id;
         this.nombre = nombre;
         this.materias = materias;
         this.plan = plan;
-        this.duracion = duracion;
-        this.coordinador = coordinador;
     }
 
     public Carrera() {
+        id = "";
+        nombre = "";
+        plan = "";
     }
 
     //Getters
@@ -38,13 +37,14 @@ public final class Carrera {
         return nombre;
     }
 
-    public String getDuracion() {
-        return duracion;
+    public String getPlan() {
+        return plan;
     }
 
-    public String getCoordinador() {
-        return coordinador;
+    public HashMap<String, Materia> getMaterias() {
+        return materias;
     }
+
 
     //Setters
 
@@ -52,16 +52,16 @@ public final class Carrera {
         this.id = id;
     }
 
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public void setMaterias(HashMap<String, Materia> materias) {
+        this.materias = materias;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
-    }
-
-    public void setCoordinador(String coordinador) {
-        this.coordinador = coordinador;
     }
 
     //Metodos
@@ -71,8 +71,6 @@ public final class Carrera {
         return "Carrera{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", duracion='" + duracion + '\'' +
-                ", coordinador='" + coordinador + '\'' +
                 '}';
     }
 
@@ -81,11 +79,11 @@ public final class Carrera {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Carrera carrera = (Carrera) o;
-        return Objects.equals(id, carrera.id) && Objects.equals(nombre, carrera.nombre) && Objects.equals(duracion, carrera.duracion) && Objects.equals(coordinador, carrera.coordinador);
+        return Objects.equals(id, carrera.id) && Objects.equals(nombre, carrera.nombre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, duracion, coordinador);
+        return Objects.hash(id, nombre);
     }
 }
