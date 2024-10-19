@@ -1,5 +1,6 @@
 package Usuarios;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public abstract class Usuario {
@@ -9,6 +10,7 @@ public abstract class Usuario {
     private String dni;
     private String legajo;
     private String contrasenia;
+    private LocalDate fechaDeAlta;
 
     public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
         this.name = name;
@@ -16,9 +18,16 @@ public abstract class Usuario {
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        fechaDeAlta = LocalDate.now();
     }
 
     public Usuario() {
+        name = "";
+        apellido = "";
+        dni = "";
+        legajo = "";
+        contrasenia = "";
+        fechaDeAlta = LocalDate.now();
     }
 
     /**
@@ -49,6 +58,8 @@ public abstract class Usuario {
         return contrasenia;
     }
 
+    public LocalDate getFechaDeAlta() {return fechaDeAlta;}
+
     //SETTERS
 
     public void setName(String name) {
@@ -68,6 +79,8 @@ public abstract class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+
+    public void setFechaDeAlta(LocalDate fechaDeAlta) {this.fechaDeAlta = fechaDeAlta;}
 
     @Override
     public String toString() {
