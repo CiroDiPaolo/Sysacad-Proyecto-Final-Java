@@ -8,7 +8,6 @@ module com.example.sysacad_programacion {
     exports App;
     exports Control;
     opens Control to javafx.fxml;
-    exports Control.Profesores to javafx.fxml;
     exports Control.Estudiante;
     opens Control.Estudiante to javafx.fxml;
     exports Control.Administrador;

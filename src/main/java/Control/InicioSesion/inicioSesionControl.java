@@ -5,15 +5,18 @@ import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import Control.Estudiante.menuPrincipalEstudianteControl;
 
 public final class inicioSesionControl {
 
     private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private Button btnAcceder;
@@ -124,7 +127,7 @@ public final class inicioSesionControl {
 
                 constante = Path.menuPrincipalProfesores;
 
-            }else if (index == 3){
+            }else if (index ==3){
 
                 constante = Path.menuPrincipalAdministrador;
 
@@ -134,10 +137,10 @@ public final class inicioSesionControl {
 
             inicioSesionData.setLegajo(legajo);
 
+            System.out.println("correcto");
+
             // Obtener el Stage actual
             Stage stage = (Stage) btnAcceder.getScene().getWindow();
-
-            System.out.println("correcto");
 
             // Cambiar la escena
             EscenaControl escenaControl = new EscenaControl();
@@ -152,4 +155,5 @@ public final class inicioSesionControl {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+
 }

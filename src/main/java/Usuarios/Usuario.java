@@ -1,7 +1,12 @@
 package Usuarios;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * La clase Usuario es una clase abstracta ya que sirve como base para las clases Estudiantes, Administrador, Profesor
+ * Tiene un nombre(name), apellido, dni, legajo, contraseña y una fecha de alta del usuario.
+ */
 public abstract class Usuario {
 
     private String name;
@@ -9,6 +14,7 @@ public abstract class Usuario {
     private String dni;
     private String legajo;
     private String contrasenia;
+    private LocalDate fechaDeAlta;
 
     public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
         this.name = name;
@@ -16,9 +22,26 @@ public abstract class Usuario {
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        fechaDeAlta = LocalDate.now();
     }
 
     public Usuario() {
+        name = "";
+        apellido = "";
+        dni = "";
+        legajo = "";
+        contrasenia = "";
+        fechaDeAlta = LocalDate.now();
+    }
+
+    /**
+     * Este enum representa los tipos de usuario que existen(las clases que heredan de usuario).
+     * Se utiliza en la funcion de generarLegajoRandom
+     */
+    public enum ETipoUsuario{
+        ALUMNO,
+        PROFESOR,
+        ADMINISTRADOR
     }
 
     //GETTERS
@@ -39,6 +62,8 @@ public abstract class Usuario {
         return contrasenia;
     }
 
+    public LocalDate getFechaDeAlta() {return fechaDeAlta;}
+
     //SETTERS
 
     public void setName(String name) {
@@ -54,6 +79,8 @@ public abstract class Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+
+    public void setFechaDeAlta(LocalDate fechaDeAlta) {this.fechaDeAlta = fechaDeAlta;}
 
     @Override
     public String toString() {
@@ -78,4 +105,33 @@ public abstract class Usuario {
     public int hashCode() {
         return Objects.hash(dni, legajo);
     }
+
+    /**
+     * Genera un legajo random que comienza con una letra segun el tipo de usuario("E" para estudiante, "P" para profesor, "A" para administrador)
+     * Y lo concatena con 6 numeros random que van del 0 al 9 cada numero
+     * @param tipoUsuario
+     * @return String de un ID legajo
+     */
+    public static String generarLegajoRandom(ETipoUsuario tipoUsuario)
+    {
+        String id = "";
+        if(tipoUsuario == ETipoUsuario.ALUMNO)
+        {
+            id += "E";
+        } else if (tipoUsuario == ETipoUsuario.PROFESOR) {
+            id += "P";
+        }else if (tipoUsuario == ETipoUsuario.ADMINISTRADOR) {
+            id += "A";
+        }
+
+        for(int i=0; i<6; i++)
+        {
+            int num = (int)Math.floor(Math.random() * 9);
+
+            id += Integer.toString(num);
+        }
+
+        return id;
+    }
+
 }

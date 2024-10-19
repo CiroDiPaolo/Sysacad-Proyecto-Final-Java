@@ -33,7 +33,8 @@ public class App extends Application {
 
         stage.getIcons().add(icon);
 
-
+        inicioSesionControl controller = fxmlLoader.getController();
+        controller.setStage(stage);
         stage.setScene(scene);
         stage.show();
 
