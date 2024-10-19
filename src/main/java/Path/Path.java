@@ -24,5 +24,10 @@ public final class Path {
     public static final String estadoAcademico = "/App/Estudiante/estadoAcademico.fxml";
     public static final String notasEstudiante = "/App/Estudiante/notasEstudiante.fxml";
     public static final String materiasDelPlanEstudiante = "/App/Estudiante/materiasDelPlanEstudiante.fxml";
+    public static final String correlatividadCursar = "/App/Estudiante/correlatividadParaCursarEstudiante.fxml";
+    public static final String correlatividadRendir = "/App/Estudiante/correlatividadParaRendirEstudiante.fxml";
+    public static final String inscripcionExamenFinal = "/App/Estudiante/inscripcionExamenFinal.fxml";
+    public static final String inscripcionCursada = "/App/Estudiante/inscripcionCursada.fxml";
+    public static final String cambiarContra = "/App/Estudiante/cambiarContra.fxml";
 
 }
