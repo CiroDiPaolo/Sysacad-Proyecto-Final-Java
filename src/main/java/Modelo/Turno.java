@@ -2,9 +2,9 @@ package Modelo;
 
 public enum Turno {
 
-    Mañana,
-    Media_mañana,
-    Tarde,
-    Noche;
+    MANIANA,
+    MEDIA_MANIANA,
+    TARDE,
+    NOCHE;
 
 }
