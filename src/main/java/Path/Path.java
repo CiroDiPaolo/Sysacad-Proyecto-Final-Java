@@ -18,6 +18,11 @@ public final class Path {
     //Menu principal
     public static final String menuPrincipalAlumnos = "/App/Estudiante/menuPrincipalEstudiante.fxml";
     public static final String menuPrincipalAdministrador = "/App/Administrador/menuPrincipalAdministrador.fxml";
-    public static final String menuPrincipalProfesores = "/App/Profesor/menuPrincipalProfesor.fxml";
+    public static final String menuPrincipalProfesores = "/App/Profesores/menuPrincipalProfesores.fxml";
+
+    //Estudiante
+    public static final String estadoAcademico = "/App/Estudiante/estadoAcademico.fxml";
+    public static final String notasEstudiante = "/App/Estudiante/notasEstudiante.fxml";
+
 
 }
