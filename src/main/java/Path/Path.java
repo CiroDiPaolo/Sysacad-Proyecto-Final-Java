@@ -23,6 +23,6 @@ public final class Path {
     //Estudiante
     public static final String estadoAcademico = "/App/Estudiante/estadoAcademico.fxml";
     public static final String notasEstudiante = "/App/Estudiante/notasEstudiante.fxml";
-
+    public static final String materiasDelPlanEstudiante = "/App/Estudiante/materiasDelPlanEstudiante.fxml";
 
 }
