@@ -65,7 +65,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" layoutX="703.0" layoutY="631.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="515.0" style="-fx-background-color: transparent;" text="Inscripción a examen final" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="703.0" AnchorPane.rightAnchor="702.0">
+      <Button fx:id="btnOp5" alignment="CENTER" contentDisplay="CENTER" layoutX="703.0" layoutY="631.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="515.0" style="-fx-background-color: transparent;" text="Inscripción a examen final" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="703.0" AnchorPane.rightAnchor="702.0">
          <font>
             <Font size="40.0" />
          </font>
