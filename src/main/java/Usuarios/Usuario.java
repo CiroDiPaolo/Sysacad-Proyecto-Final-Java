@@ -72,10 +72,6 @@ public abstract class Usuario {
         this.dni = dni;
     }
 
-    public void setLegajo(String legajo) {
-        this.legajo = legajo;
-    }
-
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }

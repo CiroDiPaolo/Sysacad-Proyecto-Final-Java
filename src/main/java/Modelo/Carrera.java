@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public final class Carrera {
@@ -8,14 +9,18 @@ public final class Carrera {
 
     private String id;
     private String nombre;
+    private String plan;
+    private HashMap<String, Materia> materias;
     private String duracion;
     private String coordinador;
 
     //Constructores
 
-    public Carrera(String id, String nombre, String duracion, String coordinador) {
+    public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias, String duracion, String coordinador) {
         this.id = id;
         this.nombre = nombre;
+        this.materias = materias;
+        this.plan = plan;
         this.duracion = duracion;
         this.coordinador = coordinador;
     }
