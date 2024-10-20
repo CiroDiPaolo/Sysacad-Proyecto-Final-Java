@@ -82,6 +82,8 @@ public abstract class Usuario {
 
     public void setFechaDeAlta(LocalDate fechaDeAlta) {this.fechaDeAlta = fechaDeAlta;}
 
+    public void setLegajo(String legajo) { this.legajo = legajo; }
+
     @Override
     public String toString() {
         return "Usuario{" +
