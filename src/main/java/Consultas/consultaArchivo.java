@@ -1,5 +1,8 @@
 package Consultas;
 
+import Usuarios.Administrador;
+import Usuarios.Estudiante;
+import Usuarios.Usuario;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +38,13 @@ public final class consultaArchivo {
         return flag;
     }
 
-    //metodo prueba para buscar un nombre en un archivo JSON
+    /**
+     * Metodo que busca un usuario en el archivo JSON y retorna su nombre y apellido
+     *
+     * @param fileName
+     * @param legajo
+     * @return String
+     */
     public static String buscarNombreCompleto(String fileName, String legajo) {
 
         String nombre = "";
@@ -56,13 +65,13 @@ public final class consultaArchivo {
 
                     apellido = obj.getString("apellido");
 
-                    i=arreglo.length();
+                    i = arreglo.length();
 
                 }
 
             }
 
-            if(nombre.equals("") && apellido.equals("")){
+            if (nombre.equals("") && apellido.equals("")) {
                 throw new RuntimeException("No se encontro el legajo");
             }
 
@@ -72,6 +81,46 @@ public final class consultaArchivo {
 
         return nombre + " " + apellido;
 
+    }
+
+    /**
+     * Metodo que obtiene un estudiante del archivo JSON
+     *
+     * @param fileName
+     * @param legajo
+     * @return
+     */
+    public static Estudiante obtenerEstudiante(String fileName, String legajo) {
+
+        Estudiante estudiante = new Estudiante();
+
+        try {
+
+            JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+            for (int i = 0; i < arreglo.length(); i++) {
+
+                JSONObject obj = arreglo.getJSONObject(i);
+
+                if (obj.getString("legajo").equals(legajo)) {
+
+                    estudiante.setLegajo(obj.getString("legajo"));
+                    estudiante.setName(obj.getString("nombre"));
+                    estudiante.setApellido(obj.getString("apellido"));
+                    estudiante.setDni(obj.getString("dni"));
+                    estudiante.setContrasenia(obj.getString("contrasenia"));
+
+                    i = arreglo.length();
+
+                }
+
+            }
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        return estudiante;
     }
 
 }
