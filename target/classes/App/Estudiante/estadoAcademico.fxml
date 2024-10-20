@@ -50,8 +50,8 @@
             </Text>
          </children>
       </AnchorPane>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="904.0" layoutY="905.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="904.0" AnchorPane.rightAnchor="883.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="887.0" layoutY="893.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="0.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="887.0" AnchorPane.rightAnchor="867.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="893.0" layoutY="905.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="895.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="0.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0">
          <font>
             <Font size="40.0" />
          </font>

@@ -26,14 +26,9 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-5.0" layoutY="-36.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="8.0">
-         <image>
-            <Image url="@../images/utn.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3b43" focusTraversable="true" height="517.0" layoutX="695.0" layoutY="307.0" stroke="#2e3b43" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="30.0" width="530.0" AnchorPane.leftAnchor="665.0" AnchorPane.rightAnchor="665.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="781.0" layoutY="519.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="780.0" layoutY="623.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3b43" focusTraversable="true" height="517.0" layoutX="695.0" layoutY="307.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="10.0" width="530.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="685.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="781.0" layoutY="519.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" AnchorPane.leftAnchor="781.0" AnchorPane.rightAnchor="780.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="780.0" layoutY="624.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="781.0" />
       <Label layoutX="790.0" layoutY="366.0" prefHeight="71.0" prefWidth="340.0" text="Inicio Sesion" textAlignment="CENTER" textFill="#fbfbfe" AnchorPane.leftAnchor="790.0" AnchorPane.rightAnchor="790.0">
          <font>
             <Font name="Arial Bold" size="55.0" />
@@ -44,7 +39,7 @@
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="856.0" layoutY="740.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE" AnchorPane.leftAnchor="856.0" AnchorPane.rightAnchor="857.0">
+      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="857.0" layoutY="739.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE" AnchorPane.leftAnchor="857.0" AnchorPane.rightAnchor="856.0">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
@@ -55,7 +50,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <PasswordField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="780.0" layoutY="623.0" onAction="#inicioSesionContrasenia" prefHeight="53.0" prefWidth="360.0" promptText="***********" style="-fx-background-radius: 15;">
+      <PasswordField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="780.0" layoutY="623.0" onAction="#inicioSesionContrasenia" prefHeight="53.0" prefWidth="360.0" promptText="***********" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="780.0">
          <font>
             <Font name="Century Gothic" size="29.0" />
          </font>
@@ -74,5 +69,10 @@
             </Text>
          </children>
       </VBox>
+      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
+         <image>
+            <Image url="@../images/utn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

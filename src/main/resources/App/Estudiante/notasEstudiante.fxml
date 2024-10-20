@@ -30,7 +30,7 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2a3b47" height="750.0" layoutX="495.0" layoutY="222.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="932.0" AnchorPane.leftAnchor="485.0" AnchorPane.rightAnchor="483.0" />
+      <Rectangle fill="#2a3b47" height="750.0" layoutX="494.0" layoutY="222.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="932.0" AnchorPane.leftAnchor="484.0" AnchorPane.rightAnchor="484.0" />
       <TableView layoutX="544.0" layoutY="288.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0">
          <columns>
             <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
@@ -41,8 +41,8 @@
             <TableColumn fx:id="colFinal" prefWidth="116.0" text="FINAL" />
          </columns>
       </TableView>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="885.0" layoutY="898.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="885.0" AnchorPane.rightAnchor="902.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="859.0" layoutY="887.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="85.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="859.0" AnchorPane.rightAnchor="877.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="893.0" layoutY="898.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="868.0" layoutY="887.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="85.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="868.0" AnchorPane.rightAnchor="868.0">
          <font>
             <Font name="Arial" size="40.0" />
          </font>
@@ -50,7 +50,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fill="#8cc5e8" layoutX="918.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notas" wrappingWidth="86.1368408203125" AnchorPane.leftAnchor="918.0" AnchorPane.rightAnchor="915.8631591796875">
+      <Text fill="#8cc5e8" layoutX="917.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notas" wrappingWidth="86.1368408203125" AnchorPane.leftAnchor="917.0" AnchorPane.rightAnchor="916.0">
          <font>
             <Font name="Arial" size="31.0" />
          </font>
