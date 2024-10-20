@@ -38,6 +38,11 @@ public class estadoAcademicoControl {
     @FXML
     private Label tctMenuPrincipal;
 
+
+    /**
+     * Metodo que se ejecuta al clickear el boton volver
+     * @param event
+     */
     @FXML
     void clickBtnVolver(ActionEvent event) {
 

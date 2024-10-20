@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #252732;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.estadoAcademicoControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -25,22 +25,8 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-4.0" layoutY="-6.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <VBox alignment="TOP_CENTER" layoutX="616.0" layoutY="37.0" prefHeight="142.0" prefWidth="709.0">
-         <children>
-            <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="96.0" />
-               </font>
-            </Label>
-            <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="503.47015380859375">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Text>
-         </children>
-      </VBox>
       <Rectangle fill="#2a3b47" height="778.0" layoutX="514.0" layoutY="202.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="912.0" />
-      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
          <image>
             <Image url="@../../images/utn.png" />
          </image>
@@ -73,5 +59,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <VBox alignment="TOP_CENTER" layoutX="626.0" layoutY="50.0" prefHeight="168.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="96.0" />
+               </font>
+            </Label>
+            <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="491.47015380859375">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

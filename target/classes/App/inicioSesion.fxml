@@ -10,12 +10,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.InicioSesion.inicioSesionControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-773.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-779.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../images/lenguaje-min.jpg" />
          </image>
@@ -24,25 +26,25 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-5.0" layoutY="-36.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="592.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="8.0">
          <image>
             <Image url="@../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3b43" focusTraversable="true" height="517.0" layoutX="708.0" layoutY="307.0" stroke="#2e3b43" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="30.0" width="530.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="794.0" layoutY="519.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="794.0" layoutY="623.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
-      <Label layoutX="803.0" layoutY="366.0" prefHeight="71.0" prefWidth="340.0" text="Inicio Sesion" textAlignment="CENTER" textFill="#fbfbfe">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3b43" focusTraversable="true" height="517.0" layoutX="695.0" layoutY="307.0" stroke="#2e3b43" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="30.0" width="530.0" AnchorPane.leftAnchor="665.0" AnchorPane.rightAnchor="665.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="781.0" layoutY="519.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="780.0" layoutY="623.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="359.0" />
+      <Label layoutX="790.0" layoutY="366.0" prefHeight="71.0" prefWidth="340.0" text="Inicio Sesion" textAlignment="CENTER" textFill="#fbfbfe" AnchorPane.leftAnchor="790.0" AnchorPane.rightAnchor="790.0">
          <font>
             <Font name="Arial Bold" size="55.0" />
          </font>
       </Label>
-      <TextField fx:id="txtLegajo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="794.0" layoutY="519.0" onAction="#inicioSesionLegajo" prefHeight="53.0" prefWidth="360.0" promptText="Ingrese su legajo" style="-fx-background-radius: 15;">
+      <TextField fx:id="txtLegajo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="780.0" layoutY="519.0" onAction="#inicioSesionLegajo" prefHeight="53.0" prefWidth="360.0" promptText="Ingrese su legajo" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="780.0">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="870.0" layoutY="740.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE">
+      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="856.0" layoutY="740.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE" AnchorPane.leftAnchor="856.0" AnchorPane.rightAnchor="857.0">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
@@ -53,15 +55,24 @@
             <DropShadow />
          </effect>
       </Button>
-      <Label layoutX="655.0" layoutY="43.0" prefHeight="119.0" prefWidth="635.0" text="Sysacad PRO" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="96.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="793.0" layoutY="623.0" onAction="#inicioSesionContrasenia" prefHeight="53.0" prefWidth="360.0" promptText="***********" style="-fx-background-radius: 15;">
+      <PasswordField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="780.0" layoutY="623.0" onAction="#inicioSesionContrasenia" prefHeight="53.0" prefWidth="360.0" promptText="***********" style="-fx-background-radius: 15;">
          <font>
             <Font name="Century Gothic" size="29.0" />
          </font>
       </PasswordField>
+      <VBox alignment="TOP_CENTER" layoutX="616.0" layoutY="40.0" prefHeight="157.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="96.0" />
+               </font>
+            </Label>
+            <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="491.47015380859375">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

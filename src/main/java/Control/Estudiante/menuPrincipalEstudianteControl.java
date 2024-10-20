@@ -52,8 +52,11 @@ public final class menuPrincipalEstudianteControl {
 
     private Stage stage;
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de materias del plan y redirige a la pantalla de materias del plan
+     * @param event
+     */
     @FXML
-    //Materias del Plan
     private void clickBtnOp1(ActionEvent event) {
 
         stage = (Stage) btnOp1.getScene().getWindow();
@@ -64,8 +67,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de estado academico y redirige a la pantalla de estado academico
+     * @param event
+     */
     @FXML
-    //Estado academico
     void clickBtnOp2(ActionEvent event) {
 
         stage = (Stage) btnOp2.getScene().getWindow();
@@ -74,8 +80,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de notas y redirige a la pantalla de notas
+     * @param event
+     */
     @FXML
-    //Notas
     void clickBtnOp3(ActionEvent event) {
 
         stage = (Stage) btnOp3.getScene().getWindow();
@@ -84,8 +93,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de correlatividad para cursar y redirige a la pantalla de correlatividad para cursar
+     * @param event
+     */
     @FXML
-    //Correlatividad para cursar
     void clickBtnOp4(ActionEvent event) {
 
         stage = (Stage) btnOp4.getScene().getWindow();
@@ -94,8 +106,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de correlatividad para rendir y redirige a la pantalla de correlatividad para rendir
+     * @param event
+     */
     @FXML
-    //Correlatividad para rendir
     void clickBtnOp5(ActionEvent event) {
 
         stage = (Stage) btnOp5.getScene().getWindow();
@@ -104,8 +119,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de inscripcion a examenes finales y redirige a la pantalla de inscripcion a examenes finales
+     * @param event
+     */
     @FXML
-    //Inscripcion a examenes finales
     void clickBtnOp6(ActionEvent event) {
 
         stage = (Stage) btnOp6.getScene().getWindow();
@@ -114,8 +132,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de inscripcion a cursada y redirige a la pantalla de inscripcion a cursada
+     * @param event
+     */
     @FXML
-    //Inscripcion a cursada
     void clickBtnOp7(ActionEvent event) {
 
         stage = (Stage) btnOp7.getScene().getWindow();
@@ -124,8 +145,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de cambiar contraseña y redirige a la pantalla de cambiar contraseña
+     * @param event
+     */
     @FXML
-    //Cambiar contraseña
     void clickBtnOp8(ActionEvent event) {
 
         stage = (Stage) btnOp8.getScene().getWindow();
@@ -134,8 +158,11 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de salir
+     * @param event
+     */
     @FXML
-    //salir
     void clickBtnOp9(ActionEvent event) {
 
         stage = (Stage) btnOp9.getScene().getWindow();
@@ -144,9 +171,15 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    /**
+     * Metodo que se ejecuta al inicializar la pantalla
+     */
     @FXML
     protected void initialize() { setTxtBienvenida(); }
 
+    /**
+     * Metodo que setea el texto de bienvenida
+     */
     protected void setTxtBienvenida() {
         String legajo = inicioSesionData.getLegajo();
         txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAlumnos, legajo));

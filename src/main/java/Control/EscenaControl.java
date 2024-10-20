@@ -43,11 +43,10 @@ public final class EscenaControl {
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
                 Parent root = loader.load();
-
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.setTitle(tituloVentana);
-                stage.setMaximized(true);
+                stage.setMaximized(true); // Asegura que la ventana se maximice
                 stage.show();
 
                 return loader;
