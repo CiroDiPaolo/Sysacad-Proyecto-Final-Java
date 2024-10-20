@@ -87,7 +87,7 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     //Correlatividad para cursar
     void clickBtnOp4(ActionEvent event) {
-    //Correlatividad para cursar
+
         stage = (Stage) btnOp4.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(correlatividadCursar,stage,"Correlatividad para cursar");
@@ -139,8 +139,8 @@ public final class menuPrincipalEstudianteControl {
     void clickBtnOp9(ActionEvent event) {
 
         stage = (Stage) btnOp9.getScene().getWindow();
-
-        stage.close();
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(inicioSesion,stage,"Inicio sesion");
 
     }
 
