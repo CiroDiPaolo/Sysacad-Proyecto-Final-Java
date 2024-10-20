@@ -13,7 +13,11 @@ import static Path.Path.icono;
 
 public final class EscenaControl {
 
-    // Cambiar de ventana, recibiendo el Path por parametros
+    /**
+     * Metodo que se encarga de cambiar de ventana
+     * @param fxml
+     * @param tituloVentana
+     */
     public void cambiarVentana(String fxml,String tituloVentana){
 
         // Abrir la nueva ventana
@@ -35,7 +39,13 @@ public final class EscenaControl {
 
     }
 
-    // Cambiar de contenido de la ventana, recibiendo el Path por parametros y el Stage
+    /**
+     * Metodo que se encarga de cambiar de escena
+     * @param fxml
+     * @param stage
+     * @param tituloVentana
+     * @return
+     */
     public FXMLLoader cambiarEscena(String fxml, Stage stage, String tituloVentana) {
         {
 
