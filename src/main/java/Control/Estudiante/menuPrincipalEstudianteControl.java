@@ -2,13 +2,13 @@ package Control.Estudiante;
 
 import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
+import Usuarios.Estudiante;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import static Path.Path.*;
 
 
@@ -181,8 +181,12 @@ public final class menuPrincipalEstudianteControl {
      * Metodo que setea el texto de bienvenida
      */
     protected void setTxtBienvenida() {
+
         String legajo = inicioSesionData.getLegajo();
-        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAlumnos, legajo));
+
+        Estudiante estudiante = inicioSesionData.getEstudiante();
+
+        txtBienvenida.setText("Bienvenido, " + estudiante.getName() + " " + estudiante.getApellido());
     }
 
 }
