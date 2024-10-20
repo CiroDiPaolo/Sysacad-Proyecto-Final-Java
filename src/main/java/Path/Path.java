@@ -13,7 +13,7 @@ public final class Path {
     //FXML
 
     //Inicio de sesion
-    public static final String inicioSesion = "inicioSesion.fxml";
+    public static final String inicioSesion = "/App/inicioSesion.fxml";
 
     //Menu principal
     public static final String menuPrincipalAlumnos = "/App/Estudiante/menuPrincipalEstudiante.fxml";
