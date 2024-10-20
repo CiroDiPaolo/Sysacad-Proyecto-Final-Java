@@ -27,6 +27,10 @@ public final class inicioSesionControl {
     @FXML
     private TextField txtLegajo;
 
+    /**
+     * Metodo que se ejecuta al clickear el boton de acceder
+     * @param event
+     */
     @FXML
     public void clicBtnAcceder(ActionEvent event){
 
@@ -42,6 +46,10 @@ public final class inicioSesionControl {
 
     }
 
+    /**
+     * Metodo que inicia sesion
+     * @throws DatosIncorrectosException
+     */
     void inicioSesion() throws DatosIncorrectosException {
 
         int index;
@@ -73,6 +81,10 @@ public final class inicioSesionControl {
 
     }
 
+    /**
+     * Metodo que verifica si la contraseña es correcta, retorna true si es correcta o false
+     * @return
+     */
     @FXML
     int inicioSesionContrasenia() {//Verifica si la contraseña es correcta, si es correcta retorna true
 
@@ -90,8 +102,12 @@ public final class inicioSesionControl {
         return flag;
     }
 
+    /**
+     * Metodo que verifica si el legajo es correcto, retorna true si es correcto o false
+     * @return
+     */
     @FXML
-    int inicioSesionLegajo() {//Verifica si el legajo es correcto, si es correcto retorna true
+    int inicioSesionLegajo() {
 
         int flag = 0;
 
@@ -115,13 +131,26 @@ public final class inicioSesionControl {
         return flag;
     }
 
+    /**
+     * Metodo que redirige a la escena correspondiente
+     * @param index
+     */
     void redireccionDeEscena(int index){
 
             String constante = "";
 
+            //Se guarda el legajo
+            String legajo = txtLegajo.getText();
+
+            //Se setea el legajo
+             inicioSesionData.setLegajo(legajo);
+
             if(index == 1){
 
                 constante = Path.menuPrincipalAlumnos;
+
+                //Se obtiene el estudiante que ingreso al sistema
+                inicioSesionData.setEstudiante();
 
             }else if (index == 2){
 
@@ -132,10 +161,6 @@ public final class inicioSesionControl {
                 constante = Path.menuPrincipalAdministrador;
 
             }
-
-            String legajo = txtLegajo.getText();
-
-            inicioSesionData.setLegajo(legajo);
 
             System.out.println("correcto");
 
