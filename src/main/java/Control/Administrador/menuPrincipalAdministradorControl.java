@@ -79,7 +79,9 @@ public final class  menuPrincipalAdministradorControl {
     }
 
     protected void setTxtBienvenida() {
+
         String legajo = inicioSesionData.getLegajo();
+
         txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
     }
 
