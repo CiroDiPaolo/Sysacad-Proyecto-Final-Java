@@ -1,35 +1,14 @@
 package Control.Profesores;
 
-import Control.EscenaControl;
-import javafx.event.ActionEvent;
+import Control.InicioSesion.inicioSesionData;
+import Usuarios.Estudiante;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-public final class menuPrincipalProfesoresControl {
+import static Path.Path.fileNameProfesores;
 
-    @FXML
-    private Button btnOp1;
-
-    @FXML
-    private Button btnOp2;
-
-    @FXML
-    private Button btnOp3;
-
-    @FXML
-    private Button btnOp4;
-
-    @FXML
-    private Button btnOp5;
-
-    @FXML
-    private Button btnOp6;
-
-    @FXML
-    private Button btnOp7;
+public class menuPrincipalProfesoresControl {
 
     @FXML
     private Label tctMenuPrincipal;
@@ -37,41 +16,20 @@ public final class menuPrincipalProfesoresControl {
     @FXML
     private Text txtBienvenida;
 
+    /**
+     * Metodo que se ejecuta al inicializar la pantalla
+     */
     @FXML
-    void clickBtnOp1(ActionEvent event) {
+    protected void initialize() { setTxtBienvenida(); }
 
+    /**
+     * Metodo que setea el texto de bienvenida
+     */
+    protected void setTxtBienvenida() {
 
+        String legajo = inicioSesionData.getLegajo();
 
-    }
-
-    @FXML
-    void clickBtnOp2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickBtnOp3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickBtnOp4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickBtnOp5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickBtnOp6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickBtnOp7(ActionEvent event) {
-
+        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
     }
 
 }
