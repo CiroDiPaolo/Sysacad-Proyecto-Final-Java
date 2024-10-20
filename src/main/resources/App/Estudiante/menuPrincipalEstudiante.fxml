@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #252732;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.menuPrincipalEstudianteControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-172.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-755.0" layoutY="-172.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1113.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>

@@ -12,6 +12,8 @@ module com.example.sysacad_programacion {
     opens Control.Estudiante to javafx.fxml;
     exports Control.Administrador;
     opens Control.Administrador to javafx.fxml;
+    exports Control.Profesores to javafx.fxml;
+    opens Control.Profesores to javafx.fxml;
     exports Control.InicioSesion;
     opens Control.InicioSesion to javafx.fxml;
 }
