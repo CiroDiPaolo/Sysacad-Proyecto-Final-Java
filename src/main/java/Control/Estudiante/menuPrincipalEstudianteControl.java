@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import static Path.Path.*;
 
-
 public final class menuPrincipalEstudianteControl {
 
     @FXML

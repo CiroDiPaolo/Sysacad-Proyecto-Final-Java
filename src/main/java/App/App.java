@@ -19,7 +19,6 @@ public class App extends Application {
      * @param stage
      * @throws IOException
      */
-
     @Override
     public void start(Stage stage) throws IOException {
 

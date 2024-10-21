@@ -15,8 +15,6 @@ import javafx.stage.Stage;
 public final class inicioSesionControl {
 
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Button btnAcceder;
