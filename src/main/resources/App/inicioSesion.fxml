@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.InicioSesion.inicioSesionControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-779.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-779.0" layoutY="-168.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../images/lenguaje-min.jpg" />
          </image>
@@ -39,7 +39,7 @@
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="857.0" layoutY="739.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #1083D6; -fx-background-radius: 15;" text="Acceder" textFill="WHITE" AnchorPane.leftAnchor="857.0" AnchorPane.rightAnchor="856.0">
+      <Button fx:id="btnAcceder" alignment="CENTER" layoutX="857.0" layoutY="739.0" mnemonicParsing="false" onAction="#clicBtnAcceder" prefHeight="53.0" prefWidth="207.0" style="-fx-background-color: #3b4c57; -fx-background-radius: 15;" text="Acceder" textFill="WHITE" AnchorPane.leftAnchor="857.0" AnchorPane.rightAnchor="856.0">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>
