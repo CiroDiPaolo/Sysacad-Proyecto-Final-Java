@@ -3,6 +3,8 @@ module com.example.sysacad_programacion {
     requires javafx.fxml;
     requires java.logging;
     requires org.json;
+    requires org.apache.poi.ooxml;
+
 
     opens App to javafx.fxml;
     exports App;
