@@ -1,5 +1,7 @@
 package Modelo;
 
+import ControlArchivos.manejoArchivos;
+
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -25,6 +27,7 @@ public final class Carrera {
         this.materias = materias;
         this.plan = plan;
         this.actividad = true;
+        manejoArchivos.crearCarpetaCarrera(nombre);
     }
 
     public Carrera() {
