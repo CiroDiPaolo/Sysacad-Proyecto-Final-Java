@@ -7,16 +7,16 @@ import java.util.HashMap;
  * Guarda un codigo de la materia, estado(0 = no regularizada, 1= regularizada, 2 = aprobada), un string con las notas parciales,
  * un string con las mesas de examen en caso que haya rendido examen final, un tomo, un folio y el codigo de la comision en la cual cursó esa materia.
  */
-public class EstadoMateria {
+public class EstadoAlumnoMateria {
     private String codigoMateria;
     private int estado;
     private HashMap<String, Integer> notas;
-    private HashMap<String, EstadoMesa> mesasExamen;
+    private HashMap<String, EstadoAlumnoMesa> mesasExamen;
     private String tomo;
     private String folio;
     private String codigoComision;
 
-    public EstadoMateria(String codigoMateria, int estado, HashMap<String, Integer> notas, HashMap<String, EstadoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
+    public EstadoAlumnoMateria(String codigoMateria, int estado, HashMap<String, Integer> notas, HashMap<String, EstadoAlumnoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;
         this.estado = estado;
         this.notas = notas;
@@ -26,7 +26,7 @@ public class EstadoMateria {
         this.codigoComision = codigoComision;
     }
 
-    public EstadoMateria() {
+    public EstadoAlumnoMateria() {
         codigoMateria = "";
         estado = 0;
         tomo = "0";
@@ -48,7 +48,7 @@ public class EstadoMateria {
         return notas;
     }
 
-    public HashMap<String, EstadoMesa> getMesasExamen() {
+    public HashMap<String, EstadoAlumnoMesa> getMesasExamen() {
         return mesasExamen;
     }
 
@@ -78,7 +78,7 @@ public class EstadoMateria {
         this.notas = notas;
     }
 
-    public void setMesasExamen(HashMap<String, EstadoMesa> mesasExamen) {
+    public void setMesasExamen(HashMap<String, EstadoAlumnoMesa> mesasExamen) {
         this.mesasExamen = mesasExamen;
     }
 

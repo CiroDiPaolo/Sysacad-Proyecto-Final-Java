@@ -1,13 +1,13 @@
 package Usuarios;
 
-import Modelo.EstadoMateria;
+import Modelo.EstadoAlumnoMateria;
 
 import java.util.ArrayList;
 
 public final class Estudiante extends Usuario {
 
     private String codigoCarrera;
-    private ArrayList<EstadoMateria> materias;
+    private ArrayList<EstadoAlumnoMateria> materias;
 
     public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera) {
         super(name, apellido, dni, legajo, contrasenia);
@@ -25,7 +25,7 @@ public final class Estudiante extends Usuario {
         return codigoCarrera;
     }
 
-    public ArrayList<EstadoMateria> getMaterias() {
+    public ArrayList<EstadoAlumnoMateria> getMaterias() {
         return materias;
     }
 
@@ -35,7 +35,7 @@ public final class Estudiante extends Usuario {
         this.codigoCarrera = codigoCarrera;
     }
 
-    public void setMaterias(ArrayList<EstadoMateria> materias) {
+    public void setMaterias(ArrayList<EstadoAlumnoMateria> materias) {
         this.materias = materias;
     }
 }

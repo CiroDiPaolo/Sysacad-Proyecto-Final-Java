@@ -4,18 +4,19 @@ package Modelo;
  * La clase EstadoMesa sirve para llevar un seguimiento de la mesa que rindió el alumno.
  * Tiene un codigo de la mesa en la que rindió, una nota y un boolean que sirve para saber si se presentó o no.
  */
-public class EstadoMesa {
+public class EstadoAlumnoMesa {
+
     private String codigoMesa;
     private int nota;
     private boolean presente;
 
-    public EstadoMesa(String codigoMesa, int nota, boolean presente) {
+    public EstadoAlumnoMesa(String codigoMesa, int nota, boolean presente) {
         this.codigoMesa = codigoMesa;
         this.nota = nota;
         this.presente = presente;
     }
 
-    public EstadoMesa() {
+    public EstadoAlumnoMesa() {
         codigoMesa = "";
         nota = 0;
         presente = false;
