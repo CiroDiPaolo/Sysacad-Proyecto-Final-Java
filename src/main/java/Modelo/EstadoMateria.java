@@ -16,11 +16,9 @@ public class EstadoMateria {
     private String folio;
     private String codigoComision;
 
-    public EstadoMateria(String codigoMateria, int estado, HashMap<String, Integer> notas, HashMap<String, EstadoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
+    public EstadoMateria(String codigoMateria, int estado, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;
         this.estado = estado;
-        this.notas = notas;
-        this.mesasExamen = mesasExamen;
         this.tomo = tomo;
         this.folio = folio;
         this.codigoComision = codigoComision;
