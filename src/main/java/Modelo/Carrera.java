@@ -15,6 +15,7 @@ public final class Carrera {
     private String nombre;
     private String plan;
     private HashMap<String, Materia> materias;
+    private boolean actividad;
 
     //Constructores
 
@@ -23,12 +24,14 @@ public final class Carrera {
         this.nombre = nombre;
         this.materias = materias;
         this.plan = plan;
+        this.actividad = true;
     }
 
     public Carrera() {
         id = "";
         nombre = "";
         plan = "";
+        actividad = true;
     }
 
     //Getters
@@ -49,6 +52,9 @@ public final class Carrera {
         return materias;
     }
 
+    public boolean isActividad() {
+        return actividad;
+    }
 
     //Setters
 
@@ -66,6 +72,10 @@ public final class Carrera {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public void setActividad(boolean actividad) {
+        this.actividad = actividad;
     }
 
     //Metodos

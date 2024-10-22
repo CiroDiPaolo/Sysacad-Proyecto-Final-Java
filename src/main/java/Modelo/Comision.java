@@ -20,6 +20,7 @@ public final class Comision {
     private String anio;
     private String aula;
     private int cupos;
+    private boolean actividad;
 
     //Constructores
 
@@ -32,6 +33,7 @@ public final class Comision {
         this.anio = anio;
         this.aula = aula;
         this.cupos = cupos;
+        this.actividad = true;
     }
 
     public Comision() {
@@ -43,6 +45,7 @@ public final class Comision {
         anio = "";
         aula = "";
         cupos = 0;
+        actividad = false;
     }
 
     //Getters
@@ -83,6 +86,9 @@ public final class Comision {
         return cupos;
     }
 
+    public boolean isActividad() {
+        return actividad;
+    }
 
     //Setters
 
@@ -122,7 +128,9 @@ public final class Comision {
         this.cupos = cupos;
     }
 
-
+    public void setActividad(boolean actividad) {
+        this.actividad = actividad;
+    }
     //Metodos
 
     @Override
