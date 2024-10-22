@@ -3,9 +3,9 @@ package Path;
 public final class Path {
 
     //Archivos
-    public static final String fileNameAlumnos = "Files/Alumnos.json";
-    public static final String fileNameProfesores = "Files/Profesores.json";
-    public static final String fileNameAdministrador = "Files/Administradores.json";
+    public static final String fileNameAlumnos = "Files/Estudiantes.json";
+    public static final String fileNameProfesores = "/Files/Profesores.json";
+    public static final String fileNameAdministrador = "/Files/Administradores.json";
 
     //Imagenes
     public static final String icono = "/images/UTN-iso-new.png";
