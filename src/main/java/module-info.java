@@ -1,8 +1,8 @@
 module com.example.sysacad_programacion {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.json;
     requires java.logging;
+    requires org.json;
 
     opens App to javafx.fxml;
     exports App;
