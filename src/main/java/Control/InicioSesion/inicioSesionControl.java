@@ -1,6 +1,7 @@
 package Control.InicioSesion;
 
 import Control.EscenaControl;
+import ControlArchivos.manejoArchivos;
 import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import javafx.event.ActionEvent;
@@ -33,6 +34,10 @@ public final class inicioSesionControl {
     public void clicBtnAcceder(ActionEvent event){
 
         try {
+
+            String arreglo [] = {"hola", "como", "estas"};
+
+            manejoArchivos.guardarAlumnosExcel(stage,arreglo);
 
             inicioSesion();
 
