@@ -2,7 +2,7 @@ package Usuarios;
 
 import ControlArchivos.manejoArchivos;
 import Modelo.EstadoAlumnoMateria;
-import org.json.JSONArray;
+import Path.Path;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public final class Estudiante extends Usuario {
 
         }*/
 
-        manejoArchivos.escribirArchivoJSON("Estudiantes.json", jsonObject);
+        manejoArchivos.guardarEstudianteJSON(Path.fileNameAlumnos, jsonObject);
 
     }
 
