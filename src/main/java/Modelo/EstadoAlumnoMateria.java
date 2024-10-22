@@ -8,6 +8,7 @@ import java.util.HashMap;
  * un string con las mesas de examen en caso que haya rendido examen final, un tomo, un folio y el codigo de la comision en la cual cursó esa materia.
  */
 public class EstadoAlumnoMateria {
+
     private String codigoMateria;
     private int estado;
     private HashMap<String, Integer> notas;
