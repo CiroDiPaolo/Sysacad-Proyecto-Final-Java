@@ -16,6 +16,7 @@ public final class MesaExamen {
     private LocalTime hora;
     private int cupos;
     private String aula;
+    private boolean actividad;
 
     public MesaExamen(int id, Turno turno, String codigoCarrera, String codigoMateria, String codigoPresidente, HashSet<String> vocales, LocalDate fecha, LocalTime hora, int cupos, String aula) {
         this.id = id;
@@ -28,6 +29,7 @@ public final class MesaExamen {
         this.hora = hora;
         this.cupos = cupos;
         this.aula = aula;
+        this.actividad = true;
     }
 
     public MesaExamen() {
@@ -37,6 +39,7 @@ public final class MesaExamen {
         codigoMateria = "";
         cupos = 0;
         aula = "";
+        actividad = false;
     }
 
     //Getters
@@ -81,6 +84,10 @@ public final class MesaExamen {
         return aula;
     }
 
+    public boolean isActividad() {
+        return actividad;
+    }
+
     //Setters
 
     public void setId(int id) {
@@ -121,5 +128,9 @@ public final class MesaExamen {
 
     public void setAula(String aula) {
         this.aula = aula;
+    }
+
+    public void setActividad(boolean actividad) {
+        this.actividad = actividad;
     }
 }

@@ -15,6 +15,7 @@ public abstract class Usuario {
     private String legajo;
     private String contrasenia;
     private LocalDate fechaDeAlta;
+    private boolean actividad;
 
     public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
         this.name = name;
@@ -22,10 +23,12 @@ public abstract class Usuario {
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        this.actividad = true;
         fechaDeAlta = LocalDate.now();
     }
 
     public Usuario() {
+        actividad = false;
         name = "";
         apellido = "";
         dni = "";
@@ -33,6 +36,8 @@ public abstract class Usuario {
         contrasenia = "";
         fechaDeAlta = LocalDate.now();
     }
+
+
 
     /**
      * Este enum representa los tipos de usuario que existen(las clases que heredan de usuario).
@@ -64,6 +69,10 @@ public abstract class Usuario {
 
     public LocalDate getFechaDeAlta() {return fechaDeAlta;}
 
+    public boolean isActividad() {
+        return actividad;
+    }
+
     //SETTERS
 
     public void setName(String name) {
@@ -83,6 +92,10 @@ public abstract class Usuario {
     public void setFechaDeAlta(LocalDate fechaDeAlta) {this.fechaDeAlta = fechaDeAlta;}
 
     public void setLegajo(String legajo) { this.legajo = legajo; }
+
+    public void setActividad(boolean actividad) {
+        this.actividad = actividad;
+    }
 
     @Override
     public String toString() {

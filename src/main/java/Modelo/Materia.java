@@ -24,6 +24,7 @@ public final class Materia {
     private boolean seRinde;
     private HashSet<String> codigoCorrelativasCursado;
     private HashSet<String> codigoCorrelativasRendir;
+    private boolean actividad;
 
     //Constructores
 
@@ -36,6 +37,7 @@ public final class Materia {
         this.seRinde = seRinde;
         this.codigoCorrelativasCursado = codigoCorrelativasCursado;
         this.codigoCorrelativasRendir = codigoCorrelativasRendir;
+        this.actividad = true;
     }
 
     public Materia() {
@@ -45,6 +47,7 @@ public final class Materia {
         cuatrimestre = "";
         seCursa = false;
         seRinde = false;
+        actividad = false;
     }
 
     //Getters
@@ -81,6 +84,9 @@ public final class Materia {
         return codigoCorrelativasRendir;
     }
 
+    public boolean isActividad() {
+        return actividad;
+    }
 
     //Setters
 
@@ -114,6 +120,10 @@ public final class Materia {
 
     public void setCodigoCorrelativasRendir(HashSet<String> codigoCorrelativasRendir) {
         this.codigoCorrelativasRendir = codigoCorrelativasRendir;
+    }
+
+    public void setActividad(boolean actividad) {
+        this.actividad = actividad;
     }
 
 

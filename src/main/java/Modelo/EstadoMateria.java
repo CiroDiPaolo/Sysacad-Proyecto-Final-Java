@@ -16,8 +16,6 @@ public class EstadoMateria {
     private String folio;
     private String codigoComision;
 
-    //Constructores
-
     public EstadoMateria(String codigoMateria, int estado, HashMap<String, Integer> notas, HashMap<String, EstadoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;
         this.estado = estado;
