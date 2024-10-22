@@ -42,18 +42,17 @@ public final class manejoArchivos {
 
     /**
      * Metodo que escribe un archivo JSON
-     * @param fileName
+     * @param filePath
      * @param estudiante
      */
-    public static void escribirArchivoJSON(String fileName, JSONObject estudiante) {
-
+    public static void guardarEstudianteJSON(String filePath, JSONObject estudiante) {
         try {
-            File file = new File(fileName);
+            File file = new File(filePath);
             JSONArray estudiantesArray;
 
             // Leer el archivo existente
             if (file.exists()) {
-                String content = new String(Files.readAllBytes(Paths.get(fileName)));
+                String content = new String(Files.readAllBytes(Paths.get(file.getPath())));
                 if (content.isEmpty()) {
                     estudiantesArray = new JSONArray();
                 } else {
@@ -67,7 +66,7 @@ public final class manejoArchivos {
             estudiantesArray.put(estudiante);
 
             // Escribir el array actualizado de vuelta al archivo
-            try (FileWriter fileWriter = new FileWriter(fileName)) {
+            try (FileWriter fileWriter = new FileWriter(file)) {
                 fileWriter.write(estudiantesArray.toString());
             }
 
