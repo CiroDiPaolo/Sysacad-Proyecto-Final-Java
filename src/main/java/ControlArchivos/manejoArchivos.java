@@ -1,4 +1,5 @@
 package ControlArchivos;
+import Excepciones.ArchivoYaExistenteException;
 import Usuarios.Estudiante;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -16,8 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Calendar;
 
 
@@ -91,6 +90,12 @@ public final class manejoArchivos {
         }
     }
 
+    /**
+     * Metodo que compara un DNI de un estudiante
+     * @param filePath
+     * @param estudiante
+     * @return
+     */
     public static boolean compararDNI(String filePath, JSONObject estudiante) {
 
         boolean existe = false;
@@ -120,7 +125,36 @@ public final class manejoArchivos {
         return existe; // No se encontró coincidencia
     }
 
+    /**
+     * Metodo que crea un archivo JSON por cada comision
+     * @param path
+     * @param fileName
+     */
+    public static void crearArchivoComision(String path,String fileName){
 
+        try {
+
+            FileWriter file = new FileWriter(path + fileName);
+            file.write("");
+            file.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    /**
+     * Metodo que genera el nombre de un archivo de comision
+     * @param codigoCarrera
+     * @param anioActual
+     * @return
+     */
+    public static String generarNombreArchivoComision(String codigoCarrera, String anioActual) {
+
+        return "COMISIONES_" + codigoCarrera + "_" + anioActual;
+
+    }
 
     /**
      * Metodo que lee un archivo JSON
@@ -146,7 +180,7 @@ public final class manejoArchivos {
      * Metodo que crea una carpeta de una carrera
      * @param nombreCarrera
      */
-    public static void crearCarpetaCarrera(String nombreCarrera) {
+    public static void crearCarpetaCarrera(String nombreCarrera) throws ArchivoYaExistenteException {
 
         File folder = new File("Files\\Carreras" + nombreCarrera + "-" + Calendar.getInstance().get(Calendar.YEAR));
         if (!folder.exists()) {
@@ -156,7 +190,7 @@ public final class manejoArchivos {
 
         }else{
 
-            System.out.println("ya existe");
+            throw new ArchivoYaExistenteException("El archivo ya existe");
 
         }
 
