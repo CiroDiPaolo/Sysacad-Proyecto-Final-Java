@@ -4,8 +4,8 @@ public final class Path {
 
     //Archivos
     public static final String fileNameAlumnos = "Files/Estudiantes.json";
-    public static final String fileNameProfesores = "/Files/Profesores.json";
-    public static final String fileNameAdministrador = "/Files/Administradores.json";
+    public static final String fileNameProfesores = "Files/Profesores.json";
+    public static final String fileNameAdministrador = "Files/Administradores.json";
     public static final String pathArchivos ="Files/";
 
     //Imagenes
@@ -30,5 +30,8 @@ public final class Path {
     public static final String inscripcionExamenFinal = "/App/Estudiante/inscripcionExamenFinal.fxml";
     public static final String inscripcionCursada = "/App/Estudiante/inscripcionCursada.fxml";
     public static final String cambiarContra = "/App/Estudiante/cambiarContra.fxml";
+
+    //Administrador
+    public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
 
 }
