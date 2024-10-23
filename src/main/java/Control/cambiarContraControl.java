@@ -9,8 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
-import static Path.Path.fileNameAlumnos;
-import static Path.Path.menuPrincipalAlumnos;
+import static Path.Path.*;
 
 public class cambiarContraControl {
 
@@ -62,7 +61,7 @@ public class cambiarContraControl {
 
         contraActual = PfContraActual.getText();
         nuevaContra = PfNuevaContra.getText();
-        verificarNuevaContraseña =PfVerificarNuevaContra.getText();
+        verificarNuevaContraseña = PfVerificarNuevaContra.getText();
 
         if(contraActual == "" || nuevaContra == "" || verificarNuevaContraseña == "") {
 
@@ -78,7 +77,19 @@ public class cambiarContraControl {
 
         }else{
 
-            Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, inicioSesionData.getLegajo(), nuevaContra);
+            if(inicioSesionData.getLegajo().charAt(0) == 'E') {
+
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, inicioSesionData.getLegajo(), nuevaContra);
+
+            } else if (inicioSesionData.getLegajo().charAt(0) == 'P') {
+
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameProfesores, inicioSesionData.getLegajo(), nuevaContra);
+
+            } else if (inicioSesionData.getLegajo().charAt(0) == 'A') {
+
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameAdministrador, inicioSesionData.getLegajo(), nuevaContra);
+
+            }
 
         }
 
