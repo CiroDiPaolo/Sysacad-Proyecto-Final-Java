@@ -35,10 +35,6 @@ public final class inicioSesionControl {
 
         try {
 
-            String arreglo [] = {"hola", "como", "estas"};
-
-            manejoArchivos.guardarAlumnosExcel(stage,arreglo);
-
             inicioSesion();
 
         }catch (DatosIncorrectosException e){
