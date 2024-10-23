@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.cambiarContraControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.cambiarContraControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -37,17 +37,17 @@
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="733.0" layoutY="590.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="454.0" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="733.0" layoutY="489.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="454.0" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="733.0" layoutY="385.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="454.0" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0" />
-      <PasswordField fx:id="nuevaContra" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="488.0" onAction="#setNuevaContra" prefHeight="57.0" prefWidth="454.0" promptText="Ingrese su nueva contraseña" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
+      <PasswordField fx:id="PfNuevaContra" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="488.0" prefHeight="57.0" prefWidth="454.0" promptText="Ingrese su nueva contraseña" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
          <font>
             <Font name="Century Gothic" size="29.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="verificarNuevaContra" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="590.0" onAction="#setVerificarNuevaContra" prefHeight="57.0" prefWidth="454.0" promptText="Repita la nueva contraseña" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
+      <PasswordField fx:id="PfVerificarNuevaContra" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="590.0" prefHeight="57.0" prefWidth="454.0" promptText="Repita la nueva contraseña" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
          <font>
             <Font name="Century Gothic" size="29.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="contraActual" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="385.0" onAction="#setContraActual" prefHeight="57.0" prefWidth="454.0" promptText="Ingrese su contraseña actual" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
+      <PasswordField fx:id="PfContraActual" alignment="CENTER" blendMode="COLOR_BURN" layoutX="733.0" layoutY="385.0" prefHeight="57.0" prefWidth="454.0" promptText="Ingrese su contraseña actual" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="733.0" AnchorPane.rightAnchor="733.0">
          <font>
             <Font name="Century Gothic" size="29.0" />
          </font>
