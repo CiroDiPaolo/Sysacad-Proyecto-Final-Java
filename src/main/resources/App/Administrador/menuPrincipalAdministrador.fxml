@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #252732;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.menuPrincipalAdministradorControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-768.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-768.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -22,9 +22,9 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutY="-26.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-7.0" layoutY="-30.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
       <Rectangle fill="#2e3b43" height="565.0" layoutX="623.0" layoutY="300.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="674.0" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="613.0" AnchorPane.rightAnchor="613.0" AnchorPane.topAnchor="290.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="799.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="322.0" AnchorPane.leftAnchor="799.0" AnchorPane.rightAnchor="799.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="763.0" layoutY="331.0" stroke="BLACK" strokeType="INSIDE" width="395.0" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="762.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="763.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="395.0" AnchorPane.bottomAnchor="613.0" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="762.0" AnchorPane.topAnchor="404.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="825.0" layoutY="555.0" stroke="BLACK" strokeType="INSIDE" width="270.0" AnchorPane.leftAnchor="825.0" AnchorPane.rightAnchor="825.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="632.0" stroke="BLACK" strokeType="INSIDE" width="140.0" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="890.0" />
@@ -39,13 +39,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp1" alignment="CENTER" contentDisplay="CENTER" layoutX="796.0" layoutY="319.0" mnemonicParsing="false" onAction="#clickBtnOp1" prefHeight="84.0" prefWidth="333.0" style="-fx-background-color: transparent;" text="Cargar materias" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="791.0">
-         <font>
-            <Font size="40.0" />
-         </font>
+      <Button fx:id="btnOp1" alignment="CENTER" contentDisplay="CENTER" layoutX="758.0" layoutY="321.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnOp1" prefHeight="84.0" prefWidth="403.0" style="-fx-background-color: transparent;" text="Configurar materias" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="759.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <font>
+            <Font size="40.0" />
+         </font>
       </Button>
       <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" layoutX="670.0" layoutY="468.0" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="76.0" prefWidth="579.0" style="-fx-background-color: transparent;" text="Configurar mesa de examen" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.rightAnchor="671.0">
          <font>
@@ -55,7 +55,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp4" alignment="CENTER" contentDisplay="CENTER" layoutX="818.0" layoutY="543.0" mnemonicParsing="false" onAction="#clickBtnOp4" prefHeight="84.0" prefWidth="283.0" style="-fx-background-color: transparent;" text="Inscripciones" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="818.0" AnchorPane.rightAnchor="819.0">
+      <Button fx:id="btnOp4" alignment="CENTER" contentDisplay="CENTER" layoutX="818.0" layoutY="543.0" mnemonicParsing="false" onAction="#clickBtnOp4" prefHeight="84.0" prefWidth="283.0" style="-fx-background-color: transparent;" text="Inscripciónes" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="818.0" AnchorPane.rightAnchor="819.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -63,7 +63,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" layoutX="778.0" layoutY="696.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="364.0" style="-fx-background-color: transparent;" text="Actas aprobacion" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="778.0">
+      <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" layoutX="778.0" layoutY="696.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="364.0" style="-fx-background-color: transparent;" text="Actas aprobación" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="778.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -87,14 +87,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <VBox alignment="TOP_CENTER" layoutX="464.0" layoutY="31.0" prefHeight="262.0" prefWidth="1029.0">
+      <VBox alignment="TOP_CENTER" layoutX="464.0" layoutY="31.0" prefHeight="262.0" prefWidth="1029.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="96.0" />
                </font>
             </Label>
-            <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="503.47015380859375">
+            <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="490.47015380859375">
                <font>
                   <Font size="31.0" />
                </font>
@@ -111,7 +111,7 @@
             </Text>
          </children>
       </VBox>
-      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
          <image>
             <Image url="@../../images/utn.png" />
          </image>
