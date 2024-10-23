@@ -1,15 +1,20 @@
 package Control.Administrador;
 
+import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import static Path.Path.fileNameAdministrador;
+import javafx.stage.Stage;
+
+import static Path.Path.*;
 
 
 public final class  menuPrincipalAdministradorControl {
+
 
     @FXML
     private Button btnOp1;
@@ -38,8 +43,14 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     private Text txtBienvenida;
 
+    private Stage stage;
+
+    private EscenaControl escena = new EscenaControl();
+
     @FXML
     void clickBtnOp1(ActionEvent event) {
+
+        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
 
     }
 
@@ -71,11 +82,18 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp7(ActionEvent event) {
 
+        escena.cambiarEscena(inicioSesion, stage, "Menu Principal");
+
     }
 
     @FXML
     protected void initialize() {
-        setTxtBienvenida();
+
+        Platform.runLater(() -> {
+            stage = (Stage) txtBienvenida.getScene().getWindow();
+            setTxtBienvenida();
+        });
+
     }
 
     protected void setTxtBienvenida() {
@@ -83,6 +101,7 @@ public final class  menuPrincipalAdministradorControl {
         String legajo = inicioSesionData.getLegajo();
 
         txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
+
     }
 
 }
