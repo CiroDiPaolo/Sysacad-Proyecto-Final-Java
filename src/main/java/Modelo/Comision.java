@@ -1,8 +1,12 @@
 package Modelo;
 
-import java.util.Date;
-import java.util.HashMap;
+import ControlArchivos.manejoArchivos;
+import Path.Path;
+
+import java.time.LocalDate;
 import java.util.HashSet;
+
+import static ControlArchivos.manejoArchivos.generarNombreArchivoComision;
 
 /**
  * La clase Comision esta diseñada para identificar cada comision segun la carrera, el año, la materia, el nombre y el turno.
@@ -18,7 +22,7 @@ public final class Comision {
     private String codigoMateria;
     private String codigoCarrera;
     private String codigoProfesor;
-    private String anio;
+    private int anio;
     private String aula;
     private int cupos;
     private boolean actividad;
@@ -26,17 +30,18 @@ public final class Comision {
 
     //Constructores
 
-    public Comision(Turno turno, String nombre, String codigoMateria, String codigoCarrera, String codigoProfesor, String anio, String aula, int cupos) {
+    public Comision(String nombre,Turno turno, String codigoMateria, String codigoCarrera, String codigoProfesor, String anio, String aula, int cupos) {
         this.turno = turno;
         this.nombre = nombre;
         this.codigoMateria = codigoMateria;
         this.codigoCarrera = codigoCarrera;
         this.codigoProfesor = codigoProfesor;
-        this.anio = anio;
+        this.anio = LocalDate.now().getYear();
         this.aula = aula;
         this.cupos = cupos;
         this.actividad = true;
         this.legajosAlumno = new HashSet<>();
+        manejoArchivos.crearArchivoComision(Path.pathArchivos,generarNombreArchivoComision(codigoCarrera, anio));
     }
 
     public Comision() {
@@ -45,7 +50,7 @@ public final class Comision {
         codigoMateria = "";
         codigoCarrera = "";
         codigoProfesor = "";
-        anio = "";
+        anio = 0;
         aula = "";
         cupos = 0;
         actividad = false;
@@ -77,7 +82,7 @@ public final class Comision {
         return codigoProfesor;
     }
 
-    public String getAnio() {
+    public int getAnio() {
         return anio;
     }
 
@@ -119,7 +124,7 @@ public final class Comision {
         this.codigoProfesor = codigoProfesor;
     }
 
-    public void setAnio(String anio) {
+    public void setAnio(int anio) {
         this.anio = anio;
     }
 
