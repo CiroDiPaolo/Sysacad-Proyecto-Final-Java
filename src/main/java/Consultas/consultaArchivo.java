@@ -7,6 +7,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import static ControlArchivos.manejoArchivos.*;
 
 public final class consultaArchivo {
@@ -37,6 +40,35 @@ public final class consultaArchivo {
 
         return flag;
     }
+
+    public static void cambiarContrasenia(String fileName,String legajo,String nuevaContrasenia){
+
+        try {
+
+            JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+            for (int i = 0; i < arreglo.length(); i++) {
+                JSONObject obj = arreglo.getJSONObject(i);
+
+                if (obj.getString("legajo").equals(legajo)) {
+                    obj.put("contrasenia", nuevaContrasenia);
+                    break;
+                }
+            }
+
+            // Guardar los cambios en el archivo
+            try (FileWriter file = new FileWriter(fileName)) {
+                file.write(arreglo.toString());
+            } catch (IOException e) {
+                throw new RuntimeException("Error al escribir en el archivo: " + e.getMessage());
+            }
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     /**
      * Metodo que busca un usuario en el archivo JSON y retorna su nombre y apellido
