@@ -1,6 +1,5 @@
-package Control.Administrador;
+package Control;
 
-import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
 import Excepciones.DatosIncorrectosException;
 import javafx.event.ActionEvent;
