@@ -1,10 +1,11 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import Excepciones.DNICargadoException;
 import Modelo.EstadoAlumnoMateria;
 import Path.Path;
+import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public final class Estudiante extends Usuario {
@@ -44,7 +45,7 @@ public final class Estudiante extends Usuario {
 
     //Metodos
 
-    public void cargarEstudianteJSON() {
+    public void cargarEstudianteJSON() throws DNICargadoException {
 
         JSONObject jsonObject = new JSONObject();
 
@@ -55,7 +56,7 @@ public final class Estudiante extends Usuario {
         jsonObject.put("contrasenia", this.getContrasenia());
         jsonObject.put("codigoCarrera", this.getCodigoCarrera());
 
-        /*for (int i = 0; i < this.getMaterias().size(); i++) {
+        for (int i = 0; i < this.getMaterias().size(); i++) {
 
             JSONObject materia = new JSONObject();
 
@@ -90,9 +91,17 @@ public final class Estudiante extends Usuario {
 
             jsonObject.put("materia" + i, materia);
 
-        }*/
+        }
 
-        manejoArchivos.guardarEstudianteJSON(Path.fileNameAlumnos, jsonObject);
+        if(manejoArchivos.compararDNI(Path.fileNameAlumnos, jsonObject)) {
+
+            throw new DNICargadoException("El DNI ya se encuentra cargado");
+
+        }else{
+
+            manejoArchivos.guardarEstudianteJSON(Path.fileNameAlumnos, jsonObject);
+
+        }
 
     }
 
