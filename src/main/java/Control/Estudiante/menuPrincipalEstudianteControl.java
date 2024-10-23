@@ -3,6 +3,7 @@ package Control.Estudiante;
 import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
 import Usuarios.Estudiante;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -51,6 +52,8 @@ public final class menuPrincipalEstudianteControl {
 
     private Stage stage;
 
+    private EscenaControl escena = new EscenaControl();
+
     /**
      * Metodo que se ejecuta al clickear el boton de materias del plan y redirige a la pantalla de materias del plan
      * @param event
@@ -59,9 +62,6 @@ public final class menuPrincipalEstudianteControl {
     private void clickBtnOp1(ActionEvent event) {
 
         stage = (Stage) btnOp1.getScene().getWindow();
-
-        EscenaControl escena = new EscenaControl();
-
         escena.cambiarEscena(materiasDelPlanEstudiante,stage,"Materias del plan");
 
     }
@@ -73,8 +73,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp2(ActionEvent event) {
 
-        stage = (Stage) btnOp2.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(estadoAcademico, stage, "Estado Academico");
 
     }
@@ -86,8 +84,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp3(ActionEvent event) {
 
-        stage = (Stage) btnOp3.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(notasEstudiante, stage, "Notas");
 
     }
@@ -99,8 +95,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp4(ActionEvent event) {
 
-        stage = (Stage) btnOp4.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(correlatividadCursar,stage,"Correlatividad para cursar");
 
     }
@@ -112,8 +106,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp5(ActionEvent event) {
 
-        stage = (Stage) btnOp5.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(correlatividadRendir,stage,"Correlatividad para rendir");
 
     }
@@ -125,8 +117,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp6(ActionEvent event) {
 
-        stage = (Stage) btnOp6.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inscripcionExamenFinal,stage,"Inscripcion a examenes finales");
 
     }
@@ -138,8 +128,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp7(ActionEvent event) {
 
-        stage = (Stage) btnOp7.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inscripcionCursada,stage,"Inscripcion a cursada");
 
     }
@@ -151,8 +139,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp8(ActionEvent event) {
 
-        stage = (Stage) btnOp8.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(cambiarContra,stage,"Cambiar contraseña");
 
     }
@@ -164,8 +150,6 @@ public final class menuPrincipalEstudianteControl {
     @FXML
     void clickBtnOp9(ActionEvent event) {
 
-        stage = (Stage) btnOp9.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inicioSesion,stage,"Inicio sesion");
 
     }
@@ -174,7 +158,14 @@ public final class menuPrincipalEstudianteControl {
      * Metodo que se ejecuta al inicializar la pantalla
      */
     @FXML
-    protected void initialize() { setTxtBienvenida(); }
+    protected void initialize() {
+
+        Platform.runLater(() -> {
+            stage = (Stage) txtBienvenida.getScene().getWindow();
+            setTxtBienvenida();
+        });
+
+    }
 
     /**
      * Metodo que setea el texto de bienvenida
