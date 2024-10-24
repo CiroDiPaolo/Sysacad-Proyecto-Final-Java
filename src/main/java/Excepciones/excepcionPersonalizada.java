@@ -15,6 +15,10 @@ public class excepcionPersonalizada {
         alert.setHeaderText("Datos Incorrectos");
         alert.setContentText(mensaje);
 
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        Image icon = new Image(excepcionPersonalizada.class.getResourceAsStream(icono));
+        stage.getIcons().add(icon);
+
         alert.showAndWait();
 
     }
