@@ -95,7 +95,7 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp8(ActionEvent event) {
 
-        escena.cambiarEscena(inicioSesion, stage, "Menu Principal");
+        escena.cambiarEscena(inicioSesion, stage, "Inicio de Sesion");
 
     }
 
