@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashSet;
 
 import static ControlArchivos.manejoArchivos.*;
 
@@ -41,7 +42,7 @@ public final class consultaArchivo {
         return flag;
     }
 
-    public static void cambiarContrasenia(String fileName,String legajo,String nuevaContrasenia){
+    public static void cambiarContrasenia(String fileName, String legajo, String nuevaContrasenia) {
 
         try {
 
@@ -153,6 +154,21 @@ public final class consultaArchivo {
         }
 
         return estudiante;
+    }
+
+    public static HashSet<String> obtenerCarreras(String fileName) {
+
+        HashSet<String> carreras = new HashSet<>();
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject obj = arreglo.getJSONObject(i);
+            carreras.add(obj.getString("carrera"));
+        }
+
+        return carreras;
+
     }
 
 }
