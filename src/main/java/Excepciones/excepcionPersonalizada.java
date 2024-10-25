@@ -12,7 +12,7 @@ public class excepcionPersonalizada {
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText("Datos Incorrectos");
+        alert.setHeaderText("Error");
         alert.setContentText(mensaje);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
