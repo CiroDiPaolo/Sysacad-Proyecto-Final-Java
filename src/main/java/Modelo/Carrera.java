@@ -2,7 +2,7 @@ package Modelo;
 
 import ControlArchivos.manejoArchivos;
 import Excepciones.ArchivoYaExistenteException;
-
+import Path.Path;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -28,7 +28,12 @@ public final class Carrera {
         this.materias = materias;
         this.plan = plan;
         this.actividad = true;
-        crearCarpetaCarrera();
+
+        try {
+            crearArchivoCarrera();
+        } catch (ArchivoYaExistenteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Carrera() {
@@ -84,13 +89,12 @@ public final class Carrera {
 
     //Metodos
 
-    public void crearCarpetaCarrera(){
+    public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
-        try {
-            manejoArchivos.crearCarpetaCarrera(nombre);
-        } catch (ArchivoYaExistenteException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println("asd");
+
+        manejoArchivos.crearCarpetaCarrera(nombre);
+        manejoArchivos.crearJSONCarrera( Path.pathCarreras, this);
 
     }
 
