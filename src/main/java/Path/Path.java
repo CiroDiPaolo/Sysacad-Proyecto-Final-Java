@@ -7,6 +7,7 @@ public final class Path {
     public static final String fileNameProfesores = "Files/Profesores.json";
     public static final String fileNameAdministrador = "Files/Administradores.json";
     public static final String pathArchivoComisiones ="Files/Comisiones/";
+    public static final String pathCarreras = "Files/Carreras/Carreras.json";
 
     //Imagenes
     public static final String icono = "/images/UTN-iso-new.png";
