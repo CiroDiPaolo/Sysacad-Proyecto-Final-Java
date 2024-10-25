@@ -35,4 +35,6 @@ public final class Path {
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
     public static final String configurarAlumnosAdministrador = "/App/Administrador/configuracionAlumnosAdministrador.fxml";
     public static final String configurarMesaExamenAdministrador = "/App/Administrador/configurarMesaExamenAdministrador.fxml";
+    public static final String cargarAlumnoAdministrador = "/App/Administrador/cargarAlumnoAdministrador.fxml";
+
 }
