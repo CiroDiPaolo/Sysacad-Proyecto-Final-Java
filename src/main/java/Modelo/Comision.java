@@ -1,12 +1,10 @@
 package Modelo;
 
-import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosComisiones;
 import Path.Path;
-
-import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.HashSet;
-
-import static ControlArchivos.manejoArchivos.generarNombreArchivoComision;
+import static ControlArchivos.manejoArchivosComisiones.*;
 
 /**
  * La clase Comision esta diseñada para identificar cada comision segun la carrera, el año, la materia, el nombre y el turno.
@@ -30,18 +28,18 @@ public final class Comision {
 
     //Constructores
 
-    public Comision(String nombre,Turno turno, String codigoMateria, String codigoCarrera, String codigoProfesor, String anio, String aula, int cupos) {
+    public Comision(String nombre,Turno turno, String codigoMateria, String codigoCarrera, String codigoProfesor, String aula, int cupos) {
         this.turno = turno;
         this.nombre = nombre;
         this.codigoMateria = codigoMateria;
         this.codigoCarrera = codigoCarrera;
         this.codigoProfesor = codigoProfesor;
-        this.anio = LocalDate.now().getYear();
+        this.anio = Calendar.getInstance().get(Calendar.YEAR);
         this.aula = aula;
         this.cupos = cupos;
         this.actividad = true;
         this.legajosAlumno = new HashSet<>();
-        manejoArchivos.crearArchivoComision(Path.pathArchivoComisiones,generarNombreArchivoComision(codigoCarrera, anio));
+        manejoArchivosComisiones.crearArchivoComision(Path.pathArchivos,generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
     }
 
     public Comision() {

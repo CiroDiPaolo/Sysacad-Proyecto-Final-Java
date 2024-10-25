@@ -1,8 +1,11 @@
 package Modelo;
 
 import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.ArchivoYaExistenteException;
 import Path.Path;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -91,10 +94,8 @@ public final class Carrera {
 
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
-        System.out.println("asd");
-
-        manejoArchivos.crearCarpetaCarrera(nombre);
-        manejoArchivos.crearJSONCarrera( Path.pathCarreras, this);
+        manejoArchivosCarrera.crearCarpetaCarrera(id);
+        manejoArchivosCarrera.crearJSONCarrera( Path.pathCarreras, this);
 
     }
 
