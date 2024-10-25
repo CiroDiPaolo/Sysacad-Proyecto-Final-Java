@@ -2,6 +2,7 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
+import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,9 @@ public final class  menuPrincipalAdministradorControl {
     private Button btnOp7;
 
     @FXML
+    private Button btnOp8;
+
+    @FXML
     private Label tctMenuPrincipal;
 
     @FXML
@@ -57,7 +61,7 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp2(ActionEvent event) {
 
-        escena.cambiarEscena(configurarAlumnosAdministrador, stage, "Configurar Alumnos");
+        escena.cambiarEscena(configurarAlumnosAdministrador,stage,"Configurar Alumno");
 
     }
 
@@ -68,6 +72,8 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp4(ActionEvent event) {
+
+        escena.cambiarEscena(Path.configurarMesaExamenAdministrador,stage,"Configurar Mesa de Examen");
 
     }
 
@@ -83,6 +89,11 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp7(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickBtnOp8(ActionEvent event) {
 
         escena.cambiarEscena(inicioSesion, stage, "Menu Principal");
 
