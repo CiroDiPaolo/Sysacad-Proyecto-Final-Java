@@ -41,7 +41,7 @@ public final class Comision {
         this.cupos = cupos;
         this.actividad = true;
         this.legajosAlumno = new HashSet<>();
-        manejoArchivos.crearArchivoComision(Path.pathArchivos,generarNombreArchivoComision(codigoCarrera, anio));
+        manejoArchivos.crearArchivoComision(Path.pathArchivoComisiones,generarNombreArchivoComision(codigoCarrera, anio));
     }
 
     public Comision() {
