@@ -23,15 +23,16 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-7.0" layoutY="-30.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <Rectangle fill="#2e3b43" height="565.0" layoutX="623.0" layoutY="300.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="674.0" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="613.0" AnchorPane.rightAnchor="613.0" AnchorPane.topAnchor="290.0" />
+      <Rectangle fill="#2e3b43" height="675.0" layoutX="603.0" layoutY="300.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="714.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="593.0" AnchorPane.rightAnchor="593.0" AnchorPane.topAnchor="290.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="763.0" layoutY="331.0" stroke="BLACK" strokeType="INSIDE" width="395.0" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="762.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="763.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="395.0" AnchorPane.bottomAnchor="613.0" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="762.0" AnchorPane.topAnchor="404.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="825.0" layoutY="555.0" stroke="BLACK" strokeType="INSIDE" width="270.0" AnchorPane.leftAnchor="825.0" AnchorPane.rightAnchor="825.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="632.0" stroke="BLACK" strokeType="INSIDE" width="140.0" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="890.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="696.0" layoutY="479.0" stroke="BLACK" strokeType="INSIDE" width="527.0" AnchorPane.leftAnchor="696.0" AnchorPane.rightAnchor="697.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="791.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" width="338.0" AnchorPane.leftAnchor="791.0" AnchorPane.rightAnchor="791.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="785.0" stroke="BLACK" strokeType="INSIDE" width="140.0" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="890.0" />
-      <Button fx:id="btnOp2" alignment="CENTER" contentDisplay="CENTER" layoutX="767.0" layoutY="392.0" mnemonicParsing="false" onAction="#clickBtnOp2" prefHeight="84.0" prefWidth="386.0" style="-fx-background-color: transparent;" text="Configurar alumno" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="767.0" AnchorPane.rightAnchor="767.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="763.0" layoutY="408.0" stroke="BLACK" strokeType="INSIDE" width="395.0" AnchorPane.bottomAnchor="609.0" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="762.0" AnchorPane.topAnchor="408.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="826.0" layoutY="648.0" stroke="BLACK" strokeType="INSIDE" width="270.0" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="824.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="726.0" stroke="BLACK" strokeType="INSIDE" width="140.0" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="890.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="696.0" layoutY="573.0" stroke="BLACK" strokeType="INSIDE" width="527.0" AnchorPane.leftAnchor="696.0" AnchorPane.rightAnchor="697.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="791.0" layoutY="801.0" stroke="BLACK" strokeType="INSIDE" width="338.0" AnchorPane.leftAnchor="791.0" AnchorPane.rightAnchor="791.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="879.0" stroke="BLACK" strokeType="INSIDE" width="140.0" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="890.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="762.0" layoutY="487.0" stroke="BLACK" strokeType="INSIDE" width="395.0" />
+      <Button fx:id="btnOp2" alignment="CENTER" contentDisplay="CENTER" layoutX="767.0" layoutY="398.0" mnemonicParsing="false" onAction="#clickBtnOp2" prefHeight="84.0" prefWidth="386.0" style="-fx-background-color: transparent;" text="Configurar alumno" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="767.0" AnchorPane.rightAnchor="767.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -47,7 +48,7 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" layoutX="670.0" layoutY="468.0" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="76.0" prefWidth="579.0" style="-fx-background-color: transparent;" text="Configurar mesa de examen" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.rightAnchor="671.0">
+      <Button fx:id="btnOp4" alignment="CENTER" contentDisplay="CENTER" layoutX="670.0" layoutY="562.0" mnemonicParsing="false" onAction="#clickBtnOp4" prefHeight="76.0" prefWidth="579.0" style="-fx-background-color: transparent;" text="Configurar mesa de examen" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.rightAnchor="671.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -55,7 +56,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp4" alignment="CENTER" contentDisplay="CENTER" layoutX="818.0" layoutY="543.0" mnemonicParsing="false" onAction="#clickBtnOp4" prefHeight="84.0" prefWidth="283.0" style="-fx-background-color: transparent;" text="Inscripciónes" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="818.0" AnchorPane.rightAnchor="819.0">
+      <Button fx:id="btnOp5" alignment="CENTER" contentDisplay="CENTER" layoutX="818.0" layoutY="637.0" mnemonicParsing="false" onAction="#clickBtnOp5" prefHeight="84.0" prefWidth="283.0" style="-fx-background-color: transparent;" text="Inscripciónes" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="818.0" AnchorPane.rightAnchor="819.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -63,7 +64,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" layoutX="778.0" layoutY="696.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="364.0" style="-fx-background-color: transparent;" text="Actas aprobación" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="778.0">
+      <Button fx:id="btnOp7" alignment="CENTER" contentDisplay="CENTER" layoutX="778.0" layoutY="790.0" mnemonicParsing="false" onAction="#clickBtnOp7" prefHeight="84.0" prefWidth="364.0" style="-fx-background-color: transparent;" text="Actas aprobación" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="778.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -71,7 +72,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp7" alignment="CENTER" contentDisplay="CENTER" layoutX="889.0" layoutY="774.0" mnemonicParsing="false" onAction="#clickBtnOp7" prefHeight="84.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="889.0" AnchorPane.rightAnchor="889.0">
+      <Button fx:id="btnOp8" alignment="CENTER" contentDisplay="CENTER" layoutX="889.0" layoutY="868.0" mnemonicParsing="false" onAction="#clickBtnOp8" prefHeight="84.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="889.0" AnchorPane.rightAnchor="889.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -79,7 +80,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp5" alignment="CENTER" contentDisplay="CENTER" layoutX="876.0" layoutY="622.0" mnemonicParsing="false" onAction="#clickBtnOp5" prefHeight="84.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Avisos" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="876.0">
+      <Button fx:id="btnOp3" alignment="CENTER" contentDisplay="CENTER" layoutX="758.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickBtnOp3" prefHeight="84.0" prefWidth="403.0" style="-fx-background-color: transparent;" text="Configurar profesor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="759.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnOp6" alignment="CENTER" contentDisplay="CENTER" layoutX="876.0" layoutY="716.0" mnemonicParsing="false" onAction="#clickBtnOp6" prefHeight="84.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Avisos" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="876.0">
          <font>
             <Font size="40.0" />
          </font>
