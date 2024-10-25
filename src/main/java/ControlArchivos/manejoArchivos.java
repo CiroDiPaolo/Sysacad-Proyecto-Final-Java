@@ -1,5 +1,6 @@
 package ControlArchivos;
 import Excepciones.ArchivoYaExistenteException;
+import Modelo.Carrera;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -26,16 +27,65 @@ public final class manejoArchivos {
      * @param fileName
      * @param arreglo
      */
-    public static void crearArchivoJSON(String fileName, JSONArray arreglo) {
+    public static void crearArchivoJSON(String path, String fileName, JSONArray arreglo) throws ArchivoYaExistenteException {
 
         try {
 
-            FileWriter file = new FileWriter(fileName);
-            file.write(arreglo.toString());
-            file.close();
+            if(!verificarArchivoCreado(path,fileName)){
+
+                FileWriter fileWriter = new FileWriter(path + "/" + fileName);
+                fileWriter.write(arreglo.toString(4));
+                fileWriter.close();
+
+            }else{
+
+                throw new ArchivoYaExistenteException("El archivo ya existe");
+
+            }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static void cargarJSONcarrera(String path, JSONObject carrera){
+
+        JSONArray jsonArray;
+
+        try {
+            // Leer el contenido existente del archivo
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
+            }
+
+            // Cargar el arreglo existente en jsonArray
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            jsonArray = new JSONArray(); // Si no se puede leer, comenzamos con un nuevo JSONArray
+        } catch (JSONException e) {
+            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
+            jsonArray = new JSONArray(); // Si hay un error de JSON, iniciamos un nuevo JSONArray
+        }
+
+        // Agregar la nueva carrera
+        try {
+            jsonArray.put(carrera);
+
+            // Escribir el arreglo actualizado de nuevo en el archivo
+            FileWriter file = new FileWriter(path);
+            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
+            file.close();
+            System.out.println("Carrera guardada con éxito.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        } catch (JSONException e) {
+            System.out.println("Error al convertir la carrera a JSON: " + e.getMessage());
         }
 
     }
@@ -175,23 +225,44 @@ public final class manejoArchivos {
         return tokener;
     }
 
+    public static boolean verificarArchivoCreado(String path, String fileName) {
+
+        File file = new File(path + fileName);
+        return file.exists();
+
+    }
+
     /**
      * Metodo que crea una carpeta de una carrera
      * @param nombreCarrera
      */
     public static void crearCarpetaCarrera(String nombreCarrera) throws ArchivoYaExistenteException {
 
-        File folder = new File("Files\\Carreras" + nombreCarrera + "-" + Calendar.getInstance().get(Calendar.YEAR));
+        File folder = new File("Files\\" + nombreCarrera + "-" + Calendar.getInstance().get(Calendar.YEAR));
         if (!folder.exists()) {
-            folder.mkdir();
 
+            folder.mkdir();
             System.out.println("creado");
 
         }else{
 
-            throw new ArchivoYaExistenteException("El archivo ya existe");
+            throw new ArchivoYaExistenteException("La carrera ya esxiste");
 
         }
+
+    }
+
+    public static void crearJSONCarrera(String path, Carrera c){
+
+        JSONObject obj = new JSONObject();
+
+        obj.put("nombre",c.getNombre());
+        obj.put("id",c.getId());
+        obj.put("plan",c.getPlan());
+        obj.put("actividad",c.isActividad());
+        obj.put("materias",c.getMaterias());
+
+        cargarJSONcarrera(path ,obj);
 
     }
 
