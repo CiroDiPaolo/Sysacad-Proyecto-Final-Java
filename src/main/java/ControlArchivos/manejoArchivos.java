@@ -1,6 +1,5 @@
 package ControlArchivos;
 import Excepciones.ArchivoYaExistenteException;
-import Modelo.Carrera;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -17,8 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
-import java.util.Calendar;
-
 
 public final class manejoArchivos {
 
@@ -47,8 +44,6 @@ public final class manejoArchivos {
             throw new RuntimeException(e);
         }
     }
-
-
 
 
     /**
@@ -157,7 +152,7 @@ public final class manejoArchivos {
 
     public static boolean verificarArchivoCreado(String path, String fileName) {
 
-        File file = new File(path + fileName);
+        File file = new File(path + fileName + ".json");
         return file.exists();
 
     }
