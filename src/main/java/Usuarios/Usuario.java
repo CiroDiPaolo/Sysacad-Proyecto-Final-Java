@@ -1,5 +1,7 @@
 package Usuarios;
 
+import org.json.JSONObject;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -121,32 +123,5 @@ public abstract class Usuario {
         return Objects.hash(dni, legajo);
     }
 
-    /**
-     * Genera un legajo random que comienza con una letra segun el tipo de usuario("E" para estudiante, "P" para profesor, "A" para administrador)
-     * Y lo concatena con 6 numeros random que van del 0 al 9 cada numero
-     * @param tipoUsuario
-     * @return String de un ID legajo
-     */
-    public static String generarLegajoRandom(ETipoUsuario tipoUsuario)
-    {
-        String id = "";
-        if(tipoUsuario == ETipoUsuario.ALUMNO)
-        {
-            id += "E";
-        } else if (tipoUsuario == ETipoUsuario.PROFESOR) {
-            id += "P";
-        }else if (tipoUsuario == ETipoUsuario.ADMINISTRADOR) {
-            id += "A";
-        }
-
-        for(int i=0; i<6; i++)
-        {
-            int num = (int)Math.floor(Math.random() * 9);
-
-            id += Integer.toString(num);
-        }
-
-        return id;
-    }
 
 }
