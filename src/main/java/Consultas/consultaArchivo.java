@@ -156,20 +156,7 @@ public final class consultaArchivo {
         return estudiante;
     }
 
-    public static HashSet<String> obtenerCarreras(String fileName) {
 
-        HashSet<String> carreras = new HashSet<>();
-
-        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
-
-        for (int i = 0; i < arreglo.length(); i++) {
-            JSONObject obj = arreglo.getJSONObject(i);
-            carreras.add(obj.getString("carrera"));
-        }
-
-        return carreras;
-
-    }
 
 }
 
