@@ -1,5 +1,8 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
+import org.json.JSONObject;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -25,6 +28,14 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
         this.actividad = true;
         fechaDeAlta = LocalDate.now();
+    }
+
+    public Usuario(String name, String apellido, String dni) {
+        this.name = name;
+        this.apellido = apellido;
+        this.dni = dni;
+        fechaDeAlta = LocalDate.now();
+        this.actividad = true;
     }
 
     public Usuario() {
@@ -121,32 +132,39 @@ public abstract class Usuario {
         return Objects.hash(dni, legajo);
     }
 
-    /**
-     * Genera un legajo random que comienza con una letra segun el tipo de usuario("E" para estudiante, "P" para profesor, "A" para administrador)
-     * Y lo concatena con 6 numeros random que van del 0 al 9 cada numero
-     * @param tipoUsuario
-     * @return String de un ID legajo
-     */
-    public static String generarLegajoRandom(ETipoUsuario tipoUsuario)
-    {
-        String id = "";
-        if(tipoUsuario == ETipoUsuario.ALUMNO)
+    public static String generarLegajo(Class<?> clase, String fileName){
+        String ultimoLegajo = manejoArchivos.ultimoLegajo(fileName);
+        String auxiliar = ultimoLegajo.substring(1);
+        String auxiliar2 = "";
+        String nuevoLegajo = null;
+        int num = Integer.parseInt(auxiliar);
+        auxiliar = Integer.toString((num+1));
+        int cantCeros = 6- (auxiliar.length());
+
+        for(int i = 0; i<cantCeros; i++)
         {
-            id += "E";
-        } else if (tipoUsuario == ETipoUsuario.PROFESOR) {
-            id += "P";
-        }else if (tipoUsuario == ETipoUsuario.ADMINISTRADOR) {
-            id += "A";
+            auxiliar2 = auxiliar2.concat("0");
         }
+        
+        try{
+            if(clase == Estudiante.class)
+            {
+                nuevoLegajo = ("E").concat(auxiliar2).concat(auxiliar);
+                
+            } else if (clase == Profesor.class){
+                nuevoLegajo = ("P").concat(auxiliar2).concat(auxiliar);
+            } else if (clase == Administrador.class)
+            {
+                nuevoLegajo = ("A").concat(auxiliar2).concat(auxiliar);
+            }
 
-        for(int i=0; i<6; i++)
+            return nuevoLegajo;
+        }catch (IllegalArgumentException e)
         {
-            int num = (int)Math.floor(Math.random() * 9);
-
-            id += Integer.toString(num);
+            System.out.println("No ingresaste una clase correcta");
         }
-
-        return id;
+        
+        
+        return null;
     }
-
 }

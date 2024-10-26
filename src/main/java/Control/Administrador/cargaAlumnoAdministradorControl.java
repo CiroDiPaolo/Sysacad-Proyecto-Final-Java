@@ -1,7 +1,11 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Excepciones.CamposVaciosException;
+import Excepciones.EntidadYaExistente;
+import Excepciones.excepcionPersonalizada;
 import Path.Path;
+import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +20,7 @@ import ControlArchivos.manejoArchivosCarrera;
 
 import java.util.ArrayList;
 
+import static Path.Path.fileNameAlumnos;
 import static Path.Path.pathCarreras;
 
 public class cargaAlumnoAdministradorControl {
@@ -48,10 +53,26 @@ public class cargaAlumnoAdministradorControl {
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
-        txtApellido.getText();
-        txtDni.getText();
-        txtNombre.getText();
-        choiceCarrera.getValue();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String dni = txtDni.getText();
+        String nombreCarrera =choiceCarrera.getValue();
+        try{
+            String codigoCarrera = manejoArchivosCarrera.retonarCodigoCarreraPorNombre(nombreCarrera, pathCarreras, false);
+            try{
+                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera);
+                nuevoEstudiante.crear(fileNameAlumnos);
+            }catch (EntidadYaExistente e)
+            {
+                e.getMessage();
+            }catch (CamposVaciosException e)
+            {
+                e.getMessage();
+            }
+        }catch (NullPointerException e)
+        {
+            excepcionPersonalizada.excepcion("No seleccionaste una carrera y/o completaste todos los datos del estudiante");
+        }
     }
 
     @FXML

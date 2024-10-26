@@ -47,89 +47,7 @@ public final class manejoArchivos {
     }
 
 
-    /**
-     * Metodo que escribe un archivo JSON
-     * @param filePath
-     * @param estudiante
-     */
-    public static void guardarEstudianteJSON(String filePath, JSONObject estudiante) {
-        JSONArray jsonArray;
 
-        // Inicializar el JSONArray
-        try {
-            // Leer el contenido existente del archivo
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            StringBuilder jsonStringBuilder = new StringBuilder();
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                jsonStringBuilder.append(line);
-            }
-
-            // Cargar el arreglo existente en jsonArray
-            jsonArray = new JSONArray(jsonStringBuilder.toString());
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
-            // Si no se puede leer, comenzamos con un nuevo JSONArray
-            jsonArray = new JSONArray();
-        } catch (JSONException e) {
-            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
-            // Si hay un error de JSON, iniciamos un nuevo JSONArray
-            jsonArray = new JSONArray();
-        }
-
-        // Agregar la nueva persona
-        try {
-
-            jsonArray.put(estudiante);
-
-            // Escribir el arreglo actualizado de nuevo en el archivo
-            FileWriter file = new FileWriter(filePath);
-            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
-            file.close();
-            System.out.println("Persona guardada con éxito.");
-        } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo: " + e.getMessage());
-        } catch (JSONException e) {
-            System.out.println("Error al convertir la persona a JSON: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Metodo que compara un DNI de un estudiante
-     * @param filePath
-     * @param estudiante
-     * @return
-     */
-    public static boolean compararDNI(String filePath, JSONObject estudiante) {
-
-        boolean existe = false;
-
-        try {
-            // Leer el archivo JSON
-            JSONTokener tokener = new JSONTokener(new FileReader(filePath));
-            JSONArray estudiantesArray = new JSONArray(tokener);
-
-            // Obtener el DNI del estudiante recibido
-            String dniEstudiante = estudiante.getString("dni");
-
-            // Iterar sobre los estudiantes en el archivo
-            for (int i = 0; i < estudiantesArray.length(); i++) {
-                JSONObject estudianteExistente = estudiantesArray.getJSONObject(i);
-                String dniExistente = estudianteExistente.getString("dni");
-
-                // Comparar los DNIs
-                if (dniEstudiante.equals(dniExistente)) {
-                    existe = true; // Coincidencia encontrada
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo: " + e.getMessage());
-        }
-
-        return existe; // No se encontró coincidencia
-    }
 
     /**
      * Metodo que lee un archivo JSON
@@ -209,6 +127,23 @@ public final class manejoArchivos {
             }
         }
 
+    }
+
+    public static String ultimoLegajo(String fileName)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        int ultimaPos = arreglo.length();
+        String ultimoLegajo;
+        if(ultimaPos>0)
+        {
+            ultimoLegajo = (String) arreglo.getJSONObject((ultimaPos-1)).get("legajo");
+
+        } else
+        {
+            ultimoLegajo = "_000000";
+        }
+
+        return ultimoLegajo;
     }
 
 }

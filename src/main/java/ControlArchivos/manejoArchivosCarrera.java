@@ -181,4 +181,39 @@ public class manejoArchivosCarrera {
 
     }
 
+    /**
+     * Metodo para traer el codigo de una carrera por su nombre, si se desea traerlo igual aunque la carrera este inactiva/dada de baja con poner true en contarCarrerasInactivas
+     * @param nombre
+     * @param fileName
+     * @param contarCarrerasInactivas
+     * @return
+     */
+    public static String retonarCodigoCarreraPorNombre(String nombre, String fileName, boolean contarCarrerasInactivas)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        boolean flag = false;
+        int i = 0;
+        while(i<arreglo.length() && !flag)
+        {
+            JSONObject carrera = arreglo.getJSONObject(i);
+            if(contarCarrerasInactivas)
+            {
+                if(nombre.equals(carrera.getString("nombre")))
+                {
+                    return (carrera.getString("id"));
+                }
+            }else
+            {
+                if(nombre.equals(carrera.getString("nombre")) && (carrera.getBoolean("actividad")))
+                {
+                    return (carrera.getString("id"));
+                }
+            }
+            i++;
+        }
+
+        return "";
+    }
+
 }
