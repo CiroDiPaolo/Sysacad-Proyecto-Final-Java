@@ -12,6 +12,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import ControlArchivos.manejoArchivosCarrera;
+
+import java.util.ArrayList;
+
+import static Path.Path.pathCarreras;
 
 public class cargaAlumnoAdministradorControl {
 
@@ -43,7 +48,10 @@ public class cargaAlumnoAdministradorControl {
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
-
+        txtApellido.getText();
+        txtDni.getText();
+        txtNombre.getText();
+        choiceCarrera.getValue();
     }
 
     @FXML
@@ -76,9 +84,9 @@ public class cargaAlumnoAdministradorControl {
 
             stage = (Stage) btnVolver.getScene().getWindow();
 
-            String [] asd = {"asd","asd"};
+            ArrayList<String> carreras = manejoArchivosCarrera.obtenerCampoEspecificoDeCarrera(pathCarreras, "nombre");
 
-            choiceCarrera.getItems().addAll(asd);
+            choiceCarrera.getItems().addAll(carreras);
 
         });
 

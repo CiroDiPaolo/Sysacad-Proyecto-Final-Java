@@ -1,11 +1,8 @@
 package Modelo;
 
-import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.ArchivoYaExistenteException;
 import Path.Path;
-
-import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -24,6 +21,14 @@ public final class Carrera {
     private boolean actividad;
 
     //Constructores
+
+    public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias, boolean actividad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.plan = plan;
+        this.materias = materias;
+        this.actividad = actividad;
+    }
 
     public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias) {
         this.id = id;
@@ -45,6 +50,8 @@ public final class Carrera {
         plan = "";
         actividad = true;
     }
+
+
 
     //Getters
 
@@ -95,7 +102,7 @@ public final class Carrera {
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
         manejoArchivosCarrera.crearCarpetaCarrera(id);
-        manejoArchivosCarrera.crearJSONCarrera( Path.pathCarreras, this);
+        manejoArchivosCarrera.crearJSONCarrera(Path.pathCarreras, this);
 
     }
 
@@ -119,4 +126,5 @@ public final class Carrera {
     public int hashCode() {
         return Objects.hash(id, nombre);
     }
+
 }

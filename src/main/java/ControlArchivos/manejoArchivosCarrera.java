@@ -2,15 +2,20 @@ package ControlArchivos;
 
 import Consultas.consultaArchivo;
 import Excepciones.ArchivoYaExistenteException;
+import Excepciones.CarreraInexistenteException;
 import Modelo.Carrera;
-import Path.Path;
+import Modelo.Materia;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
-
+import Path.Path;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
+import static ControlArchivos.manejoArchivos.leerArchivoJSON;
+import static Path.Path.pathCarreras;
 import static Path.Path.pathComisiones;
 
 public class manejoArchivosCarrera {
@@ -74,6 +79,17 @@ public class manejoArchivosCarrera {
 
     public static void crearJSONCarrera(String path, Carrera c){
 
+        JSONObject obj = manejoArchivosCarrera.carreraAJSONObject(c);
+
+        try {
+            cargarJSONcarrera(path ,obj);
+        } catch (ArchivoYaExistenteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static JSONObject carreraAJSONObject(Carrera c){
+
         JSONObject obj = new JSONObject();
 
         obj.put("nombre",c.getNombre());
@@ -82,12 +98,28 @@ public class manejoArchivosCarrera {
         obj.put("actividad",c.isActividad());
         obj.put("materias",c.getMaterias());
 
-        try {
-            cargarJSONcarrera(path ,obj);
-        } catch (ArchivoYaExistenteException e) {
-            throw new RuntimeException(e);
+        return obj;
+    }
+
+    public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
+        // Extraemos los datos de Carrera desde el JSONObject
+        String id = jsonObject.getString("id");
+        String nombre = jsonObject.getString("nombre");
+        String plan = jsonObject.getString("plan");
+        boolean actividad = jsonObject.getBoolean("actividad");
+
+        // Convertimos el JSON de materias a HashMap<String, Materia>
+        HashMap<String, Materia> materias = new HashMap<>();
+        JSONObject materiasJson = jsonObject.getJSONObject("materias");
+
+        for (String key : materiasJson.keySet()) {
+            JSONObject materiaJson = materiasJson.getJSONObject(key);
+            Materia materia = Materia.JSONObjectAMateria(materiaJson);
+            materias.put(materia.getId(), materia);
         }
 
+        // Creamos y devolvemos una instancia de Carrera
+        return new Carrera(id, nombre, plan, materias, actividad);
     }
 
     /**
@@ -107,6 +139,46 @@ public class manejoArchivosCarrera {
             throw new ArchivoYaExistenteException("La carrera ya esxiste");
 
         }
+
+    }
+
+
+    public static HashMap<String, String> JSONArrayCarrerasAHashMap() throws CarreraInexistenteException {
+        JSONArray carrerasJSON = new JSONArray(leerArchivoJSON(pathCarreras));
+
+        if(!carrerasJSON.isEmpty())
+        {
+            HashMap<String, String> carreras = new HashMap<>();
+
+            for(int i = 0; i<carrerasJSON.length(); i++)
+            {
+                JSONObject jsonObject = carrerasJSON.getJSONObject(i);
+                Carrera carrera = manejoArchivosCarrera.JSONObjectACarrera(jsonObject);
+                carreras.put(carrera.getId(),carrera.getNombre());
+            }
+
+            return carreras;
+
+        }else{
+            throw new CarreraInexistenteException("No hay carreras cargadas");
+        }
+    }
+
+    public static ArrayList<String> obtenerCampoEspecificoDeCarrera(String fileName, String campo) {
+
+        ArrayList<String> carreras = new ArrayList<>();
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject obj = arreglo.getJSONObject(i);
+            if(obj.getBoolean("actividad"))
+            {
+                carreras.add(obj.getString(campo));
+            }
+        }
+
+        return carreras;
 
     }
 
