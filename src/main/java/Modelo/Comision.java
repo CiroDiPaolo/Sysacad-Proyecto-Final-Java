@@ -1,7 +1,8 @@
 package Modelo;
 
 import ControlArchivos.manejoArchivosComisiones;
-import Path.Path;
+import Excepciones.ArchivoNoEncontrado;
+import Excepciones.ArchivoYaExistenteException;
 import java.util.Calendar;
 import java.util.HashSet;
 import static ControlArchivos.manejoArchivosComisiones.*;
@@ -39,7 +40,15 @@ public final class Comision {
         this.cupos = cupos;
         this.actividad = true;
         this.legajosAlumno = new HashSet<>();
-        manejoArchivosComisiones.crearArchivoComision(Path.pathArchivos,generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
+
+        try {
+
+            manejoArchivosComisiones.crearArchivoComision(generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
+
+        } catch (ArchivoYaExistenteException | ArchivoNoEncontrado e) {
+        }
+
+        manejoArchivosComisiones.cargarComisionJSON(codigoCarrera,generarNombreArchivoComision(codigoCarrera, anio),this);
     }
 
     public Comision() {
@@ -95,6 +104,8 @@ public final class Comision {
     public boolean isActividad() {
         return actividad;
     }
+
+    public HashSet<String> getLegajosAlumno() { return legajosAlumno; }
 
     //Setters
 

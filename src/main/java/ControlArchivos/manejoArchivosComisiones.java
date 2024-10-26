@@ -1,12 +1,16 @@
 package ControlArchivos;
 
+import Excepciones.ArchivoNoEncontrado;
 import Excepciones.ArchivoYaExistenteException;
 import Modelo.Comision;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Iterator;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
@@ -20,16 +24,19 @@ public class manejoArchivosComisiones {
      * @param codigoCarrera
      * @param fileName
      */
-    public static void crearArchivoComision(String fileName, String codigoCarrera) throws ArchivoYaExistenteException {
+    public static void crearArchivoComision(String fileName, String codigoCarrera) throws ArchivoYaExistenteException, ArchivoNoEncontrado {
 
         if(!verificarArchivoCreado(pathComisiones +  codigoCarrera + "/", fileName )) {
 
             try {
 
                 FileWriter file = new FileWriter(pathComisiones + codigoCarrera + "/" + fileName + ".json");
+
                 file.write("");
                 file.close();
 
+            } catch (FileNotFoundException e){
+                throw new ArchivoNoEncontrado("Archivo no encontrado");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -82,12 +89,10 @@ public class manejoArchivosComisiones {
 
         try {
 
-            System.out.println(pathComisiones + codigoCarrera + "/" + fileName + ".json");
-
             jsonArray = new JSONArray(leerArchivoJSON(pathComisiones + codigoCarrera + "/" + fileName + ".json"));
             jsonArray.put(obj);
 
-        } catch (Exception e) {
+        }catch (Exception e) {
             jsonArray = new JSONArray();
             jsonArray.put(obj);
         }
