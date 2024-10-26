@@ -41,13 +41,7 @@ public final class Comision {
         this.actividad = true;
         this.legajosAlumno = new HashSet<>();
 
-        try {
-
-            manejoArchivosComisiones.crearArchivoComision(generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
-
-        } catch (ArchivoYaExistenteException | ArchivoNoEncontrado e) {
-        }
-
+        manejoArchivosComisiones.crearArchivoComision(generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
         manejoArchivosComisiones.cargarComisionJSON(codigoCarrera,generarNombreArchivoComision(codigoCarrera, anio),this);
     }
 

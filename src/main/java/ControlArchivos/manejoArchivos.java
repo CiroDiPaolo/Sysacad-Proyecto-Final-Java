@@ -1,4 +1,5 @@
 package ControlArchivos;
+
 import Excepciones.ArchivoYaExistenteException;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -143,7 +144,7 @@ public final class manejoArchivos {
 
             tokener = new JSONTokener(new FileReader(fileName));
 
-        } catch (IOException e) {
+        }catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -152,13 +153,11 @@ public final class manejoArchivos {
 
     public static boolean verificarArchivoCreado(String path, String fileName) {
 
-
         File file = new File(path + fileName + ".json");
+
         return file.exists();
 
     }
-
-
 
 
     /**
