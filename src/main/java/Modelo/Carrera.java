@@ -35,7 +35,7 @@ public final class Carrera {
         try {
             crearArchivoCarrera();
         } catch (ArchivoYaExistenteException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -95,7 +95,7 @@ public final class Carrera {
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
         manejoArchivosCarrera.crearCarpetaCarrera(id);
-        manejoArchivosCarrera.crearJSONCarrera( Path.pathCarreras, this);
+        manejoArchivosCarrera.crearJSONCarrera(Path.pathCarreras, this);
 
     }
 
