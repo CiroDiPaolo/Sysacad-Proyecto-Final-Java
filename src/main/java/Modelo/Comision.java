@@ -25,7 +25,7 @@ public final class Comision {
     private String aula;
     private int cupos;
     private boolean actividad;
-    private HashSet<String> legajosAlumno;
+    private HashSet<EstadoAlumnoComision> estadoAlumnoComisionHashSet;
 
     //Constructores
 
@@ -39,16 +39,8 @@ public final class Comision {
         this.aula = aula;
         this.cupos = cupos;
         this.actividad = true;
-        this.legajosAlumno = new HashSet<>();
+        this.estadoAlumnoComisionHashSet = new HashSet<>();
 
-        try {
-
-            manejoArchivosComisiones.crearArchivoComision(generarNombreArchivoComision(codigoCarrera, anio),codigoCarrera);
-
-        } catch (ArchivoYaExistenteException | ArchivoNoEncontrado e) {
-        }
-
-        manejoArchivosComisiones.cargarComisionJSON(codigoCarrera,generarNombreArchivoComision(codigoCarrera, anio),this);
     }
 
     public Comision() {
@@ -105,7 +97,7 @@ public final class Comision {
         return actividad;
     }
 
-    public HashSet<String> getLegajosAlumno() { return legajosAlumno; }
+    public HashSet<EstadoAlumnoComision> getEstadoAlumnoComisionHashSet() { return estadoAlumnoComisionHashSet; }
 
     //Setters
 
@@ -163,4 +155,6 @@ public final class Comision {
                 ", cupos=" + cupos +
                 '}';
     }
+
+
 }
