@@ -54,9 +54,9 @@ public class manejoArchivosCarrera {
 
                 // Escribir el arreglo actualizado de nuevo en el archivo
                 FileWriter file = new FileWriter(path);
-                file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
+                file.write(jsonArray.toString(4));
                 file.close();
-                System.out.println("Carrera guardada con éxito.");
+
             } catch (IOException e) {
                 System.out.println("Error al escribir en el archivo: " + e.getMessage());
             } catch (JSONException e) {
@@ -65,7 +65,7 @@ public class manejoArchivosCarrera {
 
         }else{
 
-            throw new ArchivoYaExistenteException("La carrera ya existe");
+            throw new ArchivoYaExistenteException("La carrera ya existeeeeeeeee");
 
         }
 
@@ -100,11 +100,10 @@ public class manejoArchivosCarrera {
         if (!folder.exists()) {
 
             folder.mkdir();
-            System.out.println("creado");
 
         }else{
 
-            throw new ArchivoYaExistenteException("La carrera ya esxiste");
+            throw new ArchivoYaExistenteException("La carrera ya existe.");
 
         }
 
