@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.cargaAlumnoAdministradorControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -49,14 +49,14 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="lista" fill="#2e3b43" height="711.0" layoutX="502.0" layoutY="281.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="916.0" AnchorPane.leftAnchor="492.0" AnchorPane.rightAnchor="492.0" />
-      <Text fill="WHITE" layoutX="833.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carga alumno" wrappingWidth="251.47015380859375" AnchorPane.leftAnchor="833.0" AnchorPane.rightAnchor="835.5298461914062">
+      <Rectangle fx:id="lista" fill="#2e3b43" height="677.0" layoutX="670.0" layoutY="251.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="579.0" AnchorPane.leftAnchor="660.0" AnchorPane.rightAnchor="661.0" />
+      <Text fill="WHITE" layoutX="834.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carga alumno" wrappingWidth="251.47015380859375" AnchorPane.leftAnchor="834.0" AnchorPane.rightAnchor="834.5298461914062">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="749.0" layoutY="898.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="749.0" layoutY="888.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="751.0" layoutY="849.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="751.0" layoutY="838.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -64,8 +64,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="992.0" layoutY="900.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="981.0" layoutY="890.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Cargar" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="993.0" layoutY="850.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="986.0" layoutY="839.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Cargar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -73,8 +73,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="720.0" layoutY="401.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="477.0" />
-      <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="719.0" layoutY="401.0" onAction="#setTxtNombre" prefHeight="53.0" prefWidth="480.0" promptText="Ingrese el nombre del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="719.0" AnchorPane.rightAnchor="721.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="721.0" layoutY="401.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="477.0" AnchorPane.leftAnchor="721.0" AnchorPane.rightAnchor="722.0" />
+      <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="720.0" layoutY="401.0" onAction="#setTxtNombre" prefHeight="53.0" prefWidth="480.0" promptText="Ingrese el nombre del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="720.0">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
@@ -85,17 +85,17 @@
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="721.0" layoutY="610.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="721.0" AnchorPane.rightAnchor="719.0" />
-      <TextField fx:id="txtDni" alignment="CENTER" blendMode="COLOR_BURN" layoutX="721.0" layoutY="610.0" onAction="#setTxtDni" prefHeight="53.0" prefWidth="480.0" promptText="Ingrese el dni del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="721.0" AnchorPane.rightAnchor="719.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="720.0" layoutY="610.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="720.0" />
+      <TextField fx:id="txtDni" alignment="CENTER" blendMode="COLOR_BURN" layoutX="720.0" layoutY="610.0" onAction="#setTxtDni" prefHeight="53.0" prefWidth="480.0" promptText="Ingrese el dni del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="720.0">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text layoutX="796.0" layoutY="744.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la carrera del alumno" wrappingWidth="329.4970703125" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0">
+      <Text layoutX="795.0" layoutY="745.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la carrera del alumno" wrappingWidth="329.4970703125" AnchorPane.leftAnchor="795.0" AnchorPane.rightAnchor="795.5029296875">
          <font>
             <Font size="29.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="choiceCarrera" layoutX="796.0" layoutY="764.0" prefHeight="25.0" prefWidth="329.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="795.0" />
+      <ChoiceBox fx:id="choiceCarrera" layoutX="796.0" layoutY="763.0" prefHeight="25.0" prefWidth="329.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="795.0" />
    </children>
 </AnchorPane>
