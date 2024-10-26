@@ -27,6 +27,14 @@ public class EstadoAlumnoMateria {
         this.codigoComision = codigoComision;
     }
 
+    public EstadoAlumnoMateria(String codigoMateria, int estado, String tomo, String folio, String codigoComision) {
+        this.codigoMateria = codigoMateria;
+        this.estado = estado;
+        this.tomo = tomo;
+        this.folio = folio;
+        this.codigoComision = codigoComision;
+    }
+
     public EstadoAlumnoMateria() {
         codigoMateria = "";
         estado = 0;
@@ -34,6 +42,7 @@ public class EstadoAlumnoMateria {
         folio = "0";
         codigoComision = "0";
     }
+
 
     //Getters
 

@@ -1,5 +1,6 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
@@ -27,6 +28,14 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
         this.actividad = true;
         fechaDeAlta = LocalDate.now();
+    }
+
+    public Usuario(String name, String apellido, String dni) {
+        this.name = name;
+        this.apellido = apellido;
+        this.dni = dni;
+        fechaDeAlta = LocalDate.now();
+        this.actividad = true;
     }
 
     public Usuario() {
@@ -123,5 +132,39 @@ public abstract class Usuario {
         return Objects.hash(dni, legajo);
     }
 
+    public static String generarLegajo(Class<?> clase, String fileName){
+        String ultimoLegajo = manejoArchivos.ultimoLegajo(fileName);
+        String auxiliar = ultimoLegajo.substring(1);
+        String auxiliar2 = "";
+        String nuevoLegajo = null;
+        int num = Integer.parseInt(auxiliar);
+        auxiliar = Integer.toString((num+1));
+        int cantCeros = 6- (auxiliar.length());
 
+        for(int i = 0; i<cantCeros; i++)
+        {
+            auxiliar2 = auxiliar2.concat("0");
+        }
+        
+        try{
+            if(clase == Estudiante.class)
+            {
+                nuevoLegajo = ("E").concat(auxiliar2).concat(auxiliar);
+                
+            } else if (clase == Profesor.class){
+                nuevoLegajo = ("P").concat(auxiliar2).concat(auxiliar);
+            } else if (clase == Administrador.class)
+            {
+                nuevoLegajo = ("A").concat(auxiliar2).concat(auxiliar);
+            }
+
+            return nuevoLegajo;
+        }catch (IllegalArgumentException e)
+        {
+            System.out.println("No ingresaste una clase correcta");
+        }
+        
+        
+        return null;
+    }
 }
