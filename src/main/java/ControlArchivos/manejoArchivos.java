@@ -48,6 +48,12 @@ public final class manejoArchivos {
         }
     }
 
+    /**
+     * Metodo que carga un archivo JSON
+     * @param path
+     * @param path
+     * @return
+     */
     public static void cargarJSONcarrera(String path, JSONObject carrera){
 
         JSONArray jsonArray;
