@@ -61,7 +61,7 @@ public class cargaAlumnoAdministradorControl {
         try{
             String codigoCarrera = manejoArchivosCarrera.retonarCodigoCarreraPorNombre(nombreCarrera, pathCarreras, false);
             try{
-                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera);
+                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera,null);
                 if(nuevoEstudiante.crear(fileNameAlumnos))
                 {
                     manejoArchivos.alertaConfirmacion("Estudiante cargado");
