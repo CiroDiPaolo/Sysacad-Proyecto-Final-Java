@@ -15,14 +15,14 @@ public final class Estudiante extends Usuario implements iCRUD {
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
 
-    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera) {
-        super(name, apellido, dni, legajo, contrasenia);
+    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
+        super(name, apellido, dni, legajo, contrasenia, correo);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
 
-    public Estudiante(String name, String apellido, String dni, String codigoCarrera) {
-        super(name, apellido, dni);
+    public Estudiante(String name, String apellido, String dni, String codigoCarrera, String correo) {
+        super(name, apellido, dni,correo);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
@@ -63,7 +63,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
-        if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty())
+        if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
         {
             this.setLegajo(generarLegajo(Estudiante.class, path));
             this.setContrasenia(this.getDni());
@@ -82,7 +82,14 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path) {
+    public boolean actualizar(String path, JSONObject jsonObject) {
+        if(!Usuario.compararJSONObjectConUsuario(jsonObject,this))
+        {
+            JSONObject estudianteActualizado = this.estudianteAJSONObject();
+
+        }
+
+
         return false;
     }
 
@@ -109,6 +116,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         jsonObject.put("legajo", this.getLegajo());
         jsonObject.put("contrasenia", this.getContrasenia());
         jsonObject.put("codigoCarrera",this.getCodigoCarrera());
+        jsonObject.put("correo",this.getCorreo());
 
         for (int i = 0; i < this.getMaterias().size(); i++) {
 
@@ -162,8 +170,9 @@ public final class Estudiante extends Usuario implements iCRUD {
         String legajo = jsonObject.getString("legajo");
         String contrasenia = jsonObject.getString("contrasenia");
         String codigoCarrera = jsonObject.getString("codigoCarrera");
+        String correo = jsonObject.getString("correo");
 
-        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, codigoCarrera);
+        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, codigoCarrera,correo);
 
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
         int i = 0;

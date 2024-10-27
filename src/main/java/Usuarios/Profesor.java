@@ -13,8 +13,8 @@ import Consultas.consultaArchivo;
  */
 public final class Profesor extends Usuario implements iCRUD {
 
-    public Profesor(String name, String dni, String legajo,String contrasenia) {
-        super(name, dni, legajo,contrasenia, contrasenia);
+    public Profesor(String name, String dni, String legajo,String contrasenia, String correo) {
+        super(name, dni, legajo,contrasenia, contrasenia, correo);
     }
 
     public Profesor() {}
