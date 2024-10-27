@@ -49,12 +49,13 @@ public class cargaAlumnoAdministradorControl {
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String dni = txtDni.getText();
+        String correo = txtCorreo.getText();
         String nombreCarrera =choiceCarrera.getValue();
 
         try{
             String codigoCarrera = manejoArchivosCarrera.retonarCodigoCarreraPorNombre(nombreCarrera, pathCarreras, false);
             try{
-                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera,null);
+                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera,correo);
                 if(nuevoEstudiante.crear(fileNameAlumnos))
                 {
                     manejoArchivos.alertaConfirmacion("Estudiante cargado");
