@@ -21,10 +21,10 @@ import static Path.Path.pathComisiones;
 public class manejoArchivosCarrera {
 
     /**
-     * Metodo que carga un archivo JSON
+     * Metodo que carga unca carrera a un archivo JSON si es que la carrera no existe.
      * @param path
      * @param carrera
-     * @return
+     * @return void
      */
     public static void cargarJSONcarrera(String path, JSONObject carrera) throws ArchivoYaExistenteException {
 
@@ -77,6 +77,12 @@ public class manejoArchivosCarrera {
 
     }
 
+    /**
+     * Pasa una carrera a un JSONObject y carga la carrera.
+     * @param path
+     * @param c
+     */
+
     public static void crearJSONCarrera(String path, Carrera c){
 
         JSONObject obj = manejoArchivosCarrera.carreraAJSONObject(c);
@@ -88,6 +94,11 @@ public class manejoArchivosCarrera {
         }
     }
 
+    /**
+     * Convierte una Carrera a un JSONObject
+     * @param c
+     * @return JSONObject
+     */
     public static JSONObject carreraAJSONObject(Carrera c){
 
         JSONObject obj = new JSONObject();
@@ -101,6 +112,11 @@ public class manejoArchivosCarrera {
         return obj;
     }
 
+    /**
+     * Convierte un JSONObject a una carrera
+     * @param jsonObject
+     * @return Carrera
+     */
     public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
         // Extraemos los datos de Carrera desde el JSONObject
         String id = jsonObject.getString("id");
@@ -141,28 +157,12 @@ public class manejoArchivosCarrera {
 
     }
 
-
-    public static HashMap<String, String> JSONArrayCarrerasAHashMap() throws CarreraInexistenteException {
-        JSONArray carrerasJSON = new JSONArray(leerArchivoJSON(pathCarreras));
-
-        if(!carrerasJSON.isEmpty())
-        {
-            HashMap<String, String> carreras = new HashMap<>();
-
-            for(int i = 0; i<carrerasJSON.length(); i++)
-            {
-                JSONObject jsonObject = carrerasJSON.getJSONObject(i);
-                Carrera carrera = manejoArchivosCarrera.JSONObjectACarrera(jsonObject);
-                carreras.put(carrera.getId(),carrera.getNombre());
-            }
-
-            return carreras;
-
-        }else{
-            throw new CarreraInexistenteException("No hay carreras cargadas");
-        }
-    }
-
+    /**
+     * Devuelve una lista de todas las carreras del campo especificado por parametro
+     * @param fileName
+     * @param campo
+     * @return ArrayList<String></>
+     */
     public static ArrayList<String> obtenerCampoEspecificoDeCarrera(String fileName, String campo) {
 
         ArrayList<String> carreras = new ArrayList<>();

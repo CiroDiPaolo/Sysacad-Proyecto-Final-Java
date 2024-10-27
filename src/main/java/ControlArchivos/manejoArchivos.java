@@ -46,9 +46,6 @@ public final class manejoArchivos {
         }
     }
 
-
-
-
     /**
      * Metodo que lee un archivo JSON
      * @param fileName
@@ -129,6 +126,11 @@ public final class manejoArchivos {
 
     }
 
+    /**
+     * Busca el ultimo legajo cargado en el archivo especificado
+     * @param fileName
+     * @return String
+     */
     public static String ultimoLegajo(String fileName)
     {
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
