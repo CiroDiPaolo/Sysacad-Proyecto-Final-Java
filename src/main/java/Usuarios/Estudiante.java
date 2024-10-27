@@ -75,7 +75,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         if(Usuario.esDniValido(this.getDni()))
         {
             if(Usuario.esCorreoValido(this.getCorreo())){
-                if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
+                if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
                 {
                     this.setLegajo(generarLegajo(Estudiante.class, path));
                     this.setContrasenia(this.getDni());
