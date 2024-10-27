@@ -159,6 +159,7 @@ public final class manejoArchivos {
      * @param estudiante
      */
     public static boolean guardarObjetoJSON(String filePath, JSONObject estudiante) {
+
         JSONArray jsonArray;
         // Inicializar el JSONArray
         try {
@@ -193,7 +194,7 @@ public final class manejoArchivos {
             FileWriter file = new FileWriter(filePath);
             file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
             file.close();
-            System.out.println("Persona guardada con éxito.");
+
             return true;
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());

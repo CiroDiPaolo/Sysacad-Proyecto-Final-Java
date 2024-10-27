@@ -2,6 +2,7 @@ package Usuarios;
 
 import ControlArchivos.manejoArchivos;
 import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.iCRUD;
 import org.json.JSONObject;
@@ -29,25 +30,42 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
+    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
 
         boolean creado = false;
 
-        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty())
+        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getCorreo().isEmpty())
         {
-            setLegajo(generarLegajo(Profesor.class, path));
-            setContrasenia(getDni());
 
-            JSONObject profesor = profesorAJSONObject();
+            if(esDniValido(getDni())){
 
-            if(!Consultas.consultaArchivo.buscarClave(path,getDni(),"dni")){
+                if(esCorreoValido(getCorreo())) {
 
-                manejoArchivos.guardarObjetoJSON(path,profesor);
-                creado = true;
+                    setLegajo(generarLegajo(Profesor.class, path));
+                    setContrasenia(getDni());
+
+                    JSONObject profesor = profesorAJSONObject();
+
+                    if (!Consultas.consultaArchivo.buscarClave(path, getDni(), "dni")) {
+
+                        manejoArchivos.guardarObjetoJSON(path, profesor);
+                        creado = true;
+
+                    } else {
+
+                        throw new EntidadYaExistente("Ya existe un profesor cargado con ese DNI");
+
+                    }
+
+                }else{
+
+                    throw new DatosIncorrectosException("El correo ingresado no es valido");
+
+                }
 
             }else{
 
-               throw new EntidadYaExistente("Ya existe un profesor cargado con ese DNI");
+                throw new DatosIncorrectosException("El DNI ingresado no es valido");
 
             }
 

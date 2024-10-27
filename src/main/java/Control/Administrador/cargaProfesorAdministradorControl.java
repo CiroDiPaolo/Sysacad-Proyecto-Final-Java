@@ -2,6 +2,7 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Path.Path;
 import Usuarios.Profesor;
@@ -66,6 +67,8 @@ public class cargaProfesorAdministradorControl {
         } catch (EntidadYaExistente e) {
             e.getMessage();
         } catch (CamposVaciosException e){
+            e.getMessage();
+        } catch (DatosIncorrectosException e){
             e.getMessage();
         }
 
