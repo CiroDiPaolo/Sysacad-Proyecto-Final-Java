@@ -6,8 +6,8 @@ package Usuarios;
  */
 public final class Administrador extends Usuario {
 
-    public Administrador(String name, String apellido, String dni, String legajo, String contrasenia) {
-        super(name, apellido, dni, legajo, contrasenia);
+    public Administrador(String name, String apellido, String dni, String legajo, String contrasenia, String correo) {
+        super(name, apellido, dni, legajo, contrasenia, correo);
     }
 
     public Administrador() {
