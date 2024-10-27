@@ -1,5 +1,6 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
@@ -36,7 +37,7 @@ public final class Profesor extends Usuario implements iCRUD {
 
             if(!Consultas.consultaArchivo.buscarClave(path,"dni",getDni())){
 
-                manejoArchivosEstudiante.guardarEstudianteJSON(path,profesor);
+                manejoArchivos.guardarObjetoJSON(path,profesor);
 
             }else{
 
@@ -54,7 +55,7 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path) {
+    public boolean actualizar(String path, JSONObject jsonObject) {
         return false;
     }
 

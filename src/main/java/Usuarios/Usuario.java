@@ -21,6 +21,17 @@ public abstract class Usuario {
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
+    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
+        this.name = name;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.legajo = legajo;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.fechaDeAlta = fechaDeAlta;
+        this.actividad = actividad;
+    }
+
     public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo) {
         this.name = name;
         this.apellido = apellido;
