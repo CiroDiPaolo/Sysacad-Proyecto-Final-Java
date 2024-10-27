@@ -33,7 +33,7 @@ public final class Profesor extends Usuario implements iCRUD {
 
             JSONObject profesor = profesorAJSONObject();
 
-            if(!Consultas.consultaArchivo.buscarClave(path,"dni",getDni())){
+            if(!Consultas.consultaArchivo.buscarClave(path,getDni(),"dni")){
 
                 manejoArchivos.guardarObjetoJSON(path,profesor);
 

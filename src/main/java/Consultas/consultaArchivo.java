@@ -27,7 +27,7 @@ public final class consultaArchivo {
                 if (obj.getString(buscado).equals(dato)) {
 
                     flag = true;
-
+                    i = arreglo.length();
                 }
 
             }

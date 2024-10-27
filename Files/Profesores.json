@@ -1,8 +1,16 @@
-[{
-    "legajo": "P000001",
-    "fechaDeAlta": "2024-10-27",
-    "contrasenia": "46557199",
-    "nombre": "ciro",
-    "dni": "46557199",
-    "actividad": true
-}]
+[
+    {
+        "legajo": "P000001",
+        "fechaDeAlta": "2024-10-27",
+        "contrasenia": "46557199",
+        "nombre": "ciro",
+        "dni": "46557199",
+        "actividad": true
+    },
+    {
+        "legajo": "P000002",
+        "contrasenia": "asdasd",
+        "nombre": "asdasd",
+        "dni": "asdasd"
+    }
+]
