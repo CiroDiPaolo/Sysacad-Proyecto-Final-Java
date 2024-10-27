@@ -2,25 +2,17 @@
     {
         "legajo": "E000001",
         "apellido": "Carrizo",
-        "name": "Melisa",
+        "nombre": "Melisa",
         "codigoCarrera": "001",
         "contrasenia": "46557012",
         "dni": "46557012"
     },
     {
         "legajo": "E000002",
-        "apellido": "Di Paolo",
-        "name": "Ciro",
-        "codigoCarrera": "002",
-        "contrasenia": "46557199",
-        "dni": "46557199"
-    },
-    {
-        "legajo": "E000003",
-        "apellido": "Di Paolo",
-        "name": "Ciro",
+        "apellido": "perezx",
         "codigoCarrera": "001",
-        "contrasenia": "46557199",
-        "dni": "46557199"
+        "contrasenia": "46557192",
+        "nombre": "juan",
+        "dni": "46557192"
     }
 ]
