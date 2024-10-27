@@ -1,15 +1,12 @@
 package Consultas;
 
-import Usuarios.Administrador;
 import Usuarios.Estudiante;
-import Usuarios.Usuario;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
 
 import static ControlArchivos.manejoArchivos.*;
 
@@ -30,7 +27,7 @@ public final class consultaArchivo {
                 if (obj.getString(buscado).equals(dato)) {
 
                     flag = true;
-
+                    i = arreglo.length();
                 }
 
             }
@@ -138,7 +135,7 @@ public final class consultaArchivo {
                 if (obj.getString("legajo").equals(legajo)) {
 
                     estudiante.setLegajo(obj.getString("legajo"));
-                    estudiante.setName(obj.getString("nombre"));
+                    estudiante.setNombre(obj.getString("nombre"));
                     estudiante.setApellido(obj.getString("apellido"));
                     estudiante.setDni(obj.getString("dni"));
                     estudiante.setContrasenia(obj.getString("contrasenia"));

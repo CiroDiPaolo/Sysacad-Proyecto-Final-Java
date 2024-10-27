@@ -15,6 +15,6 @@ public final class Administrador extends Usuario {
 
     @Override
     public String toString() {
-        return "| Administrador: " + getName();
+        return "| Administrador: " + getNombre();
     }
 }

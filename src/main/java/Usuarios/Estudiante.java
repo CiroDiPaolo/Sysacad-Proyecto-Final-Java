@@ -19,19 +19,19 @@ public final class Estudiante extends Usuario implements iCRUD {
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
 
-    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
-        super(name, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
+        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
         this.codigoCarrera = codigoCarrera;
     }
 
-    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
-        super(name, apellido, dni, legajo, contrasenia, correo);
+    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
+        super(nombre, apellido, dni, legajo, contrasenia, correo);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
 
-    public Estudiante(String name, String apellido, String dni, String codigoCarrera, String correo) {
-        super(name, apellido, dni,correo);
+    public Estudiante(String nombre, String apellido, String dni, String codigoCarrera, String correo) {
+        super(nombre, apellido, dni,correo);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
@@ -131,7 +131,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     public JSONObject estudianteAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("name", this.getName());
+        jsonObject.put("name", this.getNombre());
         jsonObject.put("apellido", this.getApellido());
         jsonObject.put("dni", this.getDni());
         jsonObject.put("legajo", this.getLegajo());
@@ -187,7 +187,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
+        String nombre = jsonObject.getString("nombre");
         String apellido = jsonObject.getString("apellido");
         String dni = jsonObject.getString("dni");
         String legajo = jsonObject.getString("legajo");
@@ -197,7 +197,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         boolean actividad = jsonObject.getBoolean("actividad");
         String fechaStr = jsonObject.getString("fecha");
         LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_DATE);
-        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
+        Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
 
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
         int i = 0;

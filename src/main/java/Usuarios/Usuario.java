@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public abstract class Usuario {
 
-    private String name;
+    private String nombre;
     private String apellido;
     private String dni;
     private String legajo;
@@ -21,8 +21,8 @@ public abstract class Usuario {
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
-    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
@@ -32,8 +32,8 @@ public abstract class Usuario {
         this.actividad = actividad;
     }
 
-    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
@@ -43,8 +43,8 @@ public abstract class Usuario {
         fechaDeAlta = LocalDate.now();
     }
 
-    public Usuario(String name, String apellido, String dni, String correo) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni, String correo) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.correo = correo;
@@ -54,7 +54,7 @@ public abstract class Usuario {
 
     public Usuario() {
         actividad = false;
-        name = "";
+        nombre = "";
         apellido = "";
         dni = "";
         legajo = "";
@@ -77,7 +77,7 @@ public abstract class Usuario {
 
     //GETTERS
 
-    public String getName() { return name; }
+    public String getNombre() { return nombre; }
 
     public String getApellido() { return apellido; }
 
@@ -105,8 +105,8 @@ public abstract class Usuario {
 
     //SETTERS
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setApellido(String apellido) { this.apellido = apellido; }
@@ -134,7 +134,7 @@ public abstract class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "name='" + name + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +
                 ", legajo='" + legajo + '\'' +
@@ -201,7 +201,7 @@ public abstract class Usuario {
     {
         boolean comparar = true;
 
-        if(!jsonObject.getString("name").equals(usuario.getName()))
+        if(!jsonObject.getString("nombre").equals(usuario.getNombre()))
         {
             comparar = false;
         } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
