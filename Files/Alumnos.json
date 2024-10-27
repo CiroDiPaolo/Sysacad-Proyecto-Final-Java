@@ -1,122 +1,26 @@
 [
     {
         "legajo": "E000001",
-        "apellido": "dsasad",
-        "name": "dsadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
+        "apellido": "Carrizo",
+        "name": "Melisa",
+        "codigoCarrera": "001",
+        "contrasenia": "46557012",
+        "dni": "46557012"
     },
     {
         "legajo": "E000002",
-        "apellido": "dsffds",
-        "name": "sdfdfs",
+        "apellido": "Di Paolo",
+        "name": "Ciro",
         "codigoCarrera": "002",
-        "contrasenia": "dsfsdfdfs",
-        "dni": "dsfsdfdfs"
+        "contrasenia": "46557199",
+        "dni": "46557199"
     },
     {
         "legajo": "E000003",
-        "apellido": "sdadas",
-        "name": "sadads",
-        "codigoCarrera": "002",
-        "contrasenia": "",
-        "dni": ""
-    },
-    {
-        "legajo": "E000004",
-        "apellido": "",
-        "name": "dsadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "jkjk",
-        "dni": "jkjk"
-    },
-    {
-        "legajo": "E000005",
-        "apellido": "",
-        "name": "dsadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "jkjkkjk",
-        "dni": "jkjkkjk"
-    },
-    {
-        "legajo": "E000006",
-        "apellido": "fdsdfs",
-        "name": "dsffsdfsd",
-        "codigoCarrera": "002",
-        "contrasenia": "sfdfsd",
-        "dni": "sfdfsd"
-    },
-    {
-        "legajo": "E000007",
-        "apellido": "sdadsa",
-        "name": "sdadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000008",
-        "apellido": "sdadsa",
-        "name": "sdadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000009",
-        "apellido": "sdadsa",
-        "name": "sdadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000010",
-        "apellido": "sdadsa",
-        "name": "sdadsa",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000011",
-        "apellido": "asdsad",
-        "name": "sadasd",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000012",
-        "apellido": "asdsad",
-        "name": "sadasd",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000013",
-        "apellido": "asdsad",
-        "name": "sadasd",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000014",
-        "apellido": "asdsad",
-        "name": "sadasd",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
-    },
-    {
-        "legajo": "E000015",
-        "apellido": "asdsad",
-        "name": "sadasd",
-        "codigoCarrera": "002",
-        "contrasenia": "sdadsa",
-        "dni": "sdadsa"
+        "apellido": "Di Paolo",
+        "name": "Ciro",
+        "codigoCarrera": "001",
+        "contrasenia": "46557199",
+        "dni": "46557199"
     }
 ]
