@@ -37,14 +37,19 @@ public class cargaAlumnoAdministradorControl {
     @FXML
     private TextField txtNombre;
 
+    @FXML
+    private TextField txtCorreo;
+
     private Stage stage;
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
+
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String dni = txtDni.getText();
         String nombreCarrera =choiceCarrera.getValue();
+
         try{
             String codigoCarrera = manejoArchivosCarrera.retonarCodigoCarreraPorNombre(nombreCarrera, pathCarreras, false);
             try{
