@@ -2,7 +2,7 @@
     {
         "legajo": "E000001",
         "apellido": "Carrizo",
-        "name": "Melisa",
+        "nombre": "Melisa",
         "codigoCarrera": "001",
         "contrasenia": "46557012",
         "dni": "46557012"
@@ -10,7 +10,7 @@
     {
         "legajo": "E000002",
         "apellido": "Di Paolo",
-        "name": "Ciro",
+        "nombre": "Ciro",
         "codigoCarrera": "002",
         "contrasenia": "46557199",
         "dni": "46557199"
@@ -18,7 +18,7 @@
     {
         "legajo": "E000003",
         "apellido": "colo",
-        "name": "colo",
+        "nombre": "colo",
         "codigoCarrera": "002",
         "contrasenia": "32832823",
         "dni": "32832823"
@@ -27,7 +27,7 @@
         "legajo": "E000004",
         "apellido": "Carrizo",
         "correo": "melisacarrizo5@gmail.com",
-        "name": "Melisa",
+        "nombre": "Melisa",
         "codigoCarrera": "002",
         "fechaDeAlta": "2024-10-27",
         "contrasenia": "6666",
