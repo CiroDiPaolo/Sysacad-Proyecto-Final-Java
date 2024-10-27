@@ -3,13 +3,13 @@ package Usuarios;
 import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.EstadoAlumnoMateria;
 import Modelo.EstadoAlumnoMesa;
 import Modelo.iCRUD;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -71,22 +71,34 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @throws CamposVaciosException
      */
     @Override
-    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
-        if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
+    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
+        if(this.getDni().matches("\\d+"))
         {
-            this.setLegajo(generarLegajo(Estudiante.class, path));
-            this.setContrasenia(this.getDni());
+            if(Usuario.esCorreoValido(this.getCorreo())){
+                if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
+                {
+                    this.setLegajo(generarLegajo(Estudiante.class, path));
+                    this.setContrasenia(this.getDni());
 
-            JSONObject jsonObject = this.estudianteAJSONObject();
+                    JSONObject jsonObject = this.estudianteAJSONObject();
 
-            if(!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
-                return manejoArchivos.guardarObjetoJSON(path, jsonObject);
-            } else {
-                throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con código " + jsonObject.getString("codigoCarrera"));
+                    if(!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
+                        return manejoArchivos.guardarObjetoJSON(path, jsonObject);
+                    } else {
+                        throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con código " + jsonObject.getString("codigoCarrera"));
+                    }
+                }else{
+                    throw new CamposVaciosException("Intentó enviar campos vacios. Verifique que los campos esten completos y vuelva a intentar");
+                }
+            }else {
+                throw new DatosIncorrectosException("El mail es invalido. Por favor ingrese un mail valido.");
             }
-        }else{
-            throw new CamposVaciosException("Intentó enviar campos vacios. Verifique que los campos esten completos y vuelva a intentar");
+
+
+        }else {
+            throw new DatosIncorrectosException("El dni es invalido. Solo puede contener numeros.");
         }
+
 
     }
 

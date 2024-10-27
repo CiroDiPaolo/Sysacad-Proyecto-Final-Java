@@ -2,36 +2,47 @@
     {
         "legajo": "E000001",
         "apellido": "Carrizo",
-        "nombre": "Melisa",
         "codigoCarrera": "001",
         "contrasenia": "46557012",
+        "nombre": "Melisa",
         "dni": "46557012"
     },
     {
         "legajo": "E000002",
         "apellido": "Di Paolo",
-        "nombre": "Ciro",
         "codigoCarrera": "002",
         "contrasenia": "46557199",
+        "nombre": "Ciro",
         "dni": "46557199"
     },
     {
         "legajo": "E000003",
         "apellido": "colo",
-        "nombre": "colo",
         "codigoCarrera": "002",
         "contrasenia": "32832823",
+        "nombre": "colo",
         "dni": "32832823"
     },
     {
         "legajo": "E000004",
         "apellido": "Carrizo",
         "correo": "melisacarrizo5@gmail.com",
-        "nombre": "Melisa",
         "codigoCarrera": "002",
         "fechaDeAlta": "2024-10-27",
         "contrasenia": "6666",
+        "nombre": "Melisa",
         "dni": "6666",
+        "actividad": true
+    },
+    {
+        "legajo": "E000005",
+        "apellido": "jiji",
+        "correo": "melisa@gmail.com",
+        "name": "Melisa",
+        "codigoCarrera": "002",
+        "fechaDeAlta": "2024-10-27",
+        "contrasenia": "45545",
+        "dni": "45545",
         "actividad": true
     }
 ]
