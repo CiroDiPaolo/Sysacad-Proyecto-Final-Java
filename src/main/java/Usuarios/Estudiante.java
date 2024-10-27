@@ -15,14 +15,14 @@ public final class Estudiante extends Usuario implements iCRUD {
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
 
-    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera) {
-        super(name, apellido, dni, legajo, contrasenia);
+    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera) {
+        super(nombre, apellido, dni, legajo, contrasenia);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
 
-    public Estudiante(String name, String apellido, String dni, String codigoCarrera) {
-        super(name, apellido, dni);
+    public Estudiante(String nombre, String apellido, String dni, String codigoCarrera) {
+        super(nombre, apellido, dni);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
@@ -63,7 +63,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
-        if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty())
+        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getApellido().isEmpty())
         {
             this.setLegajo(generarLegajo(Estudiante.class, path));
             this.setContrasenia(this.getDni());
@@ -103,7 +103,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     public JSONObject estudianteAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("name", this.getName());
+        jsonObject.put("nombre", this.getNombre());
         jsonObject.put("apellido", this.getApellido());
         jsonObject.put("dni", this.getDni());
         jsonObject.put("legajo", this.getLegajo());
@@ -156,14 +156,14 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
+        String nombre = jsonObject.getString("nombre");
         String apellido = jsonObject.getString("apellido");
         String dni = jsonObject.getString("dni");
         String legajo = jsonObject.getString("legajo");
         String contrasenia = jsonObject.getString("contrasenia");
         String codigoCarrera = jsonObject.getString("codigoCarrera");
 
-        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, codigoCarrera);
+        Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, codigoCarrera);
 
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
         int i = 0;

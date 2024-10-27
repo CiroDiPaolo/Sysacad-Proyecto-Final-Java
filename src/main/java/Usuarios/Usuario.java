@@ -1,7 +1,6 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
-import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -12,7 +11,7 @@ import java.util.Objects;
  */
 public abstract class Usuario {
 
-    private String name;
+    private String nombre;
     private String apellido;
     private String dni;
     private String legajo;
@@ -20,8 +19,8 @@ public abstract class Usuario {
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
-    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
@@ -30,8 +29,8 @@ public abstract class Usuario {
         fechaDeAlta = LocalDate.now();
     }
 
-    public Usuario(String name, String apellido, String dni) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         fechaDeAlta = LocalDate.now();
@@ -40,7 +39,7 @@ public abstract class Usuario {
 
     public Usuario() {
         actividad = false;
-        name = "";
+        nombre = "";
         apellido = "";
         dni = "";
         legajo = "";
@@ -62,7 +61,7 @@ public abstract class Usuario {
 
     //GETTERS
 
-    public String getName() { return name; }
+    public String getNombre() { return nombre; }
 
     public String getApellido() { return apellido; }
 
@@ -86,8 +85,8 @@ public abstract class Usuario {
 
     //SETTERS
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setApellido(String apellido) { this.apellido = apellido; }
@@ -111,7 +110,7 @@ public abstract class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "name='" + name + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +
                 ", legajo='" + legajo + '\'' +
