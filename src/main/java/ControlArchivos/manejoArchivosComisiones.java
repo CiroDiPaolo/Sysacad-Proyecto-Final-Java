@@ -24,7 +24,7 @@ public class manejoArchivosComisiones {
      * @param codigoCarrera
      * @param fileName
      */
-    public static void crearArchivoComision(String fileName, String codigoCarrera) throws ArchivoYaExistenteException, ArchivoNoEncontrado {
+    public static void crearArchivoComision(String fileName, String codigoCarrera){
 
         if(!verificarArchivoCreado(pathComisiones +  codigoCarrera + "/", fileName )) {
 
@@ -35,15 +35,9 @@ public class manejoArchivosComisiones {
                 file.write("");
                 file.close();
 
-            } catch (FileNotFoundException e){
-                throw new ArchivoNoEncontrado("Archivo no encontrado");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-        }else{
-
-            throw new ArchivoYaExistenteException("El archivo ya existe");
 
         }
 
@@ -99,6 +93,7 @@ public class manejoArchivosComisiones {
 
         try (FileWriter file = new FileWriter(pathComisiones + codigoCarrera + "/" + fileName + ".json")) {
             file.write(jsonArray.toString(4));
+            file.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
