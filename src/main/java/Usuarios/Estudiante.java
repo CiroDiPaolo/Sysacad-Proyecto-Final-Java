@@ -1,5 +1,6 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
@@ -8,12 +9,20 @@ import Modelo.EstadoAlumnoMesa;
 import Modelo.iCRUD;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public final class Estudiante extends Usuario implements iCRUD {
 
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
+
+    public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
+        super(name, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+        this.codigoCarrera = codigoCarrera;
+    }
 
     public Estudiante(String name, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
         super(name, apellido, dni, legajo, contrasenia, correo);
@@ -71,7 +80,7 @@ public final class Estudiante extends Usuario implements iCRUD {
             JSONObject jsonObject = this.estudianteAJSONObject();
 
             if(!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
-                return manejoArchivosEstudiante.guardarEstudianteJSON(path, jsonObject);
+                return manejoArchivos.guardarObjetoJSON(path, jsonObject);
             } else {
                 throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con código " + jsonObject.getString("codigoCarrera"));
             }
@@ -117,6 +126,8 @@ public final class Estudiante extends Usuario implements iCRUD {
         jsonObject.put("contrasenia", this.getContrasenia());
         jsonObject.put("codigoCarrera",this.getCodigoCarrera());
         jsonObject.put("correo",this.getCorreo());
+        jsonObject.put("actividad",this.isActividad());
+        jsonObject.put("fechaDeAlta",this.getFechaDeAlta().toString());
 
         for (int i = 0; i < this.getMaterias().size(); i++) {
 
@@ -171,8 +182,10 @@ public final class Estudiante extends Usuario implements iCRUD {
         String contrasenia = jsonObject.getString("contrasenia");
         String codigoCarrera = jsonObject.getString("codigoCarrera");
         String correo = jsonObject.getString("correo");
-
-        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, codigoCarrera,correo);
+        boolean actividad = jsonObject.getBoolean("actividad");
+        String fechaStr = jsonObject.getString("fecha");
+        LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_DATE);
+        Estudiante estudiante = new Estudiante(name, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
 
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
         int i = 0;
