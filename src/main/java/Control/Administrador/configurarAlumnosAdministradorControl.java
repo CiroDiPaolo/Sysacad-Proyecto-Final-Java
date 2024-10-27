@@ -37,6 +37,8 @@ public final class configurarAlumnosAdministradorControl {
     @FXML
     void clickBtnOp2(ActionEvent event) {
 
+        escena.cambiarEscena(Path.busquedaAlumnoAdministrador, stage, "Busqueda Alumno");
+
     }
 
     @FXML
