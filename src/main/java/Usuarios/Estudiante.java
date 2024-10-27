@@ -131,7 +131,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     public JSONObject estudianteAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("name", this.getNombre());
+        jsonObject.put("nombre", this.getNombre());
         jsonObject.put("apellido", this.getApellido());
         jsonObject.put("dni", this.getDni());
         jsonObject.put("legajo", this.getLegajo());

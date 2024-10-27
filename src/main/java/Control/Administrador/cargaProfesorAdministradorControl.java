@@ -1,6 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
 import Path.Path;
 import Usuarios.Profesor;
@@ -51,9 +52,21 @@ public class cargaProfesorAdministradorControl {
         Profesor p1 = new Profesor(nombre,apellido,dni,correo);
 
         try {
-            p1.crear(Path.fileNameProfesores);
+
+            if(p1.crear(Path.fileNameProfesores)){
+
+                Excepciones.excepcionPersonalizada.alertaConfirmacion("Profesor cargado con exito");
+
+            }else{
+
+                Excepciones.excepcionPersonalizada.excepcion("Profesor ya cargado");
+
+            }
+
         } catch (EntidadYaExistente e) {
-            throw new RuntimeException(e);
+            e.getMessage();
+        } catch (CamposVaciosException e){
+            e.getMessage();
         }
 
     }
