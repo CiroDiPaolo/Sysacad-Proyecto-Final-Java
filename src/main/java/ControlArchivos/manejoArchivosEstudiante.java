@@ -97,5 +97,32 @@ public class manejoArchivosEstudiante {
         return false;
     }
 
+    public static JSONObject retornarEstudiante(String legajo,  String fileName)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        boolean encontrado = false;
+
+        int i = 0;
+
+        while(i<arreglo.length() && !encontrado)
+        {
+            JSONObject jsonObject = arreglo.getJSONObject(i);
+
+            if(jsonObject.getString("legajo").equals(legajo))
+            {
+                encontrado = true;
+            }
+
+            i++;
+        }
+        if(encontrado)
+        {
+            return arreglo.getJSONObject((i-1));
+        }
+
+        return null;
+    }
+
 
 }
