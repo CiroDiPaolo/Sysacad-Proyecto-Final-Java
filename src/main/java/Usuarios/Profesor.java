@@ -1,12 +1,10 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
-import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.iCRUD;
 import org.json.JSONObject;
-import Consultas.consultaArchivo;
 
 /**
  * La clase Profesor no contiene atributos pero es para diferenciar sus funciones de los otros tipos de usuario.
@@ -14,21 +12,21 @@ import Consultas.consultaArchivo;
  */
 public final class Profesor extends Usuario implements iCRUD {
 
-    public Profesor(String name, String dni, String legajo,String contrasenia, String correo) {
-        super(name, dni, legajo,contrasenia, contrasenia, correo);
+    public Profesor(String nombre, String dni, String legajo, String correo) {
+        super(nombre, dni, legajo, correo);
     }
 
     public Profesor() {}
 
     @Override
     public String toString() {
-        return "| Profesor: " + getName();
+        return "| Profesor: " + getNombre();
     }
 
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
 
-        if(!this.getDni().isEmpty() && !this.getName().isEmpty())
+        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty())
         {
             setLegajo(generarLegajo(Profesor.class, path));
             setContrasenia(getDni());
@@ -73,7 +71,7 @@ public final class Profesor extends Usuario implements iCRUD {
 
         JSONObject profesor = new JSONObject();
 
-        profesor.put("nombre", getName());
+        profesor.put("nombre", getNombre());
         profesor.put("dni",getDni());
         profesor.put("legajo",getLegajo());
         profesor.put("contrasenia",getContrasenia());
