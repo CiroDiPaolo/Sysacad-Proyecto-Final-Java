@@ -220,4 +220,8 @@ public abstract class Usuario {
         String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         return email.matches(regex);
     }
+
+    public static boolean esDniValido(String dni) {
+        return dni.matches("\\d{8}");
+    }
 }
