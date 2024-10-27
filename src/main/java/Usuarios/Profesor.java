@@ -6,6 +6,8 @@ import Excepciones.EntidadYaExistente;
 import Modelo.iCRUD;
 import org.json.JSONObject;
 
+import java.time.LocalDate;
+
 /**
  * La clase Profesor no contiene atributos pero es para diferenciar sus funciones de los otros tipos de usuario.
  * Tiene los mismos atributos que un Usuario.
@@ -18,6 +20,9 @@ public final class Profesor extends Usuario implements iCRUD {
 
     public Profesor() {}
 
+    public Profesor(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
+    }
+
     @Override
     public String toString() {
         return "| Profesor: " + getNombre();
@@ -25,6 +30,8 @@ public final class Profesor extends Usuario implements iCRUD {
 
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
+
+        boolean creado = false;
 
         if(!this.getDni().isEmpty() && !this.getNombre().isEmpty())
         {
@@ -36,10 +43,11 @@ public final class Profesor extends Usuario implements iCRUD {
             if(!Consultas.consultaArchivo.buscarClave(path,getDni(),"dni")){
 
                 manejoArchivos.guardarObjetoJSON(path,profesor);
+                creado = true;
 
             }else{
 
-                System.out.println("El profesor ya existe");
+               throw new EntidadYaExistente("Ya existe un profesor cargado con ese DNI");
 
             }
 
@@ -49,7 +57,7 @@ public final class Profesor extends Usuario implements iCRUD {
             throw new CamposVaciosException("Faltan campos obligatorios");
         }
 
-        return false;
+        return creado;
     }
 
     @Override
@@ -72,13 +80,34 @@ public final class Profesor extends Usuario implements iCRUD {
         JSONObject profesor = new JSONObject();
 
         profesor.put("nombre", getNombre());
+        profesor.put("apellido", getApellido());
         profesor.put("dni",getDni());
         profesor.put("correo",getCorreo());
         profesor.put("legajo",getLegajo());
         profesor.put("contrasenia",getContrasenia());
+        profesor.put("fechaDeAlta",getFechaDeAlta().toString());
+        profesor.put("actividad",isActividad());
 
         return profesor;
 
     }
+
+
+    public static Profesor JSONObjectAProfesor(JSONObject profesor){
+
+        String nombre = profesor.getString("nombre");
+        String apellido = profesor.getString("apellido");
+        String dni = profesor.getString("dni");
+        String legajo = profesor.getString("legajo");
+        String contrasenia = profesor.getString("contrasenia");
+        String correo = profesor.getString("correo");
+        LocalDate fechaDeAlta = LocalDate.parse(profesor.getString("fechaDeAlta"));
+        boolean actividad = profesor.getBoolean("actividad");
+
+        return new Profesor(nombre,apellido,dni,legajo,contrasenia,correo,fechaDeAlta,actividad);
+
+    }
+
+
 
 }
