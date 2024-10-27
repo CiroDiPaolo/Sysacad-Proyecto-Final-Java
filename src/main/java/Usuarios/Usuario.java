@@ -132,6 +132,12 @@ public abstract class Usuario {
         return Objects.hash(dni, legajo);
     }
 
+    /**
+     * Retorna el legajo siguiente correspondiente segun la clase
+     * @param clase
+     * @param fileName
+     * @return String
+     */
     public static String generarLegajo(Class<?> clase, String fileName){
         String ultimoLegajo = manejoArchivos.ultimoLegajo(fileName);
         String auxiliar = ultimoLegajo.substring(1);

@@ -54,6 +54,13 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     //Metodos
 
+    /**
+     * Crea un alumno si es que sus campos estan completos y el dni del alumno no se repite en la carrera.
+     * @param path
+     * @return true si lo agregó al archivo de estudiantes
+     * @throws EntidadYaExistente
+     * @throws CamposVaciosException
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
         if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty())
@@ -89,6 +96,10 @@ public final class Estudiante extends Usuario implements iCRUD {
         return false;
     }
 
+    /**
+     * Convierte un estudiante a un JSONObject
+     * @return JSONObject
+     */
     public JSONObject estudianteAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
@@ -139,6 +150,11 @@ public final class Estudiante extends Usuario implements iCRUD {
         return jsonObject;
     }
 
+    /**
+     * Convierte un JSONObject a un estudiante
+     * @param jsonObject
+     * @return Estudiante
+     */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String apellido = jsonObject.getString("apellido");
