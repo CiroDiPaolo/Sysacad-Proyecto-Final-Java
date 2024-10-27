@@ -1,6 +1,9 @@
 package ControlArchivos;
 
 import Excepciones.ArchivoYaExistenteException;
+import Excepciones.excepcionPersonalizada;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -17,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
+
+import static Path.Path.icono;
 
 public final class manejoArchivos {
 
@@ -147,5 +152,21 @@ public final class manejoArchivos {
 
         return ultimoLegajo;
     }
+
+    public static void alertaConfirmacion(String mensaje){
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("¡Operación exitosa!");
+        alert.setHeaderText("");
+        alert.setContentText(mensaje);
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        Image icon = new Image(manejoArchivos.class.getResourceAsStream(icono));
+        stage.getIcons().add(icon);
+
+        alert.showAndWait();
+
+    }
+
 
 }
