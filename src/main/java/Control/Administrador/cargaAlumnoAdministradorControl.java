@@ -3,6 +3,7 @@ package Control.Administrador;
 import Control.EscenaControl;
 import ControlArchivos.manejoArchivos;
 import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Excepciones.excepcionPersonalizada;
 import Path.Path;
@@ -67,6 +68,8 @@ public class cargaAlumnoAdministradorControl {
                 e.getMessage();
             }catch (CamposVaciosException e)
             {
+                e.getMessage();
+            } catch (DatosIncorrectosException e) {
                 e.getMessage();
             }
         }catch (NullPointerException e)
