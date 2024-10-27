@@ -63,11 +63,10 @@ public final class Estudiante extends Usuario implements iCRUD {
 
             JSONObject jsonObject = this.estudianteAJSONObject();
 
-            if(manejoArchivosEstudiante.compararEstudianteDNICarrera(path,jsonObject))
-            {
+            if(!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
                 return manejoArchivosEstudiante.guardarEstudianteJSON(path, jsonObject);
-            }else {
-                throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con codigo " + jsonObject.getString("codigoCarrera"));
+            } else {
+                throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con código " + jsonObject.getString("codigoCarrera"));
             }
         }else{
             throw new CamposVaciosException("Intentó enviar campos vacios. Verifique que los campos esten completos y vuelva a intentar");

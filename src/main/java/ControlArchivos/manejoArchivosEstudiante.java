@@ -15,38 +15,35 @@ import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 public class manejoArchivosEstudiante {
 
     /**
-     * Metodo que compara un DNI de un estudiante
+     * Metodo que compara un DNI de un estudiante, devuelve false si no lo encontró, devuelve true si lo encontró
      * @param filePath
      * @param estudiante
      * @return
      */
     public static boolean compararEstudianteDNICarrera(String filePath, JSONObject estudiante) {
 
-        boolean existe = false;
-
-        try {
-            // Leer el archivo JSON
-            JSONTokener tokener = new JSONTokener(new FileReader(filePath));
+        try (FileReader fileReader = new FileReader(filePath)) {
+            JSONTokener tokener = new JSONTokener(fileReader);
             JSONArray estudiantesArray = new JSONArray(tokener);
 
-            // Obtener el DNI del estudiante recibido
             String dniEstudiante = estudiante.getString("dni");
             String codigoCarreraEstudiante = estudiante.getString("codigoCarrera");
-            // Iterar sobre los estudiantes en el archivo
+
             for (int i = 0; i < estudiantesArray.length(); i++) {
                 JSONObject estudianteExistente = estudiantesArray.getJSONObject(i);
                 String dniExistente = estudianteExistente.getString("dni");
                 String codigoCarreraExistente = estudianteExistente.getString("codigoCarrera");
-                // Comparar los DNIs y codigo de carrera
-                if ((dniEstudiante.equals(dniExistente)) && (codigoCarreraEstudiante.equals(codigoCarreraExistente))) {
-                    existe = true; // Coincidencia encontrada
+
+                // Verificar si el DNI y el código de carrera coinciden
+                if (dniEstudiante.equals(dniExistente) && codigoCarreraEstudiante.equals(codigoCarreraExistente)) {
+                    return true; // Coincidencia encontrada
                 }
             }
         } catch (IOException e) {
             throw new RuntimeException("Error al leer el archivo: " + e.getMessage());
         }
 
-        return existe; // No se encontró coincidencia
+        return false;
     }
 
     /**
