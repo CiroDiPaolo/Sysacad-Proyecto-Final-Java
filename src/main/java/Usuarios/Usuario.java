@@ -17,23 +17,26 @@ public abstract class Usuario {
     private String dni;
     private String legajo;
     private String contrasenia;
+    private String correo;
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
-    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
+    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo) {
         this.name = name;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        this.correo = correo;
         this.actividad = true;
         fechaDeAlta = LocalDate.now();
     }
 
-    public Usuario(String name, String apellido, String dni) {
+    public Usuario(String name, String apellido, String dni, String correo) {
         this.name = name;
         this.apellido = apellido;
         this.dni = dni;
+        this.correo = correo;
         fechaDeAlta = LocalDate.now();
         this.actividad = true;
     }
@@ -45,6 +48,7 @@ public abstract class Usuario {
         dni = "";
         legajo = "";
         contrasenia = "";
+        correo = "";
         fechaDeAlta = LocalDate.now();
     }
 
@@ -84,6 +88,10 @@ public abstract class Usuario {
         return actividad;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
     //SETTERS
 
     public void setName(String name) {
@@ -106,6 +114,10 @@ public abstract class Usuario {
 
     public void setActividad(boolean actividad) {
         this.actividad = actividad;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     @Override
@@ -172,5 +184,24 @@ public abstract class Usuario {
         
         
         return null;
+    }
+
+    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
+    {
+        boolean comparar = true;
+
+        if(!jsonObject.getString("name").equals(usuario.getName()))
+        {
+            comparar = false;
+        } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+            comparar = false;
+        } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
+            comparar = false;
+        } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
+            comparar = false;
+        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
+            comparar = false;
+        }
+        return comparar;
     }
 }
