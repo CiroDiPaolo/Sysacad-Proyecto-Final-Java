@@ -1,11 +1,12 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.iCRUD;
 import org.json.JSONObject;
-
+import Consultas.consultaArchivo;
 
 /**
  * La clase Profesor no contiene atributos pero es para diferenciar sus funciones de los otros tipos de usuario.
@@ -13,21 +14,21 @@ import org.json.JSONObject;
  */
 public final class Profesor extends Usuario implements iCRUD {
 
-    public Profesor(String nombre, String dni, String legajo,String contrasenia) {
-        super(nombre, dni, legajo,contrasenia, contrasenia);
+    public Profesor(String name, String dni, String legajo,String contrasenia, String correo) {
+        super(name, dni, legajo,contrasenia, contrasenia, correo);
     }
 
     public Profesor() {}
 
     @Override
     public String toString() {
-        return "| Profesor: " + getNombre();
+        return "| Profesor: " + getName();
     }
 
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException {
 
-        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty())
+        if(!this.getDni().isEmpty() && !this.getName().isEmpty())
         {
             setLegajo(generarLegajo(Profesor.class, path));
             setContrasenia(getDni());
@@ -36,7 +37,7 @@ public final class Profesor extends Usuario implements iCRUD {
 
             if(!Consultas.consultaArchivo.buscarClave(path,"dni",getDni())){
 
-                manejoArchivosEstudiante.guardarEstudianteJSON(path,profesor);
+                manejoArchivos.guardarObjetoJSON(path,profesor);
 
             }else{
 
@@ -54,7 +55,7 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path) {
+    public boolean actualizar(String path, JSONObject jsonObject) {
         return false;
     }
 
@@ -72,13 +73,10 @@ public final class Profesor extends Usuario implements iCRUD {
 
         JSONObject profesor = new JSONObject();
 
-        profesor.put("nombre", getNombre());
+        profesor.put("nombre", getName());
         profesor.put("dni",getDni());
         profesor.put("legajo",getLegajo());
         profesor.put("contrasenia",getContrasenia());
-
-        profesor.put("fechaDeAlta",getFechaDeAlta().toString());
-        profesor.put("actividad",isActividad());
 
         return profesor;
 

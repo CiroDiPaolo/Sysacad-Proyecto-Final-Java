@@ -9,10 +9,29 @@
     },
     {
         "legajo": "E000002",
-        "apellido": "perezx",
-        "codigoCarrera": "001",
-        "contrasenia": "46557192",
-        "nombre": "juan",
-        "dni": "46557192"
+        "apellido": "Di Paolo",
+        "nombre": "Ciro",
+        "codigoCarrera": "002",
+        "contrasenia": "46557199",
+        "dni": "46557199"
+    },
+    {
+        "legajo": "E000003",
+        "apellido": "colo",
+        "nombre": "colo",
+        "codigoCarrera": "002",
+        "contrasenia": "32832823",
+        "dni": "32832823"
+    },
+    {
+        "legajo": "E000004",
+        "apellido": "Carrizo",
+        "correo": "melisacarrizo5@gmail.com",
+        "nombre": "Melisa",
+        "codigoCarrera": "002",
+        "fechaDeAlta": "2024-10-27",
+        "contrasenia": "6666",
+        "dni": "6666",
+        "actividad": true
     }
 ]

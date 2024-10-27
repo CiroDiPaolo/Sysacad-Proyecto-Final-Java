@@ -1,6 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import ControlArchivos.manejoArchivos;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
 import Excepciones.excepcionPersonalizada;
@@ -48,13 +49,19 @@ public class cargaAlumnoAdministradorControl {
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String dni = txtDni.getText();
+        String correo = txtCorreo.getText();
         String nombreCarrera =choiceCarrera.getValue();
 
         try{
             String codigoCarrera = manejoArchivosCarrera.retonarCodigoCarreraPorNombre(nombreCarrera, pathCarreras, false);
             try{
-                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera);
-                nuevoEstudiante.crear(fileNameAlumnos);
+                Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera,correo);
+                if(nuevoEstudiante.crear(fileNameAlumnos))
+                {
+                    manejoArchivos.alertaConfirmacion("Estudiante cargado");
+                    EscenaControl escena = new EscenaControl();
+                    escena.cambiarEscena(Path.menuPrincipalAdministrador,stage,"Menu Principal");
+                }
             }catch (EntidadYaExistente e)
             {
                 e.getMessage();

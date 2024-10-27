@@ -1,6 +1,7 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,39 +12,54 @@ import java.util.Objects;
  */
 public abstract class Usuario {
 
-    private String nombre;
+    private String name;
     private String apellido;
     private String dni;
     private String legajo;
     private String contrasenia;
+    private String correo;
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
-    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia) {
-        this.nombre = nombre;
+    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
+        this.name = name;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.fechaDeAlta = fechaDeAlta;
+        this.actividad = actividad;
+    }
+
+    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia, String correo) {
+        this.name = name;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.legajo = legajo;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
         this.actividad = true;
         fechaDeAlta = LocalDate.now();
     }
 
-    public Usuario(String nombre, String apellido, String dni) {
-        this.nombre = nombre;
+    public Usuario(String name, String apellido, String dni, String correo) {
+        this.name = name;
         this.apellido = apellido;
         this.dni = dni;
+        this.correo = correo;
         fechaDeAlta = LocalDate.now();
         this.actividad = true;
     }
 
     public Usuario() {
         actividad = false;
-        nombre = "";
+        name = "";
         apellido = "";
         dni = "";
         legajo = "";
         contrasenia = "";
+        correo = "";
         fechaDeAlta = LocalDate.now();
     }
 
@@ -61,7 +77,7 @@ public abstract class Usuario {
 
     //GETTERS
 
-    public String getNombre() { return nombre; }
+    public String getName() { return name; }
 
     public String getApellido() { return apellido; }
 
@@ -83,10 +99,14 @@ public abstract class Usuario {
         return actividad;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
     //SETTERS
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setApellido(String apellido) { this.apellido = apellido; }
@@ -107,10 +127,14 @@ public abstract class Usuario {
         this.actividad = actividad;
     }
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
-                "nombre='" + nombre + '\'' +
+                "name='" + name + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +
                 ", legajo='" + legajo + '\'' +
@@ -171,5 +195,24 @@ public abstract class Usuario {
         
         
         return null;
+    }
+
+    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
+    {
+        boolean comparar = true;
+
+        if(!jsonObject.getString("name").equals(usuario.getName()))
+        {
+            comparar = false;
+        } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+            comparar = false;
+        } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
+            comparar = false;
+        } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
+            comparar = false;
+        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
+            comparar = false;
+        }
+        return comparar;
     }
 }

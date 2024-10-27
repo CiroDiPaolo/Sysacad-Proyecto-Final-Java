@@ -1,6 +1,9 @@
 package ControlArchivos;
 
 import Excepciones.ArchivoYaExistenteException;
+import Excepciones.excepcionPersonalizada;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -17,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
+
+import static Path.Path.icono;
 
 public final class manejoArchivos {
 
@@ -147,5 +152,72 @@ public final class manejoArchivos {
 
         return ultimoLegajo;
     }
+
+    public static void alertaConfirmacion(String mensaje){
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("¡Operación exitosa!");
+        alert.setHeaderText("");
+        alert.setContentText(mensaje);
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        Image icon = new Image(manejoArchivos.class.getResourceAsStream(icono));
+        stage.getIcons().add(icon);
+
+        alert.showAndWait();
+
+    }
+
+    /**
+     * Metodo que escribe un archivo JSON
+     * @param filePath
+     * @param estudiante
+     */
+    public static boolean guardarObjetoJSON(String filePath, JSONObject estudiante) {
+        JSONArray jsonArray;
+        // Inicializar el JSONArray
+        try {
+            // Leer el contenido existente del archivo
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
+            }
+
+            // Cargar el arreglo existente en jsonArray
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            // Si no se puede leer, comenzamos con un nuevo JSONArray
+            jsonArray = new JSONArray();
+        } catch (JSONException e) {
+            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
+            // Si hay un error de JSON, iniciamos un nuevo JSONArray
+            jsonArray = new JSONArray();
+        }
+
+        // Agregar la nueva persona
+        try {
+
+            jsonArray.put(estudiante);
+
+            // Escribir el arreglo actualizado de nuevo en el archivo
+            FileWriter file = new FileWriter(filePath);
+            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
+            file.close();
+            System.out.println("Persona guardada con éxito.");
+            return true;
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        } catch (JSONException e) {
+            System.out.println("Error al convertir la persona a JSON: " + e.getMessage());
+        }
+
+        return false;
+    }
+
 
 }

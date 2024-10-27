@@ -46,56 +46,32 @@ public class manejoArchivosEstudiante {
         return false;
     }
 
-    /**
-     * Metodo que escribe un archivo JSON
-     * @param filePath
-     * @param estudiante
-     */
-    public static boolean guardarEstudianteJSON(String filePath, JSONObject estudiante) {
 
-        JSONArray jsonArray;
-        // Inicializar el JSONArray
-        try {
-            // Leer el contenido existente del archivo
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            StringBuilder jsonStringBuilder = new StringBuilder();
-            String line;
+    public static JSONObject retornarEstudiante(String legajo,  String fileName)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
 
-            while ((line = reader.readLine()) != null) {
-                jsonStringBuilder.append(line);
+        boolean encontrado = false;
+
+        int i = 0;
+
+        while(i<arreglo.length() && !encontrado)
+        {
+            JSONObject jsonObject = arreglo.getJSONObject(i);
+
+            if(jsonObject.getString("legajo").equals(legajo))
+            {
+                encontrado = true;
             }
 
-            // Cargar el arreglo existente en jsonArray
-            jsonArray = new JSONArray(jsonStringBuilder.toString());
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
-            // Si no se puede leer, comenzamos con un nuevo JSONArray
-            jsonArray = new JSONArray();
-        } catch (JSONException e) {
-            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
-            // Si hay un error de JSON, iniciamos un nuevo JSONArray
-            jsonArray = new JSONArray();
+            i++;
+        }
+        if(encontrado)
+        {
+            return arreglo.getJSONObject((i-1));
         }
 
-        // Agregar la nueva persona
-        try {
-
-            jsonArray.put(estudiante);
-
-            // Escribir el arreglo actualizado de nuevo en el archivo
-            FileWriter file = new FileWriter(filePath);
-            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
-            file.close();
-            System.out.println("Persona guardada con éxito.");
-            return true;
-        } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo: " + e.getMessage());
-        } catch (JSONException e) {
-            System.out.println("Error al convertir la persona a JSON: " + e.getMessage());
-        }
-
-        return false;
+        return null;
     }
 
 
