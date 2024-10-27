@@ -72,7 +72,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
-        if(this.getDni().matches("\\d+"))
+        if(Usuario.esDniValido(this.getDni()))
         {
             if(Usuario.esCorreoValido(this.getCorreo())){
                 if(!this.getDni().isEmpty() && !this.getName().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
