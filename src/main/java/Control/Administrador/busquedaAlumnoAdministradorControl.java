@@ -28,7 +28,17 @@ public class busquedaAlumnoAdministradorControl {
 
     @FXML
     void clickBtnBuscar(ActionEvent event) {
+        /*
 
+        if(si lo encuentra){
+
+            EscenaControl escena = new EscenaControl();
+            escena.cambiarEscena(Path.Path.editarAlumnoAdministrador,stage,"Editar Alumno");
+
+        }
+
+
+         */
 
 
     }
