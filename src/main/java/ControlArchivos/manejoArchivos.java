@@ -153,21 +153,6 @@ public final class manejoArchivos {
         return ultimoLegajo;
     }
 
-    public static void alertaConfirmacion(String mensaje){
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("¡Operación exitosa!");
-        alert.setHeaderText("");
-        alert.setContentText(mensaje);
-
-        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        Image icon = new Image(manejoArchivos.class.getResourceAsStream(icono));
-        stage.getIcons().add(icon);
-
-        alert.showAndWait();
-
-    }
-
     /**
      * Metodo que escribe un archivo JSON
      * @param filePath
