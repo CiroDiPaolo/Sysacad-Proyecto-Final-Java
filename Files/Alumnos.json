@@ -1,1 +1,11 @@
-[]
+[{
+    "legajo": "E000001",
+    "apellido": "Carrizo",
+    "correo": "melisacarrizo5@gmail.com",
+    "codigoCarrera": "001",
+    "fechaDeAlta": "2024-10-27",
+    "contrasenia": "46557012",
+    "nombre": "Melisa",
+    "dni": "46557012",
+    "actividad": true
+}]
