@@ -1,8 +1,7 @@
 package Control.Profesores;
 
 import Control.EscenaControl;
-import Control.InicioSesion.inicioSesionData;
-import Path.*;
+import Control.InicioSesion.Data;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,7 +36,7 @@ public class menuPrincipalProfesoresControl {
      */
     protected void setTxtBienvenida() {
 
-        String legajo = inicioSesionData.getLegajo();
+        String legajo = Data.getLegajo();
 
         txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
     }

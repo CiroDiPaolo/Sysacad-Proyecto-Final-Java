@@ -115,7 +115,15 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean leer(String path) {
+    public boolean leer(String path, String legajo) {
+
+        JSONObject estudianteJSON = manejoArchivosEstudiante.retornarEstudiante(legajo,path);
+
+        if(estudianteJSON!=null)
+        {
+
+        }
+
         return false;
     }
 
