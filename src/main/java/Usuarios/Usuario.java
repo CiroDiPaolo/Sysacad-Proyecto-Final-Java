@@ -210,8 +210,6 @@ public abstract class Usuario {
             comparar = false;
         } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
             comparar = false;
-        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
-            comparar = false;
         }
         return comparar;
     }
