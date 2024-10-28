@@ -1,42 +1,10 @@
-[
-    {
-        "legajo": "P000001",
-        "apellido": "Perez",
-        "correo": "profe1@gmail.com",
-        "fechaDeAlta": "2024-11-08",
-        "contrasenia": "12000111",
-        "nombre": "Juancito",
-        "dni": "12345678",
-        "actividad": true
-    },
-    {
-        "legajo": "P000002",
-        "apellido": "Alvarez",
-        "correo": "profe2@gmail.com",
-        "fechaDeAlta": "2024-11-08",
-        "contrasenia": "25001002",
-        "nombre": "Juancita",
-        "dni": "25001002",
-        "actividad": true
-    },
-    {
-        "legajo": "P000003",
-        "apellido": "perez",
-        "correo": "juan@gmail.com",
-        "fechaDeAlta": "2024-11-10",
-        "contrasenia": "12345678",
-        "nombre": "Juan",
-        "dni": "12345678",
-        "actividad": true
-    },
-    {
-        "legajo": "P000004",
-        "apellido": "Daddy",
-        "correo": "profe4@gmail.com",
-        "fechaDeAlta": "2024-11-08",
-        "contrasenia": "25001002",
-        "nombre": "Yankee",
-        "dni": "21000102",
-        "actividad": true
-    }
-]
+[{
+  "legajo": "P000001",
+  "apellido": "Di Biassi",
+  "correo": "an10dibiassi@gmail.com",
+  "fechaDeAlta": "2024-10-28",
+  "contrasenia": "46420341",
+  "nombre": "Angie",
+  "dni": "46420341",
+  "actividad": true
+}]
