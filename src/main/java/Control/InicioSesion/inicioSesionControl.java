@@ -161,8 +161,6 @@ public final class inicioSesionControl {
 
             }
 
-            System.out.println("correcto");
-
             // Obtener el Stage actual
             Stage stage = (Stage) btnAcceder.getScene().getWindow();
 

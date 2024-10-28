@@ -68,6 +68,8 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp3(ActionEvent event) {
 
+        escena.cambiarEscena(congifurarProfesorAdministrador,stage,"Configurar Profesor");
+
     }
 
     @FXML

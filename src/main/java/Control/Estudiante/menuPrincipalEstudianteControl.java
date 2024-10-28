@@ -176,7 +176,7 @@ public final class menuPrincipalEstudianteControl {
 
         Estudiante estudiante = inicioSesionData.getEstudiante();
 
-        txtBienvenida.setText("Bienvenido, " + estudiante.getName() + " " + estudiante.getApellido());
+        txtBienvenida.setText("Bienvenido, " + estudiante.getNombre() + " " + estudiante.getApellido());
     }
 
 }

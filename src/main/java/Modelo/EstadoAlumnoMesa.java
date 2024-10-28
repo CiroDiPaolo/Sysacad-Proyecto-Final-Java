@@ -1,5 +1,7 @@
 package Modelo;
 
+import org.json.JSONObject;
+
 /**
  * La clase EstadoMesa sirve para llevar un seguimiento de la mesa que rindió el alumno.
  * Tiene un codigo de la mesa en la que rindió, una nota y un boolean que sirve para saber si se presentó o no.
@@ -48,5 +50,13 @@ public class EstadoAlumnoMesa {
 
     public void setPresente(boolean presente) {
         this.presente = presente;
+    }
+
+    public static EstadoAlumnoMesa JSONObjectAEstadoAlumnoMesa(JSONObject jsonObject) {
+        return new EstadoAlumnoMesa(
+                (jsonObject.getString("key")),
+                (jsonObject.getInt("value")),
+                (jsonObject.getBoolean("presente"))
+        );
     }
 }

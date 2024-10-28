@@ -1,0 +1,62 @@
+[
+  {
+    "id": "001",
+    "nombre": "Ingeniería en Sistemas",
+    "plan": "2024",
+    "materias": {
+      "MAT101": {
+        "id": "MAT101",
+        "nombre": "Matemáticas I",
+        "anio": "2024",
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "seRinde": true,
+        "codigoCorrelativasCursado": ["MAT100"],
+        "codigoCorrelativasRendir": ["MAT100"],
+        "actividad": true
+      },
+      "MAT102": {
+        "id": "MAT102",
+        "nombre": "Matemáticas II",
+        "anio": "2024",
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "seRinde": true,
+        "codigoCorrelativasCursado": ["MAT101"],
+        "codigoCorrelativasRendir": ["MAT101"],
+        "actividad": true
+      }
+    },
+    "actividad": true
+  },
+  {
+    "id": "002",
+    "nombre": "Licenciatura en Ciencias de la Computación",
+    "plan": "2024",
+    "materias": {
+      "CS101": {
+        "id": "CS101",
+        "nombre": "Introducción a la Programación",
+        "anio": "2024",
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "seRinde": true,
+        "codigoCorrelativasCursado": [],
+        "codigoCorrelativasRendir": [],
+        "actividad": true
+      },
+      "CS102": {
+        "id": "CS102",
+        "nombre": "Estructuras de Datos",
+        "anio": "2024",
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "seRinde": true,
+        "codigoCorrelativasCursado": ["CS101"],
+        "codigoCorrelativasRendir": ["CS101"],
+        "actividad": true
+      }
+    },
+    "actividad": true
+  }
+]

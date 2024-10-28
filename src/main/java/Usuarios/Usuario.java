@@ -1,5 +1,8 @@
 package Usuarios;
 
+import ControlArchivos.manejoArchivos;
+import org.json.JSONObject;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -9,31 +12,54 @@ import java.util.Objects;
  */
 public abstract class Usuario {
 
-    private String name;
+    private String nombre;
     private String apellido;
     private String dni;
     private String legajo;
     private String contrasenia;
+    private String correo;
     private LocalDate fechaDeAlta;
     private boolean actividad;
 
-    public Usuario(String name, String apellido, String dni, String legajo, String contrasenia) {
-        this.name = name;
+    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.fechaDeAlta = fechaDeAlta;
+        this.actividad = actividad;
+    }
+
+    public Usuario(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.legajo = legajo;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
         this.actividad = true;
         fechaDeAlta = LocalDate.now();
     }
 
+    public Usuario(String nombre, String apellido, String dni, String correo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.correo = correo;
+        fechaDeAlta = LocalDate.now();
+        this.actividad = true;
+    }
+
     public Usuario() {
         actividad = false;
-        name = "";
+        nombre = "";
         apellido = "";
         dni = "";
         legajo = "";
         contrasenia = "";
+        correo = "";
         fechaDeAlta = LocalDate.now();
     }
 
@@ -51,7 +77,7 @@ public abstract class Usuario {
 
     //GETTERS
 
-    public String getName() { return name; }
+    public String getNombre() { return nombre; }
 
     public String getApellido() { return apellido; }
 
@@ -73,10 +99,14 @@ public abstract class Usuario {
         return actividad;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
     //SETTERS
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setApellido(String apellido) { this.apellido = apellido; }
@@ -97,10 +127,14 @@ public abstract class Usuario {
         this.actividad = actividad;
     }
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
-                "name='" + name + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +
                 ", legajo='" + legajo + '\'' +
@@ -122,31 +156,72 @@ public abstract class Usuario {
     }
 
     /**
-     * Genera un legajo random que comienza con una letra segun el tipo de usuario("E" para estudiante, "P" para profesor, "A" para administrador)
-     * Y lo concatena con 6 numeros random que van del 0 al 9 cada numero
-     * @param tipoUsuario
-     * @return String de un ID legajo
+     * Retorna el legajo siguiente correspondiente segun la clase
+     * @param clase
+     * @param fileName
+     * @return String
      */
-    public static String generarLegajoRandom(ETipoUsuario tipoUsuario)
-    {
-        String id = "";
-        if(tipoUsuario == ETipoUsuario.ALUMNO)
+    public static String generarLegajo(Class<?> clase, String fileName){
+        String ultimoLegajo = manejoArchivos.ultimoLegajo(fileName);
+        String auxiliar = ultimoLegajo.substring(1);
+        String auxiliar2 = "";
+        String nuevoLegajo = null;
+        int num = Integer.parseInt(auxiliar);
+        auxiliar = Integer.toString((num+1));
+        int cantCeros = 6- (auxiliar.length());
+
+        for(int i = 0; i<cantCeros; i++)
         {
-            id += "E";
-        } else if (tipoUsuario == ETipoUsuario.PROFESOR) {
-            id += "P";
-        }else if (tipoUsuario == ETipoUsuario.ADMINISTRADOR) {
-            id += "A";
+            auxiliar2 = auxiliar2.concat("0");
         }
+        
+        try{
+            if(clase == Estudiante.class)
+            {
+                nuevoLegajo = ("E").concat(auxiliar2).concat(auxiliar);
+                
+            } else if (clase == Profesor.class){
+                nuevoLegajo = ("P").concat(auxiliar2).concat(auxiliar);
+            } else if (clase == Administrador.class)
+            {
+                nuevoLegajo = ("A").concat(auxiliar2).concat(auxiliar);
+            }
 
-        for(int i=0; i<6; i++)
+            return nuevoLegajo;
+        }catch (IllegalArgumentException e)
         {
-            int num = (int)Math.floor(Math.random() * 9);
-
-            id += Integer.toString(num);
+            System.out.println("No ingresaste una clase correcta");
         }
-
-        return id;
+        
+        
+        return null;
     }
 
+    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
+    {
+        boolean comparar = true;
+
+        if(!jsonObject.getString("nombre").equals(usuario.getNombre()))
+        {
+            comparar = false;
+        } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+            comparar = false;
+        } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
+            comparar = false;
+        } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
+            comparar = false;
+        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
+            comparar = false;
+        }
+        return comparar;
+    }
+
+    public static boolean esCorreoValido(String email) {
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        return email.matches(regex);
+    }
+
+    public static boolean esDniValido(String dni) {
+        return dni.matches("\\d{8}");
+    }
 }

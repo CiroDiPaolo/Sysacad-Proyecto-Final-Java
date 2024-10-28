@@ -1,6 +1,6 @@
 package Modelo;
 
-import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.ArchivoYaExistenteException;
 import Path.Path;
 import java.util.HashMap;
@@ -22,6 +22,14 @@ public final class Carrera {
 
     //Constructores
 
+    public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias, boolean actividad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.plan = plan;
+        this.materias = materias;
+        this.actividad = actividad;
+    }
+
     public Carrera(String id, String nombre, String plan, HashMap<String, Materia> materias) {
         this.id = id;
         this.nombre = nombre;
@@ -32,7 +40,7 @@ public final class Carrera {
         try {
             crearArchivoCarrera();
         } catch (ArchivoYaExistenteException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -42,6 +50,8 @@ public final class Carrera {
         plan = "";
         actividad = true;
     }
+
+
 
     //Getters
 
@@ -91,10 +101,8 @@ public final class Carrera {
 
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
-        System.out.println("asd");
-
-        manejoArchivos.crearCarpetaCarrera(nombre);
-        manejoArchivos.crearJSONCarrera( Path.pathCarreras, this);
+        manejoArchivosCarrera.crearCarpetaCarrera(id);
+        manejoArchivosCarrera.crearJSONCarrera(Path.pathCarreras, this);
 
     }
 
@@ -118,4 +126,5 @@ public final class Carrera {
     public int hashCode() {
         return Objects.hash(id, nombre);
     }
+
 }

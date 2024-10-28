@@ -1,11 +1,9 @@
 package Modelo;
 
-import Usuarios.Estudiante;
-import Usuarios.Profesor;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
 
 /**
  * La clase materia define una materia. La materia tiene un id que corresponde al id legal, un nombre, el año de la carrera en el que se cursa,
@@ -27,6 +25,17 @@ public final class Materia {
     private boolean actividad;
 
     //Constructores
+    public Materia(String id, String nombre, String anio, String cuatrimestre, boolean seCursa, boolean seRinde, HashSet<String> codigoCorrelativasCursado, HashSet<String> codigoCorrelativasRendir, boolean actividad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.anio = anio;
+        this.cuatrimestre = cuatrimestre;
+        this.seCursa = seCursa;
+        this.seRinde = seRinde;
+        this.codigoCorrelativasCursado = codigoCorrelativasCursado;
+        this.codigoCorrelativasRendir = codigoCorrelativasRendir;
+        this.actividad = actividad;
+    }
 
     public Materia(String id, String nombre, String anio, String cuatrimestre, boolean seCursa, boolean seRinde, HashSet<String> codigoCorrelativasCursado, HashSet<String> codigoCorrelativasRendir) {
         this.id = id;
@@ -40,6 +49,7 @@ public final class Materia {
         this.actividad = true;
     }
 
+
     public Materia() {
         id = "";
         nombre ="";
@@ -49,6 +59,7 @@ public final class Materia {
         seRinde = false;
         actividad = false;
     }
+
 
     //Getters
 
@@ -141,5 +152,32 @@ public final class Materia {
                 ", codigoCorrelativasCursado=" + codigoCorrelativasCursado +
                 ", codigoCorrelativasRendir=" + codigoCorrelativasRendir +
                 '}';
+    }
+
+    public static Materia JSONObjectAMateria(JSONObject jsonObject) {
+
+        String id = jsonObject.getString("id");
+        String nombre = jsonObject.getString("nombre");
+        String anio = jsonObject.getString("anio");
+        String cuatrimestre = jsonObject.getString("cuatrimestre");
+        boolean seCursa = jsonObject.getBoolean("seCursa");
+        boolean seRinde = jsonObject.getBoolean("seRinde");
+        boolean actividad = jsonObject.getBoolean("actividad");
+
+
+        HashSet<String> codigoCorrelativasCursado = new HashSet<>();
+        JSONArray cursadoArray = jsonObject.getJSONArray("codigoCorrelativasCursado");
+        for (int i = 0; i < cursadoArray.length(); i++) {
+            codigoCorrelativasCursado.add(cursadoArray.getString(i));
+        }
+
+        HashSet<String> codigoCorrelativasRendir = new HashSet<>();
+        JSONArray rendirArray = jsonObject.getJSONArray("codigoCorrelativasRendir");
+        for (int i = 0; i < rendirArray.length(); i++) {
+            codigoCorrelativasRendir.add(rendirArray.getString(i));
+        }
+
+        // Creamos y devolvemos una instancia de Materia
+        return new Materia(id, nombre, anio, cuatrimestre, seCursa, seRinde, codigoCorrelativasCursado, codigoCorrelativasRendir, actividad);
     }
 }
