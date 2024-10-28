@@ -49,7 +49,7 @@
          </image>
       </ImageView>
       <Rectangle fill="#2e3b43" height="725.0" layoutX="620.0" layoutY="248.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="680.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="610.0" />
-      <Text fill="WHITE" layoutX="834.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar alumno" wrappingWidth="251.47015380859375" AnchorPane.leftAnchor="834.0" AnchorPane.rightAnchor="834.5298461914062">
+      <Text fx:id="txtEditarAlumno" fill="WHITE" layoutX="834.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar alumno" wrappingWidth="251.47015380859375" AnchorPane.leftAnchor="834.0" AnchorPane.rightAnchor="834.5298461914062">
          <font>
             <Font size="40.0" />
          </font>
@@ -87,15 +87,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="734.0" layoutY="878.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="732.0" layoutY="866.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transperent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="40.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="981.0" layoutY="880.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
       <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="978.0" layoutY="866.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="227.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -125,5 +116,14 @@
             <Font size="30.0" />
          </font>
       </Text>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="722.0" layoutY="880.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="720.0" layoutY="870.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
