@@ -104,7 +104,7 @@ public final class Profesor extends Usuario implements iCRUD {
         profesor.put("legajo",getLegajo());
         profesor.put("contrasenia",getContrasenia());
         profesor.put("fechaDeAlta",getFechaDeAlta().toString());
-        profesor.put("actividad",isActividad());
+        profesor.put("actividad", getActividad());
 
         return profesor;
 
