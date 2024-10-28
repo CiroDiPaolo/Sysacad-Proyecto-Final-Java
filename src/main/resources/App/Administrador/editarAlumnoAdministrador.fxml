@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
@@ -78,8 +79,8 @@
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="770.0" layoutY="777.0" stroke="BLACK" strokeType="INSIDE" width="380.0" AnchorPane.leftAnchor="770.0" AnchorPane.rightAnchor="770.0" />
-      <Button fx:id="btnEditarMaterias" alignment="CENTER" contentDisplay="CENTER" layoutX="770.0" layoutY="777.0" mnemonicParsing="false" onAction="#clickBtnEditarMaterias" prefHeight="63.0" prefWidth="380.0" style="-fx-background-color: transparent;" text="Editar materias del alumno" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="770.0" AnchorPane.rightAnchor="770.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="725.0" layoutY="777.0" stroke="BLACK" strokeType="INSIDE" width="227.0" AnchorPane.leftAnchor="725.0" AnchorPane.rightAnchor="968.0" />
+      <Button fx:id="btnEditarMaterias" alignment="CENTER" contentDisplay="CENTER" layoutX="722.0" layoutY="777.0" mnemonicParsing="false" onAction="#clickBtnEditarMaterias" prefHeight="63.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Editar materias" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="722.0" AnchorPane.rightAnchor="965.0">
          <font>
             <Font size="29.0" />
          </font>
@@ -125,5 +126,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <CheckBox fx:id="checkActivo" layoutX="991.0" layoutY="791.0" mnemonicParsing="false" text="Alumno activo" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>
