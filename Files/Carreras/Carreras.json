@@ -47,6 +47,17 @@
                 "anio": "1",
                 "actividad": true,
                 "codigoCorrelativasCursado": ["MAT101"]
+            },
+            "005": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": [],
+                "id": "005",
+                "nombre": "Estadistica",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
             }
         },
         "actividad": true

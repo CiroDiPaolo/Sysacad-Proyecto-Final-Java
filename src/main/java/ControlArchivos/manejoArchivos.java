@@ -220,4 +220,13 @@ public final class manejoArchivos {
         }
     }
 
+    public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) {
+        try (FileWriter fileWriter = new FileWriter(fileName)) {
+            // Escribir el JSONArray en el archivo con un formato bonito (4 espacios de sangría)
+            fileWriter.write(jsonArray.toString(4));
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de excepciones, puedes personalizar esto
+        }
+    }
+
 }
