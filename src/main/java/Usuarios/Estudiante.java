@@ -123,8 +123,6 @@ public final class Estudiante extends Usuario implements iCRUD {
         if(!Usuario.compararJSONObjectConUsuario(jsonObject,this))
         {
 
-            System.out.println("bbbbbbbb");
-
             JSONArray arreglo = new JSONArray(manejoArchivos.leerArchivoJSON(path));
 
             for(int i = 0; i<arreglo.length(); i++)
@@ -132,8 +130,6 @@ public final class Estudiante extends Usuario implements iCRUD {
                 JSONObject estudiante = arreglo.getJSONObject(i);
                 if(estudiante.getString("legajo").equals(this.getLegajo()))
                 {
-
-                    System.out.println("cccccccc");
 
                     arreglo.put(i,jsonObject);
                     if(manejoArchivos.guardarArchivo(path,arreglo)){
