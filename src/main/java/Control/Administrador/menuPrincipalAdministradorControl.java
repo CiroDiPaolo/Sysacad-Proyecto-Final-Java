@@ -1,7 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
-import Control.InicioSesion.inicioSesionData;
+import Control.InicioSesion.Data;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -113,7 +113,7 @@ public final class  menuPrincipalAdministradorControl {
 
     protected void setTxtBienvenida() {
 
-        String legajo = inicioSesionData.getLegajo();
+        String legajo = Data.getLegajo();
 
         txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
 
