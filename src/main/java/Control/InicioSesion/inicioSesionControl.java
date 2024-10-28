@@ -1,13 +1,10 @@
 package Control.InicioSesion;
 
 import Control.EscenaControl;
-import ControlArchivos.manejoArchivos;
 import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -142,14 +139,14 @@ public final class inicioSesionControl {
             String legajo = txtLegajo.getText();
 
             //Se setea el legajo
-             inicioSesionData.setLegajo(legajo);
+             Data.setLegajo(legajo);
 
             if(index == 1){
 
                 constante = Path.menuPrincipalAlumnos;
 
                 //Se obtiene el estudiante que ingreso al sistema
-                inicioSesionData.setEstudiante();
+                Data.setEstudiante();
 
             }else if (index == 2){
 
