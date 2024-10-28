@@ -1,13 +1,9 @@
 package ControlArchivos;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
-import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
@@ -73,6 +69,5 @@ public class manejoArchivosEstudiante {
 
         return null;
     }
-
 
 }
