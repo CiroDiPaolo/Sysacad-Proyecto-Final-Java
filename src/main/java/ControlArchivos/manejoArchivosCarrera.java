@@ -2,20 +2,16 @@ package ControlArchivos;
 
 import Consultas.consultaArchivo;
 import Excepciones.ArchivoYaExistenteException;
-import Excepciones.CarreraInexistenteException;
+import Excepciones.EntidadYaExistente;
 import Modelo.Carrera;
 import Modelo.Materia;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import Path.Path;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
-import static Path.Path.pathCarreras;
+import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 import static Path.Path.pathComisiones;
 
 public class manejoArchivosCarrera {
@@ -70,7 +66,7 @@ public class manejoArchivosCarrera {
 
         }else{
 
-            throw new ArchivoYaExistenteException("La carrera ya existeeeeeeeee");
+            throw new ArchivoYaExistenteException("La carrera ya existe");
 
         }
 
@@ -85,57 +81,13 @@ public class manejoArchivosCarrera {
 
     public static void crearJSONCarrera(String path, Carrera c){
 
-        JSONObject obj = manejoArchivosCarrera.carreraAJSONObject(c);
+        JSONObject obj = c.carreraAJSONObject();
 
         try {
             cargarJSONcarrera(path ,obj);
         } catch (ArchivoYaExistenteException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    /**
-     * Convierte una Carrera a un JSONObject
-     * @param c
-     * @return JSONObject
-     */
-    public static JSONObject carreraAJSONObject(Carrera c){
-
-        JSONObject obj = new JSONObject();
-
-        obj.put("nombre",c.getNombre());
-        obj.put("id",c.getId());
-        obj.put("plan",c.getPlan());
-        obj.put("actividad",c.isActividad());
-        obj.put("materias",c.getMaterias());
-
-        return obj;
-    }
-
-    /**
-     * Convierte un JSONObject a una carrera
-     * @param jsonObject
-     * @return Carrera
-     */
-    public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
-        // Extraemos los datos de Carrera desde el JSONObject
-        String id = jsonObject.getString("id");
-        String nombre = jsonObject.getString("nombre");
-        String plan = jsonObject.getString("plan");
-        boolean actividad = jsonObject.getBoolean("actividad");
-
-        // Convertimos el JSON de materias a HashMap<String, Materia>
-        HashMap<String, Materia> materias = new HashMap<>();
-        JSONObject materiasJson = jsonObject.getJSONObject("materias");
-
-        for (String key : materiasJson.keySet()) {
-            JSONObject materiaJson = materiasJson.getJSONObject(key);
-            Materia materia = Materia.JSONObjectAMateria(materiaJson);
-            materias.put(materia.getId(), materia);
-        }
-
-        // Creamos y devolvemos una instancia de Carrera
-        return new Carrera(id, nombre, plan, materias, actividad);
     }
 
     /**
@@ -215,5 +167,99 @@ public class manejoArchivosCarrera {
 
         return "";
     }
+
+    public static Carrera retornarCarrera(String fileName, String carrera)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        boolean flag = false;
+        int i = 0;
+
+        while(i<arreglo.length() && !flag)
+        {
+            if(arreglo.getJSONObject(i).getString("id").equals(carrera))
+            {
+                return Carrera.JSONObjectACarrera(arreglo.getJSONObject(i));
+            }
+            i++;
+        }
+
+        return null;
+    }
+
+    public static boolean agregarMateria(String fileName, Materia nuevaMateria, String idCarrera) throws EntidadYaExistente {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        boolean carreraEncontrada = false;
+
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+            if (carreraJSON.getString("id").equals(idCarrera)) {
+                carreraEncontrada = true;
+
+                // Verificar si la materia ya existe
+                JSONObject materias = carreraJSON.getJSONObject("materias");
+                if (materias.has(nuevaMateria.getId())) {
+                    throw new EntidadYaExistente("La materia ya existe en la carrera");
+                }
+
+                // Agregar la nueva materia
+                materias.put(nuevaMateria.getId(), nuevaMateria.materiaAJSONObject());
+                carreraJSON.put("materias", materias);
+                sobreescribirArchivoJSON(fileName, arreglo);
+                return true;
+            }
+        }
+
+        return false; // Carrera no encontrada
+    }
+
+
+    public static boolean actualizarMateria(String fileName, JSONObject nuevaMateria, String idCarrera) {
+        // Leer el archivo JSON y convertirlo en un JSONArray
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        // Flag para indicar si se encontró la carrera y la materia
+        boolean carreraEncontrada = false;
+        boolean materiaActualizada = false;
+
+        // Recorrer el arreglo de carreras
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+
+            // Si el id de la carrera coincide con idCarrera
+            if (carreraJSON.getString("id").equals(idCarrera)) {
+                carreraEncontrada = true;
+
+                // Obtener el arreglo de materias de la carrera
+                JSONArray materias = carreraJSON.optJSONArray("materias");
+                if (materias != null) {
+                    for (int j = 0; j < materias.length(); j++) {
+                        JSONObject materiaActual = materias.getJSONObject(j);
+
+                        // Suponiendo que cada materia tiene un id único para identificarla
+                        if (materiaActual.getString("id").equals(nuevaMateria.getString("id"))) {
+                            // Actualizar los atributos de la materia
+                            materiaActual.put("nombre", nuevaMateria.getString("nombre"));
+                            materiaActual.put("anio", nuevaMateria.getInt("anio"));
+                            materiaActual.put("cuatrimestre", nuevaMateria.getInt("cuatrimestre"));
+                            // Agrega otros atributos que necesites actualizar
+
+                            materiaActualizada = true;
+                            break;  // Salir del bucle al encontrar y actualizar la materia
+                        }
+                    }
+                }
+                break;  // Salir del bucle una vez que se encuentra la carrera
+            }
+        }
+
+        // Si la carrera fue encontrada y la materia se actualizó, guardar los cambios en el archivo
+        if (carreraEncontrada && materiaActualizada) {
+            sobreescribirArchivoJSON(fileName, arreglo); // Guardar los cambios en el archivo
+        }
+
+        return materiaActualizada;  // Devolver si la operación fue exitosa
+    }
+
+
 
 }
