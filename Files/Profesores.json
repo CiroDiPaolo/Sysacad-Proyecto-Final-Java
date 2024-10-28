@@ -1,1 +1,10 @@
-[]
+[{
+  "legajo": "P000001",
+  "apellido": "Di Biassi",
+  "correo": "an10dibiassi@gmail.com",
+  "fechaDeAlta": "2024-10-28",
+  "contrasenia": "46420341",
+  "nombre": "Angie",
+  "dni": "46420341",
+  "actividad": true
+}]
