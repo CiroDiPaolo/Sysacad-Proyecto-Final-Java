@@ -1,6 +1,6 @@
 package Control;
 
-import Control.InicioSesion.inicioSesionData;
+import Control.InicioSesion.Data;
 import Excepciones.DatosIncorrectosException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,17 +77,17 @@ public class cambiarContraControl {
 
         }else{
 
-            if(inicioSesionData.getLegajo().charAt(0) == 'E') {
+            if(Data.getLegajo().charAt(0) == 'E') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, inicioSesionData.getLegajo(), nuevaContra);
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, Data.getLegajo(), nuevaContra);
 
-            } else if (inicioSesionData.getLegajo().charAt(0) == 'P') {
+            } else if (Data.getLegajo().charAt(0) == 'P') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameProfesores, inicioSesionData.getLegajo(), nuevaContra);
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameProfesores, Data.getLegajo(), nuevaContra);
 
-            } else if (inicioSesionData.getLegajo().charAt(0) == 'A') {
+            } else if (Data.getLegajo().charAt(0) == 'A') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameAdministrador, inicioSesionData.getLegajo(), nuevaContra);
+                Consultas.consultaArchivo.cambiarContrasenia(fileNameAdministrador, Data.getLegajo(), nuevaContra);
 
             }
 
