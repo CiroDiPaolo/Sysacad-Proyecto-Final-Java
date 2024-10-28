@@ -95,7 +95,7 @@ public abstract class Usuario {
 
     public LocalDate getFechaDeAlta() {return fechaDeAlta;}
 
-    public boolean isActividad() {
+    public boolean getActividad() {
         return actividad;
     }
 
@@ -142,18 +142,6 @@ public abstract class Usuario {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario that = (Usuario) o;
-        return Objects.equals(dni, that.dni) && Objects.equals(legajo, that.legajo);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dni, legajo);
-    }
 
     /**
      * Retorna el legajo siguiente correspondiente segun la clase
@@ -199,6 +187,7 @@ public abstract class Usuario {
 
     public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
     {
+
         boolean comparar = true;
 
         if(!jsonObject.getString("nombre").equals(usuario.getNombre()))
@@ -210,7 +199,7 @@ public abstract class Usuario {
             comparar = false;
         } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
             comparar = false;
-        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
+        } else if (jsonObject.getBoolean("actividad")!=usuario.getActividad()) {
             comparar = false;
         }
         return comparar;
