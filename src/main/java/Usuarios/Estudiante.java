@@ -187,6 +187,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
+
         String nombre = jsonObject.getString("nombre");
         String apellido = jsonObject.getString("apellido");
         String dni = jsonObject.getString("dni");
@@ -195,7 +196,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         String codigoCarrera = jsonObject.getString("codigoCarrera");
         String correo = jsonObject.getString("correo");
         boolean actividad = jsonObject.getBoolean("actividad");
-        String fechaStr = jsonObject.getString("fecha");
+        String fechaStr = jsonObject.getString("fechaDeAlta");
         LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_DATE);
         Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
 
