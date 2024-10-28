@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public interface iCRUD {
     boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException;
     boolean actualizar(String path, JSONObject jsonObject);
-    boolean leer(String path);
+    boolean leer(String path, String legajo);
     boolean borrar(String path);
 
 }
