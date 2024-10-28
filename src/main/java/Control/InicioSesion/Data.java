@@ -1,8 +1,8 @@
 package Control.InicioSesion;
 
+import ControlArchivos.manejoArchivosEstudiante;
+import Path.Path;
 import Usuarios.*;
-import static Consultas.consultaArchivo.*;
-import static Path.Path.*;
 
 public final class Data {
 
@@ -23,7 +23,10 @@ public final class Data {
         return estudiante;
     }
 
-    static void setEstudiante() { estudiante = obtenerEstudiante(fileNameAlumnos, legajo); }
+    static void setEstudiante(String legajo) {
+
+        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), Path.fileNameAlumnos));
+    }
 
     public static void setEstudiante(Estudiante estudiante) { Data.estudiante = estudiante; }
 
