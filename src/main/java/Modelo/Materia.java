@@ -1,5 +1,11 @@
 package Modelo;
 
+import Control.InicioSesion.Data;
+import ControlArchivos.manejoArchivosCarrera;
+import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
+import Excepciones.EntidadYaExistente;
+import Excepciones.excepcionPersonalizada;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,7 +16,7 @@ import java.util.HashSet;
  * el cuatrimestre en el que se cursa, si se cursa, y si se rinde. A su vez guarda el codigo de las correlativas que se necesitan para cursarla
  * y el codigo de las correlativas que se necesitan para rendir el examen final.
  */
-public final class Materia {
+public final class Materia implements iCRUD{
 
     //Atributos
 
@@ -137,7 +143,6 @@ public final class Materia {
         this.actividad = actividad;
     }
 
-
     //Metodos
 
     @Override
@@ -152,6 +157,52 @@ public final class Materia {
                 ", codigoCorrelativasCursado=" + codigoCorrelativasCursado +
                 ", codigoCorrelativasRendir=" + codigoCorrelativasRendir +
                 '}';
+    }
+
+    @Override
+    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
+
+        if(this.getAnio().matches("[1-9]") && this.getCuatrimestre().matches("[1-2]"))
+        {
+            if(!this.getId().isEmpty() && !this.getNombre().isEmpty())
+            {
+
+                try{
+                    if(manejoArchivosCarrera.agregarMateria(path,this, Data.getCarrera().getId())){
+                        excepcionPersonalizada.alertaConfirmacion("Materia cargada en la carrera exitosamente");
+                    }
+
+
+                }catch (EntidadYaExistente e)
+                {
+                    e.getMessage();
+                }
+
+            }else {
+                throw new CamposVaciosException("Intentaste ingresar campos vacios. Volve a intentarlo");
+            }
+
+        }else{
+            throw new DatosIncorrectosException("El año y/o cuatrimestre ingresados son incorrectos. Vuelva a intentarlo");
+        }
+
+
+        return false;
+    }
+
+    @Override
+    public boolean actualizar(String path, JSONObject jsonObject) {
+        return false;
+    }
+
+    @Override
+    public boolean leer(String path, String legajo) {
+        return false;
+    }
+
+    @Override
+    public boolean borrar(String path) {
+        return false;
     }
 
     public static Materia JSONObjectAMateria(JSONObject jsonObject) {
@@ -180,4 +231,25 @@ public final class Materia {
         // Creamos y devolvemos una instancia de Materia
         return new Materia(id, nombre, anio, cuatrimestre, seCursa, seRinde, codigoCorrelativasCursado, codigoCorrelativasRendir, actividad);
     }
+
+    public JSONObject materiaAJSONObject() {
+        JSONObject jsonObject = new JSONObject();
+
+        // Agregamos cada atributo de Materia al JSONObject
+        jsonObject.put("id", id);
+        jsonObject.put("nombre", nombre);
+        jsonObject.put("anio", anio);
+        jsonObject.put("cuatrimestre", cuatrimestre);
+        jsonObject.put("seCursa", seCursa);
+        jsonObject.put("seRinde", seRinde);
+        jsonObject.put("actividad", actividad);
+
+        // Convertimos los HashSet de correlativas a JSONArray y los agregamos al JSONObject
+        jsonObject.put("codigoCorrelativasCursado", new JSONArray(codigoCorrelativasCursado));
+        jsonObject.put("codigoCorrelativasRendir", new JSONArray(codigoCorrelativasRendir));
+
+        return jsonObject;
+    }
+
+
 }
