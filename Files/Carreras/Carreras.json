@@ -37,6 +37,29 @@
                 "codigoCorrelativasCursado": ["MAT101"],
                 "actividad": true
             },
+            "003": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": [
+                    "001",
+                    "MAT101",
+                    "MAT102",
+                    "004",
+                    "005"
+                ],
+                "id": "003",
+                "nombre": "Base de Datos",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": [
+                    "001",
+                    "MAT101",
+                    "MAT102",
+                    "004",
+                    "005"
+                ]
+            },
             "004": {
                 "cuatrimestre": "2",
                 "seCursa": true,
