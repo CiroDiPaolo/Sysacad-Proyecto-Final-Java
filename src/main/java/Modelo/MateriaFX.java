@@ -3,7 +3,10 @@ package Modelo;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
-public class MateriaFX {
+/**
+ * Esta clase sirve para la creacion de tablas en JavaFX, no interrumpe la logica del programa y sus datos.
+ */
+public final class MateriaFX {
 
     private String id;
     private String nombre;

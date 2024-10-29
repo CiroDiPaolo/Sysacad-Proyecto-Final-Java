@@ -170,6 +170,7 @@ public final class Materia implements iCRUD{
                 try{
                     if(manejoArchivosCarrera.agregarMateria(path,this, Data.getCarrera().getId())){
                         excepcionPersonalizada.alertaConfirmacion("Materia cargada en la carrera exitosamente");
+                        return true;
                     }
 
 
@@ -205,6 +206,11 @@ public final class Materia implements iCRUD{
         return false;
     }
 
+    /**
+     * Convierte un jsonObject a una materia
+     * @param jsonObject
+     * @return
+     */
     public static Materia JSONObjectAMateria(JSONObject jsonObject) {
 
         String id = jsonObject.getString("id");
@@ -228,14 +234,16 @@ public final class Materia implements iCRUD{
             codigoCorrelativasRendir.add(rendirArray.getString(i));
         }
 
-        // Creamos y devolvemos una instancia de Materia
         return new Materia(id, nombre, anio, cuatrimestre, seCursa, seRinde, codigoCorrelativasCursado, codigoCorrelativasRendir, actividad);
     }
 
+    /**
+     * Convierte una materia a un JSONObject
+     * @return
+     */
     public JSONObject materiaAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
-        // Agregamos cada atributo de Materia al JSONObject
         jsonObject.put("id", id);
         jsonObject.put("nombre", nombre);
         jsonObject.put("anio", anio);
@@ -243,8 +251,6 @@ public final class Materia implements iCRUD{
         jsonObject.put("seCursa", seCursa);
         jsonObject.put("seRinde", seRinde);
         jsonObject.put("actividad", actividad);
-
-        // Convertimos los HashSet de correlativas a JSONArray y los agregamos al JSONObject
         jsonObject.put("codigoCorrelativasCursado", new JSONArray(codigoCorrelativasCursado));
         jsonObject.put("codigoCorrelativasRendir", new JSONArray(codigoCorrelativasRendir));
 

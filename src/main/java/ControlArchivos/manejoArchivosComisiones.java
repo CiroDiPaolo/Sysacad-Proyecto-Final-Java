@@ -17,7 +17,7 @@ import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static ControlArchivos.manejoArchivos.verificarArchivoCreado;
 import static Path.Path.pathComisiones;
 
-public class manejoArchivosComisiones {
+public final class manejoArchivosComisiones {
 
     /**
      * Metodo que crea un archivo JSON por cada comision

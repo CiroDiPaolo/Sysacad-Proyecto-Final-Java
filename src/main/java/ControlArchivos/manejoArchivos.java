@@ -161,9 +161,7 @@ public final class manejoArchivos {
     public static boolean guardarObjetoJSON(String filePath, JSONObject estudiante) {
 
         JSONArray jsonArray;
-        // Inicializar el JSONArray
         try {
-            // Leer el contenido existente del archivo
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder jsonStringBuilder = new StringBuilder();
             String line;
@@ -172,27 +170,20 @@ public final class manejoArchivos {
                 jsonStringBuilder.append(line);
             }
 
-            // Cargar el arreglo existente en jsonArray
             jsonArray = new JSONArray(jsonStringBuilder.toString());
             reader.close();
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
-            // Si no se puede leer, comenzamos con un nuevo JSONArray
             jsonArray = new JSONArray();
         } catch (JSONException e) {
             System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
-            // Si hay un error de JSON, iniciamos un nuevo JSONArray
             jsonArray = new JSONArray();
         }
 
-        // Agregar la nueva persona
         try {
-
             jsonArray.put(estudiante);
-
-            // Escribir el arreglo actualizado de nuevo en el archivo
             FileWriter file = new FileWriter(filePath);
-            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
+            file.write(jsonArray.toString(4));
             file.close();
 
             return true;
@@ -222,10 +213,10 @@ public final class manejoArchivos {
 
     public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) {
         try (FileWriter fileWriter = new FileWriter(fileName)) {
-            // Escribir el JSONArray en el archivo con un formato bonito (4 espacios de sangría)
+
             fileWriter.write(jsonArray.toString(4));
         } catch (IOException e) {
-            e.printStackTrace(); // Manejo de excepciones, puedes personalizar esto
+            e.printStackTrace();
         }
     }
 

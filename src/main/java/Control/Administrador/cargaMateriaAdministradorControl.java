@@ -1,5 +1,6 @@
 package Control.Administrador;
 
+import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
@@ -7,6 +8,7 @@ import Excepciones.EntidadYaExistente;
 import Modelo.Materia;
 import Modelo.Carrera;
 import Modelo.MateriaFX;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +26,9 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
+import static Path.Path.configurarMateriasAdministrador;
 import static Path.Path.pathCarreras;
 
 public class cargaMateriaAdministradorControl {
@@ -71,6 +75,7 @@ public class cargaMateriaAdministradorControl {
     @FXML
     private TextField txtNombre;
 
+
     private ObservableList<MateriaFX> materias = FXCollections.observableArrayList();
     private Carrera carrera = Data.getCarrera();
     HashSet<String> idsMateriasCursar = new HashSet<>();
@@ -78,37 +83,35 @@ public class cargaMateriaAdministradorControl {
 
     @FXML
     public void initialize() {
-        // Cargar materias
-        cargarMateriasDeCarrera();
-        tableMaterias.setEditable(true); // Hacer la tabla editable
 
-        // Configurar columnas
+        cargarMateriasDeCarrera();
+        tableMaterias.setEditable(true);
+
+
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-        // Columna para "seCursa"
+
         colSeCursa.setCellValueFactory(cellData -> cellData.getValue().seCursaProperty());
         colSeCursa.setCellFactory(CheckBoxTableCell.forTableColumn(colSeCursa));
         colSeCursa.setEditable(true);
         colSeCursa.setOnEditCommit(event -> {
             MateriaFX materia = event.getRowValue();
             boolean newValue = event.getNewValue();
-            materia.setSeCursa(newValue); // Actualizar el modelo
+            materia.setSeCursa(newValue);
             System.out.println("Se cursa: " + materia.getId() + " - " + newValue);
         });
 
-        // Columna para "seRinde"
         colSeRinde.setCellValueFactory(cellData -> cellData.getValue().seRindeProperty());
         colSeRinde.setCellFactory(CheckBoxTableCell.forTableColumn(colSeRinde));
         colSeRinde.setEditable(true);
         colSeRinde.setOnEditCommit(event -> {
             MateriaFX materia = event.getRowValue();
             boolean newValue = event.getNewValue();
-            materia.setSeRinde(newValue); // Actualizar el modelo
+            materia.setSeRinde(newValue);
             System.out.println("Se rinde: " + materia.getId() + " - " + newValue);
         });
 
-        // Asignar la lista de materias al TableView
         tableMaterias.setItems(materias);
     }
 
@@ -130,7 +133,13 @@ public class cargaMateriaAdministradorControl {
         Materia materia = new Materia(txtCodigo.getText(), txtNombre.getText(), txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir,true);
         try{
 
-            materia.crear(pathCarreras);
+            if(materia.crear(pathCarreras)){
+                EscenaControl escena = new EscenaControl();
+                Stage stage = (Stage) btnCargar.getScene().getWindow();
+                escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+            }
+
+
         } catch (CamposVaciosException e) {
             e.getMessage();
         } catch (DatosIncorrectosException e) {
@@ -143,12 +152,16 @@ public class cargaMateriaAdministradorControl {
     private void cargarMateriasDeCarrera() {
         materias.clear();
         for (Materia materia : carrera.getMaterias().values()) {
-            materias.add(new MateriaFX(materia.getId(), materia.getNombre())); // Cambiado a MateriaFX
+            materias.add(new MateriaFX(materia.getId(), materia.getNombre()));
         }
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        // Implementa la lógica para regresar a la escena anterior
+
+        EscenaControl escena = new EscenaControl();
+        Stage stage = (Stage) btnVolver.getScene().getWindow();
+        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
     }
+
 }

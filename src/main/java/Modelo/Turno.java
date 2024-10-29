@@ -1,5 +1,8 @@
 package Modelo;
 
+/**
+ * Sirve para identificar los turnos de las comisiones
+ */
 public enum Turno {
 
     MANIANA,
