@@ -197,9 +197,10 @@ public final class Materia implements iCRUD{
     }
 
     @Override
-    public boolean leer(String path) {
+    public boolean leer(String path, String legajo) {
         return false;
     }
+
 
     @Override
     public boolean borrar(String path) {

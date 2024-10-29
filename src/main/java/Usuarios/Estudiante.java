@@ -155,7 +155,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean leer(String path) {
+    public boolean leer(String path, String legajo) {
         return false;
     }
 
