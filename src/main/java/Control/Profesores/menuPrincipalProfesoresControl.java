@@ -12,8 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import static Path.Path.fileNameProfesores;
-import static Path.Path.inicioSesion;
+import static Path.Path.*;
 
 public class menuPrincipalProfesoresControl {
 
@@ -29,7 +28,21 @@ public class menuPrincipalProfesoresControl {
     @FXML
     private Text txtBienvenida;
 
+    @FXML
+    private Button btnCrearExcel;
+
+    @FXML
+    private Button btnVerComisiones;
+
+    @FXML
+    private Button btnVerMaterias;
+
+    @FXML
+    private Button btnVerMesas;
+
     private Stage stage;
+
+    private EscenaControl escena = new EscenaControl();
 
     /**
      * Metodo que se ejecuta al inicializar la pantalla
@@ -58,6 +71,28 @@ public class menuPrincipalProfesoresControl {
         } catch (ArchivoNoEncontrado e) {
             e.getMessage();
         }
+    }
+
+    @FXML
+    void clickBtnCrearExcel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickBtnVerComisiones(ActionEvent event) {
+
+        escena.cambiarEscena(comisionesProfesor,stage,"Comisiones");
+
+    }
+
+    @FXML
+    void clickBtnVerMaterias(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickBtnVerMesas(ActionEvent event) {
+
     }
 
     @FXML
