@@ -170,6 +170,7 @@ public final class Materia implements iCRUD{
                 try{
                     if(manejoArchivosCarrera.agregarMateria(path,this, Data.getCarrera().getId())){
                         excepcionPersonalizada.alertaConfirmacion("Materia cargada en la carrera exitosamente");
+                        return true;
                     }
 
 
