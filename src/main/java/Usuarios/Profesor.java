@@ -93,6 +93,10 @@ public final class Profesor extends Usuario implements iCRUD {
         return false;
     }
 
+    /**
+     * Convierte un profesor a un JSONObject y lo retorna
+     * @return
+     */
     public JSONObject profesorAJSONObject(){
 
         JSONObject profesor = new JSONObject();
@@ -110,7 +114,11 @@ public final class Profesor extends Usuario implements iCRUD {
 
     }
 
-
+    /**
+     * Convierte un JSONObject a un profesor y lo retorna
+     * @param profesor
+     * @return
+     */
     public static Profesor JSONObjectAProfesor(JSONObject profesor){
 
         String nombre = profesor.getString("nombre");
@@ -125,7 +133,5 @@ public final class Profesor extends Usuario implements iCRUD {
         return new Profesor(nombre,apellido,dni,legajo,contrasenia,correo,fechaDeAlta,actividad);
 
     }
-
-
 
 }

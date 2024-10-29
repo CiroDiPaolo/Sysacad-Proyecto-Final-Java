@@ -14,7 +14,7 @@ import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 import static Path.Path.pathComisiones;
 
-public class manejoArchivosCarrera {
+public final class manejoArchivosCarrera {
 
     /**
      * Metodo que carga unca carrera a un archivo JSON si es que la carrera no existe.
@@ -195,13 +195,13 @@ public class manejoArchivosCarrera {
             if (carreraJSON.getString("id").equals(idCarrera)) {
                 carreraEncontrada = true;
 
-                // Verificar si la materia ya existe
+
                 JSONObject materias = carreraJSON.getJSONObject("materias");
                 if (materias.has(nuevaMateria.getId())) {
                     throw new EntidadYaExistente("La materia ya existe en la carrera");
                 }
 
-                // Agregar la nueva materia
+
                 materias.put(nuevaMateria.getId(), nuevaMateria.materiaAJSONObject());
                 carreraJSON.put("materias", materias);
                 sobreescribirArchivoJSON(fileName, arreglo);
@@ -209,55 +209,54 @@ public class manejoArchivosCarrera {
             }
         }
 
-        return false; // Carrera no encontrada
+        return false;
     }
 
 
     public static boolean actualizarMateria(String fileName, JSONObject nuevaMateria, String idCarrera) {
-        // Leer el archivo JSON y convertirlo en un JSONArray
+
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
 
-        // Flag para indicar si se encontró la carrera y la materia
+
         boolean carreraEncontrada = false;
         boolean materiaActualizada = false;
 
-        // Recorrer el arreglo de carreras
+
         for (int i = 0; i < arreglo.length(); i++) {
             JSONObject carreraJSON = arreglo.getJSONObject(i);
 
-            // Si el id de la carrera coincide con idCarrera
+
             if (carreraJSON.getString("id").equals(idCarrera)) {
                 carreraEncontrada = true;
 
-                // Obtener el arreglo de materias de la carrera
+
                 JSONArray materias = carreraJSON.optJSONArray("materias");
                 if (materias != null) {
                     for (int j = 0; j < materias.length(); j++) {
                         JSONObject materiaActual = materias.getJSONObject(j);
 
-                        // Suponiendo que cada materia tiene un id único para identificarla
+
                         if (materiaActual.getString("id").equals(nuevaMateria.getString("id"))) {
                             // Actualizar los atributos de la materia
                             materiaActual.put("nombre", nuevaMateria.getString("nombre"));
                             materiaActual.put("anio", nuevaMateria.getInt("anio"));
                             materiaActual.put("cuatrimestre", nuevaMateria.getInt("cuatrimestre"));
-                            // Agrega otros atributos que necesites actualizar
+
 
                             materiaActualizada = true;
-                            break;  // Salir del bucle al encontrar y actualizar la materia
+                            break;
                         }
                     }
                 }
-                break;  // Salir del bucle una vez que se encuentra la carrera
+                break;
             }
         }
 
-        // Si la carrera fue encontrada y la materia se actualizó, guardar los cambios en el archivo
         if (carreraEncontrada && materiaActualizada) {
-            sobreescribirArchivoJSON(fileName, arreglo); // Guardar los cambios en el archivo
+            sobreescribirArchivoJSON(fileName, arreglo);
         }
 
-        return materiaActualizada;  // Devolver si la operación fue exitosa
+        return materiaActualizada;
     }
 
 

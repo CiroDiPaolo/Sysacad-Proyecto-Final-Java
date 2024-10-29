@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
-public class manejoArchivosEstudiante {
+public final class manejoArchivosEstudiante {
 
     /**
      * Metodo que compara un DNI de un estudiante, devuelve false si no lo encontró, devuelve true si lo encontró
@@ -33,10 +33,8 @@ public class manejoArchivosEstudiante {
                 JSONObject estudianteExistente = estudiantesArray.getJSONObject(i);
                 String dniExistente = estudianteExistente.getString("dni");
                 String codigoCarreraExistente = estudianteExistente.getString("codigoCarrera");
-
-                // Verificar si el DNI y el código de carrera coinciden
                 if (dniEstudiante.equals(dniExistente) && codigoCarreraEstudiante.equals(codigoCarreraExistente)) {
-                    return true; // Coincidencia encontrada
+                    return true;
                 }
             }
         } catch (IOException e) {

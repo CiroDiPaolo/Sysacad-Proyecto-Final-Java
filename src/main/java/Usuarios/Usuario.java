@@ -63,18 +63,6 @@ public abstract class Usuario {
         fechaDeAlta = LocalDate.now();
     }
 
-
-
-    /**
-     * Este enum representa los tipos de usuario que existen(las clases que heredan de usuario).
-     * Se utiliza en la funcion de generarLegajoRandom
-     */
-    public enum ETipoUsuario{
-        ALUMNO,
-        PROFESOR,
-        ADMINISTRADOR
-    }
-
     //GETTERS
 
     public String getNombre() { return nombre; }
@@ -197,6 +185,12 @@ public abstract class Usuario {
         return null;
     }
 
+    /**
+     * Compara un JSONObject con un usuario
+     * @param jsonObject
+     * @param usuario
+     * @return
+     */
     public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
     {
         boolean comparar = true;
@@ -214,11 +208,21 @@ public abstract class Usuario {
         return comparar;
     }
 
+    /**
+     * Revisa que el correo sea valido
+     * @param email
+     * @return
+     */
     public static boolean esCorreoValido(String email) {
         String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         return email.matches(regex);
     }
 
+    /**
+     * Revisa que un dni sea valido
+     * @param dni
+     * @return
+     */
     public static boolean esDniValido(String dni) {
         return dni.matches("\\d{8}");
     }
