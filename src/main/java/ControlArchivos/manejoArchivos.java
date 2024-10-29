@@ -196,6 +196,21 @@ public final class manejoArchivos {
         return false;
     }
 
+    public static boolean guardarArchivo(String path, JSONArray arreglo) {
+
+        try {
+
+            FileWriter fileWriter = new FileWriter(path);
+            fileWriter.write(arreglo.toString(4));
+            fileWriter.close();
+
+            return true;
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) {
         try (FileWriter fileWriter = new FileWriter(fileName)) {
 
@@ -204,6 +219,5 @@ public final class manejoArchivos {
             e.printStackTrace();
         }
     }
-
 
 }

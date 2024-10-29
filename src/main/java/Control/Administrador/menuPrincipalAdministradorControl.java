@@ -2,6 +2,7 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Excepciones.ArchivoNoEncontrado;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -115,7 +116,11 @@ public final class  menuPrincipalAdministradorControl {
 
         String legajo = Data.getLegajo();
 
-        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
+        try {
+            txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
+        } catch (ArchivoNoEncontrado e) {
+            e.getMessage();
+        }
 
     }
 

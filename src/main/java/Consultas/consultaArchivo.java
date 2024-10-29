@@ -1,5 +1,6 @@
 package Consultas;
 
+import Excepciones.ArchivoNoEncontrado;
 import Usuarios.Estudiante;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,7 +76,7 @@ public final class consultaArchivo {
      * @param legajo
      * @return String
      */
-    public static String buscarNombreCompleto(String fileName, String legajo) {
+    public static String buscarNombreCompleto(String fileName, String legajo) throws ArchivoNoEncontrado {
 
         String nombre = "";
 
@@ -102,7 +103,7 @@ public final class consultaArchivo {
             }
 
             if (nombre.equals("") && apellido.equals("")) {
-                throw new RuntimeException("No se encontro el legajo");
+                throw new ArchivoNoEncontrado("No se encontro el legajo");
             }
 
         } catch (JSONException e) {

@@ -28,6 +28,19 @@ public final class Estudiante extends Usuario implements iCRUD {
         this.codigoCarrera = codigoCarrera;
     }
 
+    public Estudiante(Estudiante estudiante) {
+        this.setNombre(estudiante.getNombre());
+        this.setApellido(estudiante.getApellido());
+        this.setDni(estudiante.getDni());
+        this.setLegajo(estudiante.getLegajo());
+        this.setContrasenia(estudiante.getContrasenia());
+        this.setCodigoCarrera(estudiante.getCodigoCarrera());
+        this.setCorreo(estudiante.getCorreo());
+        this.setActividad(estudiante.getActividad());
+        this.setFechaDeAlta(estudiante.getFechaDeAlta());
+        this.setMaterias(new ArrayList<>(estudiante.getMaterias()));
+    }
+
     public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
         super(nombre, apellido, dni, legajo, contrasenia, correo);
         this.codigoCarrera = codigoCarrera;
@@ -107,27 +120,42 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) {
+    public boolean actualizar(String path, JSONObject jsonObject) throws DatosIncorrectosException {
+
+        boolean resultado = false;
+
         if(!Usuario.compararJSONObjectConUsuario(jsonObject,this))
         {
-            JSONObject estudianteActualizado = this.estudianteAJSONObject();
+
+            JSONArray arreglo = new JSONArray(manejoArchivos.leerArchivoJSON(path));
+
+            for(int i = 0; i<arreglo.length(); i++)
+            {
+                JSONObject estudiante = arreglo.getJSONObject(i);
+                if(estudiante.getString("legajo").equals(this.getLegajo()))
+                {
+
+                    arreglo.put(i,jsonObject);
+                    if(manejoArchivos.guardarArchivo(path,arreglo)){
+
+                        resultado = true;
+
+                    }
+                }
+            }
+
+        }else{
+
+            throw new DatosIncorrectosException("No se realizaron cambios en los datos del alumno");
 
         }
 
+        return resultado;
 
-        return false;
     }
 
     @Override
     public boolean leer(String path, String legajo) {
-
-        JSONObject estudianteJSON = manejoArchivosEstudiante.retornarEstudiante(legajo,path);
-
-        if(estudianteJSON!=null)
-        {
-
-        }
-
         return false;
     }
 
@@ -150,7 +178,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         jsonObject.put("contrasenia", this.getContrasenia());
         jsonObject.put("codigoCarrera",this.getCodigoCarrera());
         jsonObject.put("correo",this.getCorreo());
-        jsonObject.put("actividad",this.isActividad());
+        jsonObject.put("actividad",this.getActividad());
         jsonObject.put("fechaDeAlta",this.getFechaDeAlta().toString());
 
         for (int i = 0; i < this.getMaterias().size(); i++) {
@@ -199,6 +227,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
+
         String nombre = jsonObject.getString("nombre");
         String apellido = jsonObject.getString("apellido");
         String dni = jsonObject.getString("dni");
@@ -207,7 +236,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         String codigoCarrera = jsonObject.getString("codigoCarrera");
         String correo = jsonObject.getString("correo");
         boolean actividad = jsonObject.getBoolean("actividad");
-        String fechaStr = jsonObject.getString("fecha");
+        String fechaStr = jsonObject.getString("fechaDeAlta");
         LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_DATE);
         Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
 
@@ -243,6 +272,20 @@ public final class Estudiante extends Usuario implements iCRUD {
         return estudiante;
     }
 
+    public boolean compararEstudiantes(Estudiante that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+        return getActividad() == that.getActividad() &&
+                getNombre().equals(that.getNombre()) &&
+                getApellido().equals(that.getApellido()) &&
+                getDni().equals(that.getDni()) &&
+                getLegajo().equals(that.getLegajo()) &&
+                getContrasenia().equals(that.getContrasenia()) &&
+                getCodigoCarrera().equals(that.getCodigoCarrera()) &&
+                getCorreo().equals(that.getCorreo()) &&
+                getFechaDeAlta().equals(that.getFechaDeAlta()) &&
+                getMaterias().equals(that.getMaterias());
+    }
 
 }
 
