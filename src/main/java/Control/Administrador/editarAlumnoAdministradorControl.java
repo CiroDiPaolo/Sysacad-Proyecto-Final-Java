@@ -43,6 +43,9 @@ public class editarAlumnoAdministradorControl {
     private TextField txtDni;
 
     @FXML
+    private TextField txtContrasenia;
+
+    @FXML
     private Text txtEditarAlumno;
 
     @FXML
@@ -63,6 +66,7 @@ public class editarAlumnoAdministradorControl {
         e.setDni(txtDni.getText());
         e.setCorreo(txtCorreo.getText());
         e.setActividad(checkActivo.isSelected());
+        e.setContrasenia(txtContrasenia.getText());
 
         if (!original.compararEstudiantes(e)) {
 
@@ -120,6 +124,7 @@ public class editarAlumnoAdministradorControl {
             txtApellido.setText(e.getApellido());
             txtDni.setText(e.getDni());
             txtCorreo.setText(e.getCorreo());
+            txtContrasenia.setText(e.getContrasenia());
 
             if(e.getActividad()) {
                 checkActivo.setSelected(true);
