@@ -85,7 +85,7 @@ public class cargaMateriaAdministradorControl {
     public void initialize() {
 
         cargarMateriasDeCarrera();
-        tableMaterias.setEditable(true); // Hacer la tabla editable
+        tableMaterias.setEditable(true);
 
 
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));

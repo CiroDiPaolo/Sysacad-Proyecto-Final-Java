@@ -1,6 +1,9 @@
 package Modelo;
 
-public class EstadoAlumnoComision {
+/**
+ * La clase representa el estado de un Estudiante/Alumno en una comision
+ */
+public final class EstadoAlumnoComision {
     private String codigoAlumno;
     private String nombreAlumno;
     private boolean actividad;

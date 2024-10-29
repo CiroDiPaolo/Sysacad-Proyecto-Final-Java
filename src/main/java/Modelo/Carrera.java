@@ -158,13 +158,12 @@ public final class Carrera {
      * @return Carrera
      */
     public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
-        // Extraemos los datos de Carrera desde el JSONObject
+
         String id = jsonObject.getString("id");
         String nombre = jsonObject.getString("nombre");
         String plan = jsonObject.getString("plan");
         boolean actividad = jsonObject.getBoolean("actividad");
 
-        // Convertimos el JSON de materias a HashMap<String, Materia>
         HashMap<String, Materia> materias = new HashMap<>();
         JSONObject materiasJson = jsonObject.getJSONObject("materias");
 
@@ -174,10 +173,12 @@ public final class Carrera {
             materias.put(materia.getId(), materia);
         }
 
-        // Creamos y devolvemos una instancia de Carrera
         return new Carrera(id, nombre, plan, materias, actividad);
     }
 
+    /**
+     * Imprime la informacion de una carrera
+     */
     public void imprimirInformacion() {
         System.out.println("Carrera ID: " + id);
         System.out.println("Nombre de la Carrera: " + nombre);
@@ -185,7 +186,7 @@ public final class Carrera {
 
         for (Materia materia : materias.values()) {
             System.out.println("- " + materia.getNombre() + " (ID: " + materia.getId() + ")");
-            System.out.println("  Correlativas: " + materia.getCodigoCorrelativasRendir()); // Asumiendo que este método existe
+            System.out.println("  Correlativas: " + materia.getCodigoCorrelativasRendir());
         }
     }
 

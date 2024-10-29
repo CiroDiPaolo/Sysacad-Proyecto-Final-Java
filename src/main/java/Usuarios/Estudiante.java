@@ -7,6 +7,7 @@ import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.EstadoAlumnoMateria;
 import Modelo.EstadoAlumnoMesa;
+import Modelo.EstadoMateria;
 import Modelo.iCRUD;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,6 +15,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * Esta clase hereda de Usuario y representa un Estudiante en el sistema.
+ */
 public final class Estudiante extends Usuario implements iCRUD {
 
     private String codigoCarrera;
@@ -213,20 +217,18 @@ public final class Estudiante extends Usuario implements iCRUD {
             JSONObject materiaJSON = jsonObject.getJSONObject("materia" + i);
             EstadoAlumnoMateria materia = new EstadoAlumnoMateria(
                     (materiaJSON.getString("codigoMateria")),
-                    (materiaJSON.getInt("estado")),
+                    (materiaJSON.getEnum(EstadoMateria.class,"estado")),
                     (materiaJSON.getString("tomo")),
                     (materiaJSON.getString("folio")),
                     (materiaJSON.getString("codigoComision")
             ));
 
-            // Agregar notas
             JSONArray notasArray = materiaJSON.getJSONArray("notas");
             for (int j = 0; j < notasArray.length(); j++) {
                 JSONObject nota = notasArray.getJSONObject(j);
                 materia.getNotas().put(nota.getString("key"), nota.getInt("value"));
             }
 
-            // Agregar mesas de examen
             JSONArray mesasExamenArray = materiaJSON.getJSONArray("mesasExamen");
             for (int j = 0; j < mesasExamenArray.length(); j++) {
                 JSONObject mesaExamen = mesasExamenArray.getJSONObject(j);
