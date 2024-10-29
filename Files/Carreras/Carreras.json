@@ -36,17 +36,225 @@
                 "anio": "2024",
                 "codigoCorrelativasCursado": ["MAT101"],
                 "actividad": true
-            },
-            "004": {
+            },"004": {
                 "cuatrimestre": "2",
                 "seCursa": true,
-                "codigoCorrelativasRendir": ["MAT102"],
+                "codigoCorrelativasRendir": ["005"],
                 "id": "004",
                 "nombre": "PROGRAMACION II",
                 "seRinde": true,
                 "anio": "1",
                 "actividad": true,
-                "codigoCorrelativasCursado": ["MAT101"]
+                "codigoCorrelativasCursado": ["003"]
+            },
+            "005": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["003"],
+                "id": "005",
+                "nombre": "ALGORITMOS",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
+            },
+            "006": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["004", "005"],
+                "id": "006",
+                "nombre": "BASES DE DATOS",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["005"]
+            },
+            "007": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["006"],
+                "id": "007",
+                "nombre": "SISTEMAS OPERATIVOS",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["006"]
+            },
+            "008": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["007"],
+                "id": "008",
+                "nombre": "REDES",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            "009": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["008"],
+                "id": "009",
+                "nombre": "PROGRAMACION AVANZADA",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["004"]
+            },
+            "010": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": [],
+                "id": "010",
+                "nombre": "ARQUITECTURA DE COMPUTADORAS",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
+            },
+            "011": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["006"],
+                "id": "011",
+                "nombre": "GESTION DE PROYECTOS",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            "012": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["008"],
+                "id": "012",
+                "nombre": "SEGURIDAD INFORMATICA",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["008"]
+            },
+            "013": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["009"],
+                "id": "013",
+                "nombre": "INTELIGENCIA ARTIFICIAL",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["009"]
+            },
+            "014": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["010"],
+                "id": "014",
+                "nombre": "CRYPTOGRAFIA",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["012"]
+            },
+            "015": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": [],
+                "id": "015",
+                "nombre": "MATEMATICAS",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
+            },
+            "016": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["015"],
+                "id": "016",
+                "nombre": "ESTADISTICA",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["015"]
+            },
+            "017": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["016"],
+                "id": "017",
+                "nombre": "CALCULO",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["015"]
+            },
+            "018": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["009"],
+                "id": "018",
+                "nombre": "COMPUTACION GRAFICA",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["009"]
+            },
+            "019": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["010"],
+                "id": "019",
+                "nombre": "ALGEBRA",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
+            },
+            "020": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["017"],
+                "id": "020",
+                "nombre": "MACHINE LEARNING",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["017"]
+            },
+            "021": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["017"],
+                "id": "021",
+                "nombre": "ANALISIS NUMERICO",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["016"]
+            },
+            "022": {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["018"],
+                "id": "022",
+                "nombre": "INFORMATICA INDUSTRIAL",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["018"]
+            },
+            "023": {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": [],
+                "id": "023",
+                "nombre": "INTRODUCCION A LA INFORMATICA",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
             }
         },
         "actividad": true
