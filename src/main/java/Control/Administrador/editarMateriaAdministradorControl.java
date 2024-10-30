@@ -22,8 +22,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.HashSet;
-import static Path.Path.configurarMateriasAdministrador;
-import static Path.Path.pathCarreras;
+
+import static Path.Path.*;
 
 
 public class editarMateriaAdministradorControl {
@@ -160,7 +160,7 @@ public class editarMateriaAdministradorControl {
             Data.getCarrera().getMaterias().put(m.getId(),m);
             EscenaControl escena = new EscenaControl();
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+            escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
         }catch (DatosIncorrectosException e)
         {
             e.getMessage();
@@ -177,7 +177,7 @@ public class editarMateriaAdministradorControl {
     void clickBtnVolver(ActionEvent event) {
         EscenaControl escena = new EscenaControl();
         Stage stage = (Stage) btnVolver.getScene().getWindow();
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+        escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar Materias");
     }
 
 }

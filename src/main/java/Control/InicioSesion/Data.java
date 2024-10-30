@@ -11,11 +11,7 @@ public final class Data {
 
     private static String legajo;//Se guarda el legajo de quien ingreso al sistema para futuras operaciones
     private static Estudiante estudiante;//Se guarda el estudiante que ingreso al sistema para futuras operaciones
-
-    private static String legajo;
-
     private static String aux;
-
     private static Carrera carrera;
     private static Materia materiaData;
 
@@ -50,7 +46,7 @@ public final class Data {
 
     static void setEstudiante(String legajo) {
 
-        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), Path.fileNameAlumnos));
+        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), fileNameAlumnos));
     }
 
     public static void setEstudiante(Estudiante estudiante) { Data.estudiante = estudiante; }

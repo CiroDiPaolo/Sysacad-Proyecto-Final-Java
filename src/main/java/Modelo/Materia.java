@@ -202,7 +202,7 @@ public final class Materia implements iCRUD{
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) throws DatosIncorrectosException, CamposVaciosException {
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if (this.getAnio().matches("[1-9]") && this.getCuatrimestre().matches("[1-2]")) {
             if (!this.getNombre().isEmpty()) {
                 if (manejoArchivosCarrera.actualizarMateria(path, this.materiaAJSONObject(), Data.getCarrera().getId())) {

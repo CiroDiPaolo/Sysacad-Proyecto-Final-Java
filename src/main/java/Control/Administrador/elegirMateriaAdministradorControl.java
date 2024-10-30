@@ -78,7 +78,7 @@ public class elegirMateriaAdministradorControl {
                 {
                     data.setMateria(materiasArray.get(i));
                     flag = true;
-                    escena.cambiarEscena(Path.editarMateriaAdministrador,stage,"Editar materia");
+                    escena.cambiarEscena(editarMateriaAdministrador,stage,"Editar materia");
                 }
                 i++;
             }
