@@ -146,7 +146,7 @@ public final class inicioSesionControl {
                 constante = Path.menuPrincipalAlumnos;
 
                 //Se obtiene el estudiante que ingreso al sistema
-                Data.setEstudiante();
+                Data.setEstudiante(legajo);
 
             }else if (index == 2){
 

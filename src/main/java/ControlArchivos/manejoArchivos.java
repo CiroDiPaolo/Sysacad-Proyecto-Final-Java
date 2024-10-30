@@ -197,15 +197,31 @@ public final class manejoArchivos {
         return false;
     }
 
+
+    public static boolean guardarArchivo(String path, JSONArray arreglo) {
+
+        try {
+
+            FileWriter fileWriter = new FileWriter(path);
+            fileWriter.write(arreglo.toString(4));
+            fileWriter.close();
+
+            return true;
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) throws ParametroPeligrosoException {
         if (jsonArray == null || jsonArray.isEmpty()) {
             throw new ParametroPeligrosoException("Ocurrió un error. No se pudo completar la operación. Si el problema persiste llame a su distribuidor");
         }
 
         try (FileWriter fileWriter = new FileWriter(fileName)) {
+
             fileWriter.write(jsonArray.toString(4));
         } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo: " + fileName);
             e.printStackTrace();
         }
     }

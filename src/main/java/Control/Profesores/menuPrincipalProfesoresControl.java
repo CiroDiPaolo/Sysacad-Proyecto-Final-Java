@@ -2,6 +2,7 @@ package Control.Profesores;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Excepciones.ArchivoNoEncontrado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,7 +39,11 @@ public class menuPrincipalProfesoresControl {
 
         String legajo = Data.getLegajo();
 
-        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
+        try {
+            txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
+        } catch (ArchivoNoEncontrado e) {
+            e.getMessage();
+        }
     }
 
     @FXML

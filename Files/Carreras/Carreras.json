@@ -198,7 +198,7 @@
                 "id": "004",
                 "nombre": "Matemáticas Discretas",
                 "seRinde": true,
-                "anio": "2",
+                "anio": "1",
                 "actividad": true,
                 "codigoCorrelativasCursado": ["003"]
             },
