@@ -279,5 +279,15 @@ public final class Materia implements iCRUD{
         return jsonObject;
     }
 
+    public static String cortarString(String input) {
+
+        int index = input.indexOf(" -");
+
+        if (index != -1) {
+            return input.substring(0, index);
+        }
+
+        return input;
+    }
 
 }
