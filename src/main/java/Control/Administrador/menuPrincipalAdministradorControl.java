@@ -54,7 +54,7 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp1(ActionEvent event) {
 
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+        escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar Carrera");
 
     }
 

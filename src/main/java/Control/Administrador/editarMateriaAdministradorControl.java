@@ -41,6 +41,9 @@ public class editarMateriaAdministradorControl {
     private CheckBox checkBoxSeRinde;
 
     @FXML
+    private CheckBox checkBoxActividad;
+
+    @FXML
     private TableColumn<MateriaFX, String> colCodigo;
 
     @FXML
@@ -76,7 +79,7 @@ public class editarMateriaAdministradorControl {
 
     private EscenaControl escena = new EscenaControl();
     private Carrera carrera = Data.getCarrera();
-    private Materia materiaData = new Materia(carrera.getMaterias().get("006"));
+    private Materia materiaData = new Materia(Data.getMateria());
     private ObservableList<MateriaFX> materias = FXCollections.observableArrayList();
     HashSet<String> idsMateriasCursar = new HashSet<>();
     HashSet<String> idsMateriasRendir = new HashSet<>();
@@ -89,6 +92,7 @@ public class editarMateriaAdministradorControl {
         txtCuatrimestre.setText(materiaData.getCuatrimestre());
         checkBoxSeCursa.setSelected(materiaData.isSeCursa());
         checkBoxSeRinde.setSelected(materiaData.isSeRinde());
+        checkBoxActividad.setSelected(materiaData.isActividad());
         txtCodigo.setEditable(false);
         cargarMateriasDeCarrera();
         tableMaterias.setEditable(true);
@@ -150,9 +154,10 @@ public class editarMateriaAdministradorControl {
                 idsMateriasRendir.add(materia.getId());
             }
         }
-        Materia m = new Materia(txtCodigo.getText(),txtNombre.getText(),txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir);
+        Materia m = new Materia(txtCodigo.getText(),txtNombre.getText(),txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir, checkBoxActividad.isSelected());
         try{
             m.actualizar(pathCarreras, m.materiaAJSONObject());
+            Data.getCarrera().getMaterias().put(m.getId(),m);
             EscenaControl escena = new EscenaControl();
             Stage stage = (Stage) btnVolver.getScene().getWindow();
             escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");

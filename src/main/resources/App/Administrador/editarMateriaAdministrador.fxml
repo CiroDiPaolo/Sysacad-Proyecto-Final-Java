@@ -84,19 +84,19 @@
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <CheckBox fx:id="checkBoxSeCursa" layoutX="258.0" layoutY="632.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" text="Se cursa" textFill="#e4e4e4">
+        <CheckBox fx:id="checkBoxSeCursa" layoutX="185.0" layoutY="633.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" text="Se cursa" textFill="#e4e4e4">
             <font>
                 <Font size="25.0" />
             </font>
         </CheckBox>
-        <CheckBox fx:id="checkBoxSeRinde" layoutX="490.0" layoutY="633.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" text="Se rinde" textFill="#e4e4e4">
+        <CheckBox fx:id="checkBoxSeRinde" layoutX="383.0" layoutY="633.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" text="Se rinde" textFill="#e4e4e4">
             <font>
                 <Font size="25.0" />
             </font>
         </CheckBox>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="220.0" layoutY="733.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="462.0" layoutY="734.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="721.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="464.0" layoutY="733.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="220.0" layoutY="732.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="220.0" layoutY="721.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>
@@ -104,7 +104,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="454.0" layoutY="721.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Cargar" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="457.0" layoutY="722.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Cargar" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>
@@ -112,5 +112,10 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
+      <CheckBox fx:id="checkBoxActividad" layoutX="601.0" layoutY="633.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" text="Activo" textFill="#e4e4e4">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </CheckBox>
     </children>
 </AnchorPane>
