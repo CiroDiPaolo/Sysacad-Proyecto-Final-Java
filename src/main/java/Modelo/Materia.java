@@ -66,6 +66,18 @@ public final class Materia implements iCRUD{
         actividad = false;
     }
 
+    public Materia(Materia materia) {
+        this.id = materia.getId();
+        this.nombre = materia.getNombre();
+        this.anio = materia.getAnio();
+        this.cuatrimestre = materia.getCuatrimestre();
+        this.seCursa = materia.isSeCursa();
+        this.seRinde = materia.isSeRinde();
+        this.codigoCorrelativasCursado = materia.getCodigoCorrelativasCursado();
+        this.codigoCorrelativasRendir = materia.getCodigoCorrelativasRendir();
+        this.actividad = materia.isActividad();
+    }
+
 
     //Getters
 
@@ -186,13 +198,23 @@ public final class Materia implements iCRUD{
         }else{
             throw new DatosIncorrectosException("El año y/o cuatrimestre ingresados son incorrectos. Vuelva a intentarlo");
         }
-
-
         return false;
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) {
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
+        if (this.getAnio().matches("[1-9]") && this.getCuatrimestre().matches("[1-2]")) {
+            if (!this.getNombre().isEmpty()) {
+                if (manejoArchivosCarrera.actualizarMateria(path, this.materiaAJSONObject(), Data.getCarrera().getId())) {
+                    excepcionPersonalizada.alertaConfirmacion("Materia actualizada en la carrera exitosamente");
+                    return true;
+                }
+            } else {
+                throw new CamposVaciosException("Intentaste ingresar campos vacios. Volve a intentarlo");
+            }
+        }else {
+            throw new DatosIncorrectosException("El año y/o cuatrimestre ingresados son incorrectos. Vuelva a intentarlo");
+        }
         return false;
     }
 
@@ -258,5 +280,15 @@ public final class Materia implements iCRUD{
         return jsonObject;
     }
 
+    public static String cortarString(String input) {
+
+        int index = input.indexOf(" -");
+
+        if (index != -1) {
+            return input.substring(0, index);
+        }
+
+        return input;
+    }
 
 }

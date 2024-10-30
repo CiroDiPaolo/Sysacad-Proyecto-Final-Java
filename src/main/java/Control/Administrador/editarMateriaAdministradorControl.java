@@ -4,29 +4,29 @@ import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
-import Excepciones.EntidadYaExistente;
-import Modelo.Materia;
 import Modelo.Carrera;
+import Modelo.Materia;
 import Modelo.MateriaFX;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import java.util.HashSet;
+import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import java.util.HashSet;
 
-import static Path.Path.configurarMateriasAdministrador;
-import static Path.Path.pathCarreras;
+import static Path.Path.*;
 
-public class cargaMateriaAdministradorControl {
+
+public class editarMateriaAdministradorControl {
 
     @FXML
     private Button btnCargar;
@@ -41,6 +41,9 @@ public class cargaMateriaAdministradorControl {
     private CheckBox checkBoxSeRinde;
 
     @FXML
+    private CheckBox checkBoxActividad;
+
+    @FXML
     private TableColumn<MateriaFX, String> colCodigo;
 
     @FXML
@@ -51,6 +54,9 @@ public class cargaMateriaAdministradorControl {
 
     @FXML
     private TableColumn<MateriaFX, Boolean> colSeRinde;
+
+    @FXML
+    private Rectangle lista;
 
     @FXML
     private TableView<MateriaFX> tableMaterias;
@@ -69,23 +75,30 @@ public class cargaMateriaAdministradorControl {
 
     @FXML
     private TextField txtNombre;
+    private Stage stage;
 
-
-    private ObservableList<MateriaFX> materias = FXCollections.observableArrayList();
+    private EscenaControl escena = new EscenaControl();
     private Carrera carrera = Data.getCarrera();
+    private Materia materiaData = new Materia(Data.getMateria());
+    private ObservableList<MateriaFX> materias = FXCollections.observableArrayList();
     HashSet<String> idsMateriasCursar = new HashSet<>();
     HashSet<String> idsMateriasRendir = new HashSet<>();
 
     @FXML
     public void initialize() {
-
+        txtCodigo.setText(materiaData.getId());
+        txtNombre.setText(materiaData.getNombre());
+        txtAnio.setText(materiaData.getAnio());
+        txtCuatrimestre.setText(materiaData.getCuatrimestre());
+        checkBoxSeCursa.setSelected(materiaData.isSeCursa());
+        checkBoxSeRinde.setSelected(materiaData.isSeRinde());
+        checkBoxActividad.setSelected(materiaData.isActividad());
+        txtCodigo.setEditable(false);
         cargarMateriasDeCarrera();
         tableMaterias.setEditable(true);
 
-
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-
 
         colSeCursa.setCellValueFactory(cellData -> cellData.getValue().seCursaProperty());
         colSeCursa.setCellFactory(CheckBoxTableCell.forTableColumn(colSeCursa));
@@ -101,7 +114,7 @@ public class cargaMateriaAdministradorControl {
         colSeRinde.setCellFactory(CheckBoxTableCell.forTableColumn(colSeRinde));
         colSeRinde.setEditable(true);
         colSeRinde.setOnEditCommit(event -> {
-            MateriaFX materia = event.getRowValue();
+            MateriaFX materia =  event.getRowValue();
             boolean newValue = event.getNewValue();
             materia.setSeRinde(newValue);
             System.out.println("Se rinde: " + materia.getId() + " - " + newValue);
@@ -110,12 +123,29 @@ public class cargaMateriaAdministradorControl {
         tableMaterias.setItems(materias);
     }
 
+    private void cargarMateriasDeCarrera() {
+        materias.clear();
+
+        idsMateriasCursar = materiaData.getCodigoCorrelativasCursado();
+        idsMateriasRendir = materiaData.getCodigoCorrelativasRendir();
+
+        for (Materia materia : carrera.getMaterias().values()) {
+            if(!materia.getId().equals(materiaData.getId()))
+            {
+                boolean seCursaChecked = idsMateriasCursar.contains(materia.getId());
+                boolean seRindeChecked = idsMateriasRendir.contains(materia.getId());
+
+                MateriaFX materiaFX = new MateriaFX(materia.getId(), materia.getNombre(), seCursaChecked, seRindeChecked);
+                materias.add(materiaFX);
+            }
+
+        }
+    }
+
     @FXML
     void clickBtnCargar(ActionEvent event) {
-
         idsMateriasCursar.clear();
         idsMateriasRendir.clear();
-
         for (MateriaFX materia : tableMaterias.getItems()) {
             if (materia.isSeCursa()) {
                 idsMateriasCursar.add(materia.getId());
@@ -124,40 +154,30 @@ public class cargaMateriaAdministradorControl {
                 idsMateriasRendir.add(materia.getId());
             }
         }
-
-        Materia materia = new Materia(txtCodigo.getText(), txtNombre.getText(), txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir,true);
+        Materia m = new Materia(txtCodigo.getText(),txtNombre.getText(),txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir, checkBoxActividad.isSelected());
         try{
-
-            if(materia.crear(pathCarreras)){
-                Data.getCarrera().getMaterias().put(materia.getId(),materia);
-                EscenaControl escena = new EscenaControl();
-                Stage stage = (Stage) btnCargar.getScene().getWindow();
-                escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
-            }
-
-
-        } catch (CamposVaciosException e) {
+            m.actualizar(pathCarreras, m.materiaAJSONObject());
+            Data.getCarrera().getMaterias().put(m.getId(),m);
+            EscenaControl escena = new EscenaControl();
+            Stage stage = (Stage) btnVolver.getScene().getWindow();
+            escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
+        }catch (DatosIncorrectosException e)
+        {
             e.getMessage();
-        } catch (DatosIncorrectosException e) {
-            e.getMessage();
-        } catch (EntidadYaExistente e) {
+        }catch (CamposVaciosException e)
+        {
             e.getMessage();
         }
-    }
 
-    private void cargarMateriasDeCarrera() {
-        materias.clear();
-        for (Materia materia : carrera.getMaterias().values()) {
-            materias.add(new MateriaFX(materia.getId(), materia.getNombre()));
-        }
+
+
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-
         EscenaControl escena = new EscenaControl();
         Stage stage = (Stage) btnVolver.getScene().getWindow();
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+        escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar Materias");
     }
 
 }

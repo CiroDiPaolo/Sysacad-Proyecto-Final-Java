@@ -54,7 +54,7 @@ public class editarMateriaAlumnoAdministradorControl {
     void clickBtnVolver(ActionEvent event) {
 
         EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.configurarMateriasAdministrador, stage, "Configurar Materia");
+        escena.cambiarEscena(Path.editarAlumnoAdministrador, stage, "Configurar Materia");
 
     }
 

@@ -3,105 +3,281 @@
         "id": "001",
         "nombre": "Ingeniería en Sistemas",
         "plan": "2024",
-        "materias": {
-            "001": {
+        "materias": [
+            {
                 "cuatrimestre": "1",
-                "seCursa": false,
+                "seCursa": true,
                 "codigoCorrelativasRendir": [],
                 "id": "001",
-                "nombre": "nuevita",
+                "nombre": "Introducción a la Programación",
                 "seRinde": true,
                 "anio": "1",
                 "actividad": true,
                 "codigoCorrelativasCursado": []
             },
-            "MAT101": {
-                "cuatrimestre": "1",
+            {
+                "cuatrimestre": "2",
                 "seCursa": true,
-                "codigoCorrelativasRendir": ["MAT100"],
-                "id": "MAT101",
+                "codigoCorrelativasRendir": [],
+                "id": "002",
                 "nombre": "Matemáticas I",
-                "seRinde": true,
-                "anio": "2024",
-                "codigoCorrelativasCursado": ["MAT100"],
-                "actividad": true
-            },
-            "MAT102": {
-                "cuatrimestre": "2",
-                "seCursa": true,
-                "codigoCorrelativasRendir": ["MAT101"],
-                "id": "MAT102",
-                "nombre": "Matemáticas II",
-                "seRinde": true,
-                "anio": "2024",
-                "codigoCorrelativasCursado": ["MAT101"],
-                "actividad": true
-            },
-            "003": {
-                "cuatrimestre": "2",
-                "seCursa": true,
-                "codigoCorrelativasRendir": [
-                    "001",
-                    "MAT101",
-                    "MAT102",
-                    "004",
-                    "005"
-                ],
-                "id": "003",
-                "nombre": "Base de Datos",
-                "seRinde": true,
-                "anio": "3",
-                "actividad": true,
-                "codigoCorrelativasCursado": [
-                    "001",
-                    "MAT101",
-                    "MAT102",
-                    "004",
-                    "005"
-                ]
-            },
-            "004": {
-                "cuatrimestre": "2",
-                "seCursa": true,
-                "codigoCorrelativasRendir": ["MAT102"],
-                "id": "004",
-                "nombre": "PROGRAMACION II",
                 "seRinde": true,
                 "anio": "1",
                 "actividad": true,
-                "codigoCorrelativasCursado": ["MAT101"]
+                "codigoCorrelativasCursado": ["001"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "003",
+                "codigoCorrelativasRendir": ["002"],
+                "id": "003",
+                "nombre": "Algoritmos",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["001"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "004",
+                "codigoCorrelativasRendir": [],
+                "id": "004",
+                "nombre": "Estructuras de Datos",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["003"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "005",
+                "codigoCorrelativasRendir": ["004"],
+                "id": "005",
+                "nombre": "Matemáticas II",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["002"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["003"],
+                "id": "006",
+                "nombre": "Programación Avanzada",
+                "seRinde": true,
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["002"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "007",
+                "codigoCorrelativasRendir": [],
+                "id": "007",
+                "nombre": "Bases de Datos",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["006"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "008",
+                "codigoCorrelativasRendir": ["006"],
+                "id": "008",
+                "nombre": "Sistemas Operativos",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "009",
+                "codigoCorrelativasRendir": [],
+                "id": "009",
+                "nombre": "Redes de Computadoras",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["008"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "010",
+                "codigoCorrelativasRendir": [
+                    "007",
+                    "008"
+                ],
+                "id": "010",
+                "nombre": "Ingeniería de Software",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["009"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["007"],
+                "id": "011",
+                "nombre": "Base de Datos II",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["002"],
+                "id": "012",
+                "nombre": "Matemáticas III",
+                "seRinde": false,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["005"]
             }
-        },
+        ],
         "actividad": true
     },
     {
         "id": "002",
         "nombre": "Licenciatura en Ciencias de la Computación",
         "plan": "2024",
-        "materias": {
-            "CS101": {
+        "materias": [
+            {
                 "cuatrimestre": "1",
                 "seCursa": true,
+                "codigo": "001",
                 "codigoCorrelativasRendir": [],
-                "id": "CS101",
-                "nombre": "Introducción a la Programación",
+                "id": "001",
+                "nombre": "Introducción a la Computación",
                 "seRinde": true,
-                "anio": "2024",
-                "codigoCorrelativasCursado": [],
-                "actividad": true
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": []
             },
-            "CS102": {
+            {
                 "cuatrimestre": "2",
                 "seCursa": true,
-                "codigoCorrelativasRendir": ["CS101"],
-                "id": "CS102",
+                "codigo": "002",
+                "codigoCorrelativasRendir": [],
+                "id": "002",
+                "nombre": "Lógica",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["001"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "003",
+                "codigoCorrelativasRendir": ["002"],
+                "id": "003",
+                "nombre": "Programación I",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["001"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "004",
+                "codigoCorrelativasRendir": [],
+                "id": "004",
+                "nombre": "Matemáticas Discretas",
+                "seRinde": true,
+                "anio": "1",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["003"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "005",
+                "codigoCorrelativasRendir": ["004"],
+                "id": "005",
                 "nombre": "Estructuras de Datos",
                 "seRinde": true,
-                "anio": "2024",
-                "codigoCorrelativasCursado": ["CS101"],
-                "actividad": true
+                "anio": "2",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["003"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "006",
+                "codigoCorrelativasRendir": [],
+                "id": "006",
+                "nombre": "Teoría de Autómatas",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["004"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "007",
+                "codigoCorrelativasRendir": ["006"],
+                "id": "007",
+                "nombre": "Bases de Datos",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["005"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "008",
+                "codigoCorrelativasRendir": [],
+                "id": "008",
+                "nombre": "Compiladores",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["006"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigo": "009",
+                "codigoCorrelativasRendir": ["008"],
+                "id": "009",
+                "nombre": "Inteligencia Artificial",
+                "seRinde": true,
+                "anio": "4",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigo": "010",
+                "codigoCorrelativasRendir": [],
+                "id": "010",
+                "nombre": "Sistemas Distribuidos",
+                "seRinde": true,
+                "anio": "5",
+                "actividad": true,
+                "codigoCorrelativasCursado": [
+                    "008",
+                    "009"
+                ]
             }
-        },
+        ],
         "actividad": true
     }
 ]

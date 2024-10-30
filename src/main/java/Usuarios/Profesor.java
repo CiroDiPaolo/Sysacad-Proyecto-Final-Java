@@ -79,7 +79,7 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) {
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         return false;
     }
 

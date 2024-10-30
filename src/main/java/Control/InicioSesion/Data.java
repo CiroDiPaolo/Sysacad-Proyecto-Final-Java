@@ -2,18 +2,18 @@ package Control.InicioSesion;
 
 import ControlArchivos.manejoArchivosEstudiante;
 import Modelo.Carrera;
-import Path.Path;
+import Modelo.Materia;
 import Usuarios.*;
+import static Consultas.consultaArchivo.*;
+import static Path.Path.*;
 
 public final class Data {
 
+    private static String legajo;//Se guarda el legajo de quien ingreso al sistema para futuras operaciones
     private static Estudiante estudiante;//Se guarda el estudiante que ingreso al sistema para futuras operaciones
-
-    private static String legajo;
-
     private static String aux;
-
     private static Carrera carrera;
+    private static Materia materiaData;
 
     public static Carrera getCarrera(){
         return carrera;
@@ -21,6 +21,14 @@ public final class Data {
 
     public void setCarrera(Carrera carrera){
         this.carrera = carrera;
+    }
+
+    public static Materia getMateria(){
+        return materiaData;
+    }
+
+    public void setMateria(Materia materia){
+        this.materiaData = materia;
     }
 
     public static String getLegajo() {
@@ -38,7 +46,7 @@ public final class Data {
 
     static void setEstudiante(String legajo) {
 
-        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), Path.fileNameAlumnos));
+        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), fileNameAlumnos));
     }
 
     public static void setEstudiante(Estudiante estudiante) { Data.estudiante = estudiante; }

@@ -40,7 +40,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnOp1" alignment="CENTER" contentDisplay="CENTER" layoutX="758.0" layoutY="321.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnOp1" prefHeight="84.0" prefWidth="403.0" style="-fx-background-color: transparent;" text="Configurar materias" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="759.0">
+      <Button fx:id="btnOp1" alignment="CENTER" contentDisplay="CENTER" layoutX="758.0" layoutY="321.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnOp1" prefHeight="84.0" prefWidth="403.0" style="-fx-background-color: transparent;" text="Configurar carreras" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="759.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
