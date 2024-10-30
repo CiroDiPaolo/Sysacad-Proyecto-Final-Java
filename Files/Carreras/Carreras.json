@@ -7,7 +7,6 @@
             {
                 "cuatrimestre": "1",
                 "seCursa": true,
-                "codigo": "001",
                 "codigoCorrelativasRendir": [],
                 "id": "001",
                 "nombre": "Introducción a la Programación",
@@ -19,7 +18,6 @@
             {
                 "cuatrimestre": "2",
                 "seCursa": true,
-                "codigo": "002",
                 "codigoCorrelativasRendir": [],
                 "id": "002",
                 "nombre": "Matemáticas I",
@@ -70,7 +68,7 @@
                 "codigoCorrelativasRendir": ["003"],
                 "id": "006",
                 "nombre": "Programación Avanzada",
-                "seRinde": false,
+                "seRinde": true,
                 "anio": "2",
                 "actividad": true,
                 "codigoCorrelativasCursado": ["002"]
@@ -125,6 +123,28 @@
                 "anio": "4",
                 "actividad": true,
                 "codigoCorrelativasCursado": ["009"]
+            },
+            {
+                "cuatrimestre": "2",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["007"],
+                "id": "011",
+                "nombre": "Base de Datos II",
+                "seRinde": true,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["007"]
+            },
+            {
+                "cuatrimestre": "1",
+                "seCursa": true,
+                "codigoCorrelativasRendir": ["002"],
+                "id": "012",
+                "nombre": "Matemáticas III",
+                "seRinde": false,
+                "anio": "3",
+                "actividad": true,
+                "codigoCorrelativasCursado": ["005"]
             }
         ],
         "actividad": true
