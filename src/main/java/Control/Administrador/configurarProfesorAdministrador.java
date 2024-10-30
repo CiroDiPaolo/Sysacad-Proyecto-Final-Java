@@ -46,11 +46,7 @@ public class configurarProfesorAdministrador {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-
-        stage = (Stage) btnVolver.getScene().getWindow();
-        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(Path.menuPrincipalAdministrador, stage, "Menu Principal");
-
     }
 
     @FXML
