@@ -3,6 +3,7 @@ package ControlArchivos;
 import Consultas.consultaArchivo;
 import Excepciones.ArchivoYaExistenteException;
 import Excepciones.EntidadYaExistente;
+import Excepciones.ParametroPeligrosoException;
 import Modelo.Carrera;
 import Modelo.Materia;
 import org.json.JSONArray;
@@ -195,16 +196,20 @@ public final class manejoArchivosCarrera {
             if (carreraJSON.getString("id").equals(idCarrera)) {
                 carreraEncontrada = true;
 
-
                 JSONObject materias = carreraJSON.getJSONObject("materias");
                 if (materias.has(nuevaMateria.getId())) {
                     throw new EntidadYaExistente("La materia ya existe en la carrera");
                 }
 
-
                 materias.put(nuevaMateria.getId(), nuevaMateria.materiaAJSONObject());
                 carreraJSON.put("materias", materias);
-                sobreescribirArchivoJSON(fileName, arreglo);
+                try{
+                    sobreescribirArchivoJSON(fileName, arreglo);
+                }catch (ParametroPeligrosoException e)
+                {
+                    e.getMessage();
+                }
+
                 return true;
             }
         }
@@ -216,49 +221,42 @@ public final class manejoArchivosCarrera {
     public static boolean actualizarMateria(String fileName, JSONObject nuevaMateria, String idCarrera) {
 
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
-
-
-        boolean carreraEncontrada = false;
-        boolean materiaActualizada = false;
-
-
         for (int i = 0; i < arreglo.length(); i++) {
             JSONObject carreraJSON = arreglo.getJSONObject(i);
 
-
             if (carreraJSON.getString("id").equals(idCarrera)) {
-                carreraEncontrada = true;
-
-
                 JSONArray materias = carreraJSON.optJSONArray("materias");
+
                 if (materias != null) {
                     for (int j = 0; j < materias.length(); j++) {
                         JSONObject materiaActual = materias.getJSONObject(j);
 
-
                         if (materiaActual.getString("id").equals(nuevaMateria.getString("id"))) {
-                            // Actualizar los atributos de la materia
-                            materiaActual.put("nombre", nuevaMateria.getString("nombre"));
-                            materiaActual.put("anio", nuevaMateria.getInt("anio"));
-                            materiaActual.put("cuatrimestre", nuevaMateria.getInt("cuatrimestre"));
-
-
-                            materiaActualizada = true;
+                            materias.put(j, nuevaMateria);
                             break;
                         }
                     }
+                } else {
+                    materias = new JSONArray();
+                    materias.put(nuevaMateria);
+                    carreraJSON.put("materias", materias);
                 }
-                break;
+
+                arreglo.put(i, carreraJSON);
+                try{
+                    sobreescribirArchivoJSON(fileName, arreglo);
+                }catch (ParametroPeligrosoException e)
+                {
+                    e.getMessage();
+                }
+
+
+                return true;
             }
         }
 
-        if (carreraEncontrada && materiaActualizada) {
-            sobreescribirArchivoJSON(fileName, arreglo);
-        }
-
-        return materiaActualizada;
+        return false;
     }
-
 
 
 }
