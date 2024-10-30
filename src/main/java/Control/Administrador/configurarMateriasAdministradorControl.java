@@ -40,7 +40,9 @@ public final class configurarMateriasAdministradorControl {
 
     @FXML
     void clickBtnOp2(ActionEvent event) {
-
+        Data data = new Data();
+        data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras,"001"));
+        escena.cambiarEscena(Path.editarMateriaAdministrador,stage,"Editar materia");
     }
 
     @FXML
@@ -56,6 +58,7 @@ public final class configurarMateriasAdministradorControl {
         Platform.runLater(() -> {
 
             stage = (Stage) btnOp1.getScene().getWindow();
+            stage = (Stage) btnOp2.getScene().getWindow();
 
         });
 
