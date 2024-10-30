@@ -129,6 +129,7 @@ public class cargaMateriaAdministradorControl {
         try{
 
             if(materia.crear(pathCarreras)){
+                Data.getCarrera().getMaterias().put(materia.getId(),materia);
                 EscenaControl escena = new EscenaControl();
                 Stage stage = (Stage) btnCargar.getScene().getWindow();
                 escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
