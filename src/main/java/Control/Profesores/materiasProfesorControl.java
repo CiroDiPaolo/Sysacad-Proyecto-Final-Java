@@ -6,10 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
-public class comisionesProfesorControl {
+public class materiasProfesorControl {
 
     @FXML
-    private Button btnVolver;
+    private Button btnSalir;
 
     @FXML
     private Label tctMenuPrincipal;
@@ -18,7 +18,7 @@ public class comisionesProfesorControl {
     private Text txtBienvenida;
 
     @FXML
-    void clickBtnVolver(ActionEvent event) {
+    void clickBtnSalir(ActionEvent event) {
 
     }
 
