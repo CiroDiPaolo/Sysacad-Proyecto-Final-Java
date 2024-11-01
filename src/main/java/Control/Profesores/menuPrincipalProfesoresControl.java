@@ -53,6 +53,8 @@ public class menuPrincipalProfesoresControl {
     @FXML
     void clickBtnCrearExcel(ActionEvent event) {
 
+        escena.cambiarEscena(crearExcelProfesores,stage,"Crear Excel");
+
     }
 
     @FXML
@@ -65,10 +67,14 @@ public class menuPrincipalProfesoresControl {
     @FXML
     void clickBtnVerMaterias(ActionEvent event) {
 
+        escena.cambiarEscena(materiasProfesores,stage,"Materias");
+
     }
 
     @FXML
     void clickBtnVerMesas(ActionEvent event) {
+
+        escena.cambiarEscena(mesasProfesores,stage,"Mesas");
 
     }
 
