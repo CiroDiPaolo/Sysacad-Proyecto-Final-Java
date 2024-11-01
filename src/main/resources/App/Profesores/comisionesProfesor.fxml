@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
@@ -12,8 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.comisionesProfesorControl">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.comisionesProfesoresControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-735.0" layoutY="-152.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +23,7 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-54.0" layoutY="-15.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-58.0" layoutY="28.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
       <VBox alignment="TOP_CENTER" layoutX="626.0" layoutY="50.0" prefHeight="227.0" prefWidth="707.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
@@ -39,11 +39,6 @@
             <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="MODO PROFESOR" wrappingWidth="254.13671875">
                <font>
                   <Font size="31.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtBienvenida" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="503.47015380859375">
-               <font>
-                  <Font size="30.0" />
                </font>
             </Text>
          </children>
@@ -63,5 +58,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Text fx:id="txtBienvenida" fill="WHITE" layoutX="723.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija una comisión" textAlignment="CENTER" wrappingWidth="503.47015380859375" AnchorPane.leftAnchor="723.0" AnchorPane.rightAnchor="1827.0">
+         <font>
+            <Font size="54.0" />
+         </font>
+      </Text>
+      <ChoiceBox fx:id="choiceBoxComisionesProfesores" layoutX="749.0" layoutY="468.0" prefHeight="83.0" prefWidth="436.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="1868.0" />
    </children>
 </AnchorPane>
