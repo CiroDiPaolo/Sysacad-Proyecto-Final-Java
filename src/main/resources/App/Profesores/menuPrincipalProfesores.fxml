@@ -22,7 +22,7 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-64.0" layoutY="-25.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-62.0" layoutY="-20.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
       <VBox alignment="TOP_CENTER" layoutX="616.0" layoutY="40.0" prefHeight="227.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
