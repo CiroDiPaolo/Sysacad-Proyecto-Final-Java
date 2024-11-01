@@ -69,8 +69,8 @@
       </Button>
       <TableView fx:id="tablaMateriasProfesor" layoutX="660.0" layoutY="334.0" prefHeight="460.0" prefWidth="620.0" AnchorPane.leftAnchor="660.0" AnchorPane.rightAnchor="640.0">
         <columns>
-          <TableColumn fx:id="uno" prefWidth="75.0" text="C1" />
-          <TableColumn fx:id="dos" prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="uno" editable="false" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="dos" editable="false" prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
    </children>
