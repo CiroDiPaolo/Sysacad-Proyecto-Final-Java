@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,8 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.materiasProfesorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.materiasProfesorControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-735.0" layoutY="-152.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +24,7 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-54.0" layoutY="-15.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-111.0" layoutY="-15.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
       <VBox alignment="TOP_CENTER" layoutX="626.0" layoutY="50.0" prefHeight="227.0" prefWidth="707.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
@@ -54,8 +55,11 @@
          </image>
       </ImageView>
       <Rectangle fill="#2a3b47" height="676.0" layoutX="623.0" layoutY="289.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="694.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="910.0" layoutY="866.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="btnSalir" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="904.0" layoutY="856.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnSalir" prefHeight="82.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="884.0" layoutY="860.0" stroke="BLACK" strokeType="INSIDE" width="152.0" AnchorPane.leftAnchor="884.0" AnchorPane.rightAnchor="884.0">
+         <effect>
+            <BoxBlur height="0.0" iterations="2" width="0.0" />
+         </effect></Rectangle>
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="877.0" layoutY="850.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="82.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -63,5 +67,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TableView fx:id="tablaMateriasProfesor" layoutX="660.0" layoutY="334.0" prefHeight="460.0" prefWidth="620.0" AnchorPane.leftAnchor="660.0" AnchorPane.rightAnchor="640.0">
+        <columns>
+          <TableColumn fx:id="uno" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="dos" prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
