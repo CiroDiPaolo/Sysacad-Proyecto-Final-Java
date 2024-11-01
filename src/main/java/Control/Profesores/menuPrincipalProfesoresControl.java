@@ -1,9 +1,8 @@
 package Control.Profesores;
 
 import Control.EscenaControl;
-import Control.InicioSesion.Data;
-import Excepciones.ArchivoNoEncontrado;
-import Path.Path;
+import Control.InicioSesion.inicioSesionData;
+import Path.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,13 +16,10 @@ import static Path.Path.*;
 public class menuPrincipalProfesoresControl {
 
     @FXML
-    private Button btnComisiones;
+    private Label tctMenuPrincipal;
 
     @FXML
     private Button btnSalir;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private Text txtBienvenida;
@@ -45,32 +41,13 @@ public class menuPrincipalProfesoresControl {
     private EscenaControl escena = new EscenaControl();
 
     /**
-     * Metodo que se ejecuta al inicializar la pantalla
-     */
-    @FXML
-    protected void initialize() {
-
-        Platform.runLater(() -> {
-
-            stage = (Stage) btnSalir.getScene().getWindow();
-            setTxtBienvenida();
-
-        });
-
-    }
-
-    /**
      * Metodo que setea el texto de bienvenida
      */
     protected void setTxtBienvenida() {
 
-        String legajo = Data.getLegajo();
+        String legajo = inicioSesionData.getLegajo();
 
-        try {
-            txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
-        } catch (ArchivoNoEncontrado e) {
-            e.getMessage();
-        }
+        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameProfesores,legajo));
     }
 
     @FXML
@@ -81,7 +58,7 @@ public class menuPrincipalProfesoresControl {
     @FXML
     void clickBtnVerComisiones(ActionEvent event) {
 
-        escena.cambiarEscena(comisionesProfesor,stage,"Comisiones");
+        escena.cambiarEscena(comisionesProfesores,stage,"Comisiones");
 
     }
 
@@ -98,17 +75,21 @@ public class menuPrincipalProfesoresControl {
     @FXML
     void clickBtnSalir(ActionEvent event) {
 
+        stage = (Stage) btnSalir.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inicioSesion, stage, "Inicio de sesion");
 
     }
 
-
     @FXML
-    void clickBtnComisiones(ActionEvent event) {
+    protected void initialize() {
 
-        EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.elegirComisionProfesor, stage, "Elegir comision");
+        Platform.runLater(() -> {
+
+            setTxtBienvenida();
+            stage = (Stage) btnSalir.getScene().getWindow();
+
+        });
 
     }
 
