@@ -3,6 +3,7 @@ package Control.Profesores;
 import Control.EscenaControl;
 import Control.InicioSesion.inicioSesionData;
 import Path.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,12 +41,6 @@ public class menuPrincipalProfesoresControl {
     private EscenaControl escena = new EscenaControl();
 
     /**
-     * Metodo que se ejecuta al inicializar la pantalla
-     */
-    @FXML
-    protected void initialize() { setTxtBienvenida(); }
-
-    /**
      * Metodo que setea el texto de bienvenida
      */
     protected void setTxtBienvenida() {
@@ -63,7 +58,7 @@ public class menuPrincipalProfesoresControl {
     @FXML
     void clickBtnVerComisiones(ActionEvent event) {
 
-        escena.cambiarEscena(comisionesProfesor,stage,"Comisiones");
+        escena.cambiarEscena(comisionesProfesores,stage,"Comisiones");
 
     }
 
@@ -83,6 +78,18 @@ public class menuPrincipalProfesoresControl {
         stage = (Stage) btnSalir.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inicioSesion, stage, "Inicio de sesion");
+
+    }
+
+    @FXML
+    protected void initialize() {
+
+        Platform.runLater(() -> {
+
+            setTxtBienvenida();
+            stage = (Stage) btnSalir.getScene().getWindow();
+
+        });
 
     }
 
