@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import static Path.Path.inicioSesion;
+import static Path.Path.menuPrincipalProfesores;
 
 public class materiasProfesorControl {
 
@@ -40,7 +41,7 @@ public class materiasProfesorControl {
 
         stage = (Stage) btnVolver.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(inicioSesion, stage, "Inicio de sesion");
+        escena.cambiarEscena(menuPrincipalProfesores, stage, "Inicio de sesion");
 
     }
 
