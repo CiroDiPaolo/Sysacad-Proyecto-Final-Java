@@ -1,19 +1,20 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosCarrera;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
-import Modelo.EstadoAlumnoMateria;
-import Modelo.EstadoAlumnoMesa;
-import Modelo.EstadoMateria;
-import Modelo.iCRUD;
+import Modelo.*;
+import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Esta clase hereda de Usuario y representa un Estudiante en el sistema.
@@ -38,7 +39,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         this.setCorreo(estudiante.getCorreo());
         this.setActividad(estudiante.getActividad());
         this.setFechaDeAlta(estudiante.getFechaDeAlta());
-        this.setMaterias(new ArrayList<>(estudiante.getMaterias()));
+        this.setMaterias(estudiante.getMaterias());
     }
 
     public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
@@ -169,6 +170,7 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return JSONObject
      */
     public JSONObject estudianteAJSONObject() {
+
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("nombre", this.getNombre());
@@ -181,40 +183,47 @@ public final class Estudiante extends Usuario implements iCRUD {
         jsonObject.put("actividad",this.getActividad());
         jsonObject.put("fechaDeAlta",this.getFechaDeAlta().toString());
 
-        for (int i = 0; i < this.getMaterias().size(); i++) {
+        JSONArray materias = new JSONArray();
+
+        for(int i = 0 ; i < this.getMaterias().size() ; i++){
 
             JSONObject materia = new JSONObject();
 
-            materia.put("codigoMateria", this.getMaterias().get(i).getCodigoMateria());
-            materia.put("estado", this.getMaterias().get(i).getEstado());
-            materia.put("tomo", this.getMaterias().get(i).getTomo());
-            materia.put("folio", this.getMaterias().get(i).getFolio());
-            materia.put("codigoComision", this.getMaterias().get(i).getCodigoComision());
+            materia.put("id",this.getMaterias().get(i).getCodigoMateria());
+            materia.put("estado",this.getMaterias().get(i).getEstado());
+            materia.put("tomo",this.getMaterias().get(i).getTomo());
+            materia.put("folio",this.getMaterias().get(i).getFolio());
+            materia.put("codigoComision",this.getMaterias().get(i).getCodigoComision());
 
             JSONArray notas = new JSONArray();
 
-            for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+            for(int j = 0 ; j < this.getMaterias().get(i).getNotas().size() ; j++){
 
-                JSONObject nota = new JSONObject();
-                nota.put("key", key);
-                nota.put("value", this.getMaterias().get(i).getNotas().get(key));
-                notas.put(nota);
+                for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+
+                    JSONObject nota = new JSONObject();
+                    nota.put(key,this.getMaterias().get(i).getNotas().get(key));
+                    notas.put(nota);
+
+                }
 
             }
+
             materia.put("notas", notas);
 
             JSONArray mesasExamen = new JSONArray();
 
-            for (String key : this.getMaterias().get(i).getMesasExamen().keySet()) {
+            for(int j = 0 ; j< this.getMaterias().get(j).getMesasExamen().size() ; j++){
 
                 JSONObject mesaExamen = new JSONObject();
-                mesaExamen.put("key", key);
-                mesaExamen.put("value", this.getMaterias().get(i).getMesasExamen().get(key));
-                mesasExamen.put(mesaExamen);
-            }
-            materia.put("mesasExamen", mesasExamen);
 
-            jsonObject.put("materia" + i, materia);
+                mesaExamen.put("key",this.getMaterias().get(j).getMesasExamen().keySet());
+                mesaExamen.put("value",this.getMaterias().get(j).getMesasExamen().get(j).getNota());
+                mesaExamen.put("presente",this.getMaterias().get(j).getMesasExamen().get(j).isPresente());
+
+                mesasExamen.put(mesaExamen);
+
+            }
 
         }
 
@@ -227,7 +236,6 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
-
         String nombre = jsonObject.getString("nombre");
         String apellido = jsonObject.getString("apellido");
         String dni = jsonObject.getString("dni");
@@ -241,31 +249,37 @@ public final class Estudiante extends Usuario implements iCRUD {
         Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
 
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
-        int i = 0;
-        while (jsonObject.has("materia" + i)) {
-            JSONObject materiaJSON = jsonObject.getJSONObject("materia" + i);
-            EstadoAlumnoMateria materia = new EstadoAlumnoMateria(
-                    (materiaJSON.getString("codigoMateria")),
-                    (materiaJSON.getEnum(EstadoMateria.class,"estado")),
-                    (materiaJSON.getString("tomo")),
-                    (materiaJSON.getString("folio")),
-                    (materiaJSON.getString("codigoComision")
-            ));
+        JSONArray materiasArray = jsonObject.getJSONArray("materias");
 
-            JSONArray notasArray = materiaJSON.getJSONArray("notas");
+        for (int i = 0; i < materiasArray.length(); i++) {
+            JSONObject materia = materiasArray.getJSONObject(i);
+            String codigoMateria = materia.getString("id");
+            EstadoMateria estado = EstadoMateria.valueOf(materia.getString("estado"));
+            String tomo = materia.getString("tomo");
+            String folio = materia.getString("folio");
+            String codigoComision = materia.getString("codigoComision");
+
+            HashMap<String, Integer> notas = new HashMap<>();
+            JSONArray notasArray = materia.getJSONArray("notas");
             for (int j = 0; j < notasArray.length(); j++) {
                 JSONObject nota = notasArray.getJSONObject(j);
-                materia.getNotas().put(nota.getString("key"), nota.getInt("value"));
+                String key = nota.keys().next();
+                int value = nota.getInt(key);
+                notas.put(key, value);
             }
 
-            JSONArray mesasExamenArray = materiaJSON.getJSONArray("mesasExamen");
+            HashMap<String, EstadoAlumnoMesa> mesasExamen = new HashMap<>();
+            JSONArray mesasExamenArray = materia.getJSONArray("mesasExamen");
             for (int j = 0; j < mesasExamenArray.length(); j++) {
                 JSONObject mesaExamen = mesasExamenArray.getJSONObject(j);
-                materia.getMesasExamen().put(mesaExamen.getString("key"), EstadoAlumnoMesa.JSONObjectAEstadoAlumnoMesa(mesaExamen));
+                String key = mesaExamen.getString("key");
+                int value = mesaExamen.getInt("value");
+                boolean presente = mesaExamen.getBoolean("presente");
+                mesasExamen.put(key, new EstadoAlumnoMesa(key, value, presente));
             }
 
-            materias.add(materia);
-            i++;
+            materias.add(new EstadoAlumnoMateria(codigoMateria, estado, notas, mesasExamen, tomo, folio, codigoComision));
+
         }
 
         estudiante.setMaterias(materias);
@@ -287,6 +301,30 @@ public final class Estudiante extends Usuario implements iCRUD {
                 getMaterias().equals(that.getMaterias());
     }
 
+    public HashMap<String, String> obtenerMaterias(){
+
+        HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(Path.pathCarreras,this.getCodigoCarrera())).getMaterias();
+
+        HashMap<String, String> materiasEstudiante = new HashMap<>();
+
+        for(int i = 0 ; i<this.getMaterias().size() ; i++){
+
+            if(materiasCarrera.containsKey(this.getMaterias().get(i).getCodigoMateria())){
+                materiasEstudiante.put(this.getMaterias().get(i).getCodigoMateria(),materiasCarrera.get(this.getMaterias().get(i).getCodigoMateria()).getNombre());
+            }
+
+        }
+
+        return materiasEstudiante;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "codigoCarrera='" + codigoCarrera + '\'' +
+                ", materias=" + materias +
+                '}';
+    }
 }
 
 
