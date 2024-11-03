@@ -2,6 +2,7 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Modelo.EstadoAlumnoMateria;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -12,9 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class editarMateriaAlumnoAdministradorControl {
 
@@ -53,28 +52,49 @@ public class editarMateriaAlumnoAdministradorControl {
     @FXML
     void clickBtnCargar(ActionEvent event) {
 
+        EstadoAlumnoMateria estado = new EstadoAlumnoMateria();
+
+        estado.setCodigoComision(txtComision.getText());
+        estado.setFolio(txtFolio.getText());
+        estado.setTomo(txtTomo.getText());
+        HashMap<String,Integer> notas = new HashMap<>();
+        notas.put("primerParcial", Integer.parseInt(txtPrimerParcial.getText()));
+        notas.put("segundoParcial", Integer.parseInt(txtSegundoParcial.getText());
+        estado.setNotas(notas);
+
+        Data.getEstudiante().getMaterias().set(Integer.parseInt(Data.getAux()), estado);
+
+
+
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
 
         EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.configurarMateriasAdministrador, stage, "Configurar Materia");
+        escena.cambiarEscena(Path.editarAlumnoAdministrador, stage, "Configurar Alumno");
 
     }
-    private void actualizarTextFields(String materiaSeleccionada) {
-        // Aquí puedes obtener los datos de la materia seleccionada y actualizar los TextField
-        // Por ejemplo:
-        txtComision.setText("Comisión de " + materiaSeleccionada);
-        txtFolio.setText("Folio de " + materiaSeleccionada);
-        txtPrimerParcial.setText("Nota del primer parcial de " + materiaSeleccionada);
-        txtSegundoParcial.setText("Nota del segundo parcial de " + materiaSeleccionada);
-        txtTomo.setText("Tomo de " + materiaSeleccionada);
+
+    private void actualizarTextFields(String codigoMateria, String nombreMateria) {
+        for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
+            if (Data.getEstudiante().getMaterias().get(i).getCodigoMateria().equals(codigoMateria)) {
+                txtComision.setText(Data.getEstudiante().getMaterias().get(i).getCodigoComision());
+                txtFolio.setText(Data.getEstudiante().getMaterias().get(i).getFolio());
+                txtPrimerParcial.setText(Data.getEstudiante().getMaterias().get(i).getNotas().get("primerParcial").toString());
+                txtSegundoParcial.setText(Data.getEstudiante().getMaterias().get(i).getNotas().get("segundoParcial").toString());
+                txtTomo.setText(Data.getEstudiante().getMaterias().get(i).getTomo());
+
+                Data.setAux(String.valueOf(i));
+
+            }
+
+        }
+
     }
 
     @FXML
     protected void initialize() {
-
         Platform.runLater(() -> {
             HashMap<String, String> materia = Data.getEstudiante().obtenerMaterias();
 
@@ -82,16 +102,19 @@ public class editarMateriaAlumnoAdministradorControl {
                 choiceMateria.getItems().add(entry.getValue());
             }
 
-            // Agregar listener para manejar la selección de la ChoiceBox
             choiceMateria.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null) {
-                    actualizarTextFields(newValue);
+                    String selectedKey = materia.entrySet().stream().filter(entry -> newValue.equals(entry.getValue())).map(Map.Entry::getKey).findFirst().orElse(null);
+                    if (selectedKey != null) {
+
+                        actualizarTextFields(selectedKey, newValue);
+
+                    }
                 }
             });
 
             stage = (Stage) btnVolver.getScene().getWindow();
         });
-
     }
 
 }
