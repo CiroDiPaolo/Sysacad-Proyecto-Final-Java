@@ -4,7 +4,6 @@ import ControlArchivos.manejoArchivos;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 /**
  * La clase Usuario es una clase abstracta ya que sirve como base para las clases Estudiantes, Administrador, Profesor
@@ -199,6 +198,31 @@ public abstract class Usuario {
         return comparar;
     }
 
+    public JSONObject usuarioAJSONObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nombre",this.nombre);
+        jsonObject.put("apellido",this.apellido);
+        jsonObject.put("dni",this.dni);
+        jsonObject.put("legajo",this.legajo);
+        jsonObject.put("contrasenia",this.contrasenia);
+        jsonObject.put("correo",this.correo);
+        jsonObject.put("fechaDeAlta",this.fechaDeAlta.toString());
+        jsonObject.put("actividad",this.actividad);
+        return jsonObject;
+    }
+
+    public static Usuario JSONObjectAUsuario(JSONObject jsonObject) {
+        String nombre = jsonObject.optString("nombre", "");
+        String apellido = jsonObject.optString("apellido", "");
+        String dni = jsonObject.optString("dni", "");
+        String legajo = jsonObject.optString("legajo", "");
+        String contrasenia = jsonObject.optString("contrasenia", "");
+        String correo = jsonObject.optString("correo", "");
+        LocalDate fechaDeAlta = LocalDate.parse(jsonObject.optString("fechaDeAlta"));
+        boolean actividad = jsonObject.optBoolean("actividad", true);
+
+        return new Profesor(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+    }
     /**
      * Revisa que el correo sea valido
      * @param email
@@ -216,5 +240,9 @@ public abstract class Usuario {
      */
     public static boolean esDniValido(String dni) {
         return dni.matches("\\d{8}");
+    }
+
+    public static boolean stringValido(String texto) {
+        return texto != null && !texto.trim().isEmpty() && texto.equals(texto.trim());
     }
 }
