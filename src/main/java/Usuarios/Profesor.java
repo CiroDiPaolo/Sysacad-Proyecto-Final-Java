@@ -22,11 +22,7 @@ public final class Profesor extends Usuario implements iCRUD {
     public Profesor() {}
 
     public Profesor(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
-    }
-
-    @Override
-    public String toString() {
-        return "| Profesor: " + getNombre();
+        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
     }
 
     @Override
@@ -91,6 +87,11 @@ public final class Profesor extends Usuario implements iCRUD {
     @Override
     public boolean borrar(String path) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     /**
