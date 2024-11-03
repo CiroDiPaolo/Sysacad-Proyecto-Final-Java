@@ -20,5 +20,16 @@
         "nombre": "Agustin",
         "dni": "46871319",
         "actividad": true
+    },
+    {
+        "legajo": "E000003",
+        "apellido": "carrizo",
+        "correo": "dsaads@gmail.com",
+        "codigoCarrera": "002",
+        "fechaDeAlta": "2024-11-03",
+        "contrasenia": "11112233",
+        "nombre": "melisa",
+        "dni": "11112233",
+        "actividad": true
     }
 ]
