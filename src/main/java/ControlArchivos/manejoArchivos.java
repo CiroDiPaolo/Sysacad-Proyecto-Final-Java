@@ -58,14 +58,24 @@ public final class manejoArchivos {
      * @return
      */
     public static JSONTokener leerArchivoJSON(String fileName) {
-
         JSONTokener tokener = null;
+        File file = new File(fileName);
 
         try {
+            if (!file.exists()) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
+
+            if (file.length() == 0) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
 
             tokener = new JSONTokener(new FileReader(fileName));
-
-        }catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
