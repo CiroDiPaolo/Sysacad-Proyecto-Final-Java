@@ -178,7 +178,6 @@ public final class Materia implements iCRUD{
         {
             if(!this.getId().isEmpty() && !this.getNombre().isEmpty())
             {
-
                 try{
                     if(manejoArchivosCarrera.agregarMateria(path,this, Data.getCarrera().getId())){
                         excepcionPersonalizada.alertaConfirmacion("Materia cargada en la carrera exitosamente");
@@ -190,11 +189,9 @@ public final class Materia implements iCRUD{
                 {
                     e.getMessage();
                 }
-
             }else {
                 throw new CamposVaciosException("Intentaste ingresar campos vacios. Volve a intentarlo");
             }
-
         }else{
             throw new DatosIncorrectosException("El año y/o cuatrimestre ingresados son incorrectos. Vuelva a intentarlo");
         }
@@ -281,13 +278,14 @@ public final class Materia implements iCRUD{
     }
 
     public static String cortarString(String input) {
+        if(input != null)
+        {
+            int index = input.indexOf(" -");
 
-        int index = input.indexOf(" -");
-
-        if (index != -1) {
-            return input.substring(0, index);
+            if (index != -1) {
+                return input.substring(0, index);
+            }
         }
-
         return input;
     }
 
