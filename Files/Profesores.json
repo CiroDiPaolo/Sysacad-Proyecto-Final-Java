@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "dni": "12345678",
+    "legajo": "P000001",
+    "contrasenia": "password123",
+    "correo": "juan.perez@example.com",
+    "fechaDeAlta": "2024-01-15",
+    "actividad": true
+  },
+  {
+    "nombre": "María",
+    "apellido": "Gómez",
+    "dni": "87654321",
+    "legajo": "P000002",
+    "contrasenia": "securepassword",
+    "correo": "maria.gomez@example.com",
+    "fechaDeAlta": "2024-02-20",
+    "actividad": true
+  },
+  {
+    "nombre": "Carlos",
+    "apellido": "López",
+    "dni": "12348765",
+    "legajo": "P000003",
+    "contrasenia": "mysecretpassword",
+    "correo": "carlos.lopez@example.com",
+    "fechaDeAlta": "2024-03-10",
+    "actividad": false
+  }
+]
