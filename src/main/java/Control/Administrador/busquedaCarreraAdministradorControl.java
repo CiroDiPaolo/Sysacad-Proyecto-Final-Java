@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import static Path.Path.opcionEditarCarreraAdministrador;
 import static Path.Path.pathCarreras;
 
 
@@ -40,7 +41,7 @@ public class busquedaCarreraAdministradorControl {
         Data data = new Data();
         try{
             data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras, txtIdCarrera.getText()));
-            escena.cambiarEscena(Path.opcionEditarCarreraAdministrador, stage, "Configurar materias");
+            escena.cambiarEscena(opcionEditarCarreraAdministrador, stage, "Configurar carrera");
 
         }catch (CamposVaciosException e)
         {
