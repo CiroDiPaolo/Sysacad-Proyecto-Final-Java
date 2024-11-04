@@ -1,6 +1,5 @@
-[
-    {
-    "nombre": "Melisa",
+[{
+    "nombre": "Melisaa",
     "apellido": "Carrizo",
     "dni": "46557012",
     "legajo": "E000001",
@@ -14,56 +13,28 @@
             "id": "MAT101",
             "estado": "NO_REGULARIZADA",
             "tomo": "1",
-            "folio": "123",
-            "codigoComision": "A1",
+            "folio": "10",
+            "codigoComision": "C1",
             "notas": [
                 {
-                    "primerParcial": 8
+                    "primerParcial": 0
                 },
                 {
-                    "segundoParcial": 7
+                    "segundoParcial": 0
                 }
             ],
             "mesasExamen": [
                 {
-                    "key": "2024-06-15",
-                    "value": 9,
+                    "Mesa1": "M001",
+                    "nota": 5,
                     "presente": true
                 },
                 {
-                    "key": "2024-12-10",
-                    "value": 8,
-                    "presente": false
-                }
-            ]
-        },
-        {
-            "id": "MAT102",
-            "estado": "NO_REGULARIZADA",
-            "tomo": "2",
-            "folio": "456",
-            "codigoComision": "B1",
-            "notas": [
-                {
-                    "primerParcial": 6
-                },
-                {
-                    "segundoParcial": 7
-                }
-            ],
-            "mesasExamen": [
-                {
-                    "key": "2024-06-20",
-                    "value": 7,
-                    "presente": true
-                },
-                {
-                    "key": "2024-12-15",
-                    "value": 8,
+                    "Mesa2": "M002",
+                    "nota": 0,
                     "presente": false
                 }
             ]
         }
     ]
-}
-]
+}]

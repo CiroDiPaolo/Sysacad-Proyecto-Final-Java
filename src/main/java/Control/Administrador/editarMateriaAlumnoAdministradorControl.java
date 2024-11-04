@@ -2,8 +2,10 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Excepciones.DatosIncorrectosException;
 import Modelo.EstadoAlumnoMateria;
 import Path.Path;
+import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
 import java.util.*;
 
@@ -51,21 +54,39 @@ public class editarMateriaAlumnoAdministradorControl {
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
+        try {
+            EstadoAlumnoMateria estado = new EstadoAlumnoMateria();
 
-        EstadoAlumnoMateria estado = new EstadoAlumnoMateria();
+            estado.setCodigoComision(txtComision.getText());
+            estado.setFolio(txtFolio.getText());
+            estado.setTomo(txtTomo.getText());
 
-        estado.setCodigoComision(txtComision.getText());
-        estado.setFolio(txtFolio.getText());
-        estado.setTomo(txtTomo.getText());
-        HashMap<String,Integer> notas = new HashMap<>();
-        notas.put("primerParcial", Integer.parseInt(txtPrimerParcial.getText()));
-        notas.put("segundoParcial", Integer.parseInt(txtSegundoParcial.getText());
-        estado.setNotas(notas);
+            HashMap<String, Integer> notas = new HashMap<>();
+            notas.put("primerParcial", Integer.parseInt(txtPrimerParcial.getText()));
+            notas.put("segundoParcial", Integer.parseInt(txtSegundoParcial.getText()));
+            estado.setNotas(notas);
 
-        Data.getEstudiante().getMaterias().set(Integer.parseInt(Data.getAux()), estado);
+            Estudiante original = new Estudiante(Data.getEstudiante());
+
+            Estudiante copia = new Estudiante(Data.getEstudiante());
+
+            copia.getMaterias().set(Integer.parseInt(Data.getAux()), estado);
+
+            System.out.println(copia.estudianteAJSONObject());
+
+            original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject());
 
 
-
+        } catch (NumberFormatException e) {
+            // Manejo de excepción para entradas no numéricas
+            System.err.println("Error: Las notas deben ser números enteros.");
+        } catch (DatosIncorrectosException e) {
+            // Manejo de excepción para datos incorrectos
+            System.err.println("Error: Datos incorrectos.");
+        } catch (Exception e) {
+            // Manejo de cualquier otra excepción
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -77,6 +98,7 @@ public class editarMateriaAlumnoAdministradorControl {
     }
 
     private void actualizarTextFields(String codigoMateria, String nombreMateria) {
+
         for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
             if (Data.getEstudiante().getMaterias().get(i).getCodigoMateria().equals(codigoMateria)) {
                 txtComision.setText(Data.getEstudiante().getMaterias().get(i).getCodigoComision());
@@ -87,6 +109,7 @@ public class editarMateriaAlumnoAdministradorControl {
 
                 Data.setAux(String.valueOf(i));
 
+                i = Data.getEstudiante().getMaterias().size();
             }
 
         }
@@ -95,7 +118,10 @@ public class editarMateriaAlumnoAdministradorControl {
 
     @FXML
     protected void initialize() {
+
         Platform.runLater(() -> {
+            stage = (Stage) btnVolver.getScene().getWindow();
+
             HashMap<String, String> materia = Data.getEstudiante().obtenerMaterias();
 
             for (Map.Entry<String, String> entry : materia.entrySet()) {
@@ -112,8 +138,6 @@ public class editarMateriaAlumnoAdministradorControl {
                     }
                 }
             });
-
-            stage = (Stage) btnVolver.getScene().getWindow();
         });
     }
 
