@@ -232,7 +232,6 @@ public final class Estudiante extends Usuario implements iCRUD {
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
         Estudiante estudiante = new Estudiante();
 
-        // Asignar los datos del JSON al objeto Estudiante
         estudiante.setNombre(jsonObject.getString("nombre"));
         estudiante.setApellido(jsonObject.getString("apellido"));
         estudiante.setDni(jsonObject.getString("dni"));
@@ -258,7 +257,6 @@ public final class Estudiante extends Usuario implements iCRUD {
             materia.setFolio(materiaJson.getString("folio"));
             materia.setCodigoComision(materiaJson.getString("codigoComision"));
 
-            // Procesar notas
             JSONArray notasJsonArray = materiaJson.getJSONArray("notas");
             Map<String, Integer> notas = new HashMap<>();
             for (int j = 0; j < notasJsonArray.length(); j++) {
@@ -269,13 +267,12 @@ public final class Estudiante extends Usuario implements iCRUD {
             }
             materia.setNotas((HashMap<String, Integer>) notas);
 
-            // Procesar mesas de examen
             JSONArray mesasExamenJsonArray = materiaJson.getJSONArray("mesasExamen");
             HashMap<String, EstadoAlumnoMesa> mesasExamen = new HashMap<>();
 
             for (int k = 0; k < mesasExamenJsonArray.length(); k++) {
                 JSONObject mesaExamenJson = mesasExamenJsonArray.getJSONObject(k);
-                String key = mesaExamenJson.keys().next(); // Obtener el nombre de la mesa (e.g., "Mesa1")
+                String key = mesaExamenJson.keys().next();
 
                 EstadoAlumnoMesa estadoMesa = new EstadoAlumnoMesa();
                 estadoMesa.setCodigoMesa(mesaExamenJson.getString(key));
@@ -327,7 +324,7 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     public boolean compararJSONObjectConEstudiante(Estudiante usuario,JSONObject jsonObject ) {
 
-        boolean comparar = false;
+        boolean comparar = true;
 
         if (!jsonObject.getString("nombre").equals(usuario.getNombre())) {
             comparar = false;
@@ -341,8 +338,15 @@ public final class Estudiante extends Usuario implements iCRUD {
             comparar = false;
         } else if (!jsonObject.getString("correo").equals(usuario.getCorreo())) {
             comparar = false;
+        } else if (!jsonObject.getString("codigoCarrera").equals(usuario.getCodigoCarrera())) {
+            comparar = false;
+        } else if (!jsonObject.getString("legajo").equals(usuario.getLegajo())) {
+            comparar = false;
+        } else if (!jsonObject.getString("fechaDeAlta").equals(usuario.getFechaDeAlta().toString())) {
+            comparar = false;
+        } else if (!jsonObject.getJSONArray("materias").toString().equals(usuario.getMaterias().toString())) {
+            comparar = false;
         }
-
 
         return comparar;
     }
