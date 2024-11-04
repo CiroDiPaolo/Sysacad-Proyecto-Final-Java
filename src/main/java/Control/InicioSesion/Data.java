@@ -13,6 +13,8 @@ public final class Data {
 
     private static String aux;
 
+    private static String aux2;
+
     private static Carrera carrera;
 
     public static Carrera getCarrera(){
@@ -46,5 +48,10 @@ public final class Data {
     public static String getAux() { return aux; }
 
     public static void setAux(String aux) { Data.aux = aux; }
+
+    public static String getAux2() { return aux2; }
+
+    public static void setAux2(String aux2) { Data.aux2 = aux2; }
+
 
 }
