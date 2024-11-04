@@ -14,7 +14,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.json.JSONObject;
 
 import java.util.*;
 
@@ -53,40 +52,55 @@ public class editarMateriaAlumnoAdministradorControl {
     private Stage stage;
 
     @FXML
-    void clickBtnCargar(ActionEvent event) {
-        try {
-            EstadoAlumnoMateria estado = new EstadoAlumnoMateria();
+    void clickBtnCargar(ActionEvent event) throws DatosIncorrectosException {try {
+        EstadoAlumnoMateria estado = Data.getEstudiante().getMaterias().get(Integer.parseInt(Data.getAux2()));
 
-            estado.setCodigoComision(txtComision.getText());
-            estado.setFolio(txtFolio.getText());
-            estado.setTomo(txtTomo.getText());
+        estado.setCodigoComision(txtComision.getText());
 
-            HashMap<String, Integer> notas = new HashMap<>();
-            notas.put("primerParcial", Integer.parseInt(txtPrimerParcial.getText()));
-            notas.put("segundoParcial", Integer.parseInt(txtSegundoParcial.getText()));
-            estado.setNotas(notas);
-
-            Estudiante original = new Estudiante(Data.getEstudiante());
-
-            Estudiante copia = new Estudiante(Data.getEstudiante());
-
-            copia.getMaterias().set(Integer.parseInt(Data.getAux()), estado);
-
-            System.out.println(copia.estudianteAJSONObject());
-
-            original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject());
-
-
-        } catch (NumberFormatException e) {
-            // Manejo de excepción para entradas no numéricas
-            System.err.println("Error: Las notas deben ser números enteros.");
-        } catch (DatosIncorrectosException e) {
-            // Manejo de excepción para datos incorrectos
-            System.err.println("Error: Datos incorrectos.");
-        } catch (Exception e) {
-            // Manejo de cualquier otra excepción
-            System.err.println("Error: " + e.getMessage());
+        int tomo = Integer.parseInt(txtTomo.getText());
+        if (tomo < 0 || tomo > 999) {
+            throw new DatosIncorrectosException("El tomo debe estar entre 0 y 999");
         }
+        estado.setTomo(txtTomo.getText());
+
+        int folio = Integer.parseInt(txtFolio.getText());
+        if (folio < 0 || folio > 999) {
+            throw new DatosIncorrectosException("El folio debe estar entre 0 y 999");
+        }
+        estado.setFolio(txtFolio.getText());
+
+        HashMap<String, Integer> notas = new HashMap<>();
+
+        int primerParcial = Integer.parseInt(txtPrimerParcial.getText());
+        int segundoParcial = Integer.parseInt(txtSegundoParcial.getText());
+
+        if (segundoParcial < 0 || segundoParcial > 10 || primerParcial < 0 || primerParcial > 10) {
+            throw new DatosIncorrectosException("Las notas deben estar entre 0 y 10");
+        }
+
+        notas.put("primerParcial", primerParcial);
+        notas.put("segundoParcial", segundoParcial);
+
+        estado.setNotas(notas);
+
+        Estudiante original = new Estudiante(Data.getEstudiante());
+        Estudiante copia = new Estudiante(Data.getEstudiante());
+
+        copia.getMaterias().set(Integer.parseInt(Data.getAux2()), estado);
+
+        if(copia.getMaterias().get(Integer.parseInt(Data.getAux2())).equals(original.getMaterias().get(Integer.parseInt(Data.getAux2())))){
+            throw new DatosIncorrectosException("No se realizaron cambios");
+        }
+
+        if (original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject())) {
+            Excepciones.excepcionPersonalizada.alertaConfirmacion("Materia actualizada correctamente");
+        }
+
+    } catch (NumberFormatException e) {
+        throw new DatosIncorrectosException("Todos los campos deben contener números enteros válidos");
+    }
+
+
     }
 
     @FXML
@@ -107,7 +121,7 @@ public class editarMateriaAlumnoAdministradorControl {
                 txtSegundoParcial.setText(Data.getEstudiante().getMaterias().get(i).getNotas().get("segundoParcial").toString());
                 txtTomo.setText(Data.getEstudiante().getMaterias().get(i).getTomo());
 
-                Data.setAux(String.valueOf(i));
+                Data.setAux2(String.valueOf(i));
 
                 i = Data.getEstudiante().getMaterias().size();
             }
