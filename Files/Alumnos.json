@@ -1,40 +1,34 @@
 [{
-    "nombre": "Melisaa",
-    "apellido": "Carrizo",
-    "dni": "46557012",
     "legajo": "E000001",
-    "contrasenia": "46557012",
-    "codigoCarrera": "001",
+    "apellido": "Carrizo",
     "correo": "melisacarrizo5@gmail.com",
-    "actividad": true,
+    "codigoCarrera": "001",
     "fechaDeAlta": "2024-10-27",
-    "materias": [
-        {
-            "id": "MAT101",
-            "estado": "NO_REGULARIZADA",
-            "tomo": "1",
-            "folio": "10",
-            "codigoComision": "C1",
-            "notas": [
-                {
-                    "primerParcial": 0
-                },
-                {
-                    "segundoParcial": 0
-                }
-            ],
-            "mesasExamen": [
-                {
-                    "Mesa1": "M001",
-                    "nota": 5,
-                    "presente": true
-                },
-                {
-                    "Mesa2": "M002",
-                    "nota": 0,
-                    "presente": false
-                }
-            ]
-        }
-    ]
+    "contrasenia": "46557012",
+    "nombre": "Melisaa",
+    "materias": [{
+        "estado": "NO_REGULARIZADA",
+        "notas": [
+            {"segundoParcial": 0},
+            {"primerParcial": 10}
+        ],
+        "folio": "10",
+        "mesasExamen": [
+            {
+                "Mesa2": "M002",
+                "nota": 0,
+                "presente": false
+            },
+            {
+                "Mesa1": "M001",
+                "nota": 5,
+                "presente": true
+            }
+        ],
+        "codigoComision": "C1",
+        "id": "MAT101",
+        "tomo": "10"
+    }],
+    "dni": "46557012",
+    "actividad": true
 }]
