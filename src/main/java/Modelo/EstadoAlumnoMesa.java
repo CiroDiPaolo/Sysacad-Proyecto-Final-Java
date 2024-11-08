@@ -18,6 +18,7 @@ public final class EstadoAlumnoMesa {
         this.presente = presente;
     }
 
+
     public EstadoAlumnoMesa() {
         codigoMesa = "";
         nota = 0;

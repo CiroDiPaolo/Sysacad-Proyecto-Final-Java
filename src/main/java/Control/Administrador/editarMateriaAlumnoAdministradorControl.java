@@ -93,7 +93,7 @@ public class editarMateriaAlumnoAdministradorControl {
             Estudiante copia = new Estudiante(Data.getEstudiante());
 
             copia.getMaterias().set(Integer.parseInt(Data.getAux2()), estado);
-
+/*
             for(int i = 0 ; i < original.getMaterias().size() ; i++) {
 
                 if(original.getMaterias().get(i).getNotas().equals(estadoOriginal.getNotas())) {
@@ -101,6 +101,8 @@ public class editarMateriaAlumnoAdministradorControl {
                 }
 
             }
+
+ */
 
             if (original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject())) {
                 Excepciones.excepcionPersonalizada.alertaConfirmacion("Materia actualizada correctamente");

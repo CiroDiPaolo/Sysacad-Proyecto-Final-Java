@@ -5,14 +5,13 @@
     "codigoCarrera": "001",
     "fechaDeAlta": "2024-10-27",
     "contrasenia": "46557012",
-    "nombre": "Melisaa",
+    "nombre": "Melisa",
     "materias": [{
-        "estado": "NO_REGULARIZADA",
         "notas": [
             {"segundoParcial": 9},
             {"primerParcial": 10}
         ],
-        "folio": "1",
+        "folio": "10",
         "mesasExamen": [
             {
                 "Mesa2": "M002",

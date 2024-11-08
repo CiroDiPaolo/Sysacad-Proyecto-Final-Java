@@ -22,11 +22,6 @@ public final class Estudiante extends Usuario implements iCRUD {
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
 
-    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
-        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
-        this.codigoCarrera = codigoCarrera;
-    }
-
     public Estudiante(Estudiante estudiante) {
         this.setNombre(estudiante.getNombre());
         this.setApellido(estudiante.getApellido());
@@ -37,7 +32,15 @@ public final class Estudiante extends Usuario implements iCRUD {
         this.setCorreo(estudiante.getCorreo());
         this.setActividad(estudiante.getActividad());
         this.setFechaDeAlta(estudiante.getFechaDeAlta());
-        this.setMaterias(estudiante.getMaterias());
+        this.materias = new ArrayList<>();
+        for (EstadoAlumnoMateria materia : estudiante.materias) {
+            this.materias.add(new EstadoAlumnoMateria(materia));
+        }
+    }
+
+    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
+        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+        this.codigoCarrera = codigoCarrera;
     }
 
     public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
@@ -344,17 +347,13 @@ public final class Estudiante extends Usuario implements iCRUD {
             comparar = false;
         } else if (!jsonObject.getString("fechaDeAlta").equals(usuario.getFechaDeAlta().toString())) {
             comparar = false;
-        } else if (!jsonObject.getJSONArray("materias").toString().equals(usuario.getMaterias().toString())) {
-            comparar = false;
         } else {
-
+            System.out.println("aaaaaaaaaaaaaaaaaaaa");
             for(int i = 0 ; i<jsonObject.getJSONArray("materias").length() ; i++){
 
                 JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
 
                 if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
-                    comparar = false;
-                } else if(!materiaJson.getString("estado").equals(usuario.getMaterias().get(i).getEstado().toString())){
                     comparar = false;
                 } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
                     comparar = false;
@@ -365,6 +364,29 @@ public final class Estudiante extends Usuario implements iCRUD {
                 } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
                     comparar = false;
                 }
+
+                JSONArray notasArray = materiaJson.getJSONArray("notas");
+                int primerParcial = 0;
+                int segundoParcial = 0;
+
+                for (int j = 0; j < notasArray.length(); j++) {
+                    JSONObject nota = notasArray.getJSONObject(j);
+
+                    if (nota.has("primerParcial")) {
+                        primerParcial = nota.getInt("primerParcial");
+                    } else if (nota.has("segundoParcial")) {
+                        segundoParcial = nota.getInt("segundoParcial");
+                    }
+                }
+
+                if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
+                    comparar = false;
+                } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
+                    comparar = false;
+                }
+
+                System.out.println(primerParcial + " " + usuario.getMaterias().get(i).getNotas().get("primerParcial"));
+                System.out.println(segundoParcial + " " + usuario.getMaterias().get(i).getNotas().get("segundoParcial"));
 
             }
 

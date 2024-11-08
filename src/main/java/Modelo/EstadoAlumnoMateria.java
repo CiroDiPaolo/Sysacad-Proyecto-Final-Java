@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -43,14 +44,14 @@ public final class EstadoAlumnoMateria {
         codigoComision = "0";
     }
 
+    // Constructor de copia profunda
     public EstadoAlumnoMateria(EstadoAlumnoMateria estado) {
         this.codigoMateria = estado.codigoMateria;
-        this.estado = estado.estado;
-        this.notas = new HashMap<>(estado.notas);
-        this.mesasExamen = new HashMap<>(estado.mesasExamen);
+        this.codigoComision = estado.codigoComision;
         this.tomo = estado.tomo;
         this.folio = estado.folio;
-        this.codigoComision = estado.codigoComision;
+        this.notas = new HashMap<>(estado.notas);
+        this.mesasExamen = new HashMap<>(estado.mesasExamen);
     }
 
     //Getters
