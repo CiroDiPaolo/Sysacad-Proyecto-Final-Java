@@ -43,6 +43,15 @@ public final class EstadoAlumnoMateria {
         codigoComision = "0";
     }
 
+    public EstadoAlumnoMateria(EstadoAlumnoMateria estado) {
+        this.codigoMateria = estado.codigoMateria;
+        this.estado = estado.estado;
+        this.notas = new HashMap<>(estado.notas);
+        this.mesasExamen = new HashMap<>(estado.mesasExamen);
+        this.tomo = estado.tomo;
+        this.folio = estado.folio;
+        this.codigoComision = estado.codigoComision;
+    }
 
     //Getters
 
@@ -103,4 +112,5 @@ public final class EstadoAlumnoMateria {
     public void setCodigoComision(String codigoComision) {
         this.codigoComision = codigoComision;
     }
+
 }

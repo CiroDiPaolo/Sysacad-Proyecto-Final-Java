@@ -9,10 +9,10 @@
     "materias": [{
         "estado": "NO_REGULARIZADA",
         "notas": [
-            {"segundoParcial": 0},
+            {"segundoParcial": 9},
             {"primerParcial": 10}
         ],
-        "folio": "10",
+        "folio": "1",
         "mesasExamen": [
             {
                 "Mesa2": "M002",

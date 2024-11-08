@@ -346,12 +346,34 @@ public final class Estudiante extends Usuario implements iCRUD {
             comparar = false;
         } else if (!jsonObject.getJSONArray("materias").toString().equals(usuario.getMaterias().toString())) {
             comparar = false;
+        } else {
+
+            for(int i = 0 ; i<jsonObject.getJSONArray("materias").length() ; i++){
+
+                JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
+
+                if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                    comparar = false;
+                } else if(!materiaJson.getString("estado").equals(usuario.getMaterias().get(i).getEstado().toString())){
+                    comparar = false;
+                } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
+                    comparar = false;
+                } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
+                    comparar = false;
+                } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
+                    comparar = false;
+                } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
+                    comparar = false;
+                }
+
+            }
+
         }
 
         return comparar;
     }
 
-    @Override
+        @Override
     public String toString() {
         return "Estudiante{" +
                 "codigoCarrera='" + codigoCarrera + '\'' +

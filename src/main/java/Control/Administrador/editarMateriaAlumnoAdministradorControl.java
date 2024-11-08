@@ -52,55 +52,63 @@ public class editarMateriaAlumnoAdministradorControl {
     private Stage stage;
 
     @FXML
-    void clickBtnCargar(ActionEvent event) throws DatosIncorrectosException {try {
-        EstadoAlumnoMateria estado = Data.getEstudiante().getMaterias().get(Integer.parseInt(Data.getAux2()));
+    void clickBtnCargar(ActionEvent event) throws DatosIncorrectosException {
+        try {
+            EstadoAlumnoMateria estadoOriginal = Data.getEstudiante().getMaterias().get(Integer.parseInt(Data.getAux2()));
+            EstadoAlumnoMateria estado = new EstadoAlumnoMateria(estadoOriginal);
 
-        estado.setCodigoComision(txtComision.getText());
+            estado.setCodigoComision(txtComision.getText());
 
-        int tomo = Integer.parseInt(txtTomo.getText());
-        if (tomo < 0 || tomo > 999) {
-            throw new DatosIncorrectosException("El tomo debe estar entre 0 y 999");
+            int tomo = Integer.parseInt(txtTomo.getText());
+
+            if (tomo < 0 || tomo > 999) {
+                throw new DatosIncorrectosException("El tomo debe estar entre 0 y 999");
+            }
+
+            estado.setTomo(txtTomo.getText());
+
+            int folio = Integer.parseInt(txtFolio.getText());
+
+            if (folio < 0 || folio > 999) {
+                throw new DatosIncorrectosException("El folio debe estar entre 0 y 999");
+            }
+
+            estado.setFolio(txtFolio.getText());
+
+            HashMap<String, Integer> notas = new HashMap<>();
+
+            int primerParcial = Integer.parseInt(txtPrimerParcial.getText());
+            int segundoParcial = Integer.parseInt(txtSegundoParcial.getText());
+
+            if (segundoParcial < 0 || segundoParcial > 10 || primerParcial < 0 || primerParcial > 10) {
+                throw new DatosIncorrectosException("Las notas deben estar entre 0 y 10");
+            }
+
+            notas.put("primerParcial", primerParcial);
+            notas.put("segundoParcial", segundoParcial);
+
+            estado.setNotas(notas);
+
+            Estudiante original = new Estudiante(Data.getEstudiante());
+            Estudiante copia = new Estudiante(Data.getEstudiante());
+
+            copia.getMaterias().set(Integer.parseInt(Data.getAux2()), estado);
+
+            for(int i = 0 ; i < original.getMaterias().size() ; i++) {
+
+                if(original.getMaterias().get(i).getNotas().equals(estadoOriginal.getNotas())) {
+                    throw new DatosIncorrectosException("No se realizaron cambios");
+                }
+
+            }
+
+            if (original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject())) {
+                Excepciones.excepcionPersonalizada.alertaConfirmacion("Materia actualizada correctamente");
+            }
+
+        } catch (NumberFormatException e) {
+            throw new DatosIncorrectosException("Todos los campos deben contener números enteros válidos");
         }
-        estado.setTomo(txtTomo.getText());
-
-        int folio = Integer.parseInt(txtFolio.getText());
-        if (folio < 0 || folio > 999) {
-            throw new DatosIncorrectosException("El folio debe estar entre 0 y 999");
-        }
-        estado.setFolio(txtFolio.getText());
-
-        HashMap<String, Integer> notas = new HashMap<>();
-
-        int primerParcial = Integer.parseInt(txtPrimerParcial.getText());
-        int segundoParcial = Integer.parseInt(txtSegundoParcial.getText());
-
-        if (segundoParcial < 0 || segundoParcial > 10 || primerParcial < 0 || primerParcial > 10) {
-            throw new DatosIncorrectosException("Las notas deben estar entre 0 y 10");
-        }
-
-        notas.put("primerParcial", primerParcial);
-        notas.put("segundoParcial", segundoParcial);
-
-        estado.setNotas(notas);
-
-        Estudiante original = new Estudiante(Data.getEstudiante());
-        Estudiante copia = new Estudiante(Data.getEstudiante());
-
-        copia.getMaterias().set(Integer.parseInt(Data.getAux2()), estado);
-
-        if(copia.getMaterias().get(Integer.parseInt(Data.getAux2())).equals(original.getMaterias().get(Integer.parseInt(Data.getAux2())))){
-            throw new DatosIncorrectosException("No se realizaron cambios");
-        }
-
-        if (original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject())) {
-            Excepciones.excepcionPersonalizada.alertaConfirmacion("Materia actualizada correctamente");
-        }
-
-    } catch (NumberFormatException e) {
-        throw new DatosIncorrectosException("Todos los campos deben contener números enteros válidos");
-    }
-
-
     }
 
     @FXML
