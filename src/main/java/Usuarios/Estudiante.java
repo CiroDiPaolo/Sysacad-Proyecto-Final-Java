@@ -33,7 +33,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         this.setActividad(estudiante.getActividad());
         this.setFechaDeAlta(estudiante.getFechaDeAlta());
         this.materias = new ArrayList<>();
-        for (EstadoAlumnoMateria materia : estudiante.materias) {
+        for (EstadoAlumnoMateria materia : estudiante.getMaterias()) {
             this.materias.add(new EstadoAlumnoMateria(materia));
         }
     }
@@ -66,7 +66,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         return codigoCarrera;
     }
 
-    public ArrayList<EstadoAlumnoMateria> getMaterias() {
+    public List<EstadoAlumnoMateria> getMaterias() {
         return materias;
     }
 
@@ -124,9 +124,9 @@ public final class Estudiante extends Usuario implements iCRUD {
     public boolean actualizar(String path, JSONObject jsonObject) throws DatosIncorrectosException {
 
         boolean resultado = false;
-        System.out.println("oda");
+
         if (!compararJSONObjectConEstudiante(this,jsonObject)) {
-            System.out.println("odaaaaa");
+
             JSONArray arreglo = new JSONArray(manejoArchivos.leerArchivoJSON(path));
 
             for (int i = 0; i < arreglo.length(); i++) {
@@ -245,7 +245,8 @@ public final class Estudiante extends Usuario implements iCRUD {
         estudiante.setActividad(jsonObject.getBoolean("actividad"));
         estudiante.setFechaDeAlta(LocalDate.parse(jsonObject.getString("fechaDeAlta")));
 
-        // Procesar materias
+        if(!(jsonObject.getJSONArray("materias").length() == 0)){
+
         JSONArray materiasJsonArray = jsonObject.getJSONArray("materias");
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
 
@@ -289,6 +290,9 @@ public final class Estudiante extends Usuario implements iCRUD {
             materias.add(materia);
         }
         estudiante.setMaterias(materias);
+
+        }
+
 
         return estudiante;
     }
@@ -348,7 +352,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         } else if (!jsonObject.getString("fechaDeAlta").equals(usuario.getFechaDeAlta().toString())) {
             comparar = false;
         } else {
-            System.out.println("aaaaaaaaaaaaaaaaaaaa");
+
             for(int i = 0 ; i<jsonObject.getJSONArray("materias").length() ; i++){
 
                 JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
@@ -384,9 +388,6 @@ public final class Estudiante extends Usuario implements iCRUD {
                 } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
                     comparar = false;
                 }
-
-                System.out.println(primerParcial + " " + usuario.getMaterias().get(i).getNotas().get("primerParcial"));
-                System.out.println(segundoParcial + " " + usuario.getMaterias().get(i).getNotas().get("segundoParcial"));
 
             }
 
