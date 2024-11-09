@@ -14,10 +14,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
 import java.util.*;
 
-public class editarMateriaAlumnoAdministradorControl {
+public class editarMateriaAlumnoAdministradorControl implements Cloneable {
 
     @FXML
     private Button btnCargar;
@@ -54,6 +55,7 @@ public class editarMateriaAlumnoAdministradorControl {
     @FXML
     void clickBtnCargar(ActionEvent event) throws DatosIncorrectosException {
         try {
+
             EstadoAlumnoMateria estadoOriginal = Data.getEstudiante().getMaterias().get(Integer.parseInt(Data.getAux2()));
             EstadoAlumnoMateria estado = new EstadoAlumnoMateria(estadoOriginal);
 
@@ -93,19 +95,11 @@ public class editarMateriaAlumnoAdministradorControl {
             Estudiante copia = new Estudiante(Data.getEstudiante());
 
             copia.getMaterias().set(Integer.parseInt(Data.getAux2()), estado);
-/*
-            for(int i = 0 ; i < original.getMaterias().size() ; i++) {
-
-                if(original.getMaterias().get(i).getNotas().equals(estadoOriginal.getNotas())) {
-                    throw new DatosIncorrectosException("No se realizaron cambios");
-                }
-
-            }
-
- */
 
             if (original.actualizar(Path.fileNameAlumnos, copia.estudianteAJSONObject())) {
                 Excepciones.excepcionPersonalizada.alertaConfirmacion("Materia actualizada correctamente");
+                EscenaControl escena = new EscenaControl();
+                escena.cambiarEscena(Path.configurarAlumnosAdministrador, stage, "Configurar Alumno");
             }
 
         } catch (NumberFormatException e) {
@@ -164,5 +158,4 @@ public class editarMateriaAlumnoAdministradorControl {
             });
         });
     }
-
 }
