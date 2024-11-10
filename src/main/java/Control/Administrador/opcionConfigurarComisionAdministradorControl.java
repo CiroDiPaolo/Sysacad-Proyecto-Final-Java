@@ -1,8 +1,6 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
-import ControlArchivos.manejoArchivosCarrera;
-import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,17 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
+import static Path.Path.*;
 
-import static Path.Path.pathCarreras;
-
-public class configurarProfesorAdministrador {
+public class opcionConfigurarComisionAdministradorControl {
+    @FXML
+    private Button btnCargar;
 
     @FXML
-    private Button btnCargarProfesor;
-
-    @FXML
-    private Button btnEditarProfesor;
+    private Button btnActualizar;
 
     @FXML
     private Button btnVolver;
@@ -33,20 +28,18 @@ public class configurarProfesorAdministrador {
     private EscenaControl escena = new EscenaControl();
 
     @FXML
-    void clickBtnCargarProfesor(ActionEvent event) {
-
-        escena.cambiarEscena(Path.cargaProfesorAdministrador, stage, "Cargar Profesor");
-
+    void clickBtnCargar(ActionEvent event) {
+        escena.cambiarEscena(cargarComisionAdministrador, stage, "Cargar comisión");
     }
 
     @FXML
-    void clickBtnEditarProfesor(ActionEvent event) {
-
+    void clickBtnActualizar(ActionEvent event) {
+        escena.cambiarEscena(busquedaComisionAdministrador,stage,"Elegir comisión");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(Path.menuPrincipalAdministrador, stage, "Menu Principal");
+        escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar carrera");
     }
 
     @FXML
@@ -59,5 +52,4 @@ public class configurarProfesorAdministrador {
         });
 
     }
-
 }

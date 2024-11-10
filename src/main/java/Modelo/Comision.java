@@ -1,46 +1,54 @@
 package Modelo;
 
-import ControlArchivos.manejoArchivosComisiones;
-import Excepciones.ArchivoNoEncontrado;
-import Excepciones.ArchivoYaExistenteException;
-import java.util.Calendar;
+import Excepciones.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashSet;
+
+import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static ControlArchivos.manejoArchivosComisiones.*;
+import static Path.Path.pathComisiones;
 
 /**
  * La clase Comision esta diseñada para identificar cada comision segun la carrera, el año, la materia, el nombre y el turno.
  * A traves de ella se le puede poner cupos y saber en qué aula y que profesor está asignado.
  */
-public final class Comision {
+public final class Comision implements iCRUD{
 
     //Atributos
 
-    private static int id = 0;
+    private String id;
     private Turno turno;
     private String nombre;
     private String codigoMateria;
     private String codigoCarrera;
     private String codigoProfesor;
+    private String descripcion;
     private int anio;
     private String aula;
     private int cupos;
+    private boolean apertura;
     private boolean actividad;
     private HashSet<EstadoAlumnoComision> estadoAlumnoComisionHashSet;
 
     //Constructores
 
-    public Comision(String nombre,Turno turno, String codigoMateria, String codigoCarrera, String codigoProfesor, String aula, int cupos) {
+
+    public Comision(String id, Turno turno, String nombre, String codigoMateria, String codigoCarrera, String codigoProfesor, String descripcion, int anio, String aula, int cupos, boolean apertura, boolean actividad, HashSet<EstadoAlumnoComision> estadoAlumnoComisionHashSet) {
+        this.id = id;
         this.turno = turno;
         this.nombre = nombre;
         this.codigoMateria = codigoMateria;
         this.codigoCarrera = codigoCarrera;
         this.codigoProfesor = codigoProfesor;
-        this.anio = Calendar.getInstance().get(Calendar.YEAR);
+        this.descripcion = descripcion;
+        this.anio = anio;
         this.aula = aula;
         this.cupos = cupos;
-        this.actividad = true;
-        this.estadoAlumnoComisionHashSet = new HashSet<>();
-
+        this.apertura = apertura;
+        this.actividad = actividad;
+        this.estadoAlumnoComisionHashSet = estadoAlumnoComisionHashSet;
     }
 
     public Comision() {
@@ -49,15 +57,17 @@ public final class Comision {
         codigoMateria = "";
         codigoCarrera = "";
         codigoProfesor = "";
+        descripcion = "";
         anio = 0;
         aula = "";
         cupos = 0;
+        apertura = false;
         actividad = false;
     }
 
     //Getters
 
-    public static int getId() {
+    public String getId() {
         return id;
     }
 
@@ -99,10 +109,18 @@ public final class Comision {
 
     public HashSet<EstadoAlumnoComision> getEstadoAlumnoComisionHashSet() { return estadoAlumnoComisionHashSet; }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public boolean getApertura() {
+        return apertura;
+    }
+
     //Setters
 
-    public static void setId(int id) {
-        Comision.id = id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setTurno(Turno turno) {
@@ -140,21 +158,179 @@ public final class Comision {
     public void setActividad(boolean actividad) {
         this.actividad = actividad;
     }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setEstadoAlumnoComisionHashSet(HashSet<EstadoAlumnoComision> estadoAlumnoComisionHashSet) {
+        this.estadoAlumnoComisionHashSet = estadoAlumnoComisionHashSet;
+    }
+
+    public void setApertura(boolean apertura) {
+        this.apertura = apertura;
+    }
+
     //Metodos
+
 
     @Override
     public String toString() {
         return "Comision{" +
-                "turno=" + turno +
+                "id=" + id +
+                ", turno=" + turno +
                 ", nombre='" + nombre + '\'' +
                 ", codigoMateria='" + codigoMateria + '\'' +
                 ", codigoCarrera='" + codigoCarrera + '\'' +
                 ", codigoProfesor='" + codigoProfesor + '\'' +
-                ", anio='" + anio + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", anio=" + anio +
                 ", aula='" + aula + '\'' +
                 ", cupos=" + cupos +
+                ", apertura=" + apertura +
+                ", actividad=" + actividad +
+                ", estadoAlumnoComisionHashSet=" + estadoAlumnoComisionHashSet +
                 '}';
     }
 
+    public JSONObject ComisionAJSONObject() {
+        JSONObject jsonObject = new JSONObject();
 
+        jsonObject.put("id", id);
+        jsonObject.put("turno", turno.toString());
+        jsonObject.put("nombre", nombre);
+        jsonObject.put("codigoMateria", codigoMateria);
+        jsonObject.put("codigoCarrera", codigoCarrera);
+        jsonObject.put("codigoProfesor", codigoProfesor);
+        jsonObject.put("descripcion", descripcion);
+        jsonObject.put("anio", anio);
+        jsonObject.put("aula", aula);
+        jsonObject.put("cupos", cupos);
+        jsonObject.put("apertura", apertura);
+        jsonObject.put("actividad", actividad);
+
+        JSONArray estadoArray = new JSONArray();
+        for (EstadoAlumnoComision estado : estadoAlumnoComisionHashSet) {
+            estadoArray.put(estado.AlumnoComisionAJSONObject());
+        }
+        jsonObject.put("estadoAlumnoComision", estadoArray);
+
+        return jsonObject;
+    }
+
+    public static Comision JSONObjectAComision(JSONObject jsonObject) {
+        Comision comision = new Comision();
+
+        comision.id = jsonObject.getString("id");
+        comision.turno = Turno.valueOf(jsonObject.getString("turno"));
+        comision.nombre = jsonObject.getString("nombre");
+        comision.codigoMateria = jsonObject.getString("codigoMateria");
+        comision.codigoCarrera = jsonObject.getString("codigoCarrera");
+        comision.codigoProfesor = jsonObject.getString("codigoProfesor");
+        comision.descripcion = jsonObject.getString("descripcion");
+        comision.anio = jsonObject.getInt("anio");
+        comision.aula = jsonObject.getString("aula");
+        comision.cupos = jsonObject.getInt("cupos");
+        comision.apertura = jsonObject.getBoolean("apertura");
+        comision.actividad = jsonObject.getBoolean("actividad");
+
+        comision.estadoAlumnoComisionHashSet = new HashSet<>();
+        JSONArray estadoArray = jsonObject.getJSONArray("estadoAlumnoComision");
+        for (int i = 0; i < estadoArray.length(); i++) {
+            JSONObject estadoJson = estadoArray.getJSONObject(i);
+            EstadoAlumnoComision estado = EstadoAlumnoComision.JSONObjectAEstadoAlumnoComision(estadoJson);
+            comision.estadoAlumnoComisionHashSet.add(estado);
+        }
+
+        return comision;
+    }
+
+
+    @Override
+    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
+        if(this.getDescripcion().length() < 200) {
+            if(!this.getNombre().isEmpty() && !this.getAula().isEmpty() && this.anio > 0 && this.codigoProfesor != null && this.codigoCarrera != null && this.codigoMateria != null)
+            {
+                if(cargarComisionAJSON(pathComisiones+generarNombreArchivoComision(this.getCodigoCarrera(), this.getAnio()), this.ComisionAJSONObject())){
+                    excepcionPersonalizada.alertaConfirmacion("¡Comision cargada exitosamente!");
+                    return true;
+                }
+            }else{
+                throw new CamposVaciosException("Dejaste campos vacios. Volve a intentar.");
+            }
+        } else{
+            throw new DatosIncorrectosException("La descripcion excede el limite de caracteres. (Limite: 200).");
+        }
+        return false;
+    }
+
+    @Override
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
+        if(this.getDescripcion().length() < 200) {
+            if(!this.getNombre().isEmpty() && !this.getAula().isEmpty() && this.anio > 0 && this.codigoProfesor != null && this.codigoCarrera != null && this.codigoMateria != null)
+            {
+                if(actualizarComisionAJSON(pathComisiones+generarNombreArchivoComision(this.getCodigoCarrera(), this.getAnio()), this.ComisionAJSONObject())){
+                    excepcionPersonalizada.alertaConfirmacion("¡Comision actualizada exitosamente!");
+                    return true;
+                }
+            }else{
+                throw new CamposVaciosException("Dejaste campos vacios. Volve a intentar.");
+            }
+        } else{
+            throw new DatosIncorrectosException("La descripcion excede el limite de caracteres. (Limite: 200).");
+        }
+        return false;
+    }
+
+    @Override
+    public boolean leer(String path, String id) {
+        return false;
+    }
+
+    @Override
+    public boolean borrar(String path) {
+        return false;
+    }
+
+    public static String generarIDComision(String codigoCarrera, String codigoMateria, String fileName) {
+        JSONArray comisiones = new JSONArray(leerArchivoJSON(fileName));
+        String ultimoCodigo = null;
+        int ultNum = 0; // Este es el número máximo encontrado para el ID actual
+
+        for (int i = 0; i < comisiones.length(); i++) {
+            JSONObject jsonObject = comisiones.getJSONObject(i);
+
+            // Solo busca los registros que coinciden con el código de carrera y materia
+            if (jsonObject.getString("codigoCarrera").equals(codigoCarrera) &&
+                    jsonObject.getString("codigoMateria").equals(codigoMateria)) {
+                // Obtén el número del ID
+                int currentNum = Integer.parseInt(jsonObject.getString("id").substring(0, 3));
+                // Si este es el mayor número, actualiza
+                if (currentNum > ultNum) {
+                    ultimoCodigo = jsonObject.getString("id");
+                    ultNum = currentNum; // Actualiza el último número encontrado
+                }
+            }
+        }
+
+        String nuevoID;
+
+        if (ultimoCodigo != null) {
+            // Se ha encontrado un último código
+            String auxiliar = ultimoCodigo.substring(0, 3);
+            int num = Integer.parseInt(auxiliar);
+            num++; // Incrementa el último número
+
+            // Genera el nuevo ID con ceros a la izquierda
+            nuevoID = String.format("%03d", num) + "-" + codigoMateria; // Cambié a usar codigoMateria aquí
+        } else {
+            // Si no hay códigos, genera uno nuevo
+            nuevoID = "001" + "-" + codigoMateria; // Aquí también aseguramos que el código de materia esté presente
+        }
+
+        return nuevoID;
+    }
 }
+
+
+

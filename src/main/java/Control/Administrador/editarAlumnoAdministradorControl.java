@@ -18,6 +18,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
+import static Path.Path.editarMateriaAlumnoAdministrador;
+
 public class editarAlumnoAdministradorControl {
 
 
@@ -82,6 +84,8 @@ public class editarAlumnoAdministradorControl {
 
             } catch (DatosIncorrectosException ex) {
                 ex.getMessage();
+            } catch (Excepciones.CamposVaciosException e1) {
+                throw new RuntimeException(e1);
             }
         } else {
             excepcionPersonalizada.excepcion("No se realizaron cambios");
@@ -92,7 +96,7 @@ public class editarAlumnoAdministradorControl {
     void clickBtnEditarMaterias(ActionEvent event) {
 
         EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.editarMateriaAdministrador,stage, "Editar Materias");
+        escena.cambiarEscena(editarMateriaAlumnoAdministrador,stage, "Editar Materias");
 
     }
 

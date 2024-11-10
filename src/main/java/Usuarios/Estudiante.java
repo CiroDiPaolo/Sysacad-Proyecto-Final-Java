@@ -121,7 +121,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) throws DatosIncorrectosException {
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
 
         boolean resultado = false;
 

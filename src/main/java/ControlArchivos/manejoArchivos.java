@@ -1,6 +1,7 @@
 package ControlArchivos;
 
 import Excepciones.ArchivoYaExistenteException;
+import Excepciones.ParametroPeligrosoException;
 import Excepciones.excepcionPersonalizada;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
@@ -57,14 +58,24 @@ public final class manejoArchivos {
      * @return
      */
     public static JSONTokener leerArchivoJSON(String fileName) {
-
         JSONTokener tokener = null;
+        File file = new File(fileName);
 
         try {
+            if (!file.exists()) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
+
+            if (file.length() == 0) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
 
             tokener = new JSONTokener(new FileReader(fileName));
-
-        }catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -196,6 +207,7 @@ public final class manejoArchivos {
         return false;
     }
 
+
     public static boolean guardarArchivo(String path, JSONArray arreglo) {
 
         try {
@@ -211,7 +223,11 @@ public final class manejoArchivos {
         }
     }
 
-    public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) {
+    public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) throws ParametroPeligrosoException {
+        if (jsonArray == null || jsonArray.isEmpty()) {
+            throw new ParametroPeligrosoException("Ocurrió un error. No se pudo completar la operación. Si el problema persiste llame a su distribuidor");
+        }
+
         try (FileWriter fileWriter = new FileWriter(fileName)) {
 
             fileWriter.write(jsonArray.toString(4));
@@ -219,5 +235,6 @@ public final class manejoArchivos {
             e.printStackTrace();
         }
     }
+
 
 }

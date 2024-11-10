@@ -44,4 +44,15 @@ public final class Path {
     public static final String editarMateriaAdministrador = "/App/Administrador/editarMateriaAlumnoAdministrador.fxml";
     public static final String cargarMateriasAdministrador = "/App/Administrador/cargarMateriaAdministrador.fxml";
     public static final String editarMesaExamenAlumnoAdministrador = "/App/Administrador/editarMesaExamenAlumnoAdministrador.fxml";
+    public static final String busquedaCarreraAdministrador = "/App/Administrador/busquedaCarreraAdministrador.fxml";
+    public static final String opcionEditarCarreraAdministrador = "/App/Administrador/opcionEditarCarreraAdministrador.fxml";
+    public static final String elegirMateriaAdministrador = "/App/Administrador/elegirMateriaAdministrador.fxml";
+    public static final String editarMateriaAlumnoAdministrador = "/App/Administrador/editarMateriaAlumnoAdministrador.fxml";
+    public static final String editarMateriaAdministrador = "/App/Administrador/editarMateriaAdministrador.fxml";
+    public static final String busquedaComisionAdministrador = "/App/Administrador/busquedaComisionAdministrador.fxml";
+    public static final String opcionConfigurarComisionAdministrador = "/App/Administrador/opcionConfigurarComisionAdministrador.fxml";
+    public static final String busquedaCarrera2Administrador = "/App/Administrador/busquedaCarrera2Administrador.fxml";
+    public static final String cargarComisionAdministrador = "/App/Administrador/cargarComisionAdministrador.fxml";
+    public static final String editarComisionAdministrador = "/App/Administrador/editarComisionAdministrador.fxml";
+
 }

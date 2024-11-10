@@ -29,7 +29,6 @@ public class mostrarAlumnoAdministradorControl {
     @FXML
     void clickBtnBuscar(ActionEvent event) {
 
-
     }
 
     @FXML

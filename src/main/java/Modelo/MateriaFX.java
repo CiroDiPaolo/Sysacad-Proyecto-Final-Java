@@ -10,12 +10,21 @@ public final class MateriaFX {
 
     private String id;
     private String nombre;
-    private BooleanProperty seCursa = new SimpleBooleanProperty(false);
-    private BooleanProperty seRinde = new SimpleBooleanProperty(false);
+    private BooleanProperty seCursa ;
+    private BooleanProperty seRinde ;
+
+    public MateriaFX(String id, String nombre, boolean seCursa, boolean seRinde) {
+        this.id = id;
+        this.nombre = nombre;
+        this.seCursa = new SimpleBooleanProperty(seCursa);
+        this.seRinde = new SimpleBooleanProperty(seRinde);
+    }
 
     public MateriaFX(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+        this.seCursa = new SimpleBooleanProperty(false);
+        this.seRinde = new SimpleBooleanProperty(false);
     }
 
     public String getId() {

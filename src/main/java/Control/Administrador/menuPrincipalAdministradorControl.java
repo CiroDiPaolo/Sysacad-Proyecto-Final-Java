@@ -54,14 +54,12 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
-
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+        escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar Carrera");
 
     }
 
     @FXML
     void clickBtnOp2(ActionEvent event) {
-
         escena.cambiarEscena(configurarAlumnosAdministrador,stage,"Configurar Alumno");
 
     }
@@ -82,7 +80,7 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp5(ActionEvent event) {
-
+        escena.cambiarEscena(busquedaCarrera2Administrador, stage, "Inscripciones");
     }
 
     @FXML

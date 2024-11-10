@@ -47,4 +47,19 @@ public class excepcionPersonalizada {
 
     }
 
+    public static void alertaAtencion(String mensaje){
+
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("¡Atencion!");
+        alert.setHeaderText("");
+        alert.setContentText(mensaje);
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        Image icon = new Image(manejoArchivos.class.getResourceAsStream(icono));
+        stage.getIcons().add(icon);
+
+        alert.showAndWait();
+
+    }
+
 }
