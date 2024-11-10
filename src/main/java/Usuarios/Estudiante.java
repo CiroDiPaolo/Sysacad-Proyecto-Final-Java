@@ -329,6 +329,20 @@ public final class Estudiante extends Usuario implements iCRUD {
         return materiasEstudiante;
     }
 
+    public HashMap<String, EstadoAlumnoMesa> obtenerMesasDeExamen() {
+        HashMap<String, EstadoAlumnoMesa> mesasDeExamen = new HashMap<>();
+
+        for (EstadoAlumnoMateria materia : this.getMaterias()) {
+            if (materia.getMesasExamen() != null) {
+                for (Map.Entry<String, EstadoAlumnoMesa> entry : materia.getMesasExamen().entrySet()) {
+                    mesasDeExamen.put(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+
+        return mesasDeExamen;
+    }
+
     public boolean compararJSONObjectConEstudiante(Estudiante usuario,JSONObject jsonObject ) {
 
         boolean comparar = true;

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public class editarMateriaAlumnoAdministradorControl implements Cloneable {
+public class editarMateriaAlumnoAdministradorControl{
 
     @FXML
     private Button btnCargar;
@@ -27,13 +27,10 @@ public class editarMateriaAlumnoAdministradorControl implements Cloneable {
     private Button btnVolver;
 
     @FXML
-    private Button btnVolver1;
+    private Button btnEditarMesa;
 
     @FXML
     private ChoiceBox<String> choiceMateria;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtComision;
@@ -115,6 +112,14 @@ public class editarMateriaAlumnoAdministradorControl implements Cloneable {
 
     }
 
+    @FXML
+    void clickbtnEditarMesa(ActionEvent event) {
+
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(Path.editarMesaExamenAlumnoAdministrador, stage, "Editar Mesa de Examen");
+
+    }
+
     private void actualizarTextFields(String codigoMateria, String nombreMateria) {
 
         for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
@@ -126,6 +131,8 @@ public class editarMateriaAlumnoAdministradorControl implements Cloneable {
                 txtTomo.setText(Data.getEstudiante().getMaterias().get(i).getTomo());
 
                 Data.setAux2(String.valueOf(i));
+
+                System.out.println(Data.getAux2());
 
                 i = Data.getEstudiante().getMaterias().size();
             }
