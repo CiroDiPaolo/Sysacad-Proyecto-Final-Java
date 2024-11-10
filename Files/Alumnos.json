@@ -1,35 +1,22 @@
-[
-    {
-        "legajo": "E000001",
-        "apellido": "Carrizo",
-        "correo": "melisacarrizo5@gmail.com",
-        "codigoCarrera": "001",
-        "fechaDeAlta": "2024-10-27",
-        "contrasenia": "46557012",
-        "nombre": "Melisa",
-        "dni": "46557012",
-        "actividad": true
-    },
-    {
-        "legajo": "E000002",
-        "apellido": "Bellese",
-        "correo": "aebellese@gmail.com",
-        "codigoCarrera": "002",
-        "fechaDeAlta": "2024-10-29",
-        "contrasenia": "46871319",
-        "nombre": "Agustin",
-        "dni": "46871319",
-        "actividad": true
-    },
-    {
-        "legajo": "E000003",
-        "apellido": "carrizo",
-        "correo": "dsaads@gmail.com",
-        "codigoCarrera": "002",
-        "fechaDeAlta": "2024-11-03",
-        "contrasenia": "11112233",
-        "nombre": "melisa",
-        "dni": "11112233",
-        "actividad": true
-    }
-]
+[{
+    "legajo": "E000001",
+    "apellido": "Carrizo",
+    "correo": "melisacarrizo5@gmail.com",
+    "codigoCarrera": "001",
+    "fechaDeAlta": "2024-10-27",
+    "contrasenia": "46557012",
+    "nombre": "Melisa",
+    "materias": [{
+        "notas": [
+            {"segundoParcial": 20},
+            {"primerParcial": 10}
+        ],
+        "folio": "10",
+        "mesasExamen": [],
+        "codigoComision": "C1",
+        "id": "",
+        "tomo": "1"
+    }],
+    "dni": "46557012",
+    "actividad": true
+}]
