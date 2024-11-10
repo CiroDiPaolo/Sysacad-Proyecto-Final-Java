@@ -29,12 +29,12 @@ public class opcionConfigurarComisionAdministradorControl {
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
-        escena.cambiarEscena(cargarComisionAdministrador, stage, "Cargar comision");
+        escena.cambiarEscena(cargarComisionAdministrador, stage, "Cargar comisión");
     }
 
     @FXML
     void clickBtnActualizar(ActionEvent event) {
-
+        escena.cambiarEscena(busquedaComisionAdministrador,stage,"Elegir comisión");
     }
 
     @FXML
