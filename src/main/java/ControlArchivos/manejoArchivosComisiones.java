@@ -1,10 +1,7 @@
 package ControlArchivos;
 
 import Consultas.consultaArchivo;
-import Excepciones.ArchivoNoEncontrado;
-import Excepciones.ArchivoYaExistenteException;
-import Excepciones.EntidadYaExistente;
-import Excepciones.excepcionPersonalizada;
+import Excepciones.*;
 import Modelo.Comision;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,6 +9,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
@@ -82,8 +80,6 @@ public final class manejoArchivosComisiones {
     }
 
     public static boolean cargarComisionAJSON(String path, JSONObject comision) throws EntidadYaExistente {
-        System.out.println("Ruta del archivo: " + path);
-        System.out.println("Directorio de trabajo: " + System.getProperty("user.dir"));
 
         if (!consultaArchivo.buscarClave(path, comision.getString("id"), "id") && !consultaArchivo.buscarClave(path, comision.getString("nombre"), "nombre")) {
 
@@ -118,5 +114,91 @@ public final class manejoArchivosComisiones {
         return false;
     }
 
+    public static ArrayList<Comision> obtenerComisionesPorAnio(int anio, String idCarrera)
+    {
+        JSONArray jsonArray =new JSONArray(leerArchivoJSON(pathComisiones+generarNombreArchivoComision(idCarrera,anio)));
+        ArrayList<Comision> comisiones = new ArrayList<>();
 
+        if(!jsonArray.isEmpty())
+        {
+            for(int i = 0; i<jsonArray.length(); i++)
+            {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                comisiones.add(Comision.JSONObjectAComision(jsonObject));
+            }
+        }
+        return comisiones;
+    }
+
+    public static boolean actualizarComisionAJSON(String path, JSONObject comision) {
+
+        JSONArray jsonArray;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
+            }
+            reader.close();
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+        } catch (IOException | JSONException e) {
+            jsonArray = new JSONArray();
+        }
+
+        for(int i = 0; i<jsonArray.length();i++)
+        {
+            if(comision.getString("id").equals(jsonArray.getJSONObject(i).getString("id")))
+            {
+                jsonArray.put(i,comision);
+            }
+        }
+
+        try (FileWriter file = new FileWriter(path)) {
+            file.write(jsonArray.toString(4));
+            return true;
+        } catch (IOException | JSONException e) {
+            excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
+        }
+
+        return false;
+    }
+
+    public static Comision buscarComision(String filename, String dato, String clave) throws CamposVaciosException
+    {
+        if(!clave.isEmpty()){
+            JSONArray jsonArray;
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(filename));
+                StringBuilder jsonStringBuilder = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    jsonStringBuilder.append(line);
+                }
+                reader.close();
+                jsonArray = new JSONArray(jsonStringBuilder.toString());
+            } catch (IOException | JSONException e) {
+                jsonArray = new JSONArray();
+            }
+
+            Comision comision = null;
+
+            for(int i = 0; i<jsonArray.length();i++)
+            {
+
+                if(clave.equals(jsonArray.getJSONObject(i).getString(dato)))
+                {
+                    comision = Comision.JSONObjectAComision(jsonArray.getJSONObject(i));
+                }
+            }
+
+            return comision;
+        }else {
+            throw new CamposVaciosException("No elegiste ninguna comisión");
+        }
+    }
 }

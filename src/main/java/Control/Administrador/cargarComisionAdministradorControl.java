@@ -140,22 +140,28 @@ public class cargarComisionAdministradorControl {
         anios.add(LocalDate.now().getYear());
         anios.add((LocalDate.now().getYear()+1));
         choiceBoxAnio.getItems().addAll(anios);
-        for(Map.Entry<String, Materia> entry : Data.getCarrera().getMaterias().entrySet()){
-            Materia materia = entry.getValue();
-            if(materia.isActividad())
-            {
-                choiceBoxMateria.getItems().add(materia.getId() + " - " + materia.getNombre());
+        if(!Data.getCarrera().getMaterias().entrySet().isEmpty())
+        {
+            for(Map.Entry<String, Materia> entry : Data.getCarrera().getMaterias().entrySet()){
+                Materia materia = entry.getValue();
+                if(materia.isActividad())
+                {
+                    choiceBoxMateria.getItems().add(materia.getId() + " - " + materia.getNombre());
+                }
             }
         }
 
         ArrayList<Profesor> profesores;
         profesores = manejoArchivosProfesor.retornarProfesores(fileNameProfesores);
-        for(Profesor profesor : profesores)
+        if(profesores!= null)
         {
-            if(profesor.getActividad()){
-                choiceBoxProfesor.getItems().add(profesor.getLegajo() + " - " + profesor.getNombre() + " " + profesor.getApellido());
-            }
+            for(Profesor profesor : profesores)
+            {
+                if(profesor.getActividad()){
+                    choiceBoxProfesor.getItems().add(profesor.getLegajo() + " - " + profesor.getNombre() + " " + profesor.getApellido());
+                }
 
+            }
         }
 
         for(Turno turno : Turno.values())
