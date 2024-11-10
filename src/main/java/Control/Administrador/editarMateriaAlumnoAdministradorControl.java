@@ -51,6 +51,7 @@ public class editarMateriaAlumnoAdministradorControl{
 
     @FXML
     void clickBtnCargar(ActionEvent event) throws DatosIncorrectosException {
+
         try {
 
             EstadoAlumnoMateria estadoOriginal = Data.getEstudiante().getMaterias().get(Integer.parseInt(Data.getAux2()));
@@ -115,9 +116,12 @@ public class editarMateriaAlumnoAdministradorControl{
     @FXML
     void clickbtnEditarMesa(ActionEvent event) {
 
-        EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.editarMesaExamenAlumnoAdministrador, stage, "Editar Mesa de Examen");
-
+        if (choiceMateria.getValue() == null) {
+            Excepciones.excepcionPersonalizada.excepcion("Debe seleccionar una materia antes de continuar.");
+        } else {
+            EscenaControl escena = new EscenaControl();
+            escena.cambiarEscena(Path.editarMesaExamenAlumnoAdministrador, stage, "Editar Mesa de Examen");
+        }
     }
 
     private void actualizarTextFields(String codigoMateria, String nombreMateria) {
@@ -131,8 +135,6 @@ public class editarMateriaAlumnoAdministradorControl{
                 txtTomo.setText(Data.getEstudiante().getMaterias().get(i).getTomo());
 
                 Data.setAux2(String.valueOf(i));
-
-                System.out.println(Data.getAux2());
 
                 i = Data.getEstudiante().getMaterias().size();
             }

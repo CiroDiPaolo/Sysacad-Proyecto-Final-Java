@@ -141,6 +141,8 @@ public final class inicioSesionControl {
             //Se setea el legajo
              Data.setLegajo(legajo);
 
+        System.out.println("Legajo: " + Data.getLegajo());
+
             if(index == 1){
 
                 constante = Path.menuPrincipalAlumnos;

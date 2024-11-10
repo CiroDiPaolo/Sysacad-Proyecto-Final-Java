@@ -51,24 +51,20 @@ public final class editarMesaExamenAlumnoAdministradorControl {
                 throw new DatosIncorrectosException("La nota debe ser un número entero entre 0 y 10.");
             }
 
-            Set<Map.Entry<String, EstadoAlumnoMesa>> mesas = e.obtenerMesasDeExamen().entrySet();
-
-            System.out.println(Data.getAux2() + "numero del arreglo de materia");
-
-            for(EstadoAlumnoMesa materia : e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().values()){
-                System.out.println(materia.getNota());
-            }
-
             for (int i = 0 ; i < e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().size(); i++){
 
+                System.out.println(e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).getCodigoMesa() + "codigo de mesa");
+
                 if(e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).getCodigoMesa().equals(choiceMesa.getValue())){
-                    e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+i).setNota(nota);
-                    i = e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().size();
+
+                    e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).setNota(nota);
+
                 }
 
             }
 
             if(estudianteOriginal.actualizar(Path.fileNameAlumnos,e.estudianteAJSONObject())){
+                Excepciones.excepcionPersonalizada.alertaConfirmacion("Nota actualizada con éxito.");
                 EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(Path.editarAlumnoAdministrador, stage, "Configurar Alumno");
             }
