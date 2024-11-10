@@ -266,6 +266,19 @@ public final class Comision implements iCRUD{
 
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
+        if(this.getDescripcion().length() < 200) {
+            if(!this.getNombre().isEmpty() && !this.getAula().isEmpty() && this.anio > 0 && this.codigoProfesor != null && this.codigoCarrera != null && this.codigoMateria != null)
+            {
+                if(actualizarComisionAJSON(pathComisiones+generarNombreArchivoComision(this.getCodigoCarrera(), this.getAnio()), this.ComisionAJSONObject())){
+                    excepcionPersonalizada.alertaConfirmacion("¡Comision actualizada exitosamente!");
+                    return true;
+                }
+            }else{
+                throw new CamposVaciosException("Dejaste campos vacios. Volve a intentar.");
+            }
+        } else{
+            throw new DatosIncorrectosException("La descripcion excede el limite de caracteres. (Limite: 200).");
+        }
         return false;
     }
 

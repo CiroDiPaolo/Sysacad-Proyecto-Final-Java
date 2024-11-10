@@ -1,5 +1,8 @@
 package Control.Administrador;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosComisiones;
 import ControlArchivos.manejoArchivosProfesor;
@@ -29,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 
 import static Path.Path.*;
 
-public class cargarComisionAdministradorControl {
+public class editarComisionAdministradorControl {
     @FXML
     private Button btnCargar;
 
@@ -85,7 +88,7 @@ public class cargarComisionAdministradorControl {
         String codigoMateria = Materia.cortarString(choiceBoxMateria.getValue());
         Turno turno = null;
         try{
-           turno = Turno.valueOf(choiceBoxTurno.getValue());
+            turno = Turno.valueOf(choiceBoxTurno.getValue());
         }catch (NullPointerException e)
         {
             System.out.println("Ingresaste un campo vacio.");
@@ -94,30 +97,15 @@ public class cargarComisionAdministradorControl {
         int anio = choiceBoxAnio.getValue();
         int cupos = spinnerCupos.getValue();
         System.out.println(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(codigoCarrera,anio));
-        String id = Comision.generarIDComision(codigoCarrera,codigoMateria, pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(codigoCarrera,anio));
-        HashSet<EstadoAlumnoComision> hashSet = new HashSet<>();
+        String id = Data.getComision().getId();
+        HashSet<EstadoAlumnoComision> hashSet = Data.getComision().getEstadoAlumnoComisionHashSet();
         Comision comision = new Comision(id,turno,nombre,codigoMateria,codigoCarrera,codigoProfesor,descripcion,anio,aula,cupos,apertura,actividad,hashSet);
         try{
-            if(comision.crear(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(codigoCarrera,anio))){
-                txtNombre.clear();
-                txtAula.clear();
-                txtDescripcion.clear();
-                choiceBoxTurno.setValue(null);
-                choiceBoxProfesor.setValue(null);
-                checkBoxActividad.setSelected(false);
-                checkBoxApertura.setSelected(false);
-            }
-        }catch (EntidadYaExistente e)
-        {
-            e.getMessage();
-        }catch (CamposVaciosException e)
-        {
-            e.getMessage();
-        }catch (DatosIncorrectosException e)
-        {
+            comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject());
+
+        } catch (CamposVaciosException | DatosIncorrectosException e) {
             e.getMessage();
         }
-
     }
 
     @FXML
@@ -133,41 +121,55 @@ public class cargarComisionAdministradorControl {
 
         });
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,200);
-        valueFactory.setValue(1);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 200);
+        valueFactory.setValue(Data.getComision().getCupos());
         spinnerCupos.setValueFactory(valueFactory);
-        ArrayList<Integer> anios = new ArrayList<>();
-        anios.add(LocalDate.now().getYear());
-        anios.add((LocalDate.now().getYear()+1));
-        choiceBoxAnio.getItems().addAll(anios);
-        if(!Data.getCarrera().getMaterias().entrySet().isEmpty())
-        {
-            for(Map.Entry<String, Materia> entry : Data.getCarrera().getMaterias().entrySet()){
+
+        choiceBoxAnio.getItems().clear();
+        choiceBoxAnio.getItems().add(Data.getComision().getAnio());
+        choiceBoxAnio.getSelectionModel().select(0);
+
+        if (!Data.getCarrera().getMaterias().entrySet().isEmpty()) {
+            choiceBoxMateria.getItems().clear();
+            for (Map.Entry<String, Materia> entry : Data.getCarrera().getMaterias().entrySet()) {
                 Materia materia = entry.getValue();
-                if(materia.isActividad())
-                {
+                if (materia.isActividad()) {
                     choiceBoxMateria.getItems().add(materia.getId() + " - " + materia.getNombre());
+                    if(materia.getId().equals(Data.getComision().getCodigoMateria()))
+                    {
+                        String selectedMateria = Data.getComision().getCodigoMateria() + " - " + materia.getNombre();
+                        choiceBoxMateria.getSelectionModel().select(selectedMateria);
+                    }
                 }
             }
         }
 
-        ArrayList<Profesor> profesores;
-        profesores = manejoArchivosProfesor.retornarProfesores(fileNameProfesores);
-        if(profesores!= null)
-        {
-            for(Profesor profesor : profesores)
-            {
-                if(profesor.getActividad()){
+        ArrayList<Profesor> profesores = manejoArchivosProfesor.retornarProfesores(fileNameProfesores);
+        if (profesores != null) {
+            choiceBoxProfesor.getItems().clear();
+            for (Profesor profesor : profesores) {
+                if (profesor.getActividad()) {
                     choiceBoxProfesor.getItems().add(profesor.getLegajo() + " - " + profesor.getNombre() + " " + profesor.getApellido());
+                    if(profesor.getLegajo().equals(Data.getComision().getCodigoProfesor()))
+                    {
+                        String selectedProfesor = Data.getComision().getCodigoProfesor() + " - " + profesor.getNombre() + " " + profesor.getApellido();
+                        choiceBoxProfesor.getSelectionModel().select(selectedProfesor);
+                    }
                 }
-
             }
         }
 
-        for(Turno turno : Turno.values())
-        {
+        choiceBoxTurno.getItems().clear();
+        for (Turno turno : Turno.values()) {
             choiceBoxTurno.getItems().add(turno.toString());
         }
+        choiceBoxTurno.getSelectionModel().select(Data.getComision().getTurno().toString());
+
+        txtNombre.setText(Data.getComision().getNombre());
+        txtAula.setText(Data.getComision().getAula());
+        txtDescripcion.setText(Data.getComision().getDescripcion());
+        checkBoxActividad.setSelected(Data.getComision().isActividad());
+        checkBoxApertura.setSelected(Data.getComision().getApertura());
 
     }
 }

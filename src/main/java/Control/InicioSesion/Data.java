@@ -2,6 +2,7 @@ package Control.InicioSesion;
 
 import ControlArchivos.manejoArchivosEstudiante;
 import Modelo.Carrera;
+import Modelo.Comision;
 import Modelo.Materia;
 import Usuarios.*;
 
@@ -14,6 +15,7 @@ public final class Data {
     private static String aux;
     private static Carrera carrera;
     private static Materia materiaData;
+    private static Comision comision;
 
     //Getters
     public static Carrera getCarrera(){
@@ -33,6 +35,8 @@ public final class Data {
     public static Estudiante getEstudiante() {
         return estudiante;
     }
+
+    public static Comision getComision(){ return comision;}
 
     //Setters
     public static void setLegajo(String legajo) {
@@ -56,5 +60,7 @@ public final class Data {
     public void setCarrera(Carrera carrera){
         this.carrera = carrera;
     }
+
+    public void setComision(Comision comision) {this.comision = comision;}
 
 }
