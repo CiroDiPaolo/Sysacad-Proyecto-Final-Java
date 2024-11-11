@@ -17,7 +17,7 @@
             "mesasExamen": [
                 {
                     "Mesa2": "M002",
-                    "nota": 3,
+                    "nota": 10,
                     "presente": false
                 },
                 {
@@ -27,7 +27,7 @@
                 }
             ],
             "codigoComision": "C1",
-            "id": "MAT101",
+            "id": "001",
             "tomo": "10"
         },
         {
@@ -50,7 +50,7 @@
                 }
             ],
             "codigoComision": "C1",
-            "id": "MAT102",
+            "id": "002",
             "tomo": "10"
         }
     ],
