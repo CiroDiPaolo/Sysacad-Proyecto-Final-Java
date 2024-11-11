@@ -58,7 +58,7 @@
         <columns>
           <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
           <TableColumn fx:id="colMateria" prefWidth="656.0" text="MATERIA" />
-            <TableColumn fx:id="colComision" minWidth="0.0" prefWidth="125.0" text="COMISION" />
+            <TableColumn fx:id="colCuatrimestre" minWidth="0.0" prefWidth="125.0" text="CUTRIMESTRE" />
             <TableColumn fx:id="colBotones" prefWidth="138.0" />
         </columns>
       </TableView>
