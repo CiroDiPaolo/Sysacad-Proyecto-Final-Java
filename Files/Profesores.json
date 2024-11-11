@@ -18,5 +18,15 @@
         "nombre": "Juancita",
         "dni": "25001002",
         "actividad": true
+    },
+    {
+        "legajo": "P000003",
+        "apellido": "perez",
+        "correo": "juan@gmail.com",
+        "fechaDeAlta": "2024-11-10",
+        "contrasenia": "12345678",
+        "nombre": "Juan",
+        "dni": "12345678",
+        "actividad": true
     }
 ]
