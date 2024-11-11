@@ -7,6 +7,7 @@ import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Modelo.EstadoAlumnoMateria;
 import Modelo.Materia;
+import Path.Path;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -49,7 +50,6 @@ public class inscripcionCursadaControl {
     @FXML
     void clickBtnVolver(ActionEvent event) {
 
-        stage = (Stage) btnVolver.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(menuPrincipalAlumnos, stage, "Menu Principal");
 
@@ -91,7 +91,11 @@ public class inscripcionCursadaControl {
                     {
                         inscribirseButton.setOnAction(event -> {
                             Materia materia = getTableView().getItems().get(getIndex());
-                            inscribirseEnMateria(materia.getNombre());
+
+                            Data.setAux2(materia.getId());
+                            EscenaControl escena = new EscenaControl();
+                            escena.cambiarEscena(Path.inscripcionMateria, stage, "Inscripcion Materia");
+
                         });
                     }
 
@@ -112,10 +116,6 @@ public class inscripcionCursadaControl {
             }
 
         });
-    }
-
-    private void inscribirseEnMateria(String materia) {
-        System.out.println("Inscribirse en: " + materia);
     }
 
 }
