@@ -1,205 +1,209 @@
-{
-  "id": "001",
-  "nombre": "Tecnicatura Univversitaria en Programación",
-  "plan": "2024",
-  "materias": [
-    {
-      "cuatrimestre": "1",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "1",
-      "nombre": "Programación I",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": []
-    },
-    {
-      "cuatrimestre": "1",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "2",
-      "nombre": "Arquitectura de Sistemas Operativos",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": []
-    },
-    {
-      "cuatrimestre": "1",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "3",
-      "nombre": "Matemática",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": []
-    },
-    {
-      "cuatrimestre": "1",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "8",
-      "nombre": "Inglés I",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": []
-    },
-    {
-      "cuatrimestre": "2",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "5",
-      "nombre": "Programación II",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["1", "2"]
-    },
-    {
-      "cuatrimestre": "2",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "6",
-      "nombre": "Probabilidad y Estadística",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["3"]
-    },
-    {
-      "cuatrimestre": "2",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "7",
-      "nombre": "Base de Datos I",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["1", "3"]
-    },
-    {
-      "cuatrimestre": "2",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "4",
-      "nombre": "Organización Empresarial",
-      "seRinde": true,
-      "anio": "1",
-      "actividad": true,
-      "codigoCorrelativasCursado": []
-    },
-    {
-      "cuatrimestre": "3",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["1"],
-      "id": "9",
-      "nombre": "Programación III",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["5", "7"]
-    },
-    {
-      "cuatrimestre": "3",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["1"],
-      "id": "10",
-      "nombre": "Base de Datos II",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["7"]
-    },
-    {
-      "cuatrimestre": "3",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["1","4"],
-      "id": "11",
-      "nombre": "Metodología de Sistemas I",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["5", "7"]
-    },
-    {
-      "cuatrimestre": "3",
-      "seCursa": true,
-      "codigoCorrelativasRendir": [],
-      "id": "12",
-      "nombre": "Inglés II",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["8"]
-    },
-    {
-      "cuatrimestre": "4",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["5", "7"],
-      "id": "13",
-      "nombre": "Programación IV",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["9", "10", "11"]
-    },
-    {
-      "cuatrimestre": "4",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["4"],
-      "id": "14",
-      "nombre": "Metodología de Sistemas II",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["11"]
-    },
-    {
-      "cuatrimestre": "4",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["6","7"],
-      "id": "15",
-      "nombre": "Introducción al Análisis de Datos",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["10"]
-    },
-    {
-      "cuatrimestre": "4",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["4"],
-      "id": "16",
-      "nombre": "Legislación",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["7"]
-    },
-    {
-      "cuatrimestre": "4",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["5", "7"],
-      "id": "17",
-      "nombre": "Gestión de Desarrollo de Software",
-      "seRinde": true,
-      "anio": "2",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["9", "10"]
-    },
-    {
-      "cuatrimestre": "Final",
-      "seCursa": true,
-      "codigoCorrelativasRendir": ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],
-      "id": "18",
-      "nombre": "Trabajo Final Integrador",
-      "seRinde": true,
-      "anio": "3",
-      "actividad": true,
-      "codigoCorrelativasCursado": ["8", "9", "10", "11", "12"]
-    }
-  ]
-}
+[
+  {
+    "id": "001",
+    "nombre": "Tecnicatura Universitaria en Programación",
+    "plan": "2024",
+    "actividad": true,
+    "materias": [
+      {
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "1",
+        "nombre": "Programación I",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": []
+      },
+      {
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "2",
+        "nombre": "Arquitectura de Sistemas Operativos",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": []
+      },
+      {
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "3",
+        "nombre": "Matemática",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": []
+      },
+      {
+        "cuatrimestre": "1",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "8",
+        "nombre": "Inglés I",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": []
+      },
+      {
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "5",
+        "nombre": "Programación II",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["1", "2"]
+      },
+      {
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "6",
+        "nombre": "Probabilidad y Estadística",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["3"]
+      },
+      {
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "7",
+        "nombre": "Base de Datos I",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["1", "3"]
+      },
+      {
+        "cuatrimestre": "2",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "4",
+        "nombre": "Organización Empresarial",
+        "seRinde": true,
+        "anio": "1",
+        "actividad": true,
+        "codigoCorrelativasCursado": []
+      },
+      {
+        "cuatrimestre": "3",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["1"],
+        "id": "9",
+        "nombre": "Programación III",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["5", "7"]
+      },
+      {
+        "cuatrimestre": "3",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["1"],
+        "id": "10",
+        "nombre": "Base de Datos II",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["7"]
+      },
+      {
+        "cuatrimestre": "3",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["1","4"],
+        "id": "11",
+        "nombre": "Metodología de Sistemas I",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["5", "7"]
+      },
+      {
+        "cuatrimestre": "3",
+        "seCursa": true,
+        "codigoCorrelativasRendir": [],
+        "id": "12",
+        "nombre": "Inglés II",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["8"]
+      },
+      {
+        "cuatrimestre": "4",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["5", "7"],
+        "id": "13",
+        "nombre": "Programación IV",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["9", "10", "11"]
+      },
+      {
+        "cuatrimestre": "4",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["4"],
+        "id": "14",
+        "nombre": "Metodología de Sistemas II",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["11"]
+      },
+      {
+        "cuatrimestre": "4",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["6","7"],
+        "id": "15",
+        "nombre": "Introducción al Análisis de Datos",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["10"]
+      },
+      {
+        "cuatrimestre": "4",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["4"],
+        "id": "16",
+        "nombre": "Legislación",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["7"]
+      },
+      {
+        "cuatrimestre": "4",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["5", "7"],
+        "id": "17",
+        "nombre": "Gestión de Desarrollo de Software",
+        "seRinde": true,
+        "anio": "2",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["9", "10"]
+      },
+      {
+        "cuatrimestre": "Final",
+        "seCursa": true,
+        "codigoCorrelativasRendir": ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],
+        "id": "18",
+        "nombre": "Trabajo Final Integrador",
+        "seRinde": true,
+        "anio": "3",
+        "actividad": true,
+        "codigoCorrelativasCursado": ["8", "9", "10", "11", "12"]
+      }
+    ]
+  }
+
+]
