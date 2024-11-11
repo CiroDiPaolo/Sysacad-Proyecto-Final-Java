@@ -2,6 +2,7 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Modelo.EstadoAlumnoMateria;
 import Path.Path;
@@ -11,11 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.json.JSONObject;
-
 import java.util.*;
 
 public class editarMateriaAlumnoAdministradorControl{
@@ -102,6 +100,8 @@ public class editarMateriaAlumnoAdministradorControl{
 
         } catch (NumberFormatException e) {
             throw new DatosIncorrectosException("Todos los campos deben contener números enteros válidos");
+        } catch (CamposVaciosException e) {
+            throw new DatosIncorrectosException("Todos los campos deben estar completos");
         }
     }
 
@@ -149,7 +149,15 @@ public class editarMateriaAlumnoAdministradorControl{
         Platform.runLater(() -> {
             stage = (Stage) btnVolver.getScene().getWindow();
 
-            HashMap<String, String> materia = Data.getEstudiante().obtenerMaterias();
+            final HashMap<String, String> materia;
+
+            try {
+
+                materia = Data.getEstudiante().obtenerMaterias();
+
+            } catch (DatosIncorrectosException e) {
+                throw new RuntimeException(e);
+            }
 
             for (Map.Entry<String, String> entry : materia.entrySet()) {
                 choiceMateria.getItems().add(entry.getValue());
@@ -159,9 +167,7 @@ public class editarMateriaAlumnoAdministradorControl{
                 if (newValue != null) {
                     String selectedKey = materia.entrySet().stream().filter(entry -> newValue.equals(entry.getValue())).map(Map.Entry::getKey).findFirst().orElse(null);
                     if (selectedKey != null) {
-
                         actualizarTextFields(selectedKey, newValue);
-
                     }
                 }
             });
