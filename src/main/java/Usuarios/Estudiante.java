@@ -312,21 +312,22 @@ public final class Estudiante extends Usuario implements iCRUD {
                 getMaterias().equals(that.getMaterias());
     }
 
-    public HashMap<String, String> obtenerMaterias(){
+    public HashMap<String, String> obtenerMaterias() throws DatosIncorrectosException {
+        try {
+            HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(Path.pathCarreras, this.getCodigoCarrera())).getMaterias();
+            HashMap<String, String> materiasEstudiante = new HashMap<>();
 
-        HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(Path.pathCarreras,this.getCodigoCarrera())).getMaterias();
+            for (int i = 0; i < this.getMaterias().size(); i++) {
 
-        HashMap<String, String> materiasEstudiante = new HashMap<>();
-
-        for(int i = 0 ; i<this.getMaterias().size() ; i++){
-
-            if(materiasCarrera.containsKey(this.getMaterias().get(i).getCodigoMateria())){
-                materiasEstudiante.put(this.getMaterias().get(i).getCodigoMateria(),materiasCarrera.get(this.getMaterias().get(i).getCodigoMateria()).getNombre());
+                if (materiasCarrera.containsKey(this.getMaterias().get(i).getCodigoMateria())) {
+                    materiasEstudiante.put(this.getMaterias().get(i).getCodigoMateria(), materiasCarrera.get(this.getMaterias().get(i).getCodigoMateria()).getNombre());
+                }
             }
 
+            return materiasEstudiante;
+        } catch (CamposVaciosException e) {
+            throw new DatosIncorrectosException("No se pudo obtener las materias de la carrera");
         }
-
-        return materiasEstudiante;
     }
 
     public HashMap<String, EstadoAlumnoMesa> obtenerMesasDeExamen() {
