@@ -55,11 +55,12 @@
             </cursor>
         </Button>
         <TableView fx:id="tableTablaMaterias" layoutX="462.0" layoutY="238.0" prefHeight="677.0" prefWidth="995.0" style="-fx-background-color: #475d6b;">
-            <columns>
-                <TableColumn fx:id="colMateria" prefWidth="656.0" text="MATERIA" />
-                <TableColumn fx:id="colBotones" prefWidth="138.0" />
-                <TableColumn fx:id="colCuatrimestre" minWidth="0.0" prefWidth="125.0" text="CUTRIMESTRE" />
-            </columns>
+         <columns>
+            <TableColumn fx:id="colComision" prefWidth="75.0" text="COMISIÓN" />
+            <TableColumn fx:id="colMateria" prefWidth="421.0" text="MATERIA" />
+            <TableColumn fx:id="colDescripcion" prefWidth="351.0" text="DESCRIPCIÓN" />
+            <TableColumn fx:id="colBotones" prefWidth="147.0" />
+         </columns>
         </TableView>
     </children>
 </AnchorPane>
