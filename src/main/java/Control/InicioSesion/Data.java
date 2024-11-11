@@ -63,5 +63,4 @@ public final class Data {
 
     public static void setAux2(String aux2) { Data.aux2 = aux2; }
 
-
 }
