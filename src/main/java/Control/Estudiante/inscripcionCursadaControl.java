@@ -5,6 +5,7 @@ import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
+import Modelo.EstadoAlumnoMateria;
 import Modelo.Materia;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,19 +30,19 @@ public class inscripcionCursadaControl {
     private Label tctMenuPrincipal;
 
     @FXML
-    private TableColumn<String, String> colAnio;
+    private TableColumn<Materia, String> colAnio;
 
     @FXML
-    private TableColumn<String, Void> colBotones;
+    private TableColumn<Materia, Void> colBotones;
 
     @FXML
-    private TableColumn<String, String> colComision;
+    private TableColumn<Materia, String> colCuatrimestre;
 
     @FXML
-    private TableColumn<String, String> colMateria;
+    private TableColumn<Materia, String> colMateria;
 
     @FXML
-    private TableView<String> tableTablaMaterias;
+    private TableView<Materia> tableTablaMaterias;
 
     private Stage stage;
 
@@ -64,27 +65,29 @@ public class inscripcionCursadaControl {
             try {
 
                 HashMap<String, Materia> materias = (manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera())).getMaterias();
+                ArrayList<String> materiasEstudiante = new ArrayList<>();
 
-                for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
-
-                    if (materias.containsKey(Data.getEstudiante().getMaterias().get(i).getCodigoMateria())) {
-
-                        tableTablaMaterias.getItems().add(materias.get(Data.getEstudiante().getMaterias().get(i).getCodigoMateria()).getNombre());
-
-                    }
-
+                for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
+                    materiasEstudiante.add(materia.getCodigoMateria());
                 }
 
-                colMateria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
+                for (Map.Entry<String, Materia> entry : materias.entrySet()) {
+                    if (!materiasEstudiante.contains(entry.getKey())) {
+                        tableTablaMaterias.getItems().add(entry.getValue());
+                    }
+                }
 
-                colBotones.setCellFactory(col -> new TableCell<String, Void>() {
+                colMateria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+                colAnio.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getAnio())));
+                colCuatrimestre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCuatrimestre()));
+
+                colBotones.setCellFactory(col -> new TableCell<Materia, Void>() {
                     private final Button inscribirseButton = new Button("Inscribirse");
 
                     {
                         inscribirseButton.setOnAction(event -> {
-                            String materia = getTableView().getItems().get(getIndex());
-                            // Lógica para inscribirse en la materia
-                            inscribirseEnMateria(materia);
+                            Materia materia = getTableView().getItems().get(getIndex());
+                            inscribirseEnMateria(materia.getNombre());
                         });
                     }
 
@@ -111,9 +114,7 @@ public class inscripcionCursadaControl {
     }
 
     private void inscribirseEnMateria(String materia) {
-
         System.out.println("Inscribirse en: " + materia);
-
     }
 
 }
