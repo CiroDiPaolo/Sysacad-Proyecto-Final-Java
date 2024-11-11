@@ -71,9 +71,13 @@ public class inscripcionCursadaControl {
                     materiasEstudiante.add(materia.getCodigoMateria());
                 }
 
-                for (Map.Entry<String, Materia> entry : materias.entrySet()) {
-                    if (!materiasEstudiante.contains(entry.getKey())) {
-                        tableTablaMaterias.getItems().add(entry.getValue());
+                if (materiasEstudiante.isEmpty()) {
+                    tableTablaMaterias.getItems().addAll(materias.values());
+                } else {
+                    for (Map.Entry<String, Materia> entry : materias.entrySet()) {
+                        if (!materiasEstudiante.contains(entry.getKey())) {
+                            tableTablaMaterias.getItems().add(entry.getValue());
+                        }
                     }
                 }
 
@@ -103,14 +107,11 @@ public class inscripcionCursadaControl {
                     }
                 });
 
-            } catch (CamposVaciosException e) {
-                e.printStackTrace();
-            } catch (DatosIncorrectosException e) {
+            } catch (CamposVaciosException | DatosIncorrectosException e) {
                 e.printStackTrace();
             }
 
         });
-
     }
 
     private void inscribirseEnMateria(String materia) {
