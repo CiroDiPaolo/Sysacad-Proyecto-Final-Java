@@ -1,19 +1,18 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosCarrera;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
-import Modelo.EstadoAlumnoMateria;
-import Modelo.EstadoAlumnoMesa;
-import Modelo.EstadoMateria;
-import Modelo.iCRUD;
+import Modelo.*;
+import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Esta clase hereda de Usuario y representa un Estudiante en el sistema.
@@ -22,11 +21,6 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
-
-    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
-        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
-        this.codigoCarrera = codigoCarrera;
-    }
 
     public Estudiante(Estudiante estudiante) {
         this.setNombre(estudiante.getNombre());
@@ -38,7 +32,15 @@ public final class Estudiante extends Usuario implements iCRUD {
         this.setCorreo(estudiante.getCorreo());
         this.setActividad(estudiante.getActividad());
         this.setFechaDeAlta(estudiante.getFechaDeAlta());
-        this.setMaterias(new ArrayList<>(estudiante.getMaterias()));
+        this.materias = new ArrayList<>();
+        for (EstadoAlumnoMateria materia : estudiante.getMaterias()) {
+            this.materias.add(new EstadoAlumnoMateria(materia));
+        }
+    }
+
+    public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad, String codigoCarrera) {
+        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+        this.codigoCarrera = codigoCarrera;
     }
 
     public Estudiante(String nombre, String apellido, String dni, String legajo, String contrasenia, String codigoCarrera, String correo) {
@@ -48,7 +50,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     public Estudiante(String nombre, String apellido, String dni, String codigoCarrera, String correo) {
-        super(nombre, apellido, dni,correo);
+        super(nombre, apellido, dni, correo);
         this.codigoCarrera = codigoCarrera;
         materias = new ArrayList<>();
     }
@@ -64,7 +66,7 @@ public final class Estudiante extends Usuario implements iCRUD {
         return codigoCarrera;
     }
 
-    public ArrayList<EstadoAlumnoMateria> getMaterias() {
+    public List<EstadoAlumnoMateria> getMaterias() {
         return materias;
     }
 
@@ -82,6 +84,7 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     /**
      * Crea un alumno si es que sus campos estan completos y el dni del alumno no se repite en la carrera.
+     *
      * @param path
      * @return true si lo agregó al archivo de estudiantes
      * @throws EntidadYaExistente
@@ -89,30 +92,28 @@ public final class Estudiante extends Usuario implements iCRUD {
      */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
-        if(Usuario.esDniValido(this.getDni()))
-        {
-            if(Usuario.esCorreoValido(this.getCorreo())){
-                if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty())
-                {
+        if (Usuario.esDniValido(this.getDni())) {
+            if (Usuario.esCorreoValido(this.getCorreo())) {
+                if (!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getApellido().isEmpty() && !this.getCorreo().isEmpty()) {
                     this.setLegajo(generarLegajo(Estudiante.class, path));
                     this.setContrasenia(this.getDni());
 
                     JSONObject jsonObject = this.estudianteAJSONObject();
 
-                    if(!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
+                    if (!manejoArchivosEstudiante.compararEstudianteDNICarrera(path, jsonObject)) {
                         return manejoArchivos.guardarObjetoJSON(path, jsonObject);
                     } else {
                         throw new EntidadYaExistente("El estudiante ya tiene legajo para la carrera con código " + jsonObject.getString("codigoCarrera"));
                     }
-                }else{
+                } else {
                     throw new CamposVaciosException("Intentó enviar campos vacios. Verifique que los campos esten completos y vuelva a intentar");
                 }
-            }else {
+            } else {
                 throw new DatosIncorrectosException("El mail es invalido. Por favor ingrese un mail valido.");
             }
 
 
-        }else {
+        } else {
             throw new DatosIncorrectosException("El dni es invalido. Solo puede contener numeros.");
         }
 
@@ -124,19 +125,16 @@ public final class Estudiante extends Usuario implements iCRUD {
 
         boolean resultado = false;
 
-        if(!Usuario.compararJSONObjectConUsuario(jsonObject,this))
-        {
+        if (!compararJSONObjectConEstudiante(this,jsonObject)) {
 
             JSONArray arreglo = new JSONArray(manejoArchivos.leerArchivoJSON(path));
 
-            for(int i = 0; i<arreglo.length(); i++)
-            {
+            for (int i = 0; i < arreglo.length(); i++) {
                 JSONObject estudiante = arreglo.getJSONObject(i);
-                if(estudiante.getString("legajo").equals(this.getLegajo()))
-                {
+                if (estudiante.getString("legajo").equals(this.getLegajo())) {
 
-                    arreglo.put(i,jsonObject);
-                    if(manejoArchivos.guardarArchivo(path,arreglo)){
+                    arreglo.put(i, jsonObject);
+                    if (manejoArchivos.guardarArchivo(path, arreglo)) {
 
                         resultado = true;
 
@@ -144,7 +142,7 @@ public final class Estudiante extends Usuario implements iCRUD {
                 }
             }
 
-        }else{
+        } else {
 
             throw new DatosIncorrectosException("No se realizaron cambios en los datos del alumno");
 
@@ -166,6 +164,7 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     /**
      * Convierte un estudiante a un JSONObject
+     *
      * @return JSONObject
      */
     public JSONObject estudianteAJSONObject() {
@@ -176,16 +175,17 @@ public final class Estudiante extends Usuario implements iCRUD {
         jsonObject.put("dni", this.getDni());
         jsonObject.put("legajo", this.getLegajo());
         jsonObject.put("contrasenia", this.getContrasenia());
-        jsonObject.put("codigoCarrera",this.getCodigoCarrera());
-        jsonObject.put("correo",this.getCorreo());
-        jsonObject.put("actividad",this.getActividad());
-        jsonObject.put("fechaDeAlta",this.getFechaDeAlta().toString());
+        jsonObject.put("codigoCarrera", this.getCodigoCarrera());
+        jsonObject.put("correo", this.getCorreo());
+        jsonObject.put("actividad", this.getActividad());
+        jsonObject.put("fechaDeAlta", this.getFechaDeAlta().toString());
+
+        JSONArray materias = new JSONArray();
 
         for (int i = 0; i < this.getMaterias().size(); i++) {
-
             JSONObject materia = new JSONObject();
 
-            materia.put("codigoMateria", this.getMaterias().get(i).getCodigoMateria());
+            materia.put("id", this.getMaterias().get(i).getCodigoMateria());
             materia.put("estado", this.getMaterias().get(i).getEstado());
             materia.put("tomo", this.getMaterias().get(i).getTomo());
             materia.put("folio", this.getMaterias().get(i).getFolio());
@@ -194,81 +194,106 @@ public final class Estudiante extends Usuario implements iCRUD {
             JSONArray notas = new JSONArray();
 
             for (String key : this.getMaterias().get(i).getNotas().keySet()) {
-
                 JSONObject nota = new JSONObject();
-                nota.put("key", key);
-                nota.put("value", this.getMaterias().get(i).getNotas().get(key));
+                nota.put(key, this.getMaterias().get(i).getNotas().get(key));
                 notas.put(nota);
-
             }
+
             materia.put("notas", notas);
 
             JSONArray mesasExamen = new JSONArray();
 
-            for (String key : this.getMaterias().get(i).getMesasExamen().keySet()) {
+            if (this.getMaterias().get(i).getMesasExamen()!= null) {
 
-                JSONObject mesaExamen = new JSONObject();
-                mesaExamen.put("key", key);
-                mesaExamen.put("value", this.getMaterias().get(i).getMesasExamen().get(key));
-                mesasExamen.put(mesaExamen);
+                for (String key : this.getMaterias().get(i).getMesasExamen().keySet()) {
+
+                    EstadoAlumnoMesa mesaExamen = this.getMaterias().get(i).getMesasExamen().get(key);
+                    JSONObject mesaExamenJson = new JSONObject();
+
+                    mesaExamenJson.put(key, mesaExamen.getCodigoMesa());
+                    mesaExamenJson.put("nota", mesaExamen.getNota()); // Guardar la nota como int
+                    mesaExamenJson.put("presente", mesaExamen.isPresente());
+                    mesasExamen.put(mesaExamenJson);
+                }
             }
+
             materia.put("mesasExamen", mesasExamen);
-
-            jsonObject.put("materia" + i, materia);
-
+            materias.put(materia);
         }
+
+        jsonObject.put("materias", materias);
 
         return jsonObject;
     }
 
     /**
      * Convierte un JSONObject a un estudiante
+     *
      * @param jsonObject
      * @return Estudiante
      */
     public static Estudiante JSONObjectAEstudiante(JSONObject jsonObject) {
+        Estudiante estudiante = new Estudiante();
 
-        String nombre = jsonObject.getString("nombre");
-        String apellido = jsonObject.getString("apellido");
-        String dni = jsonObject.getString("dni");
-        String legajo = jsonObject.getString("legajo");
-        String contrasenia = jsonObject.getString("contrasenia");
-        String codigoCarrera = jsonObject.getString("codigoCarrera");
-        String correo = jsonObject.getString("correo");
-        boolean actividad = jsonObject.getBoolean("actividad");
-        String fechaStr = jsonObject.getString("fechaDeAlta");
-        LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_DATE);
-        Estudiante estudiante = new Estudiante(nombre, apellido, dni, legajo, contrasenia, correo, fecha, actividad, codigoCarrera);
+        estudiante.setNombre(jsonObject.getString("nombre"));
+        estudiante.setApellido(jsonObject.getString("apellido"));
+        estudiante.setDni(jsonObject.getString("dni"));
+        estudiante.setLegajo(jsonObject.getString("legajo"));
+        estudiante.setContrasenia(jsonObject.getString("contrasenia"));
+        estudiante.setCodigoCarrera(jsonObject.getString("codigoCarrera"));
+        estudiante.setCorreo(jsonObject.getString("correo"));
+        estudiante.setActividad(jsonObject.getBoolean("actividad"));
+        estudiante.setFechaDeAlta(LocalDate.parse(jsonObject.getString("fechaDeAlta")));
 
+        if(!(jsonObject.getJSONArray("materias").length() == 0)){
+
+        JSONArray materiasJsonArray = jsonObject.getJSONArray("materias");
         ArrayList<EstadoAlumnoMateria> materias = new ArrayList<>();
-        int i = 0;
-        while (jsonObject.has("materia" + i)) {
-            JSONObject materiaJSON = jsonObject.getJSONObject("materia" + i);
-            EstadoAlumnoMateria materia = new EstadoAlumnoMateria(
-                    (materiaJSON.getString("codigoMateria")),
-                    (materiaJSON.getEnum(EstadoMateria.class,"estado")),
-                    (materiaJSON.getString("tomo")),
-                    (materiaJSON.getString("folio")),
-                    (materiaJSON.getString("codigoComision")
-            ));
 
-            JSONArray notasArray = materiaJSON.getJSONArray("notas");
-            for (int j = 0; j < notasArray.length(); j++) {
-                JSONObject nota = notasArray.getJSONObject(j);
-                materia.getNotas().put(nota.getString("key"), nota.getInt("value"));
-            }
+        for (int i = 0; i < materiasJsonArray.length(); i++) {
 
-            JSONArray mesasExamenArray = materiaJSON.getJSONArray("mesasExamen");
-            for (int j = 0; j < mesasExamenArray.length(); j++) {
-                JSONObject mesaExamen = mesasExamenArray.getJSONObject(j);
-                materia.getMesasExamen().put(mesaExamen.getString("key"), EstadoAlumnoMesa.JSONObjectAEstadoAlumnoMesa(mesaExamen));
+            JSONObject materiaJson = materiasJsonArray.getJSONObject(i);
+            EstadoAlumnoMateria materia = new EstadoAlumnoMateria();
+
+            materia.setCodigoMateria(materiaJson.getString("id"));
+            materia.setEstado(EstadoMateria.valueOf(materiaJson.getString("estado").toUpperCase()));
+            materia.setTomo(materiaJson.getString("tomo"));
+            materia.setFolio(materiaJson.getString("folio"));
+            materia.setCodigoComision(materiaJson.getString("codigoComision"));
+
+            JSONArray notasJsonArray = materiaJson.getJSONArray("notas");
+            Map<String, Integer> notas = new HashMap<>();
+            for (int j = 0; j < notasJsonArray.length(); j++) {
+                JSONObject notaJson = notasJsonArray.getJSONObject(j);
+                for (String key : notaJson.keySet()) {
+                    notas.put(key, notaJson.getInt(key));
+                }
             }
+            materia.setNotas((HashMap<String, Integer>) notas);
+
+            JSONArray mesasExamenJsonArray = materiaJson.getJSONArray("mesasExamen");
+            HashMap<String, EstadoAlumnoMesa> mesasExamen = new HashMap<>();
+
+            for (int k = 0; k < mesasExamenJsonArray.length(); k++) {
+                JSONObject mesaExamenJson = mesasExamenJsonArray.getJSONObject(k);
+                String key = mesaExamenJson.keys().next();
+
+                EstadoAlumnoMesa estadoMesa = new EstadoAlumnoMesa();
+                estadoMesa.setCodigoMesa(mesaExamenJson.getString(key));
+                estadoMesa.setNota(mesaExamenJson.getInt("nota"));
+                estadoMesa.setPresente(mesaExamenJson.getBoolean("presente"));
+
+                mesasExamen.put(key, estadoMesa);
+            }
+            materia.setMesasExamen(mesasExamen);
 
             materias.add(materia);
-            i++;
+        }
+        estudiante.setMaterias(materias);
+
         }
 
-        estudiante.setMaterias(materias);
+
         return estudiante;
     }
 
@@ -287,6 +312,112 @@ public final class Estudiante extends Usuario implements iCRUD {
                 getMaterias().equals(that.getMaterias());
     }
 
+    public HashMap<String, String> obtenerMaterias() throws DatosIncorrectosException {
+        try {
+            HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(Path.pathCarreras, this.getCodigoCarrera())).getMaterias();
+            HashMap<String, String> materiasEstudiante = new HashMap<>();
+
+            for (int i = 0; i < this.getMaterias().size(); i++) {
+
+                if (materiasCarrera.containsKey(this.getMaterias().get(i).getCodigoMateria())) {
+                    materiasEstudiante.put(this.getMaterias().get(i).getCodigoMateria(), materiasCarrera.get(this.getMaterias().get(i).getCodigoMateria()).getNombre());
+                }
+            }
+
+            return materiasEstudiante;
+        } catch (CamposVaciosException e) {
+            throw new DatosIncorrectosException("No se pudo obtener las materias de la carrera");
+        }
+    }
+
+    public HashMap<String, EstadoAlumnoMesa> obtenerMesasDeExamen() {
+        HashMap<String, EstadoAlumnoMesa> mesasDeExamen = new HashMap<>();
+
+        for (EstadoAlumnoMateria materia : this.getMaterias()) {
+            if (materia.getMesasExamen() != null) {
+                for (Map.Entry<String, EstadoAlumnoMesa> entry : materia.getMesasExamen().entrySet()) {
+                    mesasDeExamen.put(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+
+        return mesasDeExamen;
+    }
+
+    public boolean compararJSONObjectConEstudiante(Estudiante usuario,JSONObject jsonObject ) {
+
+        boolean comparar = true;
+
+        if (!jsonObject.getString("nombre").equals(usuario.getNombre())) {
+            comparar = false;
+        } else if (!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+            comparar = false;
+        } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
+            comparar = false;
+        } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
+            comparar = false;
+        } else if (jsonObject.getBoolean("actividad") != usuario.getActividad()) {
+            comparar = false;
+        } else if (!jsonObject.getString("correo").equals(usuario.getCorreo())) {
+            comparar = false;
+        } else if (!jsonObject.getString("codigoCarrera").equals(usuario.getCodigoCarrera())) {
+            comparar = false;
+        } else if (!jsonObject.getString("legajo").equals(usuario.getLegajo())) {
+            comparar = false;
+        } else if (!jsonObject.getString("fechaDeAlta").equals(usuario.getFechaDeAlta().toString())) {
+            comparar = false;
+        } else {
+
+            for(int i = 0 ; i<jsonObject.getJSONArray("materias").length() ; i++){
+
+                JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
+
+                if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                    comparar = false;
+                } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
+                    comparar = false;
+                } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
+                    comparar = false;
+                } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
+                    comparar = false;
+                } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
+                    comparar = false;
+                }
+
+                JSONArray notasArray = materiaJson.getJSONArray("notas");
+                int primerParcial = 0;
+                int segundoParcial = 0;
+
+                for (int j = 0; j < notasArray.length(); j++) {
+                    JSONObject nota = notasArray.getJSONObject(j);
+
+                    if (nota.has("primerParcial")) {
+                        primerParcial = nota.getInt("primerParcial");
+                    } else if (nota.has("segundoParcial")) {
+                        segundoParcial = nota.getInt("segundoParcial");
+                    }
+                }
+
+                if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
+                    comparar = false;
+                } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
+                    comparar = false;
+                }
+
+            }
+
+        }
+
+        return comparar;
+    }
+
+        @Override
+    public String toString() {
+        return "Estudiante{" +
+                "codigoCarrera='" + codigoCarrera + '\'' +
+                ", materias=" + materias +
+                '}';
+    }
 }
 
 

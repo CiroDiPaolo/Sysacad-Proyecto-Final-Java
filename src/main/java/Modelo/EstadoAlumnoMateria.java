@@ -1,6 +1,8 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *La clase EstadoMateria sirve para saber el estado de una materia ya sea que la cursó o no de un alumno.
@@ -43,6 +45,19 @@ public final class EstadoAlumnoMateria {
         codigoComision = "0";
     }
 
+    // Constructor de copia profunda
+    public EstadoAlumnoMateria(EstadoAlumnoMateria estado) {
+        this.codigoMateria = estado.codigoMateria;
+        this.estado = estado.estado;
+        this.tomo = estado.tomo;
+        this.folio = estado.folio;
+        this.codigoComision = estado.codigoComision;
+        this.notas = new HashMap<>(estado.notas);
+        this.mesasExamen = new HashMap<>();
+        for (Map.Entry<String, EstadoAlumnoMesa> entry : estado.mesasExamen.entrySet()) {
+            this.mesasExamen.put(entry.getKey(), new EstadoAlumnoMesa(entry.getValue()));
+        }
+    }
 
     //Getters
 
@@ -103,4 +118,5 @@ public final class EstadoAlumnoMateria {
     public void setCodigoComision(String codigoComision) {
         this.codigoComision = codigoComision;
     }
+
 }

@@ -16,7 +16,7 @@ public final class Data {
     private static Carrera carrera;
     private static Materia materiaData;
     private static Comision comision;
-
+    private static String aux2;
     //Getters
     public static Carrera getCarrera(){
         return carrera;
@@ -62,5 +62,10 @@ public final class Data {
     }
 
     public void setComision(Comision comision) {this.comision = comision;}
+
+    public static String getAux2() { return aux2; }
+
+    public static void setAux2(String aux2) { Data.aux2 = aux2; }
+
 
 }

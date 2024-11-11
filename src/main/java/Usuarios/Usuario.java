@@ -149,12 +149,12 @@ public abstract class Usuario {
         {
             auxiliar2 = auxiliar2.concat("0");
         }
-        
+
         try{
             if(clase == Estudiante.class)
             {
                 nuevoLegajo = ("E").concat(auxiliar2).concat(auxiliar);
-                
+
             } else if (clase == Profesor.class){
                 nuevoLegajo = ("P").concat(auxiliar2).concat(auxiliar);
             } else if (clase == Administrador.class)
@@ -167,8 +167,8 @@ public abstract class Usuario {
         {
             System.out.println("No ingresaste una clase correcta");
         }
-        
-        
+
+
         return null;
     }
 
@@ -178,23 +178,24 @@ public abstract class Usuario {
      * @param usuario
      * @return
      */
-    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
-    {
+    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario) {
 
         boolean comparar = true;
 
-        if(!jsonObject.getString("nombre").equals(usuario.getNombre()))
-        {
+        if (!jsonObject.getString("nombre").equals(usuario.getNombre())) {
             comparar = false;
-        } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+        } else if (!jsonObject.getString("apellido").equals(usuario.getApellido())) {
             comparar = false;
         } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
             comparar = false;
         } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
             comparar = false;
-        } else if (jsonObject.getBoolean("actividad")!=usuario.getActividad()) {
+        } else if (jsonObject.getBoolean("actividad") != usuario.getActividad()) {
+            comparar = false;
+        } else if (!jsonObject.getString("correo").equals(usuario.getCorreo())) {
             comparar = false;
         }
+
         return comparar;
     }
 

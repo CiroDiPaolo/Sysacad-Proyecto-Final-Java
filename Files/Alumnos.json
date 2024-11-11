@@ -5,18 +5,55 @@
     "codigoCarrera": "001",
     "fechaDeAlta": "2024-10-27",
     "contrasenia": "46557012",
-    "nombre": "Melisa",
-    "materias": [{
-        "notas": [
-            {"segundoParcial": 20},
-            {"primerParcial": 10}
-        ],
-        "folio": "10",
-        "mesasExamen": [],
-        "codigoComision": "C1",
-        "id": "",
-        "tomo": "1"
-    }],
+    "nombre": "Melisaa",
+    "materias": [
+        {
+            "estado": "APROBADA",
+            "notas": [
+                {"segundoParcial": 9},
+                {"primerParcial": 10}
+            ],
+            "folio": "10",
+            "mesasExamen": [
+                {
+                    "Mesa2": "M002",
+                    "nota": 10,
+                    "presente": false
+                },
+                {
+                    "Mesa1": "M001",
+                    "nota": 1,
+                    "presente": true
+                }
+            ],
+            "codigoComision": "C1",
+            "id": "001",
+            "tomo": "10"
+        },
+        {
+            "estado": "APROBADA",
+            "notas": [
+                {"segundoParcial": 9},
+                {"primerParcial": 10}
+            ],
+            "folio": "10",
+            "mesasExamen": [
+                {
+                    "Mesa2": "M002",
+                    "nota": 9,
+                    "presente": false
+                },
+                {
+                    "Mesa1": "M001",
+                    "nota": 1,
+                    "presente": true
+                }
+            ],
+            "codigoComision": "C1",
+            "id": "002",
+            "tomo": "10"
+        }
+    ],
     "dni": "46557012",
     "actividad": true
 }]
