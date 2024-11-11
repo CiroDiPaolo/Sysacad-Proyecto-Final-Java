@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +13,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.inscripcionCursadaControl">
    <children>
@@ -43,9 +44,9 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2a3b47" height="723.0" layoutX="633.0" layoutY="248.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="654.0" AnchorPane.leftAnchor="623.0" AnchorPane.rightAnchor="623.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="893.0" layoutY="885.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="874.0" layoutY="873.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="874.0" AnchorPane.rightAnchor="875.0">
+      <Rectangle fill="#2a3b47" height="763.0" layoutX="448.0" layoutY="227.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="1024.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="438.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="893.0" layoutY="921.0" stroke="BLACK" strokeType="INSIDE" width="133.0" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="874.0" layoutY="909.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="874.0" AnchorPane.rightAnchor="875.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -53,5 +54,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TableView fx:id="tableTablaMaterias" layoutX="462.0" layoutY="238.0" prefHeight="677.0" prefWidth="995.0" style="-fx-background-color: #475d6b;">
+        <columns>
+          <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
+          <TableColumn fx:id="colMateria" prefWidth="656.0" text="MATERIA" />
+            <TableColumn fx:id="colComision" minWidth="0.0" prefWidth="125.0" text="COMISION" />
+            <TableColumn fx:id="colBotones" prefWidth="138.0" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
