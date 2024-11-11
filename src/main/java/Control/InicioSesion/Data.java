@@ -46,20 +46,16 @@ public final class Data {
 
     static void setEstudiante(String legajo) {
 
-        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(Data.getAux(), fileNameAlumnos));
+        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(legajo, fileNameAlumnos));
     }
 
     public static void setEstudiante(Estudiante estudiante) { Data.estudiante = estudiante; }
 
     public void setAux(String aux) { this.aux = aux; }
 
-    public void setMateria(Materia materia){
-        this.materiaData = materia;
-    }
+    public void setMateria(Materia materia){ this.materiaData = materia; }
 
-    public void setCarrera(Carrera carrera){
-        this.carrera = carrera;
-    }
+    public void setCarrera(Carrera carrera){ this.carrera = carrera; }
 
     public void setComision(Comision comision) {this.comision = comision;}
 
