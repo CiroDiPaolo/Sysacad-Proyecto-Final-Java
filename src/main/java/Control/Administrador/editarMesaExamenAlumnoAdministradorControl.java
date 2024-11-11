@@ -2,8 +2,8 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
-import Modelo.EstadoAlumnoMateria;
 import Modelo.EstadoAlumnoMesa;
 import Usuarios.Estudiante;
 import javafx.application.Platform;
@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import Path.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public final class editarMesaExamenAlumnoAdministradorControl {
 
@@ -71,6 +70,8 @@ public final class editarMesaExamenAlumnoAdministradorControl {
 
         } catch (NumberFormatException e) {
             throw new DatosIncorrectosException("La nota debe ser un número entero.");
+        } catch (CamposVaciosException e) {
+            throw new DatosIncorrectosException("No se pudo actualizar la nota.");
         }
     }
 
