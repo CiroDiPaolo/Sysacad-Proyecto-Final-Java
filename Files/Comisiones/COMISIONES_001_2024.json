@@ -9,7 +9,7 @@
         "nombre": "Comision 6",
         "apertura": true,
         "actividad": true,
-        "codigoProfesor": "P000002",
+        "codigoProfesor": "P000001",
         "id": "001-1",
         "estadoAlumnoComision": [],
         "anio": 2024
@@ -24,7 +24,7 @@
         "nombre": "Comision 6",
         "apertura": true,
         "actividad": true,
-        "codigoProfesor": "P000002",
+        "codigoProfesor": "P000001",
         "id": "001-2",
         "estadoAlumnoComision": [],
         "anio": 2024
@@ -39,7 +39,7 @@
         "nombre": "Comision 6",
         "apertura": true,
         "actividad": true,
-        "codigoProfesor": "P000002",
+        "codigoProfesor": "P000001",
         "id": "001-3",
         "estadoAlumnoComision": [],
         "anio": 2024
@@ -54,7 +54,7 @@
         "nombre": "Comision 6",
         "apertura": true,
         "actividad": true,
-        "codigoProfesor": "P000002",
+        "codigoProfesor": "P000001",
         "id": "001-4",
         "estadoAlumnoComision": [],
         "anio": 2024
