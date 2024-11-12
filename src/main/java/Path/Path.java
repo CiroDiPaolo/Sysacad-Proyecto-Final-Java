@@ -32,6 +32,7 @@ public final class Path {
     public static final String inscripcionCursada = "/App/Estudiante/inscripcionCursada.fxml";
     public static final String cambiarContra = "/App/Estudiante/cambiarContra.fxml";
     public static final String inscripcionMateria = "/App/Estudiante/inscripcionMateria.fxml";
+    public static final String inscripcionCompletada = "/App/Estudiante/inscripcionCompletada.fxml";
 
     //Administrador
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
