@@ -226,7 +226,15 @@ public final class manejoArchivosComisiones {
 
             if(obj.getString("codigoMateria").equals(codigoMateria)){
 
-                comisiones.add(Comision.JSONObjectAComision(obj));
+                if(obj.getBoolean("actividad") == true){
+
+                    if(Comision.JSONObjectAComision(obj).getCupos() > 0){
+
+                        comisiones.add(Comision.JSONObjectAComision(obj));
+
+                    }
+
+                }
 
             }
 
