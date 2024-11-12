@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.util.ArrayList;
 import java.nio.file.*;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -244,8 +245,8 @@ public final class manejoArchivosComisiones {
 
     }
 
-    public static ArrayList<Comision> obtenerComisionesPorAnio(String path, String anio) {
-        ArrayList<Comision> comisiones = new ArrayList<>();
+    public static HashSet<Comision> obtenerComisionesPorAnio(String path, String anio) {
+        HashSet<Comision> comisiones = new HashSet<>();
         Path dirPath = Paths.get(path);  // Asumimos que path ya es "Files/Comisiones"
 
         // Expresión regular para el nombre de archivo "COMISIONES_idDeMateria_<anio>.json"
