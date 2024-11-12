@@ -47,7 +47,7 @@ public class busquedaComisionAdministradorControl {
         try{
             data.setComision(manejoArchivosComisiones.buscarComision(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(Data.getCarrera().getId(), choiceBoxAnio.getValue()),"id",idComision));
             escena.cambiarEscena(editarComisionAdministrador,stage,"Actualizar comisión");
-        } catch (CamposVaciosException e) {
+        } catch (NullPointerException | CamposVaciosException e) {
             e.getMessage();
         }
     }
@@ -70,7 +70,6 @@ public class busquedaComisionAdministradorControl {
         anios.add(LocalDate.now().getYear());
         anios.add((LocalDate.now().getYear()+1));
         choiceBoxAnio.getItems().addAll(anios);
-
 
         choiceBoxAnio.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
