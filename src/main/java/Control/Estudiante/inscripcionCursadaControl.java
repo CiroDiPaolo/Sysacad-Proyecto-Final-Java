@@ -93,6 +93,7 @@ public class inscripcionCursadaControl {
                             Materia materia = getTableView().getItems().get(getIndex());
 
                             Data.setAux2(materia.getId());
+
                             EscenaControl escena = new EscenaControl();
                             escena.cambiarEscena(Path.inscripcionMateria, stage, "Inscripcion Materia");
 
