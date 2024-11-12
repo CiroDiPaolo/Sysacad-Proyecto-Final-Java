@@ -17,10 +17,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import ControlArchivos.manejoArchivosEstudiante;
+
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 
 public class verComisionControl {
 
@@ -40,10 +38,10 @@ public class verComisionControl {
     private TableColumn<Estudiante, String> colLegajo;
 
     @FXML
-    private TableColumn<String, String> colParcial1;
+    private TableColumn<Estudiante, String> colParcial1;
 
     @FXML
-    private TableColumn<String, String> colParcial2;
+    private TableColumn<Estudiante, String> colParcial2;
 
     @FXML
     private TableView<Estudiante> tableTablaAlumnos;
@@ -69,27 +67,42 @@ public class verComisionControl {
     @FXML
     protected void initialize() {
         Platform.runLater(() -> {
+
             stage = (Stage) btnVolver.getScene().getWindow();
 
             ArrayList<Estudiante> estudiantes = manejoArchivosComisiones.obtenerEstudiantesDeUnaComision(Path.fileNameAlumnos, Data.getComision().getId());
-
             ObservableList<Estudiante> estudiantesList = FXCollections.observableArrayList(estudiantes);
 
-            colAlumno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+            // Configuramos las columnas
+            colAlumno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido().concat(" ").concat(cellData.getValue().getNombre())));
             colLegajo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLegajo()));
 
-           for (int i = 0; i < estudiantes.size(); i++) {
-
-                Estudiante estudiante = estudiantes.get(i);
+            // Configuramos colParcial1 y colParcial2 para cada estudiante, evaluando los parciales rendidos
+            colParcial1.setCellValueFactory(cellData -> {
+                Estudiante estudiante = cellData.getValue();
                 ArrayList<String> parciales = manejoArchivosEstudiante.filtrarParcialesPorMateria(estudiante.obtenerParcialesRendidos(), Data.getComision().getCodigoMateria());
+                return new SimpleStringProperty(parciales.size() > 0 && !parciales.get(0).equals("0") ? parciales.get(0) : "-");
+            });
 
-                colParcial1.setCellValueFactory(cellData -> new SimpleStringProperty(parciales.size() > 0 ? parciales.get(0) : "-"));
-                colParcial2.setCellValueFactory(cellData -> new SimpleStringProperty(parciales.size() > 1 ? parciales.get(1) : "-"));
-           }
+            colParcial2.setCellValueFactory(cellData -> {
+                Estudiante estudiante = cellData.getValue();
+                ArrayList<String> parciales = manejoArchivosEstudiante.filtrarParcialesPorMateria(estudiante.obtenerParcialesRendidos(), Data.getComision().getCodigoMateria());
+                return new SimpleStringProperty(parciales.size() > 1 && !parciales.get(1).equals("0") ? parciales.get(1) : "-");
+            });
 
+            // Configuramos colEstado solo si cumple la condición del if
+            colEstado.setCellValueFactory(cellData -> {
+                Estudiante estudiante = cellData.getValue();
+                // Buscamos la materia que coincide con el código de la comisión y obtenemos su estado
+                return estudiante.getMaterias().stream()
+                        .filter(materia -> materia.getCodigoMateria().equals(Data.getComision().getCodigoMateria()))
+                        .findFirst()
+                        .map(materia -> new SimpleStringProperty(materia.getEstado().toString()))
+                        .orElse(new SimpleStringProperty("-"));
+            });
 
-
-           tableTablaAlumnos.setItems(estudiantesList);
+            // Cargamos la lista de estudiantes en la tabla
+            tableTablaAlumnos.setItems(estudiantesList);
 
         });
     }
