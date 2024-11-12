@@ -59,7 +59,7 @@ public class inscripcionMateriaControl {
             ArrayList<Comision> comisiones = manejoArchivosComisiones.obtenerComisionesDeUnaMateria(pathComisiones + manejoArchivosComisiones.generarNombreArchivoComision(Data.getEstudiante().getCodigoCarrera(), LocalDate.now().getYear()), Data.getAux2());
 
             colComision.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-            colMateria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+            colMateria.setCellValueFactory(cellData -> new SimpleStringProperty(Data.getAux()));
             colDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
 
             colBotones.setCellFactory(col -> new TableCell<Comision, Void>() {
