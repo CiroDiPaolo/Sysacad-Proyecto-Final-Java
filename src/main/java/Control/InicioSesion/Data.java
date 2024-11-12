@@ -4,6 +4,7 @@ import ControlArchivos.manejoArchivosEstudiante;
 import Modelo.Carrera;
 import Modelo.Comision;
 import Modelo.Materia;
+import Modelo.MesaExamen;
 import Usuarios.*;
 
 import static Path.Path.*;
@@ -16,6 +17,7 @@ public final class Data {
     private static Carrera carrera;
     private static Materia materiaData;
     private static Comision comision;
+    private static MesaExamen mesaExamen;
 
     //Getters
     public static Carrera getCarrera(){
@@ -37,6 +39,8 @@ public final class Data {
     }
 
     public static Comision getComision(){ return comision;}
+
+    public static MesaExamen getMesaExamen(){return mesaExamen;}
 
     //Setters
     public static void setLegajo(String legajo) {
@@ -62,5 +66,7 @@ public final class Data {
     }
 
     public void setComision(Comision comision) {this.comision = comision;}
+
+    public void setMesaExamen(MesaExamen mesaExamen){this.mesaExamen = mesaExamen;}
 
 }
