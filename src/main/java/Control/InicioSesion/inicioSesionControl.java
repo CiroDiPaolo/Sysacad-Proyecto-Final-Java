@@ -133,42 +133,42 @@ public final class inicioSesionControl {
      */
     void redireccionDeEscena(int index){
 
-            String constante = "";
+        String constante = "";
 
-            //Se guarda el legajo
-            String legajo = txtLegajo.getText();
+        //Se guarda el legajo
+        String legajo = txtLegajo.getText();
 
-            //Se setea el legajo
-             Data.setLegajo(legajo);
+        //Se setea el legajo
+        Data.setLegajo(legajo);
 
-        System.out.println("Legajo: " + Data.getLegajo());
+        if(index == 1){
 
-            if(index == 1){
+            constante = Path.menuPrincipalAlumnos;
 
-                constante = Path.menuPrincipalAlumnos;
+            //Se obtiene el estudiante que ingreso al sistema
+            Data.setEstudiante(legajo);
 
-                //Se obtiene el estudiante que ingreso al sistema
-                Data.setEstudiante(legajo);
+        }else if (index == 2){
 
-            }else if (index == 2){
+            constante = Path.menuPrincipalProfesores;
 
-                constante = Path.menuPrincipalProfesores;
+            Data.setProfesor(legajo);
 
-            }else if (index ==3){
+        }else if (index ==3){
 
-                constante = Path.menuPrincipalAdministrador;
+            constante = Path.menuPrincipalAdministrador;
 
-            }
+        }
 
-            // Obtener el Stage actual
-            Stage stage = (Stage) btnAcceder.getScene().getWindow();
+        // Obtener el Stage actual
+        Stage stage = (Stage) btnAcceder.getScene().getWindow();
 
-            // Cambiar la escena
-            EscenaControl escenaControl = new EscenaControl();
+        // Cambiar la escena
+        EscenaControl escenaControl = new EscenaControl();
 
-            stage.close();
+        stage.close();
 
-            escenaControl.cambiarVentana(constante, "Menu Principal");
+        escenaControl.cambiarVentana(constante, "Menu Principal");
 
 
     }
