@@ -39,7 +39,7 @@ public class opcionConfigurarComisionAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar carrera");
+        escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
     }
 
     @FXML
