@@ -47,34 +47,18 @@ public final class inicioSesionControl {
      * @throws DatosIncorrectosException
      */
     void inicioSesion() throws DatosIncorrectosException {
+        int legajoFlag = inicioSesionLegajo();
+        int contraseniaFlag = inicioSesionContrasenia();
 
-        int index;
-
-        //Si el inicio de sesion es correcto y retornan 1
-        if (inicioSesionLegajo() == 1 && inicioSesionContrasenia() ==1){//Verifica si el legajo y la contraseña son correctos
-
-            index = 1;
-
-            redireccionDeEscena(index);
-
-        }else if (inicioSesionLegajo() == 2 && inicioSesionContrasenia() == 2){
-
-            index = 2;
-
-            redireccionDeEscena(index);
-
-        }else if (inicioSesionLegajo() == 3 && inicioSesionContrasenia() == 3){
-
-            index = 3;
-
-            redireccionDeEscena(index);
-
-        }else{
-
+        if (legajoFlag == 1 && contraseniaFlag == 1) {
+            redireccionDeEscena(1);
+        } else if (legajoFlag == 2 && contraseniaFlag == 2) {
+            redireccionDeEscena(2);
+        } else if (legajoFlag == 3 && contraseniaFlag == 3) {
+            redireccionDeEscena(3);
+        } else {
             throw new DatosIncorrectosException("Datos incorrectos, verifique los datos ingresados");
-
         }
-
     }
 
     /**
@@ -82,21 +66,26 @@ public final class inicioSesionControl {
      * @return
      */
     @FXML
-    int inicioSesionContrasenia() {//Verifica si la contraseña es correcta, si es correcta retorna true
+int inicioSesionContrasenia() {
+    int flag = 0;
+    String legajo = txtLegajo.getText();
 
-        int flag = 0;
-
-        //Busca en el JSON si se encuentra el legajo alumno
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia")) { // verifica si el inicio de sesión es de un alumno
+    if (legajo.startsWith("E")) {
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtContrasenia.getText(), "contrasenia")) {
             flag = 1;
-        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtContrasenia.getText(), "contrasenia")) { // verifica si el inicio de sesión es de un profesor
+        }
+    } else if (legajo.startsWith("P")) {
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtContrasenia.getText(), "contrasenia")) {
             flag = 2;
-        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtContrasenia.getText(), "contrasenia")) { // Verifica si el inicio de sesión fue de un administrador
+        }
+    } else if (legajo.startsWith("A")) {
+        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtContrasenia.getText(), "contrasenia")) {
             flag = 3;
         }
-
-        return flag;
     }
+
+    return flag;
+}
 
     /**
      * Metodo que verifica si el legajo es correcto, retorna true si es correcto o false
@@ -106,22 +95,20 @@ public final class inicioSesionControl {
     int inicioSesionLegajo() {
 
         int flag = 0;
+        String legajo = txtLegajo.getText();
 
-        //Busca en el JSON si se encuentra el legajo alumno
-        if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, txtLegajo.getText(), "legajo") == true) {//verifica si el inicio de sesion es de un alumno
-
-            flag = 1;
-
-        //verifica si el inicio de sesion es de un profesor
-        }else if(Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, txtLegajo.getText(), "legajo") == true){
-
-            flag = 2;
-
-        //Verifica si el inicio de sesion fue de un administrador
-        } else if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, txtLegajo.getText(), "legajo") == true) {
-
-            flag = 3;
-
+        if (legajo.startsWith("E")) {
+            if (Consultas.consultaArchivo.buscarClave(Path.fileNameAlumnos, legajo, "legajo")) {
+                flag = 1;
+            }
+        } else if (legajo.startsWith("P")) {
+            if (Consultas.consultaArchivo.buscarClave(Path.fileNameProfesores, legajo, "legajo")) {
+                flag = 2;
+            }
+        } else if (legajo.startsWith("A")) {
+            if (Consultas.consultaArchivo.buscarClave(Path.fileNameAdministrador, legajo, "legajo")) {
+                flag = 3;
+            }
         }
 
         return flag;
