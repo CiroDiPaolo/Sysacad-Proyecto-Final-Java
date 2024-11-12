@@ -18,6 +18,12 @@ public final class EstadoAlumnoMesa {
         this.presente = presente;
     }
 
+    public EstadoAlumnoMesa(EstadoAlumnoMesa original) {
+        this.codigoMesa = original.codigoMesa;
+        this.nota = original.nota;
+        this.presente = original.presente;
+    }
+
     public EstadoAlumnoMesa() {
         codigoMesa = "";
         nota = 0;

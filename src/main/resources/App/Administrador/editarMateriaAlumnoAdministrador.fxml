@@ -135,7 +135,7 @@
          </cursor>
       </Button>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="56.0" layoutX="994.0" layoutY="657.0" stroke="BLACK" strokeType="INSIDE" width="199.0" />
-      <Button fx:id="btnVolver1" alignment="CENTER" contentDisplay="CENTER" layoutX="994.0" layoutY="653.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="65.0" prefWidth="199.0" style="-fx-background-color: transperent;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnEditarMesa" alignment="CENTER" contentDisplay="CENTER" layoutX="994.0" layoutY="653.0" mnemonicParsing="false" onAction="#clickbtnEditarMesa" prefHeight="65.0" prefWidth="199.0" style="-fx-background-color: transperent;" text="Editar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>

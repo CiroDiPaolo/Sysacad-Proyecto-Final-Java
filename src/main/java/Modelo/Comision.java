@@ -71,13 +71,9 @@ public final class Comision implements iCRUD{
         return id;
     }
 
-    public Turno getTurno() {
-        return turno;
-    }
+    public Turno getTurno() { return turno; }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public String getNombre() { return nombre; }
 
     public String getCodigoMateria() {
         return codigoMateria;

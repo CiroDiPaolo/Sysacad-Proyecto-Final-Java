@@ -31,6 +31,8 @@ public final class Path {
     public static final String inscripcionExamenFinal = "/App/Estudiante/inscripcionExamenFinal.fxml";
     public static final String inscripcionCursada = "/App/Estudiante/inscripcionCursada.fxml";
     public static final String cambiarContra = "/App/Estudiante/cambiarContra.fxml";
+    public static final String inscripcionMateria = "/App/Estudiante/inscripcionMateria.fxml";
+    public static final String inscripcionCompletada = "/App/Estudiante/inscripcionCompletada.fxml";
 
     //Administrador
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
@@ -42,6 +44,7 @@ public final class Path {
     public static final String cargaProfesorAdministrador = "/App/Administrador/cargarProfesorAdministrador.fxml";
     public static final String editarAlumnoAdministrador = "/App/Administrador/editarAlumnoAdministrador.fxml";
     public static final String cargarMateriasAdministrador = "/App/Administrador/cargarMateriaAdministrador.fxml";
+    public static final String editarMesaExamenAlumnoAdministrador = "/App/Administrador/editarMesaExamenAlumnoAdministrador.fxml";
     public static final String busquedaCarreraAdministrador = "/App/Administrador/busquedaCarreraAdministrador.fxml";
     public static final String opcionEditarCarreraAdministrador = "/App/Administrador/opcionEditarCarreraAdministrador.fxml";
     public static final String elegirMateriaAdministrador = "/App/Administrador/elegirMateriaAdministrador.fxml";
@@ -57,4 +60,10 @@ public final class Path {
     public static final String cargarMesaExamenAdministrador = "/App/Administrador/cargarMesaExamenAdministrador.fxml";
     public static final String buscarMesaExamenAdministrador = "/App/Administrador/buscarMesaExamenAdministrador.fxml";
     public static final String editarMesaExamenAdministrador = "/App/Administrador/editarMesaExamenAdministrador.fxml";
+
+    //Profesor
+    public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";
+    public static final String gestionarComisionProfesor = "/App/Profesores/gestionComision.fxml";
+    public static final String verComisionProfesor = "/App/Profesores/verComision.fxml";
+    public static final String gestionarNotasAlumnosProfesor = "/App/Profesores/gestionarNotasAlumnos.fxml";
 }

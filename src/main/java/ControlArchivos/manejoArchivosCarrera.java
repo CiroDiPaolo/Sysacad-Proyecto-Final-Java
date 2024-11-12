@@ -268,5 +268,26 @@ public final class manejoArchivosCarrera {
         return false;
     }
 
+    public static Materia obtenerMateria(String fileName,String idMateria){
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+            JSONArray materias = carreraJSON.optJSONArray("materias");
+
+            if (materias != null) {
+                for (int j = 0; j < materias.length(); j++) {
+                    JSONObject materiaActual = materias.getJSONObject(j);
+
+                    if (materiaActual.getString("id").equals(idMateria)) {
+                        return Materia.JSONObjectAMateria(materiaActual);
+                    }
+                }
+            }
+        }
+
+        return null;
+
+    }
 
 }
