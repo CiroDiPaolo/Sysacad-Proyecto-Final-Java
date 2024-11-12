@@ -12,11 +12,31 @@
     {
         "legajo": "P000002",
         "apellido": "Alvarez",
-        "correo": "profe3@gmail.com",
+        "correo": "profe2@gmail.com",
         "fechaDeAlta": "2024-11-08",
         "contrasenia": "25001002",
         "nombre": "Juancita",
         "dni": "25001002",
+        "actividad": true
+    },
+    {
+        "legajo": "P000003",
+        "apellido": "Pochola",
+        "correo": "profe3@gmail.com",
+        "fechaDeAlta": "2024-11-08",
+        "contrasenia": "25001002",
+        "nombre": "Chocho",
+        "dni": "25000102",
+        "actividad": true
+    },
+    {
+        "legajo": "P000004",
+        "apellido": "Daddy",
+        "correo": "profe4@gmail.com",
+        "fechaDeAlta": "2024-11-08",
+        "contrasenia": "25001002",
+        "nombre": "Yankee",
+        "dni": "21000102",
         "actividad": true
     }
 ]
