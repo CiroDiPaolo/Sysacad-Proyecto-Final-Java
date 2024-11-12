@@ -2,7 +2,9 @@ package Control.Profesores;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosComisiones;
+import Excepciones.DatosIncorrectosException;
 import Path.Path;
 import Usuarios.Estudiante;
 import javafx.application.Platform;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
 import ControlArchivos.manejoArchivosEstudiante;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class verComisionControl {
 
@@ -52,7 +55,22 @@ public class verComisionControl {
     private Stage stage;
 
     @FXML
-    void clickBtnExcel(ActionEvent event) {
+    void clickBtnExcel(ActionEvent event) throws DatosIncorrectosException {
+
+        ArrayList<Estudiante> estudiantes = manejoArchivosComisiones.obtenerEstudiantesDeUnaComision(Path.fileNameAlumnos, Data.getComision().getId());
+        String[] nombresAlumnos;
+
+        if (estudiantes.size() > 0) {
+            nombresAlumnos = new String[estudiantes.size()];
+            for (int i = 0; i < estudiantes.size(); i++) {
+                nombresAlumnos[i] = estudiantes.get(i).getApellido() + " " + estudiantes.get(i).getNombre();
+            }
+        } else {
+
+            throw new DatosIncorrectosException("No hay alumnos en la comisión");
+        }
+
+        manejoArchivos.guardarAlumnosExcel(stage, nombresAlumnos);
 
     }
 
