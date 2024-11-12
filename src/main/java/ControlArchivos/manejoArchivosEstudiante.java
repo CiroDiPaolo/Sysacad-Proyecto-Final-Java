@@ -5,6 +5,9 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
@@ -66,6 +69,22 @@ public final class manejoArchivosEstudiante {
         }
 
         return null;
+    }
+
+    public static ArrayList<String> filtrarParcialesPorMateria(Map<String, List<Integer>> parciales, String codigoMateria){
+
+        ArrayList<String> parcialesMateria = new ArrayList<>();
+
+        for (Map.Entry<String, List<Integer>> entry : parciales.entrySet()) {
+            if (entry.getKey().equals(codigoMateria)) {
+                for (Integer nota : entry.getValue()) {
+                    parcialesMateria.add(nota.toString());
+                }
+            }
+        }
+
+        return parcialesMateria;
+
     }
 
 }
