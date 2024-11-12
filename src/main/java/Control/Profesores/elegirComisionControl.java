@@ -2,6 +2,7 @@ package Control.Profesores;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import Modelo.Comision;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -10,9 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class elegirComisionControl {
 
@@ -23,7 +22,7 @@ public class elegirComisionControl {
     private Label tctMenuPrincipal;
 
     @FXML
-    private ChoiceBox<?> choiceComision;
+    private ChoiceBox<String> choiceComision;
 
     private Stage stage;
 
@@ -42,7 +41,11 @@ public class elegirComisionControl {
 
             stage = (Stage) btnVolver.getScene().getWindow();
 
-            Data.getProfesor().obtenerComisiones(Path.pathComisiones);
+            HashSet<Comision> comisiones = Data.getProfesor().obtenerComisiones(Path.pathComisiones);
+
+            for(Comision comision : comisiones){
+                choiceComision.getItems().add(comision.getNombre());
+            }
 
         });
 
