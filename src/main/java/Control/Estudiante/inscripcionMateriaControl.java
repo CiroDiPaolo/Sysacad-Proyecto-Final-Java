@@ -71,7 +71,7 @@ public class inscripcionMateriaControl {
                         Data data = new Data();
                         data.setComision(comision);
                         EscenaControl escena = new EscenaControl();
-                        escena.cambiarEscena(Path.inscripcionMateria, stage, "Inscripcion Materia");
+                        escena.cambiarEscena(Path.inscripcionCompletada, stage, "Inscripcion Completada");
                     });
                 }
 
