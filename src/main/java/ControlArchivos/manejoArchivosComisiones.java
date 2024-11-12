@@ -56,61 +56,50 @@ public final class manejoArchivosComisiones {
 
     }
 
-    public static void cargarArchivoJSON(String codigoCarrera, String fileName, JSONObject obj) {
+    public static boolean cargarComisionAJSON(String path, JSONObject comision) throws EntidadYaExistente {
 
         JSONArray jsonArray;
 
         try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
 
-            jsonArray = new JSONArray(leerArchivoJSON(pathComisiones + codigoCarrera + "/" + fileName + ".json"));
-            jsonArray.put(obj);
-
-        } catch (Exception e) {
-            jsonArray = new JSONArray();
-            jsonArray.put(obj);
-        }
-
-        try (FileWriter file = new FileWriter(pathComisiones + codigoCarrera + "/" + fileName + ".json")) {
-            file.write(jsonArray.toString(4));
-            file.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public static boolean cargarComisionAJSON(String path, JSONObject comision) throws EntidadYaExistente {
-
-        if (!consultaArchivo.buscarClave(path, comision.getString("id"), "id") && !consultaArchivo.buscarClave(path, comision.getString("nombre"), "nombre")) {
-
-            JSONArray jsonArray;
-
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(path));
-                StringBuilder jsonStringBuilder = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    jsonStringBuilder.append(line);
-                }
-                reader.close();
-                jsonArray = new JSONArray(jsonStringBuilder.toString());
-            } catch (IOException | JSONException e) {
-                jsonArray = new JSONArray();
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
             }
+            reader.close();
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+        } catch (IOException | JSONException e) {
+            jsonArray = new JSONArray();
+        }
 
+        boolean flag= false;
+
+        int i = 0;
+        while(i<jsonArray.length() && !flag)
+        {
+            if(comision.getString("codigoMateria").equals(jsonArray.getJSONObject(i).getString("codigoMateria")) && comision.getString("nombre").equals(jsonArray.getJSONObject(i).getString("nombre")))
+            {
+                flag = true;
+            }
+            i++;
+        }
+
+        if(!flag)
+        {
             jsonArray.put(comision);
-
             try (FileWriter file = new FileWriter(path)) {
                 file.write(jsonArray.toString(4));
                 return true;
             } catch (IOException | JSONException e) {
                 excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
             }
-
-        } else {
-            throw new EntidadYaExistente("La comision cargada ya existe.");
+        }else
+        {
+            throw new EntidadYaExistente("El nombre de la comisión ya existe en la materia");
         }
+
         return false;
     }
 
@@ -131,7 +120,6 @@ public final class manejoArchivosComisiones {
     }
 
     public static boolean actualizarComisionAJSON(String path, JSONObject comision) {
-
         JSONArray jsonArray;
 
         try {
@@ -148,16 +136,27 @@ public final class manejoArchivosComisiones {
             jsonArray = new JSONArray();
         }
 
-        for(int i = 0; i<jsonArray.length();i++)
-        {
-            if(comision.getString("id").equals(jsonArray.getJSONObject(i).getString("id")))
-            {
-                jsonArray.put(i,comision);
+        JSONArray updatedJsonArray = new JSONArray();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+            if (comision.getString("id").equals(jsonObject.getString("id"))) {
+                if (!comision.getString("codigoMateria").equals(jsonObject.getString("codigoMateria"))) {
+                    String nuevoID = Comision.generarIDComision(comision.getString("codigoCarrera"), comision.getString("codigoMateria"), path);
+                    System.out.println("ID anterior: " + jsonObject.getString("id"));
+                    System.out.println("Nuevo ID generado: " + nuevoID);
+                    comision.put("id", nuevoID);
+
+                }
+                updatedJsonArray.put(comision);
+            } else {
+                updatedJsonArray.put(jsonObject);
             }
         }
 
         try (FileWriter file = new FileWriter(path)) {
-            file.write(jsonArray.toString(4));
+            file.write(updatedJsonArray.toString(4));
             return true;
         } catch (IOException | JSONException e) {
             excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
@@ -168,7 +167,7 @@ public final class manejoArchivosComisiones {
 
     public static Comision buscarComision(String filename, String dato, String clave) throws CamposVaciosException
     {
-        if(!clave.isEmpty()){
+        if(!clave.isEmpty() && clave != null){
             JSONArray jsonArray;
 
             try {
