@@ -1,5 +1,6 @@
 package Usuarios;
 
+import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosCarrera;
 import ControlArchivos.manejoArchivosEstudiante;
@@ -11,16 +12,21 @@ import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
+
+import static Path.Path.pathCarreras;
 
 /**
  * Esta clase hereda de Usuario y representa un Estudiante en el sistema.
  */
 public final class Estudiante extends Usuario implements iCRUD {
 
+    //ATRIBUTOS
+
     private String codigoCarrera;
     private ArrayList<EstadoAlumnoMateria> materias;
+
+    //CONSTRUCTORES
 
     public Estudiante(Estudiante estudiante) {
         this.setNombre(estudiante.getNombre());
@@ -62,6 +68,7 @@ public final class Estudiante extends Usuario implements iCRUD {
     }
 
     //Getters
+
     public String getCodigoCarrera() {
         return codigoCarrera;
     }
@@ -120,6 +127,13 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     }
 
+    /**
+     * Actualiza un estudiante donde pasa por verificaciones previas antes de aactualizarse
+     *  dentro del archivo y se compara con el estudiante actual con el JSON
+     * @param path
+     * @param jsonObject
+     * @return true si lo leyó
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
 
@@ -152,6 +166,13 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     }
 
+    /**
+     * Lee un estudiante del archivo JSON
+     *
+     * @param path
+     * @param legajo
+     * @return true si lo leyó
+     */
     @Override
     public boolean leer(String path, String legajo) {
         return false;
@@ -193,10 +214,20 @@ public final class Estudiante extends Usuario implements iCRUD {
 
             JSONArray notas = new JSONArray();
 
-            for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+            if(this.getMaterias().get(i).getNotas().isEmpty()){
+
                 JSONObject nota = new JSONObject();
-                nota.put(key, this.getMaterias().get(i).getNotas().get(key));
+                nota.put("primerParcial", 0);
+                nota.put("segundoParcial", 0);
                 notas.put(nota);
+            }else{
+
+                for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+                    JSONObject nota = new JSONObject();
+                    nota.put(key, this.getMaterias().get(i).getNotas().get(key));
+                    notas.put(nota);
+                }
+
             }
 
             materia.put("notas", notas);
@@ -297,6 +328,12 @@ public final class Estudiante extends Usuario implements iCRUD {
         return estudiante;
     }
 
+    /**
+     * Compara dos estudiantes
+     *
+     * @param that
+     * @return true si son iguales
+     */
     public boolean compararEstudiantes(Estudiante that) {
         if (this == that) return true;
         if (that == null || getClass() != that.getClass()) return false;
@@ -312,9 +349,14 @@ public final class Estudiante extends Usuario implements iCRUD {
                 getMaterias().equals(that.getMaterias());
     }
 
+    /**
+     * Obtiene las materias que cursa un alumno
+     *
+     * @return Estudiante
+     */
     public HashMap<String, String> obtenerMaterias() throws DatosIncorrectosException {
         try {
-            HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(Path.pathCarreras, this.getCodigoCarrera())).getMaterias();
+            HashMap<String, Materia> materiasCarrera = (manejoArchivosCarrera.retornarCarrera(pathCarreras, this.getCodigoCarrera())).getMaterias();
             HashMap<String, String> materiasEstudiante = new HashMap<>();
 
             for (int i = 0; i < this.getMaterias().size(); i++) {
@@ -330,6 +372,11 @@ public final class Estudiante extends Usuario implements iCRUD {
         }
     }
 
+    /**
+     * Obtiene un estudiante del archivo JSON
+     *
+     * @return HashMap<String, EstadoAlumnoMesa>
+     */
     public HashMap<String, EstadoAlumnoMesa> obtenerMesasDeExamen() {
         HashMap<String, EstadoAlumnoMesa> mesasDeExamen = new HashMap<>();
 
@@ -344,6 +391,13 @@ public final class Estudiante extends Usuario implements iCRUD {
         return mesasDeExamen;
     }
 
+    /**
+     * Compara un JSONObject con un estudiante
+     *
+     * @param jsonObject
+     * @param usuario
+     * @return Estudiante
+     */
     public boolean compararJSONObjectConEstudiante(Estudiante usuario,JSONObject jsonObject ) {
 
         boolean comparar = true;
@@ -372,43 +426,130 @@ public final class Estudiante extends Usuario implements iCRUD {
 
                 JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
 
-                if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                if(!(materiaJson.length() == usuario.getMaterias().size())){
                     comparar = false;
-                } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
-                    comparar = false;
-                } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
-                    comparar = false;
-                } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
-                    comparar = false;
-                } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
-                    comparar = false;
-                }
+                } else{
 
-                JSONArray notasArray = materiaJson.getJSONArray("notas");
-                int primerParcial = 0;
-                int segundoParcial = 0;
-
-                for (int j = 0; j < notasArray.length(); j++) {
-                    JSONObject nota = notasArray.getJSONObject(j);
-
-                    if (nota.has("primerParcial")) {
-                        primerParcial = nota.getInt("primerParcial");
-                    } else if (nota.has("segundoParcial")) {
-                        segundoParcial = nota.getInt("segundoParcial");
+                    if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
+                        comparar = false;
+                    } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
+                        comparar = false;
                     }
+
+                    JSONArray notasArray = materiaJson.getJSONArray("notas");
+                    int primerParcial = 0;
+                    int segundoParcial = 0;
+
+                    for (int j = 0; j < notasArray.length(); j++) {
+                        JSONObject nota = notasArray.getJSONObject(j);
+
+                        if (nota.has("primerParcial")) {
+                            primerParcial = nota.getInt("primerParcial");
+                        } else if (nota.has("segundoParcial")) {
+                            segundoParcial = nota.getInt("segundoParcial");
+                        }
+                    }
+
+                    if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
+                        comparar = false;
+                    } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
+                        comparar = false;
+                    }
+
                 }
 
-                if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
-                    comparar = false;
-                } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
-                    comparar = false;
-                }
 
             }
 
         }
 
         return comparar;
+    }
+
+    /**
+     * Obtiene las materias que puede cursar un estudiantes tomando en cuenta las correlatividades
+     * para cursar y las correlativas que necesita tener aprobadas si o si
+     * @return HashMap<String, Materia>
+     */
+    public HashMap<String, Materia> obtenerMateriasParaCursar() throws CamposVaciosException, DatosIncorrectosException {
+        HashMap<String, Materia> materias = (manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera())).getMaterias();
+        ArrayList<String> materiasEstudiante = new ArrayList<>();
+
+        for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
+            materiasEstudiante.add(materia.getCodigoMateria());
+        }
+
+        if (!materiasEstudiante.isEmpty()) {
+            HashSet<String> materiasAprobadas = obtenerMateriasAprobadas();
+
+            materiasAprobadas.forEach(materias::remove);
+
+            materiasEstudiante.forEach(materias::remove);
+
+            Iterator<Map.Entry<String, Materia>> iterator = materias.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, Materia> entry = iterator.next();
+                HashSet<String> correlativasCursar = entry.getValue().getCodigoCorrelativasCursado();
+
+                boolean todasCorrelativasRegularizadas = true;
+                for (String correlativa : correlativasCursar) {
+                    boolean correlativaRegularizada = Data.getEstudiante().getMaterias().stream()
+                            .anyMatch(m -> m.getCodigoMateria().equals(correlativa) && m.getEstado().equals(EstadoMateria.REGULARIZADA));
+
+                    if (!correlativaRegularizada) {
+                        todasCorrelativasRegularizadas = false;
+                        break;
+                    }
+                }
+
+                if (!todasCorrelativasRegularizadas) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        return materias;
+    }
+
+    /**
+     * Obtiene las materias que aprobo el estudiante
+     *
+     * @return HashMap<String>
+     */
+    public HashSet<String> obtenerMateriasAprobadas() {
+        HashSet<String> materiasAprobadas = new HashSet<>();
+        for (EstadoAlumnoMateria materia : this.getMaterias()) {
+            if (materia.getEstado().equals(EstadoMateria.APROBADA)) {
+                materiasAprobadas.add(materia.getCodigoMateria());
+            }
+        }
+        return materiasAprobadas;
+    }
+
+    /**
+     * Inscribe a un estudiante en una materia de una comision
+     * @param comision
+     * @return Estudiante
+     */
+    public Estudiante inscribirse(Comision comision){
+
+        EstadoAlumnoMateria materia = new EstadoAlumnoMateria();
+
+        materia.setCodigoMateria(comision.getCodigoMateria());
+        materia.setCodigoComision(comision.getId());
+        materia.setEstado(EstadoMateria.NO_REGULARIZADA);
+        materia.setNotas(new HashMap<>());
+        materia.setMesasExamen(new HashMap<String, EstadoAlumnoMesa>());
+
+        this.materias.add(materia);
+
+        return this;
     }
 
         @Override

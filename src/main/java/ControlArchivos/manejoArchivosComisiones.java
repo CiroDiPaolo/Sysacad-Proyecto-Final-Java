@@ -81,36 +81,48 @@ public final class manejoArchivosComisiones {
 
     public static boolean cargarComisionAJSON(String path, JSONObject comision) throws EntidadYaExistente {
 
-        if (!consultaArchivo.buscarClave(path, comision.getString("id"), "id") && !consultaArchivo.buscarClave(path, comision.getString("nombre"), "nombre")) {
+        JSONArray jsonArray;
 
-            JSONArray jsonArray;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
 
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(path));
-                StringBuilder jsonStringBuilder = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    jsonStringBuilder.append(line);
-                }
-                reader.close();
-                jsonArray = new JSONArray(jsonStringBuilder.toString());
-            } catch (IOException | JSONException e) {
-                jsonArray = new JSONArray();
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
             }
+            reader.close();
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+        } catch (IOException | JSONException e) {
+            jsonArray = new JSONArray();
+        }
 
+        boolean flag= false;
+
+        int i = 0;
+        while(i<jsonArray.length() && !flag)
+        {
+            if(comision.getString("codigoMateria").equals(jsonArray.getJSONObject(i).getString("codigoMateria")) && comision.getString("nombre").equals(jsonArray.getJSONObject(i).getString("nombre")))
+            {
+                flag = true;
+            }
+            i++;
+        }
+
+        if(!flag)
+        {
             jsonArray.put(comision);
-
             try (FileWriter file = new FileWriter(path)) {
                 file.write(jsonArray.toString(4));
                 return true;
             } catch (IOException | JSONException e) {
                 excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
             }
-
-        } else {
-            throw new EntidadYaExistente("La comision cargada ya existe.");
+        }else
+        {
+            throw new EntidadYaExistente("El nombre de la comisión ya existe en la materia");
         }
+
         return false;
     }
 
@@ -201,4 +213,35 @@ public final class manejoArchivosComisiones {
             throw new CamposVaciosException("No elegiste ninguna comisión");
         }
     }
+
+    public static ArrayList<Comision> obtenerComisionesDeUnaMateria(String path,String codigoMateria) {
+
+        JSONArray jsonArray = new JSONArray(leerArchivoJSON(path));
+
+        ArrayList<Comision> comisiones = new ArrayList<>();
+
+        for(int i = 0 ; i < jsonArray.length() ; i++){
+
+            JSONObject obj = jsonArray.getJSONObject(i);
+
+            if(obj.getString("codigoMateria").equals(codigoMateria)){
+
+                if(obj.getBoolean("actividad") == true){
+
+                    if(Comision.JSONObjectAComision(obj).getCupos() > 0){
+
+                        comisiones.add(Comision.JSONObjectAComision(obj));
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return comisiones;
+
+    }
+
 }
