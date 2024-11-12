@@ -38,6 +38,9 @@ public class gestionarComisionControl {
     @FXML
     void clickBtnGestionarNotas(ActionEvent event) {
 
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(Path.gestionarNotasAlumnosProfesor, stage, "Gestionar notas");
+
     }
 
     @FXML
