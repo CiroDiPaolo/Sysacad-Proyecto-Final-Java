@@ -2,14 +2,17 @@ package ControlArchivos;
 
 import Excepciones.*;
 import Modelo.Comision;
+import Usuarios.Estudiante;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import Path.Path.*;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.nio.file.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -291,4 +294,36 @@ public final class manejoArchivosComisiones {
         return comisiones;
     }
 
+    public static HashSet<Comision> filtrarComisionesPorNombre(String nombre, HashSet<Comision> comisiones) {
+        HashSet<Comision> comisionesFiltradas = new HashSet<>();
+        for (Comision comision : comisiones) {
+            if (comision.getNombre().equals(nombre)) {
+                comisionesFiltradas.add(comision);
+            }
+        }
+        return comisionesFiltradas;
+    }
+
+    public static ArrayList<Estudiante> obtenerEstudiantesDeUnaComision(String pathAlumnos, String codigoComision) {
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+
+        JSONArray arregloEstudiantes = new JSONArray(leerArchivoJSON(pathAlumnos));
+
+        for (int i = 0; i < arregloEstudiantes.length(); i++) {
+            JSONObject estudianteObj = arregloEstudiantes.getJSONObject(i);
+            JSONArray materias = estudianteObj.getJSONArray("materias");
+
+            for (int j = 0; j < materias.length(); j++) {
+                JSONObject materia = materias.getJSONObject(j);
+
+                if (materia.getString("codigoComision").equals(codigoComision)) {
+                    Estudiante estudiante = Estudiante.JSONObjectAEstudiante(estudianteObj);
+                    estudiantes.add(estudiante);
+                    break; // Salir del bucle de materias si se encuentra la comisión
+                }
+            }
+        }
+
+        return estudiantes;
+    }
 }
