@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import ControlArchivos.manejoArchivosEstudiante;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class verComisionControl {
 
@@ -68,6 +68,7 @@ public class verComisionControl {
         } else {
 
             throw new DatosIncorrectosException("No hay alumnos en la comisión");
+
         }
 
         manejoArchivos.guardarAlumnosExcel(stage, nombresAlumnos);
