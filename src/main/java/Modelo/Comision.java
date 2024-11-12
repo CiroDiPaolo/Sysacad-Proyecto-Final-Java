@@ -291,37 +291,30 @@ public final class Comision implements iCRUD{
     public static String generarIDComision(String codigoCarrera, String codigoMateria, String fileName) {
         JSONArray comisiones = new JSONArray(leerArchivoJSON(fileName));
         String ultimoCodigo = null;
-        int ultNum = 0; // Este es el número máximo encontrado para el ID actual
+        int ultNum = 0;
 
         for (int i = 0; i < comisiones.length(); i++) {
             JSONObject jsonObject = comisiones.getJSONObject(i);
 
-            // Solo busca los registros que coinciden con el código de carrera y materia
-            if (jsonObject.getString("codigoCarrera").equals(codigoCarrera) &&
-                    jsonObject.getString("codigoMateria").equals(codigoMateria)) {
-                // Obtén el número del ID
-                int currentNum = Integer.parseInt(jsonObject.getString("id").substring(0, 3));
-                // Si este es el mayor número, actualiza
+            if (jsonObject.getString("codigoMateria").equals(codigoMateria)) {
+
+                String id = jsonObject.getString("id");
+                int currentNum = Integer.parseInt(id.substring(0, 3));
                 if (currentNum > ultNum) {
-                    ultimoCodigo = jsonObject.getString("id");
-                    ultNum = currentNum; // Actualiza el último número encontrado
+                    ultimoCodigo = id;
+                    ultNum = currentNum;
                 }
             }
         }
 
         String nuevoID;
-
         if (ultimoCodigo != null) {
-            // Se ha encontrado un último código
             String auxiliar = ultimoCodigo.substring(0, 3);
             int num = Integer.parseInt(auxiliar);
-            num++; // Incrementa el último número
-
-            // Genera el nuevo ID con ceros a la izquierda
-            nuevoID = String.format("%03d", num) + "-" + codigoMateria; // Cambié a usar codigoMateria aquí
+            num++;
+            nuevoID = String.format("%03d", num) + "-" + codigoMateria;
         } else {
-            // Si no hay códigos, genera uno nuevo
-            nuevoID = "001" + "-" + codigoMateria; // Aquí también aseguramos que el código de materia esté presente
+            nuevoID = "001" + "-" + codigoMateria;
         }
 
         return nuevoID;

@@ -102,7 +102,7 @@ public class editarComisionAdministradorControl {
         Comision comision = new Comision(id,turno,nombre,codigoMateria,codigoCarrera,codigoProfesor,descripcion,anio,aula,cupos,apertura,actividad,hashSet);
         try{
             comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject());
-
+            escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
         } catch (CamposVaciosException | DatosIncorrectosException e) {
             e.getMessage();
         }

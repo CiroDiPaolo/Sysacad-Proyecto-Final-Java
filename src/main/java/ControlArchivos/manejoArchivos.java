@@ -2,9 +2,6 @@ package ControlArchivos;
 
 import Excepciones.ArchivoYaExistenteException;
 import Excepciones.ParametroPeligrosoException;
-import Excepciones.excepcionPersonalizada;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -21,8 +18,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
-
-import static Path.Path.icono;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.regex.Pattern;
 
 public final class manejoArchivos {
 
@@ -236,5 +234,27 @@ public final class manejoArchivos {
         }
     }
 
+    public static boolean esFormatoFechaValida(String fecha) {
+        String regexFecha = "\\d{4}-\\d{2}-\\d{2}";
+        return Pattern.matches(regexFecha, fecha);
+    }
+
+    public static boolean esFormatoHoraValida(String hora) {
+        String regexHora = "\\d{2}:\\d{2}";
+        return Pattern.matches(regexHora, hora);
+    }
+
+    public static boolean esHoraValidaEnRango(LocalTime hora) {
+        LocalTime horaInicio = LocalTime.of(0, 0);  // 00:00
+        LocalTime horaFin = LocalTime.of(23, 59);   // 23:59
+
+        return !hora.isBefore(horaInicio) && !hora.isAfter(horaFin);
+    }
+
+    public static boolean esFechaValidaEnRango(LocalDate fecha) {
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate ultimoDiaAnioSiguiente = LocalDate.of(fechaActual.getYear() + 1, 12, 31);
+        return !fecha.isBefore(fechaActual) && !fecha.isAfter(ultimoDiaAnioSiguiente);
+    }
 
 }

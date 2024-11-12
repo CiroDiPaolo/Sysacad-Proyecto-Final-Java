@@ -5,8 +5,8 @@ import ControlArchivos.manejoArchivosProfesor;
 import Modelo.Carrera;
 import Modelo.Comision;
 import Modelo.Materia;
+import Modelo.MesaExamen;
 import Usuarios.*;
-
 import static Path.Path.*;
 
 public final class Data {
@@ -19,6 +19,7 @@ public final class Data {
     private static Comision comision;
     private static String aux2;
     private static Profesor profesor;
+    private static MesaExamen mesaExamen;
 
     //Getters
 
@@ -36,9 +37,12 @@ public final class Data {
 
     public static Comision getComision(){ return comision;}
 
+    public static MesaExamen getMesaExamen(){return mesaExamen;}
+
     //Setters
 
-    public static void setProfesor(String legajo) { Data.profesor = Profesor.JSONObjectAProfesor(manejoArchivosProfesor.retornarProfesor(legajo,fileNameProfesores)); }
+    public static void setProfesor(String legajo) {
+        Data.profesor = Profesor.JSONObjectAProfesor(manejoArchivosProfesor.retornarProfesor(legajo,fileNameProfesores)); }
 
     public static void setLegajo(String legajo) { Data.legajo = legajo; }
 
@@ -57,5 +61,7 @@ public final class Data {
     public static String getAux2() { return aux2; }
 
     public static void setAux2(String aux2) { Data.aux2 = aux2; }
+
+    public void setMesaExamen(MesaExamen mesaExamen){this.mesaExamen = mesaExamen;}
 
 }

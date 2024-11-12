@@ -12,7 +12,7 @@
     {
         "legajo": "P000002",
         "apellido": "Alvarez",
-        "correo": "profe3@gmail.com",
+        "correo": "profe2@gmail.com",
         "fechaDeAlta": "2024-11-08",
         "contrasenia": "25001002",
         "nombre": "Juancita",
@@ -27,6 +27,16 @@
         "contrasenia": "12345678",
         "nombre": "Juan",
         "dni": "12345678",
+        "actividad": true
+    },
+    {
+        "legajo": "P000004",
+        "apellido": "Daddy",
+        "correo": "profe4@gmail.com",
+        "fechaDeAlta": "2024-11-08",
+        "contrasenia": "25001002",
+        "nombre": "Yankee",
+        "dni": "21000102",
         "actividad": true
     }
 ]

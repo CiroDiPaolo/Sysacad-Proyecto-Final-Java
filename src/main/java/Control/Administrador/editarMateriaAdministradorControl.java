@@ -168,9 +168,6 @@ public class editarMateriaAdministradorControl {
         {
             e.getMessage();
         }
-
-
-
     }
 
     @FXML
