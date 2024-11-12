@@ -193,10 +193,20 @@ public final class Estudiante extends Usuario implements iCRUD {
 
             JSONArray notas = new JSONArray();
 
-            for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+            if(this.getMaterias().get(i).getNotas().isEmpty()){
+
                 JSONObject nota = new JSONObject();
-                nota.put(key, this.getMaterias().get(i).getNotas().get(key));
+                nota.put("primerParcial", 0);
+                nota.put("segundoParcial", 0);
                 notas.put(nota);
+            }else{
+
+                for (String key : this.getMaterias().get(i).getNotas().keySet()) {
+                    JSONObject nota = new JSONObject();
+                    nota.put(key, this.getMaterias().get(i).getNotas().get(key));
+                    notas.put(nota);
+                }
+
             }
 
             materia.put("notas", notas);
@@ -372,43 +382,65 @@ public final class Estudiante extends Usuario implements iCRUD {
 
                 JSONObject materiaJson = jsonObject.getJSONArray("materias").getJSONObject(i);
 
-                if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                if(!(materiaJson.length() == usuario.getMaterias().size())){
                     comparar = false;
-                } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
-                    comparar = false;
-                } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
-                    comparar = false;
-                } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
-                    comparar = false;
-                } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
-                    comparar = false;
-                }
+                } else{
 
-                JSONArray notasArray = materiaJson.getJSONArray("notas");
-                int primerParcial = 0;
-                int segundoParcial = 0;
-
-                for (int j = 0; j < notasArray.length(); j++) {
-                    JSONObject nota = notasArray.getJSONObject(j);
-
-                    if (nota.has("primerParcial")) {
-                        primerParcial = nota.getInt("primerParcial");
-                    } else if (nota.has("segundoParcial")) {
-                        segundoParcial = nota.getInt("segundoParcial");
+                    if(!materiaJson.getString("id").equals(usuario.getMaterias().get(i).getCodigoMateria())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("tomo").equals(usuario.getMaterias().get(i).getTomo())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("folio").equals(usuario.getMaterias().get(i).getFolio())){
+                        comparar = false;
+                    } else if(!materiaJson.getString("codigoComision").equals(usuario.getMaterias().get(i).getCodigoComision())){
+                        comparar = false;
+                    } else if(!materiaJson.getJSONArray("mesasExamen").toString().equals(usuario.getMaterias().get(i).getMesasExamen().toString())){
+                        comparar = false;
                     }
+
+                    JSONArray notasArray = materiaJson.getJSONArray("notas");
+                    int primerParcial = 0;
+                    int segundoParcial = 0;
+
+                    for (int j = 0; j < notasArray.length(); j++) {
+                        JSONObject nota = notasArray.getJSONObject(j);
+
+                        if (nota.has("primerParcial")) {
+                            primerParcial = nota.getInt("primerParcial");
+                        } else if (nota.has("segundoParcial")) {
+                            segundoParcial = nota.getInt("segundoParcial");
+                        }
+                    }
+
+                    if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
+                        comparar = false;
+                    } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
+                        comparar = false;
+                    }
+
                 }
 
-                if(primerParcial != usuario.getMaterias().get(i).getNotas().get("primerParcial")){
-                    comparar = false;
-                } else if(segundoParcial != usuario.getMaterias().get(i).getNotas().get("segundoParcial")){
-                    comparar = false;
-                }
 
             }
 
         }
 
         return comparar;
+    }
+
+    public Estudiante inscribirse(Comision comision){
+
+        EstadoAlumnoMateria materia = new EstadoAlumnoMateria();
+
+        materia.setCodigoMateria(comision.getCodigoMateria());
+        materia.setCodigoComision(comision.getId());
+        materia.setEstado(EstadoMateria.NO_REGULARIZADA);
+        materia.setNotas(new HashMap<>());
+        materia.setMesasExamen(new HashMap<String, EstadoAlumnoMesa>());
+
+        this.materias.add(materia);
+
+        return this;
     }
 
         @Override
