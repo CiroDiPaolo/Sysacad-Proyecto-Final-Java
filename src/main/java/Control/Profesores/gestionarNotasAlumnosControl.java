@@ -74,9 +74,7 @@ public class gestionarNotasAlumnosControl {
                     if (checkPromocionado.isSelected()) {
                         e.getMaterias().get(i).setEstado(EstadoMateria.APROBADA);
                     } else {
-                        if (primerParcial > 7 && segundoParcial > 7) {
-                            e.getMaterias().get(i).setEstado(EstadoMateria.APROBADA);
-                        } else if (primerParcial > 5 && segundoParcial > 5) {
+                        if (primerParcial > 5 && segundoParcial > 5) {
                             e.getMaterias().get(i).setEstado(EstadoMateria.REGULARIZADA);
                         } else {
                             e.getMaterias().get(i).setEstado(EstadoMateria.NO_REGULARIZADA);
@@ -116,6 +114,11 @@ public class gestionarNotasAlumnosControl {
     protected void initialize() {
         Platform.runLater(() -> {
 
+            choiceAlumno.getItems().clear();
+            txtSegundoParcial.clear();
+            txtPrimerParcial.clear();
+            checkPromocionado.setSelected(false);
+
             stage = (Stage) btnVolver.getScene().getWindow();
 
             ArrayList<Estudiante> estudiantes = manejoArchivosComisiones.obtenerEstudiantesDeUnaComision(Path.fileNameAlumnos, Data.getComision().getId());
@@ -125,17 +128,20 @@ public class gestionarNotasAlumnosControl {
             }
 
             choiceAlumno.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue == null) {
+                    // Si newValue es null, no se hace nada
+                    return;
+                }
+
                 String legajo = newValue.substring(newValue.lastIndexOf("-") + 2);
 
                 Estudiante e = new Estudiante();
 
-                for(int i = 0 ; i < estudiantes.size() ; i++){
-
-                    if(estudiantes.get(i).getLegajo().equals(legajo)){
+                for(int i = 0 ; i < estudiantes.size() ; i++) {
+                    if(estudiantes.get(i).getLegajo().equals(legajo)) {
                         e = estudiantes.get(i);
-                        i = estudiantes.size();
+                        break;
                     }
-
                 }
 
                 ArrayList<String> parciales = manejoArchivosEstudiante.filtrarParcialesPorMateria(e.obtenerParcialesRendidos(), Data.getComision().getCodigoMateria());
@@ -146,7 +152,6 @@ public class gestionarNotasAlumnosControl {
                 checkPromocionado.setSelected(e.getMaterias().stream().anyMatch(materia -> materia.getCodigoComision().equals(Data.getComision().getId()) && materia.getEstado() == EstadoMateria.APROBADA));
 
                 Data.setEstudiante(e);
-
             });
 
             // Agregar TextFormatter para permitir solo números o "-"
