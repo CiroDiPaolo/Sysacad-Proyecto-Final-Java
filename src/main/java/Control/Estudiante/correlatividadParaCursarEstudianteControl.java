@@ -1,6 +1,9 @@
 package Control.Estudiante;
 
 import Control.EscenaControl;
+import Control.InicioSesion.inicioSesionData;
+import Usuarios.Estudiante;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,5 +48,19 @@ public class correlatividadParaCursarEstudianteControl {
         escena.cambiarEscena(menuPrincipalAlumnos, stage, "Menu Principal");
 
     }
+
+    @FXML
+    protected void initialize() {
+
+        Platform.runLater(() -> {
+
+            stage = (Stage) btnVolver.getScene().getWindow();
+
+            Estudiante estudiante = inicioSesionData.getEstudiante();
+
+        });
+
+    }
+
 
 }
