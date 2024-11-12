@@ -1,6 +1,7 @@
 package Control.InicioSesion;
 
 import ControlArchivos.manejoArchivosEstudiante;
+import ControlArchivos.manejoArchivosProfesor;
 import Modelo.Carrera;
 import Modelo.Comision;
 import Modelo.Materia;
@@ -40,7 +41,8 @@ public final class Data {
 
     //Setters
 
-    public static void setProfesor(String legajo) { Data.profesor = Profesor.JSONObjectAProfesor(manejoArchivosProfesor.retornarProfesor(legajo,fileNameProfesores)); }
+    public static void setProfesor(String legajo) {
+        Data.profesor = Profesor.JSONObjectAProfesor(manejoArchivosProfesor.retornarProfesor(legajo,fileNameProfesores)); }
 
     public static void setLegajo(String legajo) { Data.legajo = legajo; }
 
