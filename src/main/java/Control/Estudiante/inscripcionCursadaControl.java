@@ -64,22 +64,14 @@ public class inscripcionCursadaControl {
 
             try {
 
-                HashMap<String, Materia> materias = (manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera())).getMaterias();
-                ArrayList<String> materiasEstudiante = new ArrayList<>();
+                HashMap<String, Materia> materias = Data.getEstudiante().obtenerMateriasParaCursar();
 
-                for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
-                    materiasEstudiante.add(materia.getCodigoMateria());
+                for (Map.Entry<String, Materia> entry : materias.entrySet()) {
+
+                    tableTablaMaterias.getItems().add(entry.getValue());
+
                 }
 
-                if (materiasEstudiante.isEmpty()) {
-                    tableTablaMaterias.getItems().addAll(materias.values());
-                } else {
-                    for (Map.Entry<String, Materia> entry : materias.entrySet()) {
-                        if (!materiasEstudiante.contains(entry.getKey())) {
-                            tableTablaMaterias.getItems().add(entry.getValue());
-                        }
-                    }
-                }
 
                 colMateria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
                 colAnio.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getAnio())));
