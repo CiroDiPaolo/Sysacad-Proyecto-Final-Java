@@ -102,5 +102,10 @@
             <Font size="33.0" />
          </font>
       </CheckBox>
+      <Text fill="#a4a4a4" layoutX="740.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de inasistencia del alumno ingrese un guión" wrappingWidth="439.47015380859375">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
