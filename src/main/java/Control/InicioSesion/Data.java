@@ -1,6 +1,7 @@
 package Control.InicioSesion;
 
 import ControlArchivos.manejoArchivosEstudiante;
+import ControlArchivos.manejoArchivosProfesor;
 import Modelo.Carrera;
 import Modelo.Comision;
 import Modelo.Materia;
@@ -17,14 +18,15 @@ public final class Data {
     private static Materia materiaData;
     private static Comision comision;
     private static String aux2;
-    //Getters
-    public static Carrera getCarrera(){
-        return carrera;
-    }
+    private static Profesor profesor;
 
-    public static Materia getMateria(){
-        return materiaData;
-    }
+    //Getters
+
+    public static Profesor getProfesor() { return profesor; }
+
+    public static Carrera getCarrera(){ return carrera; }
+
+    public static Materia getMateria(){ return materiaData; }
 
     public static String getAux() { return aux; }
 
@@ -35,6 +37,9 @@ public final class Data {
     public static Comision getComision(){ return comision;}
 
     //Setters
+
+    public static void setProfesor(String legajo) { Data.profesor = Profesor.JSONObjectAProfesor(manejoArchivosProfesor.retornarProfesor(legajo,fileNameProfesores)); }
+
     public static void setLegajo(String legajo) { Data.legajo = legajo; }
 
     static void setEstudiante(String legajo) { estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(legajo, fileNameAlumnos)); }

@@ -8,7 +8,6 @@ import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import Modelo.*;
-import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.time.LocalDate;
@@ -552,13 +551,28 @@ public final class Estudiante extends Usuario implements iCRUD {
         return this;
     }
 
-        @Override
-    public String toString() {
-        return "Estudiante{" +
-                "codigoCarrera='" + codigoCarrera + '\'' +
-                ", materias=" + materias +
-                '}';
+    public Map<String, List<Integer>> obtenerParcialesRendidos() {
+        Map<String, List<Integer>> parcialesRendidos = new HashMap<>();
+
+        for (EstadoAlumnoMateria materia : this.getMaterias()) {
+            List<Integer> notasParciales = new ArrayList<>();
+            Map<String, Integer> notas = materia.getNotas();
+
+            if (notas.containsKey("primerParcial")) {
+                notasParciales.add(notas.get("primerParcial"));
+            }
+            if (notas.containsKey("segundoParcial")) {
+                notasParciales.add(notas.get("segundoParcial"));
+            }
+
+            if (!notasParciales.isEmpty()) {
+                parcialesRendidos.put(materia.getCodigoMateria(), notasParciales);
+            }
+        }
+
+        return parcialesRendidos;
     }
+
 }
 
 

@@ -53,8 +53,17 @@
          </image>
       </ImageView>
       <Rectangle fill="#2a3b47" height="676.0" layoutX="613.0" layoutY="279.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="694.0" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="603.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="912.0" layoutY="863.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="btnSalir" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="906.0" layoutY="853.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnSalir" prefHeight="82.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="906.0" AnchorPane.rightAnchor="881.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="900.0" layoutY="864.0" stroke="BLACK" strokeType="INSIDE" width="120.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="900.0" />
+      <Button fx:id="btnSalir" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="893.0" layoutY="853.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnSalir" prefHeight="82.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="830.0" layoutY="317.0" stroke="BLACK" strokeType="INSIDE" width="261.0" AnchorPane.leftAnchor="830.0" AnchorPane.rightAnchor="829.0" />
+      <Button fx:id="btnComisiones" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="829.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnComisiones" prefHeight="82.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Comisiones" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="830.0">
          <font>
             <Font size="40.0" />
          </font>

@@ -1,13 +1,19 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosComisiones;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
+import Modelo.Comision;
 import Modelo.iCRUD;
+import Path.Path;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * La clase Profesor no contiene atributos pero es para diferenciar sus funciones de los otros tipos de usuario.
@@ -132,6 +138,23 @@ public final class Profesor extends Usuario implements iCRUD {
         boolean actividad = profesor.getBoolean("actividad");
 
         return new Profesor(nombre,apellido,dni,legajo,contrasenia,correo,fechaDeAlta,actividad);
+
+    }
+
+    public HashSet<Comision> obtenerComisiones(String path){
+
+        HashSet<Comision> comisiones = (manejoArchivosComisiones.obtenerComisionesPorAnio(Path.pathComisiones,String.valueOf(LocalDate.now().getYear())));
+
+        Iterator<Comision> it = comisiones.iterator();
+
+        while (it.hasNext()) {
+            Comision comision = it.next();
+            if (!comision.getCodigoProfesor().equals(getLegajo())) {
+                it.remove();
+            }
+        }
+
+        return comisiones;
 
     }
 
