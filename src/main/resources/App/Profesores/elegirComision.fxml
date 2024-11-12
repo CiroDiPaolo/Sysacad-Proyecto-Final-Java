@@ -64,5 +64,14 @@
          </font>
       </Text>
       <ChoiceBox fx:id="choiceComision" layoutX="787.0" layoutY="533.0" prefHeight="25.0" prefWidth="346.0" AnchorPane.leftAnchor="787.0" AnchorPane.rightAnchor="787.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="872.0" layoutY="599.0" stroke="BLACK" strokeType="INSIDE" width="176.0" AnchorPane.leftAnchor="872.0" AnchorPane.rightAnchor="872.0" />
+      <Button fx:id="btnAplicar" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="872.0" layoutY="590.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnAplicar" prefHeight="82.0" prefWidth="176.0" style="-fx-background-color: transparent;" text="Aplicar" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="872.0" AnchorPane.rightAnchor="872.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>
