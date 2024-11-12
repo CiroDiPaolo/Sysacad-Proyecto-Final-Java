@@ -56,4 +56,7 @@ public final class Path {
     public static final String cargarComisionAdministrador = "/App/Administrador/cargarComisionAdministrador.fxml";
     public static final String editarComisionAdministrador = "/App/Administrador/editarComisionAdministrador.fxml";
 
+    //Profesor
+    public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";
+
 }
