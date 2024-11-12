@@ -28,30 +28,20 @@ public final class Data {
 
     public static String getAux() { return aux; }
 
-    public static String getLegajo() {
-        return legajo;
-    }
+    public static String getLegajo() { return legajo; }
 
-    public static Estudiante getEstudiante() {
-        return estudiante;
-    }
+    public static Estudiante getEstudiante() { return estudiante; }
 
     public static Comision getComision(){ return comision;}
 
     //Setters
-    public static void setLegajo(String legajo) {
-        Data.legajo = legajo;
+    public static void setLegajo(String legajo) { Data.legajo = legajo; }
 
-    }
-
-    static void setEstudiante(String legajo) {
-
-        estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(legajo, fileNameAlumnos));
-    }
+    static void setEstudiante(String legajo) { estudiante =  Estudiante.JSONObjectAEstudiante(manejoArchivosEstudiante.retornarEstudiante(legajo, fileNameAlumnos)); }
 
     public static void setEstudiante(Estudiante estudiante) { Data.estudiante = estudiante; }
 
-    public void setAux(String aux) { this.aux = aux; }
+    public static void setAux(String aux) { Data.aux = aux; }
 
     public void setMateria(Materia materia){ this.materiaData = materia; }
 
