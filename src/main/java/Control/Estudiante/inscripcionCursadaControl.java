@@ -91,7 +91,7 @@ public class inscripcionCursadaControl {
                     {
                         inscribirseButton.setOnAction(event -> {
                             Materia materia = getTableView().getItems().get(getIndex());
-
+                            Data.setAux(materia.getNombre());
                             Data.setAux2(materia.getId());
 
                             EscenaControl escena = new EscenaControl();
