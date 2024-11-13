@@ -65,4 +65,17 @@ public final class EstadoAlumnoMesa {
                 (jsonObject.getBoolean("presente"))
         );
     }
+
+    /**
+     * Convierte la instancia de EstadoAlumnoMesa a JSONObject para almacenamiento.
+     * @return El JSONObject con los datos del EstadoAlumnoMesa.
+     */
+    public JSONObject EstadoAlumnoMesaAJSONObjetc() {
+        JSONObject json = new JSONObject();
+        json.put("codigoAlumno", this.codigoMesa);
+        json.put("estado", this.presente);
+        json.put("nota", nota);
+        return json;
+    }
+
 }
