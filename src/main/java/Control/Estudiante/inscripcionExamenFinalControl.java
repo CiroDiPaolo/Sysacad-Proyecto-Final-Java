@@ -3,6 +3,7 @@ package Control.Estudiante;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosMesaExamen;
+import Modelo.EstadoMateria;
 import Modelo.Materia;
 import Modelo.MesaExamen;
 import Usuarios.Estudiante;
@@ -124,7 +125,7 @@ public class inscripcionExamenFinalControl {
             }
         });
 
-        tableTablaMaterias.getItems().setAll(Data.getEstudiante().obtenerMesasExamenesParaAnotarse(Data.getEstudiante().obtenerMateriasAprobadas(),manejoArchivosMesaExamen.obtenerMesaExamenPorAnio(LocalDate.now().getYear(), Data.getEstudiante().getCodigoCarrera())));
+        tableTablaMaterias.getItems().setAll(Data.getEstudiante().obtenerMesasExamenesParaAnotarse(Data.getEstudiante().obtenerMateriasSegunEstado(EstadoMateria.APROBADA),manejoArchivosMesaExamen.obtenerMesaExamenPorAnio(LocalDate.now().getYear(), Data.getEstudiante().getCodigoCarrera())));
 
     }
 
