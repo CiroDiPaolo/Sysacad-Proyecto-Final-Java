@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static Path.Path.pathCarreras;
 
@@ -477,54 +478,56 @@ public final class Estudiante extends Usuario implements iCRUD {
      * @return HashMap<String, Materia>
      */
     public HashMap<String, Materia> obtenerMateriasParaCursar() throws CamposVaciosException, DatosIncorrectosException {
-        HashMap<String, Materia> materias = (manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera())).getMaterias();
-        ArrayList<String> materiasEstudiante = new ArrayList<>();
 
-        for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
-            materiasEstudiante.add(materia.getCodigoMateria());
-        }
+        // Obtiene todas las materias de la carrera del estudiante
+        HashMap<String, Materia> materias = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera()).getMaterias();
 
-        if (!materiasEstudiante.isEmpty()) {
-            HashSet<String> materiasAprobadas = obtenerMateriasAprobadas();
+        // Recopila los códigos de materias que el estudiante ya ha cursado (cursadas, regularizadas, aprobadas)
+        HashSet<String> materiasEstudiante = Data.getEstudiante().getMaterias().stream()
+                .map(EstadoAlumnoMateria::getCodigoMateria)
+                .collect(Collectors.toCollection(HashSet::new));
 
-            materiasAprobadas.forEach(materias::remove);
+        // Obtiene las materias aprobadas y regularizadas por el estudiante
+        HashSet<String> materiasAprobadas = obtenerMateriasSegunEstado(EstadoMateria.APROBADA);
+        HashSet<String> materiasRegularizadas = obtenerMateriasSegunEstado(EstadoMateria.REGULARIZADA);
 
-            materiasEstudiante.forEach(materias::remove);
+        // Remueve materias aprobadas, cursadas y regularizadas del conjunto de materias
+        materiasAprobadas.forEach(materias::remove);
+        materiasRegularizadas.forEach(materias::remove); // También eliminamos materias regularizadas
 
-            Iterator<Map.Entry<String, Materia>> iterator = materias.entrySet().iterator();
-            while (iterator.hasNext()) {
-                Map.Entry<String, Materia> entry = iterator.next();
-                HashSet<String> correlativasCursar = entry.getValue().getCodigoCorrelativasCursado();
+        // Itera sobre las materias restantes y verifica las correlativas
+        Iterator<Map.Entry<String, Materia>> iterator = materias.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Materia> entry = iterator.next();
+            HashSet<String> correlativasCursar = entry.getValue().getCodigoCorrelativasCursado();
 
-                boolean todasCorrelativasRegularizadas = true;
-                for (String correlativa : correlativasCursar) {
-                    boolean correlativaRegularizada = Data.getEstudiante().getMaterias().stream()
-                            .anyMatch(m -> m.getCodigoMateria().equals(correlativa) && m.getEstado().equals(EstadoMateria.REGULARIZADA));
+            // Verifica si todas las correlativas están aprobadas o regularizadas
+            boolean todasCorrelativasCumplidas = correlativasCursar.stream().allMatch(correlativa -> {
+                // Verificar si la correlativa está regularizada o aprobada
+                return materiasRegularizadas.contains(correlativa) || materiasAprobadas.contains(correlativa);
+            });
 
-                    if (!correlativaRegularizada) {
-                        todasCorrelativasRegularizadas = false;
-                        break;
-                    }
-                }
-
-                if (!todasCorrelativasRegularizadas) {
-                    iterator.remove();
-                }
+            // Si alguna correlativa no está ni regularizada ni aprobada, remueve la materia del mapa
+            if (!todasCorrelativasCumplidas) {
+                iterator.remove();
             }
         }
 
         return materias;
     }
 
+
+
+
     /**
      * Obtiene las materias que aprobo el estudiante
      *
      * @return HashMap<String>
      */
-    public HashSet<String> obtenerMateriasAprobadas() {
+    public HashSet<String> obtenerMateriasSegunEstado(EstadoMateria estadoMateria) {
         HashSet<String> materiasAprobadas = new HashSet<>();
         for (EstadoAlumnoMateria materia : this.getMaterias()) {
-            if (materia.getEstado().equals(EstadoMateria.APROBADA)) {
+            if (materia.getEstado().equals(estadoMateria)) {
                 materiasAprobadas.add(materia.getCodigoMateria());
             }
         }
@@ -594,7 +597,7 @@ public final class Estudiante extends Usuario implements iCRUD {
                         }
                     }
 
-                    // Si la materia está regularizada o aprobada, permitir la inscripción
+                    // Si la materia está regularizada te va permitir la inscripción
                     if (materiaRegularizada) {
                         mesasExamenFiltradas.add(mesaExamen);
                     }
@@ -622,7 +625,6 @@ public final class Estudiante extends Usuario implements iCRUD {
 
         return mesasExamenFiltradas;
     }
-
 }
 
 
