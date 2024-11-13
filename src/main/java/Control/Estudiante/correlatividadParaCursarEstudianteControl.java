@@ -5,6 +5,7 @@ import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
+import Modelo.EstadoMateria;
 import Path.Path;
 import Usuarios.Estudiante;
 import Modelo.Carrera;
@@ -22,7 +23,9 @@ import javafx.stage.Stage;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import static Path.Path.menuPrincipalAlumnos;
 
@@ -59,6 +62,7 @@ public class correlatividadParaCursarEstudianteControl {
             try {
                 // Carga la carrera del estudiante y obtiene las materias
                 Carrera carrera = manejoArchivosCarrera.retornarCarrera(Path.pathCarreras, Data.getEstudiante().getCodigoCarrera());
+
                 Collection<Materia> materias = carrera.getMaterias().values();
 
                 // Convierte la colección de materias a una lista observable para la tabla
@@ -71,6 +75,21 @@ public class correlatividadParaCursarEstudianteControl {
                 // Si la materia tiene correlativas, las mostramos, si no, mostramos "Puede cursar"
                 colCorrelatividad.setCellValueFactory(cellData -> {
                     HashSet<String> correlativas = cellData.getValue().getCodigoCorrelativasCursado();
+
+                    for(int i = 0 ; i < Data.getEstudiante().getMaterias().size(); i++){
+
+                        if(cellData.getValue().getId().equals(Data.getEstudiante().getMaterias().get(i).getCodigoMateria())){
+
+                            if(Data.getEstudiante().getMaterias().get(i).getEstado().equals(EstadoMateria.APROBADA)){
+
+                                return new SimpleStringProperty("Aprobada");
+
+                            }
+
+                        }
+
+                    }
+
                     if (correlativas == null || correlativas.isEmpty()) {
                         return new SimpleStringProperty("Puede cursar");
                     } else {
