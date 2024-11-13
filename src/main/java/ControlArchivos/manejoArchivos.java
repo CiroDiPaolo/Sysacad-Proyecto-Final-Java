@@ -1,9 +1,7 @@
 package ControlArchivos;
 
 import Excepciones.ArchivoYaExistenteException;
-import Excepciones.excepcionPersonalizada;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
+import Excepciones.ParametroPeligrosoException;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ooxml.POIXMLProperties;
@@ -20,8 +18,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.*;
-
-import static Path.Path.icono;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.regex.Pattern;
 
 public final class manejoArchivos {
 
@@ -57,14 +56,24 @@ public final class manejoArchivos {
      * @return
      */
     public static JSONTokener leerArchivoJSON(String fileName) {
-
         JSONTokener tokener = null;
+        File file = new File(fileName);
 
         try {
+            if (!file.exists()) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
+
+            if (file.length() == 0) {
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("[]");
+                }
+            }
 
             tokener = new JSONTokener(new FileReader(fileName));
-
-        }catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -161,9 +170,7 @@ public final class manejoArchivos {
     public static boolean guardarObjetoJSON(String filePath, JSONObject estudiante) {
 
         JSONArray jsonArray;
-        // Inicializar el JSONArray
         try {
-            // Leer el contenido existente del archivo
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder jsonStringBuilder = new StringBuilder();
             String line;
@@ -172,27 +179,20 @@ public final class manejoArchivos {
                 jsonStringBuilder.append(line);
             }
 
-            // Cargar el arreglo existente en jsonArray
             jsonArray = new JSONArray(jsonStringBuilder.toString());
             reader.close();
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
-            // Si no se puede leer, comenzamos con un nuevo JSONArray
             jsonArray = new JSONArray();
         } catch (JSONException e) {
             System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
-            // Si hay un error de JSON, iniciamos un nuevo JSONArray
             jsonArray = new JSONArray();
         }
 
-        // Agregar la nueva persona
         try {
-
             jsonArray.put(estudiante);
-
-            // Escribir el arreglo actualizado de nuevo en el archivo
             FileWriter file = new FileWriter(filePath);
-            file.write(jsonArray.toString(4)); // Formateo a 4 espacios de indentación
+            file.write(jsonArray.toString(4));
             file.close();
 
             return true;
@@ -205,5 +205,56 @@ public final class manejoArchivos {
         return false;
     }
 
+
+    public static boolean guardarArchivo(String path, JSONArray arreglo) {
+
+        try {
+
+            FileWriter fileWriter = new FileWriter(path);
+            fileWriter.write(arreglo.toString(4));
+            fileWriter.close();
+
+            return true;
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) throws ParametroPeligrosoException {
+        if (jsonArray == null || jsonArray.isEmpty()) {
+            throw new ParametroPeligrosoException("Ocurrió un error. No se pudo completar la operación. Si el problema persiste llame a su distribuidor");
+        }
+
+        try (FileWriter fileWriter = new FileWriter(fileName)) {
+
+            fileWriter.write(jsonArray.toString(4));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean esFormatoFechaValida(String fecha) {
+        String regexFecha = "\\d{4}-\\d{2}-\\d{2}";
+        return Pattern.matches(regexFecha, fecha);
+    }
+
+    public static boolean esFormatoHoraValida(String hora) {
+        String regexHora = "\\d{2}:\\d{2}";
+        return Pattern.matches(regexHora, hora);
+    }
+
+    public static boolean esHoraValidaEnRango(LocalTime hora) {
+        LocalTime horaInicio = LocalTime.of(0, 0);  // 00:00
+        LocalTime horaFin = LocalTime.of(23, 59);   // 23:59
+
+        return !hora.isBefore(horaInicio) && !hora.isAfter(horaFin);
+    }
+
+    public static boolean esFechaValidaEnRango(LocalDate fecha) {
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate ultimoDiaAnioSiguiente = LocalDate.of(fechaActual.getYear() + 1, 12, 31);
+        return !fecha.isBefore(fechaActual) && !fecha.isAfter(ultimoDiaAnioSiguiente);
+    }
 
 }

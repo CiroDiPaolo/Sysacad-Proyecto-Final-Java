@@ -1,18 +1,17 @@
 package ControlArchivos;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
-import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
-public class manejoArchivosEstudiante {
+public final class manejoArchivosEstudiante {
 
     /**
      * Metodo que compara un DNI de un estudiante, devuelve false si no lo encontró, devuelve true si lo encontró
@@ -33,10 +32,8 @@ public class manejoArchivosEstudiante {
                 JSONObject estudianteExistente = estudiantesArray.getJSONObject(i);
                 String dniExistente = estudianteExistente.getString("dni");
                 String codigoCarreraExistente = estudianteExistente.getString("codigoCarrera");
-
-                // Verificar si el DNI y el código de carrera coinciden
                 if (dniEstudiante.equals(dniExistente) && codigoCarreraEstudiante.equals(codigoCarreraExistente)) {
-                    return true; // Coincidencia encontrada
+                    return true;
                 }
             }
         } catch (IOException e) {
@@ -74,5 +71,20 @@ public class manejoArchivosEstudiante {
         return null;
     }
 
+    public static ArrayList<String> filtrarParcialesPorMateria(Map<String, List<Integer>> parciales, String codigoMateria){
+
+        ArrayList<String> parcialesMateria = new ArrayList<>();
+
+        for (Map.Entry<String, List<Integer>> entry : parciales.entrySet()) {
+            if (entry.getKey().equals(codigoMateria)) {
+                for (Integer nota : entry.getValue()) {
+                    parcialesMateria.add(nota.toString());
+                }
+            }
+        }
+
+        return parcialesMateria;
+
+    }
 
 }

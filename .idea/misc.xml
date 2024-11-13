@@ -4,12 +4,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/Sysacad_Programacion/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-      </list>
-    </option>
-    <option name="ignoredPathMasks">
-      <list>
-        <option value="$PROJECT_DIR$/target" />
       </list>
     </option>
   </component>

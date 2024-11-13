@@ -6,7 +6,7 @@ import org.json.JSONObject;
  * La clase EstadoMesa sirve para llevar un seguimiento de la mesa que rindió el alumno.
  * Tiene un codigo de la mesa en la que rindió, una nota y un boolean que sirve para saber si se presentó o no.
  */
-public class EstadoAlumnoMesa {
+public final class EstadoAlumnoMesa {
 
     private String codigoMesa;
     private int nota;
@@ -16,6 +16,12 @@ public class EstadoAlumnoMesa {
         this.codigoMesa = codigoMesa;
         this.nota = nota;
         this.presente = presente;
+    }
+
+    public EstadoAlumnoMesa(EstadoAlumnoMesa original) {
+        this.codigoMesa = original.codigoMesa;
+        this.nota = original.nota;
+        this.presente = original.presente;
     }
 
     public EstadoAlumnoMesa() {

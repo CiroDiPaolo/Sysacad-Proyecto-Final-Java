@@ -4,8 +4,11 @@ module com.example.sysacad_programacion {
     requires java.logging;
     requires org.json;
     requires org.apache.poi.ooxml;
+    requires java.desktop;
 
 
+    opens Modelo to javafx.base;
+    exports Modelo;
     opens App to javafx.fxml;
     exports App;
     exports Control;

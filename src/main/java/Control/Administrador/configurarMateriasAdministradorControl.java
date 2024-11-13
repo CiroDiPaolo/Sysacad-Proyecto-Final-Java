@@ -1,6 +1,9 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Control.InicioSesion.Data;
+import ControlArchivos.manejoArchivosCarrera;
+import Excepciones.CamposVaciosException;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
+import static Path.Path.elegirMateriaAdministrador;
+import static Path.Path.pathCarreras;
 
 public final class configurarMateriasAdministradorControl {
 
@@ -29,19 +35,17 @@ public final class configurarMateriasAdministradorControl {
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
-
+        escena.cambiarEscena(Path.cargarMateriasAdministrador,stage,"Cargar materia");
     }
 
     @FXML
     void clickBtnOp2(ActionEvent event) {
-
+        escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-
-        escena.cambiarEscena(Path.menuPrincipalAdministrador, stage, "Menu Principal");
-
+        escena.cambiarEscena(Path.opcionEditarCarreraAdministrador, stage, "Configurar carrera");
     }
 
     @FXML

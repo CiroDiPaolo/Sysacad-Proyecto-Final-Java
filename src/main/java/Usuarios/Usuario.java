@@ -4,7 +4,6 @@ import ControlArchivos.manejoArchivos;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 /**
  * La clase Usuario es una clase abstracta ya que sirve como base para las clases Estudiantes, Administrador, Profesor
@@ -63,18 +62,6 @@ public abstract class Usuario {
         fechaDeAlta = LocalDate.now();
     }
 
-
-
-    /**
-     * Este enum representa los tipos de usuario que existen(las clases que heredan de usuario).
-     * Se utiliza en la funcion de generarLegajoRandom
-     */
-    public enum ETipoUsuario{
-        ALUMNO,
-        PROFESOR,
-        ADMINISTRADOR
-    }
-
     //GETTERS
 
     public String getNombre() { return nombre; }
@@ -95,7 +82,7 @@ public abstract class Usuario {
 
     public LocalDate getFechaDeAlta() {return fechaDeAlta;}
 
-    public boolean isActividad() {
+    public boolean getActividad() {
         return actividad;
     }
 
@@ -142,18 +129,6 @@ public abstract class Usuario {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario that = (Usuario) o;
-        return Objects.equals(dni, that.dni) && Objects.equals(legajo, that.legajo);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dni, legajo);
-    }
 
     /**
      * Retorna el legajo siguiente correspondiente segun la clase
@@ -174,12 +149,12 @@ public abstract class Usuario {
         {
             auxiliar2 = auxiliar2.concat("0");
         }
-        
+
         try{
             if(clase == Estudiante.class)
             {
                 nuevoLegajo = ("E").concat(auxiliar2).concat(auxiliar);
-                
+
             } else if (clase == Profesor.class){
                 nuevoLegajo = ("P").concat(auxiliar2).concat(auxiliar);
             } else if (clase == Administrador.class)
@@ -192,36 +167,83 @@ public abstract class Usuario {
         {
             System.out.println("No ingresaste una clase correcta");
         }
-        
-        
+
+
         return null;
     }
 
-    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario)
-    {
+    /**
+     * Compara un JSONObject con un usuario
+     * @param jsonObject
+     * @param usuario
+     * @return
+     */
+    public static boolean compararJSONObjectConUsuario(JSONObject jsonObject, Usuario usuario) {
+
         boolean comparar = true;
 
-        if(!jsonObject.getString("nombre").equals(usuario.getNombre()))
-        {
+        if (!jsonObject.getString("nombre").equals(usuario.getNombre())) {
             comparar = false;
-        } else if(!jsonObject.getString("apellido").equals(usuario.getApellido())) {
+        } else if (!jsonObject.getString("apellido").equals(usuario.getApellido())) {
             comparar = false;
         } else if (!jsonObject.getString("dni").equals(usuario.getDni())) {
             comparar = false;
         } else if (!jsonObject.getString("contrasenia").equals(usuario.getContrasenia())) {
             comparar = false;
-        } else if (jsonObject.getBoolean("actividad")!=usuario.isActividad()) {
+        } else if (jsonObject.getBoolean("actividad") != usuario.getActividad()) {
+            comparar = false;
+        } else if (!jsonObject.getString("correo").equals(usuario.getCorreo())) {
             comparar = false;
         }
+
         return comparar;
     }
 
+    public JSONObject usuarioAJSONObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("nombre",this.nombre);
+        jsonObject.put("apellido",this.apellido);
+        jsonObject.put("dni",this.dni);
+        jsonObject.put("legajo",this.legajo);
+        jsonObject.put("contrasenia",this.contrasenia);
+        jsonObject.put("correo",this.correo);
+        jsonObject.put("fechaDeAlta",this.fechaDeAlta.toString());
+        jsonObject.put("actividad",this.actividad);
+        return jsonObject;
+    }
+
+    public static Usuario JSONObjectAUsuario(JSONObject jsonObject) {
+        String nombre = jsonObject.optString("nombre", "");
+        String apellido = jsonObject.optString("apellido", "");
+        String dni = jsonObject.optString("dni", "");
+        String legajo = jsonObject.optString("legajo", "");
+        String contrasenia = jsonObject.optString("contrasenia", "");
+        String correo = jsonObject.optString("correo", "");
+        LocalDate fechaDeAlta = LocalDate.parse(jsonObject.optString("fechaDeAlta"));
+        boolean actividad = jsonObject.optBoolean("actividad", true);
+
+        return new Profesor(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
+    }
+    /**
+     * Revisa que el correo sea valido
+     * @param email
+     * @return
+     */
     public static boolean esCorreoValido(String email) {
         String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         return email.matches(regex);
     }
 
+    /**
+     * Revisa que un dni sea valido
+     * @param dni
+     * @return
+     */
     public static boolean esDniValido(String dni) {
         return dni.matches("\\d{8}");
+    }
+
+    public static boolean stringValido(String texto) {
+        return texto != null && !texto.trim().isEmpty() && texto.equals(texto.trim());
     }
 }

@@ -1,7 +1,7 @@
 package Control.Estudiante;
 
 import Control.EscenaControl;
-import Control.InicioSesion.inicioSesionData;
+import Control.InicioSesion.Data;
 import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -172,9 +172,9 @@ public final class menuPrincipalEstudianteControl {
      */
     protected void setTxtBienvenida() {
 
-        String legajo = inicioSesionData.getLegajo();
+        String legajo = Data.getLegajo();
 
-        Estudiante estudiante = inicioSesionData.getEstudiante();
+        Estudiante estudiante = Data.getEstudiante();
 
         txtBienvenida.setText("Bienvenido, " + estudiante.getNombre() + " " + estudiante.getApellido());
     }

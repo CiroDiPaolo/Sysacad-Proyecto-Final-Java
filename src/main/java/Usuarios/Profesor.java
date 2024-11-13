@@ -1,13 +1,19 @@
 package Usuarios;
 
 import ControlArchivos.manejoArchivos;
+import ControlArchivos.manejoArchivosComisiones;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
+import Modelo.Comision;
 import Modelo.iCRUD;
+import Path.Path;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * La clase Profesor no contiene atributos pero es para diferenciar sus funciones de los otros tipos de usuario.
@@ -22,11 +28,7 @@ public final class Profesor extends Usuario implements iCRUD {
     public Profesor() {}
 
     public Profesor(String nombre, String apellido, String dni, String legajo, String contrasenia, String correo, LocalDate fechaDeAlta, boolean actividad) {
-    }
-
-    @Override
-    public String toString() {
-        return "| Profesor: " + getNombre();
+        super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
     }
 
     @Override
@@ -79,12 +81,12 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean actualizar(String path, JSONObject jsonObject) {
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         return false;
     }
 
     @Override
-    public boolean leer(String path) {
+    public boolean leer(String path, String legajo) {
         return false;
     }
 
@@ -93,6 +95,15 @@ public final class Profesor extends Usuario implements iCRUD {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    /**
+     * Convierte un profesor a un JSONObject y lo retorna
+     * @return
+     */
     public JSONObject profesorAJSONObject(){
 
         JSONObject profesor = new JSONObject();
@@ -104,13 +115,17 @@ public final class Profesor extends Usuario implements iCRUD {
         profesor.put("legajo",getLegajo());
         profesor.put("contrasenia",getContrasenia());
         profesor.put("fechaDeAlta",getFechaDeAlta().toString());
-        profesor.put("actividad",isActividad());
+        profesor.put("actividad", getActividad());
 
         return profesor;
 
     }
 
-
+    /**
+     * Convierte un JSONObject a un profesor y lo retorna
+     * @param profesor
+     * @return
+     */
     public static Profesor JSONObjectAProfesor(JSONObject profesor){
 
         String nombre = profesor.getString("nombre");
@@ -126,6 +141,21 @@ public final class Profesor extends Usuario implements iCRUD {
 
     }
 
+    public HashSet<Comision> obtenerComisiones(String path){
 
+        HashSet<Comision> comisiones = (manejoArchivosComisiones.obtenerComisionesPorAnio(Path.pathComisiones,String.valueOf(LocalDate.now().getYear())));
+
+        Iterator<Comision> it = comisiones.iterator();
+
+        while (it.hasNext()) {
+            Comision comision = it.next();
+            if (!comision.getCodigoProfesor().equals(getLegajo())) {
+                it.remove();
+            }
+        }
+
+        return comisiones;
+
+    }
 
 }

@@ -3,7 +3,11 @@ package Modelo;
 import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.ArchivoYaExistenteException;
 import Path.Path;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -125,6 +129,68 @@ public final class Carrera {
     @Override
     public int hashCode() {
         return Objects.hash(id, nombre);
+    }
+
+
+    /**
+     * Convierte una Carrera a un JSONObject
+     * @return JSONObject
+     */
+    public JSONObject carreraAJSONObject() {
+        JSONObject obj = new JSONObject();
+
+        obj.put("nombre", this.getNombre());
+        obj.put("id", this.getId());
+        obj.put("plan", this.getPlan());
+        obj.put("actividad", this.isActividad());
+
+        JSONArray materiasArray = new JSONArray();
+        for (Map.Entry<String, Materia> entry : this.getMaterias().entrySet()) {
+            JSONObject materiaObj = entry.getValue().materiaAJSONObject();
+            materiaObj.put("codigo", entry.getKey());
+            materiasArray.put(materiaObj);
+        }
+        obj.put("materias", materiasArray);
+
+        return obj;
+    }
+
+    /**
+     * Convierte un JSONObject a una carrera
+     * @param jsonObject
+     * @return Carrera
+     */
+    public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
+        String id = jsonObject.getString("id");
+        String nombre = jsonObject.getString("nombre");
+        String plan = jsonObject.getString("plan");
+        boolean actividad = jsonObject.getBoolean("actividad");
+
+        HashMap<String, Materia> materias = new HashMap<>();
+        JSONArray materiasArray = jsonObject.getJSONArray("materias");
+
+        for (int i = 0; i < materiasArray.length(); i++) {
+            JSONObject materiaJson = materiasArray.getJSONObject(i);
+            String codigo = materiaJson.getString("id");
+            Materia materia = Materia.JSONObjectAMateria(materiaJson);
+            materias.put(codigo, materia);
+        }
+
+        return new Carrera(id, nombre, plan, materias, actividad);
+    }
+
+    /**
+     * Imprime la informacion de una carrera
+     */
+    public void imprimirInformacion() {
+        System.out.println("Carrera ID: " + id);
+        System.out.println("Nombre de la Carrera: " + nombre);
+        System.out.println("Materias y sus correlativas:");
+
+        for (Materia materia : materias.values()) {
+            System.out.println("- " + materia.getNombre() + " (ID: " + materia.getId() + ")");
+            System.out.println("  Correlativas: " + materia.getCodigoCorrelativasRendir());
+        }
     }
 
 }

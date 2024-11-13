@@ -1,7 +1,8 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
-import Control.InicioSesion.inicioSesionData;
+import Control.InicioSesion.Data;
+import Excepciones.ArchivoNoEncontrado;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -53,14 +54,12 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
-
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar Materias");
+        escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar Carrera");
 
     }
 
     @FXML
     void clickBtnOp2(ActionEvent event) {
-
         escena.cambiarEscena(configurarAlumnosAdministrador,stage,"Configurar Alumno");
 
     }
@@ -81,7 +80,7 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp5(ActionEvent event) {
-
+        escena.cambiarEscena(busquedaCarrera2Administrador, stage, "Inscripciones");
     }
 
     @FXML
@@ -113,9 +112,13 @@ public final class  menuPrincipalAdministradorControl {
 
     protected void setTxtBienvenida() {
 
-        String legajo = inicioSesionData.getLegajo();
+        String legajo = Data.getLegajo();
 
-        txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
+        try {
+            txtBienvenida.setText("Bienvenido, " + Consultas.consultaArchivo.buscarNombreCompleto(fileNameAdministrador, legajo));
+        } catch (ArchivoNoEncontrado e) {
+            e.getMessage();
+        }
 
     }
 

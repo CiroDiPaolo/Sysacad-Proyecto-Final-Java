@@ -1,23 +1,25 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *La clase EstadoMateria sirve para saber el estado de una materia ya sea que la cursó o no de un alumno.
- * Guarda un codigo de la materia, estado(0 = no regularizada, 1= regularizada, 2 = aprobada), un string con las notas parciales,
+ * Guarda un codigo de la materia, estado(no regularizada, regularizada,aprobada), un string con las notas parciales,
  * un string con las mesas de examen en caso que haya rendido examen final, un tomo, un folio y el codigo de la comision en la cual cursó esa materia.
  */
-public class EstadoAlumnoMateria {
+public final class EstadoAlumnoMateria {
 
     private String codigoMateria;
-    private int estado;
+    private EstadoMateria estado;
     private HashMap<String, Integer> notas;
     private HashMap<String, EstadoAlumnoMesa> mesasExamen;
     private String tomo;
     private String folio;
     private String codigoComision;
 
-    public EstadoAlumnoMateria(String codigoMateria, int estado, HashMap<String, Integer> notas, HashMap<String, EstadoAlumnoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
+    public EstadoAlumnoMateria(String codigoMateria, EstadoMateria estado, HashMap<String, Integer> notas, HashMap<String, EstadoAlumnoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;
         this.estado = estado;
         this.notas = notas;
@@ -27,7 +29,7 @@ public class EstadoAlumnoMateria {
         this.codigoComision = codigoComision;
     }
 
-    public EstadoAlumnoMateria(String codigoMateria, int estado, String tomo, String folio, String codigoComision) {
+    public EstadoAlumnoMateria(String codigoMateria, EstadoMateria estado, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;
         this.estado = estado;
         this.tomo = tomo;
@@ -37,12 +39,25 @@ public class EstadoAlumnoMateria {
 
     public EstadoAlumnoMateria() {
         codigoMateria = "";
-        estado = 0;
+        estado = null;
         tomo = "0";
         folio = "0";
         codigoComision = "0";
     }
 
+    // Constructor de copia profunda
+    public EstadoAlumnoMateria(EstadoAlumnoMateria estado) {
+        this.codigoMateria = estado.codigoMateria;
+        this.estado = estado.estado;
+        this.tomo = estado.tomo;
+        this.folio = estado.folio;
+        this.codigoComision = estado.codigoComision;
+        this.notas = new HashMap<>(estado.notas);
+        this.mesasExamen = new HashMap<>();
+        for (Map.Entry<String, EstadoAlumnoMesa> entry : estado.mesasExamen.entrySet()) {
+            this.mesasExamen.put(entry.getKey(), new EstadoAlumnoMesa(entry.getValue()));
+        }
+    }
 
     //Getters
 
@@ -50,7 +65,7 @@ public class EstadoAlumnoMateria {
         return codigoMateria;
     }
 
-    public int getEstado() {
+    public EstadoMateria getEstado() {
         return estado;
     }
 
@@ -80,7 +95,7 @@ public class EstadoAlumnoMateria {
         this.codigoMateria = codigoMateria;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(EstadoMateria estado) {
         this.estado = estado;
     }
 
@@ -103,4 +118,5 @@ public class EstadoAlumnoMateria {
     public void setCodigoComision(String codigoComision) {
         this.codigoComision = codigoComision;
     }
+
 }

@@ -1,24 +1,20 @@
 package ControlArchivos;
 
 import Consultas.consultaArchivo;
-import Excepciones.ArchivoYaExistenteException;
-import Excepciones.CarreraInexistenteException;
+import Excepciones.*;
 import Modelo.Carrera;
 import Modelo.Materia;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import Path.Path;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
-import static Path.Path.pathCarreras;
+import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 import static Path.Path.pathComisiones;
+import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 
-public class manejoArchivosCarrera {
+public final class manejoArchivosCarrera {
 
     /**
      * Metodo que carga unca carrera a un archivo JSON si es que la carrera no existe.
@@ -70,7 +66,7 @@ public class manejoArchivosCarrera {
 
         }else{
 
-            throw new ArchivoYaExistenteException("La carrera ya existeeeeeeeee");
+            throw new ArchivoYaExistenteException("La carrera ya existe");
 
         }
 
@@ -85,57 +81,13 @@ public class manejoArchivosCarrera {
 
     public static void crearJSONCarrera(String path, Carrera c){
 
-        JSONObject obj = manejoArchivosCarrera.carreraAJSONObject(c);
+        JSONObject obj = c.carreraAJSONObject();
 
         try {
             cargarJSONcarrera(path ,obj);
         } catch (ArchivoYaExistenteException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    /**
-     * Convierte una Carrera a un JSONObject
-     * @param c
-     * @return JSONObject
-     */
-    public static JSONObject carreraAJSONObject(Carrera c){
-
-        JSONObject obj = new JSONObject();
-
-        obj.put("nombre",c.getNombre());
-        obj.put("id",c.getId());
-        obj.put("plan",c.getPlan());
-        obj.put("actividad",c.isActividad());
-        obj.put("materias",c.getMaterias());
-
-        return obj;
-    }
-
-    /**
-     * Convierte un JSONObject a una carrera
-     * @param jsonObject
-     * @return Carrera
-     */
-    public static Carrera JSONObjectACarrera(JSONObject jsonObject) {
-        // Extraemos los datos de Carrera desde el JSONObject
-        String id = jsonObject.getString("id");
-        String nombre = jsonObject.getString("nombre");
-        String plan = jsonObject.getString("plan");
-        boolean actividad = jsonObject.getBoolean("actividad");
-
-        // Convertimos el JSON de materias a HashMap<String, Materia>
-        HashMap<String, Materia> materias = new HashMap<>();
-        JSONObject materiasJson = jsonObject.getJSONObject("materias");
-
-        for (String key : materiasJson.keySet()) {
-            JSONObject materiaJson = materiasJson.getJSONObject(key);
-            Materia materia = Materia.JSONObjectAMateria(materiaJson);
-            materias.put(materia.getId(), materia);
-        }
-
-        // Creamos y devolvemos una instancia de Carrera
-        return new Carrera(id, nombre, plan, materias, actividad);
     }
 
     /**
@@ -214,6 +166,128 @@ public class manejoArchivosCarrera {
         }
 
         return "";
+    }
+
+    public static Carrera retornarCarrera(String fileName, String carrera) throws CamposVaciosException, DatosIncorrectosException {
+        if(!carrera.isEmpty())
+        {
+            JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+            boolean flag = false;
+            int i = 0;
+
+            while(i<arreglo.length() && !flag)
+            {
+                if(arreglo.getJSONObject(i).getString("id").equals(carrera))
+                {
+                    return Carrera.JSONObjectACarrera(arreglo.getJSONObject(i));
+                }
+                i++;
+            }
+
+            if(!flag){
+                throw new DatosIncorrectosException("El ID " + carrera + " no corresponde a ninguna carrera");
+            }
+        }else
+        {
+            throw new CamposVaciosException("Intentaste ingresar un campo vacio. Volve a intentarlo.");
+        }
+
+        return null;
+    }
+
+    public static boolean agregarMateria(String fileName, Materia nuevaMateria, String idCarrera) throws EntidadYaExistente {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        boolean carreraEncontrada = false;
+
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+
+            if (carreraJSON.getString("id").equals(idCarrera)) {
+                carreraEncontrada = true;
+
+                JSONArray materias = carreraJSON.getJSONArray("materias");
+                for (int j = 0; j < materias.length(); j++) {
+                    JSONObject materiaJSON = materias.getJSONObject(j);
+                    if (materiaJSON.getString("id").equals(nuevaMateria.getId())) {
+                        throw new EntidadYaExistente("La materia ya existe en la carrera");
+                    }
+                }
+                materias.put(nuevaMateria.materiaAJSONObject());
+                carreraJSON.put("materias", materias);
+                try {
+                    sobreescribirArchivoJSON(fileName, arreglo);
+                } catch (ParametroPeligrosoException e) {
+                    e.getMessage();
+                }
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    public static boolean actualizarMateria(String fileName, JSONObject nuevaMateria, String idCarrera) {
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+
+            if (carreraJSON.getString("id").equals(idCarrera)) {
+                JSONArray materias = carreraJSON.optJSONArray("materias");
+
+                if (materias != null) {
+                    for (int j = 0; j < materias.length(); j++) {
+                        JSONObject materiaActual = materias.getJSONObject(j);
+
+                        if (materiaActual.getString("id").equals(nuevaMateria.getString("id"))) {
+                            materias.put(j, nuevaMateria);
+                            break;
+                        }
+                    }
+                } else {
+                    materias = new JSONArray();
+                    materias.put(nuevaMateria);
+                    carreraJSON.put("materias", materias);
+                }
+
+                arreglo.put(i, carreraJSON);
+                try{
+                    sobreescribirArchivoJSON(fileName, arreglo);
+                }catch (ParametroPeligrosoException e)
+                {
+                    e.getMessage();
+                }
+
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static Materia obtenerMateria(String fileName,String idMateria){
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+            JSONArray materias = carreraJSON.optJSONArray("materias");
+
+            if (materias != null) {
+                for (int j = 0; j < materias.length(); j++) {
+                    JSONObject materiaActual = materias.getJSONObject(j);
+
+                    if (materiaActual.getString("id").equals(idMateria)) {
+                        return Materia.JSONObjectAMateria(materiaActual);
+                    }
+                }
+            }
+        }
+
+        return null;
+
     }
 
 }
