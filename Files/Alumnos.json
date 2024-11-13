@@ -9,7 +9,7 @@
         "nombre": "Melisaa",
         "materias": [
             {
-                "estado": "REGULARIZADA",
+                "estado": "APROBADA",
                 "notas": [
                     {"segundoParcial": 0},
                     {"primerParcial": 0}
@@ -21,7 +21,7 @@
                 "tomo": "0"
             },
             {
-                "estado": "APROBADA",
+                "estado": "NO_REGULARIZADA",
                 "notas": [
                     {"segundoParcial": 0},
                     {"primerParcial": 0}
@@ -30,30 +30,6 @@
                 "mesasExamen": [],
                 "codigoComision": "001-2",
                 "id": "2",
-                "tomo": "0"
-            },
-            {
-                "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-3",
-                "id": "3",
-                "tomo": "0"
-            },
-            {
-                "estado": "APROBADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-8",
-                "id": "8",
                 "tomo": "0"
             },
             {

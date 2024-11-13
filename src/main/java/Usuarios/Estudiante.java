@@ -513,6 +513,14 @@ public final class Estudiante extends Usuario implements iCRUD {
             }
         }
 
+        for(int i = 0 ; i < Data.getEstudiante().getMaterias().size() ; i++){
+
+            if(Data.getEstudiante().getMaterias().get(i).getEstado().equals(EstadoMateria.NO_REGULARIZADA)){
+                materias.remove(Data.getEstudiante().getMaterias().get(i).getCodigoMateria());
+            }
+
+        }
+
         return materias;
     }
 
