@@ -60,9 +60,9 @@ public final class EstadoAlumnoMesa {
 
     public static EstadoAlumnoMesa JSONObjectAEstadoAlumnoMesa(JSONObject jsonObject) {
         return new EstadoAlumnoMesa(
-                (jsonObject.getString("key")),
-                (jsonObject.getInt("value")),
-                (jsonObject.getBoolean("presente"))
+                jsonObject.getString("codigoAlumno"),
+                jsonObject.getInt("nota"),
+                jsonObject.getBoolean("estado")
         );
     }
 
@@ -73,8 +73,9 @@ public final class EstadoAlumnoMesa {
     public JSONObject EstadoAlumnoMesaAJSONObjetc() {
         JSONObject json = new JSONObject();
         json.put("codigoAlumno", this.codigoMesa);
-        json.put("estado", this.presente);
+        json.put("estado", this.isPresente());
         json.put("nota", nota);
+
         return json;
     }
 
