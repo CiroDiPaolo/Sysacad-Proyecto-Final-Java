@@ -37,9 +37,6 @@ public final class  menuPrincipalAdministradorControl {
     private Button btnOp6;
 
     @FXML
-    private Button btnOp7;
-
-    @FXML
     private Button btnOp8;
 
     @FXML
@@ -50,16 +47,18 @@ public final class  menuPrincipalAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnOp1(ActionEvent event) {
+
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar Carrera");
 
     }
 
     @FXML
     void clickBtnOp2(ActionEvent event) {
+
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarAlumnosAdministrador,stage,"Configurar Alumno");
 
     }
@@ -67,20 +66,17 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp3(ActionEvent event) {
 
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(congifurarProfesorAdministrador,stage,"Configurar Profesor");
 
     }
 
     @FXML
-    void clickBtnOp4(ActionEvent event) {
-
-        escena.cambiarEscena(Path.configurarMesaExamenAdministrador,stage,"Configurar Mesa de Examen");
-
-    }
-
-    @FXML
     void clickBtnOp5(ActionEvent event) {
+
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(busquedaCarrera2Administrador, stage, "Inscripciones");
+
     }
 
     @FXML
@@ -88,14 +84,11 @@ public final class  menuPrincipalAdministradorControl {
 
     }
 
-    @FXML
-    void clickBtnOp7(ActionEvent event) {
-
-    }
 
     @FXML
     void clickBtnOp8(ActionEvent event) {
 
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(inicioSesion, stage, "Inicio de Sesion");
 
     }

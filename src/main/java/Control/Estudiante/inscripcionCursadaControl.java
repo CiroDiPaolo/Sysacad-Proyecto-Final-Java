@@ -28,9 +28,6 @@ public class inscripcionCursadaControl {
     private Button btnVolver;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TableColumn<Materia, String> colAnio;
 
     @FXML

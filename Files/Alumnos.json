@@ -21,10 +21,10 @@
                 "tomo": "0"
             },
             {
-                "estado": "REGULARIZADA",
+                "estado": "NO_REGULARIZADA",
                 "notas": [
-                    {"segundoParcial": 9},
-                    {"primerParcial": 10}
+                    {"segundoParcial": 0},
+                    {"primerParcial": 0}
                 ],
                 "folio": "0",
                 "mesasExamen": [],
@@ -33,51 +33,15 @@
                 "tomo": "0"
             },
             {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 9},
-                    {"primerParcial": 8}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-3",
-                "id": "3",
-                "tomo": "0"
-            },
-            {
                 "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 9},
-                    {"primerParcial": 10}
-                ],
+                "notas": [{
+                    "segundoParcial": 0,
+                    "primerParcial": 0
+                }],
                 "folio": "0",
                 "mesasExamen": [],
-                "codigoComision": "001-8",
-                "id": "8",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-7",
-                "id": "7",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-5",
-                "id": "5",
+                "codigoComision": "001-4",
+                "id": "4",
                 "tomo": "0"
             }
         ],
@@ -108,7 +72,7 @@
         "actividad": true
     },
     {
-        "legajo": "E123",
+        "legajo": "123",
         "apellido": "Carrizo",
         "correo": "melisacarrizo5@gmail.com",
         "codigoCarrera": "001",
@@ -117,10 +81,10 @@
         "nombre": "Melisaa",
         "materias": [
             {
-                "estado": "NO_REGULARIZADA",
+                "estado": "APROBADA",
                 "notas": [
-                    {"segundoParcial": 8},
-                    {"primerParcial": -5}
+                    {"segundoParcial": 0},
+                    {"primerParcial": 0}
                 ],
                 "folio": "0",
                 "mesasExamen": [],
@@ -190,18 +154,6 @@
             }
         ],
         "dni": "46557012",
-        "actividad": true
-    },
-    {
-        "legajo": "E000024",
-        "apellido": "Di Biassi",
-        "correo": "an10dibiassi@gmail.com",
-        "codigoCarrera": "001",
-        "fechaDeAlta": "2024-11-13",
-        "contrasenia": "46420341",
-        "nombre": "Angie",
-        "materias": [],
-        "dni": "46420341",
         "actividad": true
     }
 ]

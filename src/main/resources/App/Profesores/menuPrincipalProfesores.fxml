@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.menuPrincipalProfesoresControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.menuPrincipalProfesoresControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-745.0" layoutY="-162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -22,7 +22,7 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-56.0" layoutY="-107.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1304.0" layoutX="-62.0" layoutY="-20.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2106.0" />
       <VBox alignment="TOP_CENTER" layoutX="616.0" layoutY="40.0" prefHeight="227.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
@@ -53,8 +53,8 @@
          </image>
       </ImageView>
       <Rectangle fill="#2a3b47" height="676.0" layoutX="613.0" layoutY="279.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="694.0" AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="603.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="900.0" layoutY="864.0" stroke="BLACK" strokeType="INSIDE" width="120.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="900.0" />
-      <Button fx:id="btnSalir" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="893.0" layoutY="853.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnSalir" prefHeight="82.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="893.0" AnchorPane.rightAnchor="894.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="900.0" layoutY="856.0" stroke="BLACK" strokeType="INSIDE" width="120.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="900.0" />
+      <Button fx:id="btnSalir" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="894.0" layoutY="846.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnSalir" prefHeight="82.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Salir" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="894.0" AnchorPane.rightAnchor="893.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -62,8 +62,35 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="830.0" layoutY="317.0" stroke="BLACK" strokeType="INSIDE" width="261.0" AnchorPane.leftAnchor="830.0" AnchorPane.rightAnchor="829.0" />
-      <Button fx:id="btnComisiones" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="829.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnComisiones" prefHeight="82.0" prefWidth="261.0" style="-fx-background-color: transparent;" text="Comisiones" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="830.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="801.0" layoutY="393.0" stroke="BLACK" strokeType="INSIDE" width="318.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="801.0" />
+      <Button fx:id="btnVerComisiones" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="798.0" layoutY="383.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVerComisiones" prefHeight="82.0" prefWidth="325.0" style="-fx-background-color: transparent;" text="Ver comisiones" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="798.0" AnchorPane.rightAnchor="797.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="789.0" layoutY="490.0" stroke="BLACK" strokeType="INSIDE" width="318.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="801.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="789.0" layoutY="666.0" stroke="BLACK" strokeType="INSIDE" width="318.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="801.0" />
+      <Button fx:id="btnVerMaterias" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="798.0" layoutY="479.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVerMaterias" prefHeight="82.0" prefWidth="325.0" style="-fx-background-color: transparent;" text="Ver materias" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="798.0" AnchorPane.rightAnchor="797.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnCrearExcel" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="798.0" layoutY="655.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnCrearExcel" prefHeight="82.0" prefWidth="325.0" style="-fx-background-color: transparent;" text="Crear Excel" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="798.0" AnchorPane.rightAnchor="797.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="789.0" layoutY="580.0" stroke="BLACK" strokeType="INSIDE" width="318.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="801.0" />
+      <Button fx:id="btnVerMesas" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="798.0" layoutY="572.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVerMesas" prefHeight="82.0" prefWidth="325.0" style="-fx-background-color: transparent;" text="Ver mesas" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="798.0" AnchorPane.rightAnchor="797.0">
          <font>
             <Font size="40.0" />
          </font>
