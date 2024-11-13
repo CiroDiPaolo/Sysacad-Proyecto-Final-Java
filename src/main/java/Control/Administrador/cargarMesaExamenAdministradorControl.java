@@ -110,7 +110,7 @@ public class cargarMesaExamenAdministradorControl {
             boolean apertura = checkBoxApertura.isSelected();
             boolean actividad = checkBoxActividad.isSelected();
 
-            MesaExamen mesaExamen = new MesaExamen(id,turno,codigoCarrera,codigoMateria,codigoPresidente,vocales,fecha,hora,cupos,aula,apertura,actividad);
+            MesaExamen mesaExamen = new MesaExamen(id,turno,codigoCarrera,codigoMateria,codigoPresidente,vocales,fecha,hora,cupos,aula,apertura,actividad, new HashSet<>());
 
             try{
                 if(mesaExamen.crear(pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear())))
