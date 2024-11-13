@@ -73,20 +73,26 @@ public class materiasDelPlanEstudianteControl {
 
             stage = (Stage) btnVolver.getScene().getWindow();
 
+        // Obtener las materias del estudiante. Aquí deberías reemplazarlo con la lógica
+        // correspondiente para obtener las materias del plan de estudio del estudiante
+
             try {
 
-                Carrera carrera = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera());
+                 Carrera carrera = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera());
 
                 Collection<Materia> materias = carrera.getMaterias().values();
 
                 ObservableList<Materia> materiasList = FXCollections.observableArrayList(materias);
 
+                 // Configuración de las columnas de la tabla
                 anio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAnio()));
                 dic.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCuatrimestre()));
                 materia.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
                 seCursa.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isSeCursa() ? "Sí" : "No"));
                 seRinde.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isSeRinde() ? "Sí" : "No"));
 
+
+                // Asignamos los datos a la tabla
                 tableMaterias.setItems(materiasList);
 
             } catch (CamposVaciosException e) {
@@ -99,8 +105,9 @@ public class materiasDelPlanEstudianteControl {
 
             }
 
-        });
 
-    }
+    });
+
+ }
 
 }
