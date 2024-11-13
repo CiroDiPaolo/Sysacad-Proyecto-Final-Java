@@ -1,0 +1,54 @@
+[
+    {
+        "fecha": "2024-11-15",
+        "codigoPresidente": "P000001",
+        "aula": "Aula 118",
+        "codigoMateria": "3",
+        "hora": "12:30",
+        "codigoCarrera": "001",
+        "vocales": [
+            "P000002",
+            "P000003"
+        ],
+        "id": "001-3",
+        "turno": "MANIANA",
+        "cupos": 1,
+        "apertura": true,
+        "actividad": true
+    },
+    {
+        "fecha": "2024-12-01",
+        "codigoPresidente": "P000003",
+        "aula": "Aula 18",
+        "codigoMateria": "12",
+        "hora": "15:00",
+        "codigoCarrera": "001",
+        "vocales": [
+            "P000004",
+            "P000001"
+        ],
+        "id": "001-12",
+        "turno": "MANIANA",
+        "cupos": 6,
+        "apertura": true,
+        "actividad": true
+    },
+    {
+        "codigoPresidente": "P000002",
+        "aula": "18",
+        "codigoMateria": "3",
+        "hora": "14:00",
+        "codigoCarrera": "001",
+        "vocales": [
+            "P000003",
+            "P000001"
+        ],
+        "turno": "MANIANA",
+        "cupos": 1,
+        "apertura": true,
+        "actividad": true,
+        "fecha": "2024-12-05",
+        "alumnosInscriptos": [],
+        "id": "002-3"
+    }
+]
