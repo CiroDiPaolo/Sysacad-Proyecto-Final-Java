@@ -1,9 +1,14 @@
 package ControlArchivos;
 
+import Excepciones.excepcionPersonalizada;
 import Usuarios.Profesor;
 import Usuarios.Usuario;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
@@ -50,6 +55,33 @@ public class manejoArchivosProfesor {
         }
 
         return null;
+    }
+
+    public static boolean actualizarProfesor(JSONObject profesor,  String fileName)
+    {
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        JSONArray arregloActualizado = new JSONArray();
+
+        for(int i = 0; i<arreglo.length(); i++)
+        {
+            JSONObject jsonObject = arreglo.getJSONObject(i);
+            if(jsonObject.getString("legajo").equals(profesor.getString("legajo")))
+            {
+                arregloActualizado.put(profesor);
+            }else {
+                arregloActualizado.put(jsonObject);
+            }
+        }
+
+        try (FileWriter file = new FileWriter(fileName)) {
+            file.write(arregloActualizado.toString(4));
+            return true;
+        } catch (IOException | JSONException e) {
+            excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
+        }
+
+        return false;
     }
 
 }
