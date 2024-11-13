@@ -60,11 +60,25 @@ public final class EstadoAlumnoMesa {
 
     public static EstadoAlumnoMesa JSONObjectAEstadoAlumnoMesa(JSONObject jsonObject) {
         return new EstadoAlumnoMesa(
-                (jsonObject.getString("key")),
-                (jsonObject.getInt("value")),
-                (jsonObject.getBoolean("presente"))
+                jsonObject.getString("codigoAlumno"),
+                jsonObject.getInt("nota"),
+                jsonObject.getBoolean("estado")
         );
     }
+
+    /**
+     * Convierte la instancia de EstadoAlumnoMesa a JSONObject para almacenamiento.
+     * @return El JSONObject con los datos del EstadoAlumnoMesa.
+     */
+    public JSONObject EstadoAlumnoMesaAJSONObjetc() {
+        JSONObject json = new JSONObject();
+        json.put("codigoAlumno", this.codigoMesa);
+        json.put("estado", this.isPresente());
+        json.put("nota", nota);
+
+        return json;
+    }
+
 
     @Override
     public String toString() {

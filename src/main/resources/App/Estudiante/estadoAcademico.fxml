@@ -33,7 +33,7 @@
       </ImageView>
       <AnchorPane layoutX="524.0" layoutY="212.0" prefHeight="700.0" prefWidth="892.0">
          <children>
-            <TableView layoutX="35.0" layoutY="81.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="81.0">
+            <TableView fx:id="tableView" layoutX="35.0" layoutY="81.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="81.0">
                <columns>
                   <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
                   <TableColumn fx:id="colMateria" prefWidth="288.66668701171875" text="MATERIA" />

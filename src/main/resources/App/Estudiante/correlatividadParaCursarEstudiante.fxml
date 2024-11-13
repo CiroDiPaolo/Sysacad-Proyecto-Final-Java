@@ -45,7 +45,7 @@
          </image>
       </ImageView>
       <Rectangle fill="#2a3b47" height="778.0" layoutX="504.0" layoutY="212.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="912.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="494.0" />
-      <TableView layoutX="544.0" layoutY="296.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0">
+      <TableView fx:id="tableView" layoutX="544.0" layoutY="296.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0">
          <columns>
             <TableColumn fx:id="colAnio" prefWidth="52.33331298828125" text="AÑO" />
             <TableColumn fx:id="colMateria" prefWidth="373.66668701171875" text="MATERIA" />

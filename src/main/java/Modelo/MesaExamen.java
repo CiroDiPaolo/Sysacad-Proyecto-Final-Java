@@ -31,8 +31,9 @@ public final class MesaExamen implements iCRUD{
     private String aula;
     private boolean apertura;
     private boolean actividad;
+    private HashSet<EstadoAlumnoMesa> alumnosInscriptos;
 
-    public MesaExamen(String id, Turno turno, String codigoCarrera, String codigoMateria, String codigoPresidente, HashSet<String> vocales, LocalDate fecha, LocalTime hora, int cupos, String aula, boolean apertura, boolean actividad) {
+    public MesaExamen(String id, Turno turno, String codigoCarrera, String codigoMateria, String codigoPresidente, HashSet<String> vocales, LocalDate fecha, LocalTime hora, int cupos, String aula, boolean apertura, boolean actividad, HashSet<EstadoAlumnoMesa> alumnosInscriptos) {
         this.id = id;
         this.turno = turno;
         this.codigoCarrera = codigoCarrera;
@@ -45,6 +46,7 @@ public final class MesaExamen implements iCRUD{
         this.aula = aula;
         this.apertura = apertura;
         this.actividad = actividad;
+        this.alumnosInscriptos = alumnosInscriptos;
     }
 
     public MesaExamen() {
@@ -57,6 +59,21 @@ public final class MesaExamen implements iCRUD{
         actividad = false;
     }
 
+public MesaExamen(MesaExamen mesa) {
+    this.id = mesa.id;
+    this.turno = mesa.turno;
+    this.codigoCarrera = mesa.codigoCarrera;
+    this.codigoMateria = mesa.codigoMateria;
+    this.codigoPresidente = mesa.codigoPresidente;
+    this.vocales = new HashSet<>(mesa.vocales);
+    this.fecha = mesa.fecha;
+    this.hora = mesa.hora;
+    this.cupos = mesa.cupos;
+    this.aula = mesa.aula;
+    this.apertura = mesa.apertura;
+    this.actividad = mesa.actividad;
+    this.alumnosInscriptos = new HashSet<>(mesa.alumnosInscriptos);
+}
     //Getters
 
     public String getId() {
@@ -106,6 +123,8 @@ public final class MesaExamen implements iCRUD{
     public boolean isApertura() {
         return apertura;
     }
+
+    public HashSet<EstadoAlumnoMesa> getAlumnosInscriptos() { return alumnosInscriptos; }
 
     //Setters
 
@@ -157,6 +176,9 @@ public final class MesaExamen implements iCRUD{
         this.apertura = apertura;
     }
 
+    public void setAlumnosInscriptos(HashSet<EstadoAlumnoMesa> alumnosInscriptos) { this.alumnosInscriptos = alumnosInscriptos; }
+
+    // Conversion to JSON
     public JSONObject toJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id", id);
@@ -169,8 +191,15 @@ public final class MesaExamen implements iCRUD{
         json.put("hora", hora.toString());
         json.put("cupos", cupos);
         json.put("aula", aula);
-        json.put("apertura",apertura);
+        json.put("apertura", apertura);
         json.put("actividad", actividad);
+
+        JSONArray alumnosArray = new JSONArray();
+        for (EstadoAlumnoMesa alumno : alumnosInscriptos) {
+            alumnosArray.put(alumno.EstadoAlumnoMesaAJSONObjetc());
+        }
+        json.put("alumnosInscriptos", alumnosArray);
+
         return json;
     }
 
@@ -194,8 +223,24 @@ public final class MesaExamen implements iCRUD{
         instancia.aula = json.getString("aula");
         instancia.apertura = json.getBoolean("apertura");
         instancia.actividad = json.getBoolean("actividad");
+
+        // Check if "alumnosInscriptos" exists before accessing it
+        if (json.has("alumnosInscriptos")) {
+            JSONArray alumnosArray = json.getJSONArray("alumnosInscriptos");
+            instancia.alumnosInscriptos = new HashSet<>();
+            for (int i = 0; i < alumnosArray.length(); i++) {
+                JSONObject alumnoJson = alumnosArray.getJSONObject(i);
+                EstadoAlumnoMesa alumno = EstadoAlumnoMesa.JSONObjectAEstadoAlumnoMesa(alumnoJson);
+                instancia.alumnosInscriptos.add(alumno);
+            }
+        } else {
+            // Handle case where "alumnosInscriptos" is missing
+            instancia.alumnosInscriptos = new HashSet<>();
+        }
+
         return instancia;
     }
+
 
     public static String generarIDMesaExamen(String codigoCarrera, String codigoMateria, String fileName) {
         JSONArray mesaExamen = new JSONArray(leerArchivoJSON(fileName));
