@@ -79,4 +79,13 @@ public final class EstadoAlumnoMesa {
         return json;
     }
 
+
+    @Override
+    public String toString() {
+        return "EstadoAlumnoMesa{" +
+                "codigoMesa='" + codigoMesa + '\'' +
+                ", nota=" + nota +
+                ", presente=" + presente +
+                '}';
+    }
 }

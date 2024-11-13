@@ -1,6 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Excepciones.excepcionPersonalizada;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,7 @@ public class opcionEditarCarreraAdministradorControl {
 
     @FXML
     void clickBtnCarrera(ActionEvent event) {
-
+        excepcionPersonalizada.alertaAtencion("NO TIENES EL PAQUETE SYSACAD PRO GOLD.");
     }
 
     @FXML

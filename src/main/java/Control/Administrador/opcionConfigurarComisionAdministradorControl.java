@@ -18,6 +18,9 @@ public class opcionConfigurarComisionAdministradorControl {
     private Button btnActualizar;
 
     @FXML
+    private Button btnVer;
+
+    @FXML
     private Button btnVolver;
 
     @FXML
@@ -35,6 +38,12 @@ public class opcionConfigurarComisionAdministradorControl {
     @FXML
     void clickBtnActualizar(ActionEvent event) {
         escena.cambiarEscena(busquedaComisionAdministrador,stage,"Elegir comisión");
+    }
+
+    @FXML
+    void clickBtnVer(ActionEvent event)
+    {
+        escena.cambiarEscena(verComisionAdministrador,stage,"Ver comisión");
     }
 
     @FXML

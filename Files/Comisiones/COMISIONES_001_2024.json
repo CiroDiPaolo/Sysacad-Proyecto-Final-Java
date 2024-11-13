@@ -11,7 +11,18 @@
         "actividad": true,
         "codigoProfesor": "P000001",
         "id": "001-1",
-        "estadoAlumnoComision": [],
+        "estadoAlumnoComision": [
+            {
+                "legajoAlumno": "2022001",
+                "nombreAlumno": "Juan Pérez",
+                "actividad": "true"
+            },
+            {
+                "legajoAlumno": "2022002",
+                "nombreAlumno": "María Gómez",
+                "actividad": "false"
+            }
+        ],
         "anio": 2024
     },
     {

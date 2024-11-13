@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.configurarAlumnosAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.configurarAlumnosAdministradorControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-742.0" layoutY="-174.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -47,7 +47,7 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2e3b43" height="381.0" layoutX="758.0" layoutY="397.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="404.0" AnchorPane.leftAnchor="748.0" AnchorPane.rightAnchor="748.0" />
+      <Rectangle fill="#2e3b43" height="491.0" layoutX="758.0" layoutY="387.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="424.0" AnchorPane.leftAnchor="748.0" AnchorPane.rightAnchor="748.0" />
       <Text fill="#8cc5e8" layoutX="792.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configurar alumno" wrappingWidth="335.47015380859375" AnchorPane.bottomAnchor="734.0" AnchorPane.leftAnchor="792.0" AnchorPane.rightAnchor="792.0" AnchorPane.topAnchor="287.0">
          <font>
             <Font size="40.0" />
@@ -71,8 +71,17 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="674.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="876.0" layoutY="664.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="877.0" layoutY="759.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="748.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="812.0" layoutY="666.0" stroke="BLACK" strokeType="INSIDE" width="297.0" />
+      <Button fx:id="btnVerAlumno" alignment="CENTER" contentDisplay="CENTER" layoutX="811.0" layoutY="656.0" mnemonicParsing="false" onAction="#clickBtnVerAlumno" prefHeight="84.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Ver alumno" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

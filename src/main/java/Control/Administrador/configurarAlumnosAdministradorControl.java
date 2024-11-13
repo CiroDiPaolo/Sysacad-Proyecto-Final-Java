@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import static Path.Path.buscarAlumnoAdministrador;
+
 public final class configurarAlumnosAdministradorControl {
 
     @FXML
@@ -16,6 +18,9 @@ public final class configurarAlumnosAdministradorControl {
 
     @FXML
     private Button btnOp2;
+
+    @FXML
+    private Button btnVerAlumno;
 
     @FXML
     private Button btnVolver;
@@ -39,6 +44,11 @@ public final class configurarAlumnosAdministradorControl {
 
         escena.cambiarEscena(Path.busquedaAlumnoAdministrador, stage, "Busqueda Alumno");
 
+    }
+
+    @FXML
+    void clickBtnVerAlumno(ActionEvent event) {
+        escena.cambiarEscena(buscarAlumnoAdministrador,stage,"Busqueda alumno");
     }
 
     @FXML

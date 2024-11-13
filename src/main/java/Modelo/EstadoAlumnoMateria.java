@@ -119,4 +119,16 @@ public final class EstadoAlumnoMateria {
         this.codigoComision = codigoComision;
     }
 
+    @Override
+    public String toString() {
+        return "EstadoAlumnoMateria{" +
+                "codigoMateria='" + codigoMateria + '\'' +
+                ", estado=" + estado +
+                ", notas=" + notas +
+                ", mesasExamen=" + mesasExamen +
+                ", tomo='" + tomo + '\'' +
+                ", folio='" + folio + '\'' +
+                ", codigoComision='" + codigoComision + '\'' +
+                '}';
+    }
 }

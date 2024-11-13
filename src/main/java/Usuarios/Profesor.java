@@ -2,6 +2,7 @@ package Usuarios;
 
 import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosComisiones;
+import ControlArchivos.manejoArchivosProfesor;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
@@ -82,6 +83,33 @@ public final class Profesor extends Usuario implements iCRUD {
 
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
+        if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getCorreo().isEmpty())
+        {
+            if(esDniValido(getDni())){
+
+                if(esCorreoValido(getCorreo())) {
+
+                    setLegajo(generarLegajo(Profesor.class, path));
+                    setContrasenia(getDni());
+                    if(manejoArchivosProfesor.actualizarProfesor(jsonObject,path)){
+                        return true;
+                    }
+                }else{
+
+                    throw new DatosIncorrectosException("El correo ingresado no es valido");
+
+                }
+
+            }else{
+
+                throw new DatosIncorrectosException("El DNI ingresado no es valido");
+
+            }
+        }
+        else
+        {
+            throw new CamposVaciosException("Faltan campos obligatorios");
+        }
         return false;
     }
 

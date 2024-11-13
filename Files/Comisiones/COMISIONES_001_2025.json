@@ -1,0 +1,15 @@
+[{
+    "descripcion": "Miercoles 14:00-16:00",
+    "aula": "1",
+    "codigoMateria": "006",
+    "codigoCarrera": "001",
+    "turno": "TARDE",
+    "cupos": 38,
+    "nombre": "Comision 8",
+    "apertura": false,
+    "actividad": true,
+    "codigoProfesor": "P000001",
+    "id": "001-006",
+    "estadoAlumnoComision": [],
+    "anio": 2025
+}]
