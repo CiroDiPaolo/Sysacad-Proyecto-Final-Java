@@ -75,7 +75,7 @@ public class materiasDelPlanEstudianteControl {
 
             try {
 
-                Carrera carrera = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera());
+                 Carrera carrera = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera());
 
                 Collection<Materia> materias = carrera.getMaterias().values();
 
@@ -99,8 +99,8 @@ public class materiasDelPlanEstudianteControl {
 
             }
 
-        });
+    });
 
-    }
+ }
 
 }
