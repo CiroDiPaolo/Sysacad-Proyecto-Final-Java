@@ -10,12 +10,13 @@ import javafx.stage.Stage;
 
 import static Path.Path.*;
 
-public class opcionConfigurarComisionAdministradorControl {
-    @FXML
-    private Button btnCargar;
+public class opcionEditarMesaExamenAdministradorControl {
 
     @FXML
     private Button btnActualizar;
+
+    @FXML
+    private Button btnCargar;
 
     @FXML
     private Button btnVolver;
@@ -27,19 +28,20 @@ public class opcionConfigurarComisionAdministradorControl {
 
     private EscenaControl escena = new EscenaControl();
 
-    @FXML
-    void clickBtnCargar(ActionEvent event) {
-        escena.cambiarEscena(cargarComisionAdministrador, stage, "Cargar comisión");
-    }
 
     @FXML
     void clickBtnActualizar(ActionEvent event) {
-        escena.cambiarEscena(busquedaComisionAdministrador,stage,"Elegir comisión");
+        escena.cambiarEscena(buscarMesaExamenAdministrador,stage,"Elegir mesa de examen");
+    }
+
+    @FXML
+    void clickBtnCargar(ActionEvent event) {
+        escena.cambiarEscena(cargarMesaExamenAdministrador,stage,"Cargar mesa de examen");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
+        escena.cambiarEscena(elegirOpcionInscripcionAdministrador,stage,"Elegir opción");
     }
 
     @FXML
@@ -50,6 +52,7 @@ public class opcionConfigurarComisionAdministradorControl {
             stage = (Stage) btnVolver.getScene().getWindow();
 
         });
-
     }
+
 }
+

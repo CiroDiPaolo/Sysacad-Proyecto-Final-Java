@@ -39,7 +39,7 @@ public class busquedaCarrera2AdministradorControl {
         Data data = new Data();
         try{
             data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras, txtIdCarrera.getText()));
-            escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comision");
+            escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
 
         }catch (CamposVaciosException e)
         {

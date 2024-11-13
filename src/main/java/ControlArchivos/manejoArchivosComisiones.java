@@ -1,5 +1,6 @@
 package ControlArchivos;
 
+import Consultas.consultaArchivo;
 import Excepciones.*;
 import Modelo.Comision;
 import Usuarios.Estudiante;
@@ -57,29 +58,6 @@ public final class manejoArchivosComisiones {
     public static String generarNombreArchivoComision(String codigoCarrera, int anioActual) {
 
         return "COMISIONES_" + codigoCarrera + "_" + anioActual + ".json";
-
-    }
-
-    public static void cargarArchivoJSON(String codigoCarrera, String fileName, JSONObject obj) {
-
-        JSONArray jsonArray;
-
-        try {
-
-            jsonArray = new JSONArray(leerArchivoJSON(pathComisiones + codigoCarrera + "/" + fileName + ".json"));
-            jsonArray.put(obj);
-
-        } catch (Exception e) {
-            jsonArray = new JSONArray();
-            jsonArray.put(obj);
-        }
-
-        try (FileWriter file = new FileWriter(pathComisiones + codigoCarrera + "/" + fileName + ".json")) {
-            file.write(jsonArray.toString(4));
-            file.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 
@@ -147,7 +125,6 @@ public final class manejoArchivosComisiones {
     }
 
     public static boolean actualizarComisionAJSON(String path, JSONObject comision) {
-
         JSONArray jsonArray;
 
         try {
@@ -164,16 +141,27 @@ public final class manejoArchivosComisiones {
             jsonArray = new JSONArray();
         }
 
-        for(int i = 0; i<jsonArray.length();i++)
-        {
-            if(comision.getString("id").equals(jsonArray.getJSONObject(i).getString("id")))
-            {
-                jsonArray.put(i,comision);
+        JSONArray updatedJsonArray = new JSONArray();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+            if (comision.getString("id").equals(jsonObject.getString("id"))) {
+                if (!comision.getString("codigoMateria").equals(jsonObject.getString("codigoMateria"))) {
+                    String nuevoID = Comision.generarIDComision(comision.getString("codigoCarrera"), comision.getString("codigoMateria"), path);
+                    System.out.println("ID anterior: " + jsonObject.getString("id"));
+                    System.out.println("Nuevo ID generado: " + nuevoID);
+                    comision.put("id", nuevoID);
+
+                }
+                updatedJsonArray.put(comision);
+            } else {
+                updatedJsonArray.put(jsonObject);
             }
         }
 
         try (FileWriter file = new FileWriter(path)) {
-            file.write(jsonArray.toString(4));
+            file.write(updatedJsonArray.toString(4));
             return true;
         } catch (IOException | JSONException e) {
             excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
@@ -184,7 +172,7 @@ public final class manejoArchivosComisiones {
 
     public static Comision buscarComision(String filename, String dato, String clave) throws CamposVaciosException
     {
-        if(!clave.isEmpty()){
+        if(!clave.isEmpty() && clave != null){
             JSONArray jsonArray;
 
             try {

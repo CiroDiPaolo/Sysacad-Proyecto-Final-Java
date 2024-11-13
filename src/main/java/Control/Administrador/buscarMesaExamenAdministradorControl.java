@@ -2,10 +2,12 @@ package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosComisiones;
+import ControlArchivos.manejoArchivosMesaExamen;
 import Excepciones.CamposVaciosException;
+import Excepciones.excepcionPersonalizada;
 import Modelo.Comision;
 import Modelo.Materia;
-import Usuarios.Usuario;
+import Modelo.MesaExamen;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,14 +15,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import Path.Path;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import static Path.Path.*;
 
-public class busquedaComisionAdministradorControl {
+public class buscarMesaExamenAdministradorControl {
+
     @FXML
     private Button btnElegir;
 
@@ -31,7 +34,7 @@ public class busquedaComisionAdministradorControl {
     private ChoiceBox<Integer> choiceBoxAnio;
 
     @FXML
-    private ChoiceBox<String> choiceBoxComision;
+    private ChoiceBox<String> choiceBoxMesaExamen;
 
     @FXML
     private Label tctMenuPrincipal;
@@ -42,19 +45,19 @@ public class busquedaComisionAdministradorControl {
 
     @FXML
     void clickBtnElegir(ActionEvent event) {
-        String idComision = Materia.cortarString(choiceBoxComision.getValue());
+        String idMesa = Materia.cortarString(choiceBoxMesaExamen.getValue());
         Data data = new Data();
         try{
-            data.setComision(manejoArchivosComisiones.buscarComision(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(Data.getCarrera().getId(), choiceBoxAnio.getValue()),"id",idComision));
-            escena.cambiarEscena(editarComisionAdministrador,stage,"Actualizar comisión");
-        } catch (NullPointerException | CamposVaciosException e) {
+            data.setMesaExamen(manejoArchivosMesaExamen.buscarMesaExamen(pathMesaExamen+manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(), choiceBoxAnio.getValue()),"id",idMesa));
+            escena.cambiarEscena(editarMesaExamenAdministrador,stage,"Actualizar mesa de examen");
+        } catch (CamposVaciosException e) {
             e.getMessage();
         }
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(opcionConfigurarComisionAdministrador,stage,"Configurar comisión");
+        escena.cambiarEscena(opcionEditarMesaExamenAdministrador,stage,"Configuración mesa de examen");
     }
 
     @FXML
@@ -73,21 +76,28 @@ public class busquedaComisionAdministradorControl {
 
         choiceBoxAnio.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                actualizarListadoComisiones(newValue);
+                actualizarListado(newValue);
             }
         });
     }
 
-    public void actualizarListadoComisiones(Integer newValue){
-        choiceBoxComision.getItems().clear();
+    public void actualizarListado(Integer newValue){
 
-        List<Comision> comisionesList = manejoArchivosComisiones.obtenerComisionesPorAnio(newValue, Data.getCarrera().getId());
-        if(!comisionesList.isEmpty())
+        try{
+            choiceBoxMesaExamen.getItems().clear();
+        }catch (NullPointerException e)
         {
-            for(Comision comision : comisionesList)
+            excepcionPersonalizada.excepcion("No hay mesas de examen existentes para ese año");
+        }
+
+        List<MesaExamen> mesaExamenList = manejoArchivosMesaExamen.obtenerMesaExamenPorAnio(newValue, Data.getCarrera().getId());
+        if(!mesaExamenList.isEmpty())
+        {
+            for(MesaExamen mesaExamen : mesaExamenList)
             {
-                choiceBoxComision.getItems().add(comision.getId() + " - " + comision.getNombre());
+                choiceBoxMesaExamen.getItems().add(mesaExamen.getId() + " - " + mesaExamen.getFecha() + " - " + mesaExamen.getTurno().toString() + " - " + mesaExamen.getCodigoPresidente());
             }
         }
     }
+
 }
