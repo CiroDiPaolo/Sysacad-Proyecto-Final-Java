@@ -1,13 +1,12 @@
 package ControlArchivos;
 
+import Modelo.MesaExamen;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
