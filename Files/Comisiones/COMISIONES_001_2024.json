@@ -50,7 +50,7 @@
         "codigoMateria": "4",
         "codigoCarrera": "001",
         "turno": "MANIANA",
-        "cupos": 10,
+        "cupos": 9,
         "nombre": "Comision 6",
         "apertura": true,
         "actividad": true,
