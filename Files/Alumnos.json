@@ -34,14 +34,26 @@
             },
             {
                 "estado": "NO_REGULARIZADA",
+                "notas": [
+                    {"segundoParcial": 0},
+                    {"primerParcial": 0}
+                ],
+                "folio": "0",
+                "mesasExamen": [],
+                "codigoComision": "001-4",
+                "id": "4",
+                "tomo": "0"
+            },
+            {
+                "estado": "NO_REGULARIZADA",
                 "notas": [{
                     "segundoParcial": 0,
                     "primerParcial": 0
                 }],
                 "folio": "0",
                 "mesasExamen": [],
-                "codigoComision": "001-4",
-                "id": "4",
+                "codigoComision": "001-3",
+                "id": "3",
                 "tomo": "0"
             }
         ],
