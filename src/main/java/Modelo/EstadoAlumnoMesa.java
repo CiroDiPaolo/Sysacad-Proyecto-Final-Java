@@ -65,4 +65,13 @@ public final class EstadoAlumnoMesa {
                 (jsonObject.getBoolean("presente"))
         );
     }
+
+    @Override
+    public String toString() {
+        return "EstadoAlumnoMesa{" +
+                "codigoMesa='" + codigoMesa + '\'' +
+                ", nota=" + nota +
+                ", presente=" + presente +
+                '}';
+    }
 }
