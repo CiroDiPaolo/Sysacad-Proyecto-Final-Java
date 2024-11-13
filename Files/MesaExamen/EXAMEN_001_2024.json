@@ -1,0 +1,17 @@
+[{
+    "fecha": "2024-12-11",
+    "codigoPresidente": "P000001",
+    "aula": "aula 0",
+    "codigoMateria": "1",
+    "hora": "12:00",
+    "codigoCarrera": "001",
+    "vocales": [
+        "P000004",
+        "P000003"
+    ],
+    "id": "001-1",
+    "turno": "TARDE",
+    "cupos": 20,
+    "apertura": true,
+    "actividad": true
+}]
