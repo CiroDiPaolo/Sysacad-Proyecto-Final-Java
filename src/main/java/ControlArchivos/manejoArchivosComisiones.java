@@ -1,24 +1,18 @@
 package ControlArchivos;
 
-import Consultas.consultaArchivo;
 import Excepciones.*;
 import Modelo.Comision;
 import Usuarios.Estudiante;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import Path.Path.*;
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.nio.file.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static ControlArchivos.manejoArchivos.leerArchivoJSON;
-import static ControlArchivos.manejoArchivos.verificarArchivoCreado;
+import static ControlArchivos.manejoArchivos.*;
 import static Path.Path.pathComisiones;
 
 public final class manejoArchivosComisiones {
