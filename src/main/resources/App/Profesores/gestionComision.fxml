@@ -47,9 +47,9 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2a3b47" height="425.0" layoutX="744.0" layoutY="361.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="433.0" AnchorPane.leftAnchor="734.0" AnchorPane.rightAnchor="733.0" />
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="877.0" layoutY="695.0" stroke="BLACK" strokeType="INSIDE" width="166.0" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0" />
-        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="877.0" layoutY="686.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="82.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0">
+        <Rectangle fill="#2a3b47" height="495.0" layoutX="749.0" layoutY="334.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="422.0" AnchorPane.leftAnchor="739.0" AnchorPane.rightAnchor="739.0" />
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="877.0" layoutY="733.0" stroke="BLACK" strokeType="INSIDE" width="166.0" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="877.0" layoutY="724.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="82.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="877.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -57,8 +57,8 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="796.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="328.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0" />
-        <Button fx:id="btnVerEstudiantes" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="796.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVerEstudiantes" prefHeight="82.0" prefWidth="328.0" style="-fx-background-color: transparent;" text="Ver estudiantes" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="796.0" layoutY="381.0" stroke="BLACK" strokeType="INSIDE" width="328.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0" />
+        <Button fx:id="btnVerEstudiantes" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="796.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVerEstudiantes" prefHeight="82.0" prefWidth="328.0" style="-fx-background-color: transparent;" text="Ver estudiantes" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -66,8 +66,8 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="796.0" layoutY="498.0" stroke="BLACK" strokeType="INSIDE" width="328.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0" />
-      <Button fx:id="btnGestionarNotas" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="793.0" layoutY="489.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnGestionarNotas" prefHeight="82.0" prefWidth="334.0" style="-fx-background-color: transparent;" text="Gestionar notas" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="793.0" AnchorPane.rightAnchor="793.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="796.0" layoutY="469.0" stroke="BLACK" strokeType="INSIDE" width="328.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0" />
+      <Button fx:id="btnGestionarNotas" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="793.0" layoutY="460.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnGestionarNotas" prefHeight="82.0" prefWidth="334.0" style="-fx-background-color: transparent;" text="Gestionar notas" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="793.0" AnchorPane.rightAnchor="793.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -75,8 +75,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="829.0" layoutY="600.0" stroke="BLACK" strokeType="INSIDE" width="262.0" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="829.0" />
-      <Button fx:id="btnAviso" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="829.0" layoutY="591.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnAviso" prefHeight="82.0" prefWidth="262.0" style="-fx-background-color: transparent;" text="Enviar aviso" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="829.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="829.0" layoutY="645.0" stroke="BLACK" strokeType="INSIDE" width="262.0" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="829.0" />
+      <Button fx:id="btnAviso" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="829.0" layoutY="636.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnAviso" prefHeight="82.0" prefWidth="262.0" style="-fx-background-color: transparent;" text="Enviar aviso" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="829.0" AnchorPane.rightAnchor="829.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="796.0" layoutY="556.0" stroke="BLACK" strokeType="INSIDE" width="328.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="796.0" />
+      <Button fx:id="btnBuscarAlumno" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="802.0" layoutY="546.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnBuscarAlumno" prefHeight="82.0" prefWidth="315.0" style="-fx-background-color: transparent;" text="Buscar alumno" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="802.0" AnchorPane.rightAnchor="803.0">
          <font>
             <Font size="40.0" />
          </font>
