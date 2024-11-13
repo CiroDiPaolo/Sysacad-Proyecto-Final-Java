@@ -79,7 +79,7 @@ public class cargaProfesorAdministradorControl {
 
         stage = (Stage)btnVolver.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
-        escena.cambiarEscena(Path.congifurarProfesorAdministrador,stage,"Configurar Profesor");
+        escena.cambiarEscena(Path.configurarProfesorAdministrador,stage,"Configurar Profesor");
 
     }
 
