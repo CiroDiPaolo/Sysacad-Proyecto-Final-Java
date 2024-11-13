@@ -62,6 +62,7 @@ public final class Path {
     public static final String editarMesaExamenAdministrador = "/App/Administrador/editarMesaExamenAdministrador.fxml";
     public static final String buscarProfesorAdministrador = "/App/Administrador/buscarProfesorAdministrador.fxml";
     public static final String editarProfesorAdministrador = "/App/Administrador/editarProfesorAdministrador.fxml";
+    public static final String verMateriaAdministrador = "/App/Administrador/verMateriaAdministrador.fxml";
 
     //Profesor
     public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";

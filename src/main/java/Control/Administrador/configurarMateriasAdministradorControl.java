@@ -12,8 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import static Path.Path.elegirMateriaAdministrador;
-import static Path.Path.pathCarreras;
+import static Path.Path.*;
 
 public final class configurarMateriasAdministradorControl {
 
@@ -25,6 +24,9 @@ public final class configurarMateriasAdministradorControl {
 
     @FXML
     private Button btnVolver;
+
+    @FXML
+    private Button btnVerMateria;
 
     @FXML
     private Label tctMenuPrincipal;
@@ -41,6 +43,11 @@ public final class configurarMateriasAdministradorControl {
     @FXML
     void clickBtnOp2(ActionEvent event) {
         escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
+    }
+
+    @FXML
+    void clickBtnVerMateria(ActionEvent event) {
+        escena.cambiarEscena(verMateriaAdministrador,stage,"Ver materia");
     }
 
     @FXML

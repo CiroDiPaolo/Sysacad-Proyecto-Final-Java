@@ -68,8 +68,8 @@
         <columns>
           <TableColumn fx:id="colCodigo" prefWidth="96.0" text="Codigo" />
           <TableColumn fx:id="colNombre" prefWidth="350.6666259765625" text="Nombre" />
-            <TableColumn fx:id="colSeCursa" prefWidth="220.6666259765625" text="Correlativa para cursar" />
-            <TableColumn fx:id="colSeRinde" prefWidth="181.3333740234375" text="Correlativa para rendir" />
+            <TableColumn fx:id="colSeCursa" prefWidth="220.6666259765625" text="Cursada" />
+            <TableColumn fx:id="colSeRinde" prefWidth="181.3333740234375" text="Aprobada" />
         </columns>
       </TableView>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="187.0" layoutY="562.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" />
