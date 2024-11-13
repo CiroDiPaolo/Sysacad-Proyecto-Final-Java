@@ -88,6 +88,15 @@ public final class Estudiante extends Usuario implements iCRUD {
 
     //Metodos
 
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "codigoCarrera='" + codigoCarrera + '\'' +
+                ", materias=" + materias +
+                '}';
+    }
+
     /**
      * Crea un alumno si es que sus campos estan completos y el dni del alumno no se repite en la carrera.
      *
@@ -233,16 +242,18 @@ public final class Estudiante extends Usuario implements iCRUD {
 
             JSONArray mesasExamen = new JSONArray();
 
-            if (this.getMaterias().get(i).getMesasExamen()!= null) {
-
+            if (this.getMaterias().get(i).getMesasExamen() != null) {
+                // Itera sobre las claves (códigos de mesa)
                 for (String key : this.getMaterias().get(i).getMesasExamen().keySet()) {
-
                     EstadoAlumnoMesa mesaExamen = this.getMaterias().get(i).getMesasExamen().get(key);
                     JSONObject mesaExamenJson = new JSONObject();
 
-                    mesaExamenJson.put(key, mesaExamen.getCodigoMesa());
-                    mesaExamenJson.put("nota", mesaExamen.getNota()); // Guardar la nota como int
+                    // Guarda la información de la mesa de examen, usando 'key' como el código de la mesa
+                    mesaExamenJson.put("codigoMesa", mesaExamen.getCodigoMesa());
+                    mesaExamenJson.put("nota", mesaExamen.getNota());
                     mesaExamenJson.put("presente", mesaExamen.isPresente());
+
+                    // Guardamos el objeto 'mesaExamenJson' en el JSONArray
                     mesasExamen.put(mesaExamenJson);
                 }
             }
@@ -306,16 +317,19 @@ public final class Estudiante extends Usuario implements iCRUD {
 
             for (int k = 0; k < mesasExamenJsonArray.length(); k++) {
                 JSONObject mesaExamenJson = mesasExamenJsonArray.getJSONObject(k);
-                String key = mesaExamenJson.keys().next();
+
+                // Recuperamos la clave de la mesa (que es dinámica)
+                String key = mesaExamenJson.getString("codigoMesa"); // Aquí se asigna la clave dinámica
 
                 EstadoAlumnoMesa estadoMesa = new EstadoAlumnoMesa();
-                estadoMesa.setCodigoMesa(mesaExamenJson.getString(key));
+                estadoMesa.setCodigoMesa(mesaExamenJson.getString("codigoMesa"));
                 estadoMesa.setNota(mesaExamenJson.getInt("nota"));
                 estadoMesa.setPresente(mesaExamenJson.getBoolean("presente"));
 
-                mesasExamen.put(key, estadoMesa);
+                mesasExamen.put(key, estadoMesa); // Asignamos al HashMap
             }
-            materia.setMesasExamen(mesasExamen);
+
+            materia.setMesasExamen(mesasExamen); // Guardamos las mesas de examen en el objeto materia
 
             materias.add(materia);
         }
