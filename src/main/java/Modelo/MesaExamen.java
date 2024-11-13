@@ -59,6 +59,21 @@ public final class MesaExamen implements iCRUD{
         actividad = false;
     }
 
+public MesaExamen(MesaExamen mesa) {
+    this.id = mesa.id;
+    this.turno = mesa.turno;
+    this.codigoCarrera = mesa.codigoCarrera;
+    this.codigoMateria = mesa.codigoMateria;
+    this.codigoPresidente = mesa.codigoPresidente;
+    this.vocales = new HashSet<>(mesa.vocales);
+    this.fecha = mesa.fecha;
+    this.hora = mesa.hora;
+    this.cupos = mesa.cupos;
+    this.aula = mesa.aula;
+    this.apertura = mesa.apertura;
+    this.actividad = mesa.actividad;
+    this.alumnosInscriptos = new HashSet<>(mesa.alumnosInscriptos);
+}
     //Getters
 
     public String getId() {
