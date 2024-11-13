@@ -1,6 +1,8 @@
 package Control.Estudiante;
 
 import Control.EscenaControl;
+import Control.InicioSesion.Data;
+import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,9 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 import static Path.Path.menuPrincipalAlumnos;
 
@@ -57,10 +56,11 @@ public class correlatividadParaCursarEstudianteControl {
 
             stage = (Stage) btnVolver.getScene().getWindow();
 
+            Estudiante estudiante = Data.getEstudiante();
+
         });
 
-
-
     }
+
 
 }
