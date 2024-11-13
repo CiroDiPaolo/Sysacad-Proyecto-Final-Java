@@ -573,6 +573,56 @@ public final class Estudiante extends Usuario implements iCRUD {
         return parcialesRendidos;
     }
 
+    public HashSet<MesaExamen> obtenerMesasExamenesParaAnotarse(HashSet<String> materiasAprobadas, ArrayList<MesaExamen> mesasExamen) {
+        HashSet<MesaExamen> mesasExamenFiltradas = new HashSet<>();
+
+        // Primer bucle: filtrar según materias aprobadas, regularizadas y otras condiciones
+        for (MesaExamen mesaExamen : mesasExamen) {
+            // Si la materia no está aprobada y cumple con las otras condiciones
+            if (!(materiasAprobadas.contains(mesaExamen.getCodigoMateria()))) {
+                if (mesaExamen.isActividad() && mesaExamen.isApertura() && mesaExamen.getCupos() > 0) {
+
+                    // Verificar si la materia está regularizada
+                    boolean materiaRegularizada = false;
+                    for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
+                        if (materia.getCodigoMateria().equals(mesaExamen.getCodigoMateria())) {
+                            // Si la materia está regularizada o tiene una nota aprobatoria
+                            if (materia.getEstado().equals(EstadoMateria.REGULARIZADA)) {
+                                materiaRegularizada = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    // Si la materia está regularizada o aprobada, permitir la inscripción
+                    if (materiaRegularizada) {
+                        mesasExamenFiltradas.add(mesaExamen);
+                    }
+                }
+            }
+        }
+
+        // Segundo bucle: filtrar según EstadoMateria.NO_REGULARIZADA (eliminamos las mesas con materias no regularizadas)
+        HashSet<MesaExamen> aEliminar = new HashSet<>();
+
+        for (MesaExamen mesaExamen : mesasExamenFiltradas) {
+            // Iterar a través de todas las materias del estudiante
+            for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
+                if (materia.getCodigoMateria().equals(mesaExamen.getCodigoMateria())) {
+                    if (materia.getEstado().equals(EstadoMateria.NO_REGULARIZADA)) {
+                        // Si la materia está NO_REGULARIZADA, marcar la mesaExamen para eliminar
+                        aEliminar.add(mesaExamen);
+                    }
+                }
+            }
+        }
+
+        // Eliminar las mesasExamen que deben ser filtradas
+        mesasExamenFiltradas.removeAll(aEliminar);
+
+        return mesasExamenFiltradas;
+    }
+
 }
 
 
