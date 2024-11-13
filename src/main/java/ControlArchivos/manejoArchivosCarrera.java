@@ -9,6 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
+
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 import static Path.Path.pathComisiones;
@@ -289,5 +291,36 @@ public final class manejoArchivosCarrera {
         return null;
 
     }
+
+    public static ArrayList<String> obtenerNombresMaterias(String fileName, HashSet<String> idsMaterias) {
+
+        ArrayList<String> nombresMaterias = new ArrayList<>();
+
+        JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
+
+        for (int i = 0; i < arreglo.length(); i++) {
+            JSONObject carreraJSON = arreglo.getJSONObject(i);
+            JSONArray materias = carreraJSON.optJSONArray("materias");
+
+            if (materias != null) {
+
+                for (int j = 0; j < materias.length(); j++) {
+                    JSONObject materiaActual = materias.getJSONObject(j);
+
+                    // Obtener el id de la materia
+                    String idMateria = materiaActual.getString("id");
+
+                    if (idsMaterias.contains(idMateria)) {
+
+                        String nombreMateria = materiaActual.getString("nombre");
+                        nombresMaterias.add(nombreMateria);
+                    }
+                }
+            }
+        }
+
+        return nombresMaterias;
+    }
+
 
 }
