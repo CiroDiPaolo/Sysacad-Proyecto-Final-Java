@@ -47,7 +47,7 @@
                   <Font name="Arial" size="30.0" />
                </font>
             </Text>
-            <TableView layoutX="46.0" layoutY="81.0" prefHeight="594.0" prefWidth="892.0" style="-fx-background-color: #475d6b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="81.0">
+            <TableView fx:id="tableMaterias" layoutX="46.0" layoutY="81.0" prefHeight="594.0" prefWidth="892.0" style="-fx-background-color: #475d6b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="81.0">
               <columns>
                 <TableColumn fx:id="anio" prefWidth="75.0" text="AÑO" />
                 <TableColumn fx:id="dic" prefWidth="75.0" text="DIC." />
