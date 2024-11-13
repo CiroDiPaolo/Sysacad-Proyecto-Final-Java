@@ -53,7 +53,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <TextArea fx:id="textArea" blendMode="OVERLAY" editable="false" layoutX="684.0" layoutY="376.0" prefHeight="200.0" prefWidth="552.0" AnchorPane.leftAnchor="684.0" AnchorPane.rightAnchor="684.0">
+        <TextArea fx:id="textArea" blendMode="OVERLAY" editable="false" layoutX="682.0" layoutY="339.0" prefHeight="253.0" prefWidth="557.0" AnchorPane.leftAnchor="682.0" AnchorPane.rightAnchor="681.0">
             <font>
                 <Font name="Arial" size="20.0" />
             </font></TextArea>
