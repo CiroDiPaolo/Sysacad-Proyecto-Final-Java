@@ -68,11 +68,15 @@
             "P000001"
         ],
         "turno": "TARDE",
-        "cupos": 8,
+        "cupos": 7,
         "apertura": true,
         "actividad": true,
         "fecha": "2024-12-10",
-        "alumnosInscriptos": [],
+        "alumnosInscriptos": [{
+            "estado": true,
+            "codigoAlumno": "E1",
+            "nota": 0
+        }],
         "id": "001-5"
     },
     {
