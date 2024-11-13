@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+import static Path.Path.buscarProfesorAdministrador;
 import static Path.Path.pathCarreras;
 
 public class configurarProfesorAdministrador {
@@ -41,7 +42,7 @@ public class configurarProfesorAdministrador {
 
     @FXML
     void clickBtnEditarProfesor(ActionEvent event) {
-
+        escena.cambiarEscena(buscarProfesorAdministrador,stage,"Editar profesor");
     }
 
     @FXML

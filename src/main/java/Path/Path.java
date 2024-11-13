@@ -37,7 +37,7 @@ public final class Path {
     //Administrador
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
     public static final String configurarAlumnosAdministrador = "/App/Administrador/configuracionAlumnosAdministrador.fxml";
-    public static final String congifurarProfesorAdministrador = "/App/Administrador/configurarProfesorAdministrador.fxml";
+    public static final String configurarProfesorAdministrador = "/App/Administrador/configurarProfesorAdministrador.fxml";
     public static final String configurarMesaExamenAdministrador = "/App/Administrador/configurarMesaExamenAdministrador.fxml";
     public static final String cargarAlumnoAdministrador = "/App/Administrador/cargarAlumnoAdministrador.fxml";
     public static final String busquedaAlumnoAdministrador = "/App/Administrador/busquedaAlumnoAdministrador.fxml";
@@ -60,6 +60,8 @@ public final class Path {
     public static final String cargarMesaExamenAdministrador = "/App/Administrador/cargarMesaExamenAdministrador.fxml";
     public static final String buscarMesaExamenAdministrador = "/App/Administrador/buscarMesaExamenAdministrador.fxml";
     public static final String editarMesaExamenAdministrador = "/App/Administrador/editarMesaExamenAdministrador.fxml";
+    public static final String buscarProfesorAdministrador = "/App/Administrador/buscarProfesorAdministrador.fxml";
+    public static final String editarProfesorAdministrador = "/App/Administrador/editarProfesorAdministrador.fxml";
 
     //Profesor
     public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";
