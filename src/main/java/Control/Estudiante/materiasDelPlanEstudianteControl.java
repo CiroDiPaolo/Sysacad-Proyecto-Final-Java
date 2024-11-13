@@ -51,7 +51,7 @@ public class materiasDelPlanEstudianteControl {
     private Label tctMenuPrincipal;
 
     @FXML
-    private TableView<Materia> tableMaterias; // La tabla donde se mostrarán las materias
+    private TableView<Materia> tableView; // La tabla donde se mostrarán las materias
 
     /**
      * Metodo que se ejecuta al clickear el boton volver
@@ -87,7 +87,7 @@ public class materiasDelPlanEstudianteControl {
                 seCursa.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isSeCursa() ? "Sí" : "No"));
                 seRinde.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isSeRinde() ? "Sí" : "No"));
 
-                tableMaterias.setItems(materiasList);
+                tableView.setItems(materiasList);
 
             } catch (CamposVaciosException e) {
 
