@@ -56,7 +56,7 @@ public class estadoAcademicoControl {
     private TableColumn<EstadoMateriaTableData, String> colTomo;
 
     @FXML
-    private TableView<EstadoMateriaTableData> tableEstado;
+    private TableView<EstadoMateriaTableData> tableView;
 
     @FXML
     private Label tctMenuPrincipal;
@@ -116,7 +116,7 @@ public class estadoAcademicoControl {
             colTomo.setCellValueFactory(cellData -> cellData.getValue().tomoProperty());
 
             // Asociar la lista de datos con la tabla.
-                tableEstado.setItems(data);
+                tableView.setItems(data);
 
             } catch (CamposVaciosException e) {
                 throw new RuntimeException(e);
