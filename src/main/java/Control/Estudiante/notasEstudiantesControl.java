@@ -100,7 +100,7 @@ public class notasEstudiantesControl {
                 // Obtener otros datos de la materia
                 String materiaCodigo = estadoMateria.getCodigoMateria(); // Nombre de la materia.
                 String materia = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getNombre();
-                String anio = "2024"; // Este dato puede ser extraído de otra manera si tienes el año.
+                String anio = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getAnio();
                 String comision = estadoMateria.getCodigoComision(); // Comisión de la materia.
 
                 // Agregar la fila a la lista observable.
