@@ -5,6 +5,7 @@ import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosMesaExamen;
 import Modelo.Materia;
 import Modelo.MesaExamen;
+import Usuarios.Estudiante;
 import Usuarios.Profesor;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -123,22 +124,8 @@ public class inscripcionExamenFinalControl {
             }
         });
 
-        // Cargar los datos en la tabla
-        ArrayList<MesaExamen> mesasExamen = manejoArchivosMesaExamen.obtenerMesaExamenPorAnio(
-                LocalDate.now().getYear(),
-                Data.getEstudiante().getCodigoCarrera()
-        );
+        tableTablaMaterias.getItems().setAll(Data.getEstudiante().obtenerMesasExamenesParaAnotarse(Data.getEstudiante().obtenerMateriasAprobadas(),manejoArchivosMesaExamen.obtenerMesaExamenPorAnio(LocalDate.now().getYear(), Data.getEstudiante().getCodigoCarrera())));
 
-        tableTablaMaterias.getItems().setAll(mesasExamen);
-    }
-
-    /**
-     * Método auxiliar para inscribir al estudiante en una mesa de examen.
-     */
-    private void inscribirEstudianteEnMesa(MesaExamen mesaExamen) {
-        // Aquí puedes agregar la lógica para inscribir al estudiante en la mesa de examen
-        // Por ejemplo, puedes agregar la inscripción a una lista o guardar la información en un archivo
-        System.out.println("Estudiante inscrito en la mesa de examen de: " + mesaExamen.getCodigoMateria());
     }
 
     /**
