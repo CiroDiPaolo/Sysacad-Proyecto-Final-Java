@@ -10,7 +10,7 @@
             "P000003"
         ],
         "turno": "MANIANA",
-        "cupos": 4,
+        "cupos": 0,
         "apertura": true,
         "actividad": true,
         "fecha": "2024-12-01",
@@ -18,12 +18,7 @@
             "estado": true,
             "codigoAlumno": "E1",
             "nota": 0
-        },
-            {
-                "estado": false,
-                "codigoAlumno": "E2",
-                "nota": 10
-            }],
+        }],
         "id": "001-1"
     },
     {
