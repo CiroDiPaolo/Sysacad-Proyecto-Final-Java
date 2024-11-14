@@ -110,7 +110,7 @@ public class verComisionAdministradorControl {
         });
 
         try {
-            ArrayList<Integer> numeros = manejoArchivosComisiones.obtenerNumerosDeArchivos("E:\\Sysacad-Proyecto-Final-Java\\Files\\Comisiones", Data.getCarrera().getId());
+            ArrayList<Integer> numeros = manejoArchivosComisiones.obtenerNumerosDeArchivos("Files/Comisiones", Data.getCarrera().getId());
 
             if (!numeros.isEmpty()) {
                 for (Integer numero : numeros) {

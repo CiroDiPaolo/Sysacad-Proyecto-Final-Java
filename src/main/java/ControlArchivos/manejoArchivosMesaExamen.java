@@ -12,6 +12,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -233,5 +237,27 @@ public class manejoArchivosMesaExamen {
         }else {
             throw new CamposVaciosException("No elegiste ninguna mesa de examen");
         }
+    }
+
+    public static ArrayList<Integer> obtenerNumerosDeArchivos(String path, String codigoCarrera) throws IOException {
+        ArrayList<Integer> numeros = new ArrayList<>();
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(path))) {
+            for (Path entry : stream) {
+                if (Files.isRegularFile(entry) && entry.toString().endsWith(".json")) {
+                    String fileName = entry.getFileName().toString();
+                    if (fileName.contains(codigoCarrera)) {
+                        String numeroStr = fileName.replaceAll("^EXAMEN_" + codigoCarrera + "_(\\d{4})\\.json$", "$1");
+                        if (!numeroStr.equals(fileName)) {
+                            try {
+                                numeros.add(Integer.parseInt(numeroStr));
+                            } catch (NumberFormatException e) {
+                                e.getMessage();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return numeros;
     }
 }

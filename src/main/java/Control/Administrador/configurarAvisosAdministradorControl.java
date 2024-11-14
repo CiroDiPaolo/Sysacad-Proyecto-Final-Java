@@ -1,5 +1,6 @@
 package Control.Administrador;
 
+
 import Control.EscenaControl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -10,13 +11,7 @@ import javafx.stage.Stage;
 
 import static Path.Path.*;
 
-public class opcionEditarMesaExamenAdministradorControl {
-
-    @FXML
-    private Button btnActualizar;
-
-    @FXML
-    private Button btnCargar;
+public class configurarAvisosAdministradorControl {
 
     @FXML
     private Button btnVer;
@@ -25,42 +20,43 @@ public class opcionEditarMesaExamenAdministradorControl {
     private Button btnVolver;
 
     @FXML
+    private Button clickBtnCargar;
+
+    @FXML
+    private Button clickBtnEditar;
+
+    @FXML
     private Label tctMenuPrincipal;
 
     private Stage stage;
 
     private EscenaControl escena = new EscenaControl();
 
-
     @FXML
-    void clickBtnActualizar(ActionEvent event) {
-        escena.cambiarEscena(buscarMesaExamenAdministrador,stage,"Elegir mesa de examen");
+    void clickBtnEditar(ActionEvent event) {
+        escena.cambiarEscena(buscarAvisosAdministrador,stage,"Buscar aviso");
     }
 
     @FXML
-    void clickBtnCargar(ActionEvent event) {
-        escena.cambiarEscena(cargarMesaExamenAdministrador,stage,"Cargar mesa de examen");
+    void clickBtnOp1(ActionEvent event) {
+        escena.cambiarEscena(cargarAvisoAdministrador,stage,"Cargar aviso");
     }
 
     @FXML
     void clickBtnVer(ActionEvent event) {
-        escena.cambiarEscena(verMesaExamenAdministrador,stage,"Ver mesa de examen");
+        escena.cambiarEscena(verAvisosAdministrador,stage,"Ver avisos");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(elegirOpcionInscripcionAdministrador,stage,"Elegir opción");
+        escena.cambiarEscena(menuPrincipalAdministrador,stage,"Menú principal");
     }
 
     @FXML
-    protected void initialize() {
-
+    public void initialize() {
         Platform.runLater(() -> {
-
             stage = (Stage) btnVolver.getScene().getWindow();
-
         });
     }
 
 }
-

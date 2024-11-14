@@ -96,7 +96,6 @@ public class cargarMesaExamenAdministradorControl {
                 turno = Turno.valueOf(choiceBoxTurno.getValue());
             }catch (NullPointerException e)
             {
-                System.out.println("Ingresaste un campo vacio.");
                 excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
             }
             String codigoCarrera = Data.getCarrera().getId();

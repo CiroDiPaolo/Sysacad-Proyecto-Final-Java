@@ -1,0 +1,29 @@
+[
+    {
+        "descripcion": "pene",
+        "fecha": "2024-11-14",
+        "subtitulo": "a",
+        "legajos": [],
+        "titulo": "a",
+        "id": 1,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "a",
+        "fecha": "2024-11-14",
+        "subtitulo": "a",
+        "legajos": [],
+        "titulo": "pene",
+        "id": 2,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "a",
+        "fecha": "2024-11-14",
+        "subtitulo": "a",
+        "legajos": [],
+        "titulo": "cola",
+        "id": 3,
+        "accesoAviso": "TODOS"
+    }
+]

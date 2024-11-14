@@ -82,7 +82,8 @@ public final class  menuPrincipalAdministradorControl {
 
     @FXML
     void clickBtnOp6(ActionEvent event) {
-
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(configurarAvisosAdministrador, stage, "Configurar avisos");
     }
 
 
