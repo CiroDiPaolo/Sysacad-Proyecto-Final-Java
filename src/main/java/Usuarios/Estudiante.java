@@ -647,6 +647,19 @@ public final class Estudiante extends Usuario implements iCRUD {
 
         return mesasExamenFiltradas;
     }
+
+    public void inscribirse(EstadoAlumnoMesa mesa){
+
+        EstadoAlumnoMesa materia = new EstadoAlumnoMesa();
+
+        materia.setCodigoMesa(mesa.getCodigoMesa());
+        materia.setNota(mesa.getNota());
+        materia.setPresente(mesa.isPresente());
+
+        this.getMaterias().get(this.getMaterias().size()-1).getMesasExamen().put(mesa.getCodigoMesa(),materia);
+
+    }
+
 }
 
 
