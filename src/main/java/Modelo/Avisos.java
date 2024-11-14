@@ -15,12 +15,24 @@ import static Path.Path.pathAvisos;
 
 public class Avisos implements iCRUD{
     private int id;
+    private String legajoAutor;
     private String titulo;
     private String subtitulo;
     private String descripcion;
     private HashSet<String> legajos;
     private LocalDate fecha;
     private AccesoAviso accesoAviso;
+
+    public Avisos(int id, String legajoAutor, String titulo, String subtitulo, String descripcion, HashSet<String> legajos, LocalDate fecha, AccesoAviso accesoAviso) {
+        this.id = id;
+        this.legajoAutor = legajoAutor;
+        this.titulo = titulo;
+        this.subtitulo = subtitulo;
+        this.descripcion = descripcion;
+        this.legajos = legajos;
+        this.fecha = fecha;
+        this.accesoAviso = accesoAviso;
+    }
 
     public Avisos(int id, String titulo, String subtitulo, String descripcion, HashSet<String> legajos, LocalDate fecha, AccesoAviso accesoAviso) {
         this.id = id;
@@ -48,6 +60,10 @@ public class Avisos implements iCRUD{
 
     public int getId() {
         return id;
+    }
+
+    public String getLegajoAutor() {
+        return legajoAutor;
     }
 
     public String getTitulo() {
@@ -104,9 +120,14 @@ public class Avisos implements iCRUD{
         this.id = id;
     }
 
+    public void setLegajoAutor(String legajoAutor) {
+        this.legajoAutor = legajoAutor;
+    }
+
     public JSONObject AvisoAJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id",id);
+        json.put("legajoAutor",legajoAutor);
         json.put("titulo", titulo);
         json.put("subtitulo", subtitulo);
         json.put("descripcion", descripcion);
@@ -123,6 +144,7 @@ public class Avisos implements iCRUD{
         String titulo = json.getString("titulo");
         String subtitulo = json.getString("subtitulo");
         String descripcion = json.getString("descripcion");
+        String legajoAutor = json.getString("legajoAutor");
         int id = json.getInt("id");
         HashSet<String> legajos = new HashSet<>();
         JSONArray legajosArray = json.getJSONArray("legajos");
@@ -134,6 +156,7 @@ public class Avisos implements iCRUD{
 
         Avisos aviso = new Avisos();
         aviso.id = id;
+        aviso.legajoAutor = legajoAutor;
         aviso.titulo = titulo;
         aviso.subtitulo = subtitulo;
         aviso.descripcion = descripcion;
