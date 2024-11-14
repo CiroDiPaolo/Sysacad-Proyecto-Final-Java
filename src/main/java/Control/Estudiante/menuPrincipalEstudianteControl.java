@@ -48,6 +48,9 @@ public final class menuPrincipalEstudianteControl {
     private Button btnOp9;
 
     @FXML
+    private Button btnVerAvisos;
+
+    @FXML
     private Text txtBienvenida;
 
     private Stage stage;
@@ -154,6 +157,10 @@ public final class menuPrincipalEstudianteControl {
 
     }
 
+    @FXML
+    void clickBtnVerAvisos(ActionEvent event) {
+        escena.cambiarEscena(verAvisosEstudiante,stage,"Ver avisos");
+    }
     /**
      * Metodo que se ejecuta al inicializar la pantalla
      */
@@ -178,5 +185,6 @@ public final class menuPrincipalEstudianteControl {
 
         txtBienvenida.setText("Bienvenido, " + estudiante.getNombre() + " " + estudiante.getApellido());
     }
+
 
 }

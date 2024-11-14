@@ -35,6 +35,7 @@ public final class Path {
     public static final String inscripcionMateria = "/App/Estudiante/inscripcionMateria.fxml";
     public static final String inscripcionCompletada = "/App/Estudiante/inscripcionCompletada.fxml";
     public static final String inscripcionMateriaCompletada = "/App/Estudiante/inscripcionFinalCompletada.fxml";
+    public static final String verAvisosEstudiante = "/App/Estudiante/verAvisosEstudiante.fxml";
 
     //Administrador
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
@@ -74,6 +75,7 @@ public final class Path {
     public static final String editarAvisosAdministrador = "/App/Administrador/editarAvisosAdministrador.fxml";
     public static final String buscarAvisosAdministrador = "/App/Administrador/buscarAvisoAdministrador.fxml";
     public static final String verAvisosAdministrador = "/App/Administrador/verAvisosAdministrador.fxml";
+
     //Profesor
     public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";
     public static final String gestionarComisionProfesor = "/App/Profesores/gestionComision.fxml";
@@ -81,4 +83,9 @@ public final class Path {
     public static final String gestionarNotasAlumnosProfesor = "/App/Profesores/gestionarNotasAlumnos.fxml";
     public static final String buscarAlumnoProfesor = "/App/Profesores/buscarAlumno.fxml";
     public static final String mostrarAlumnoProfesor = "/App/Profesores/mostrarAlumno.fxml";
+    public static final String configurarAvisosProfesor = "/App/Profesores/configurarAvisosProfesor.fxml";
+    public static final String cargarAvisosProfesor = "/App/Profesores/cargarAvisosProfesor.fxml";
+    public static final String editarAvisosProfesor = "/App/Profesores/editarAvisosProfesor.fxml";
+    public static final String verAvisosProfesor = "/App/Profesores/verAvisosProfesor.fxml";
+    public static final String buscarAvisosProfesor = "/App/Profesores/buscarAvisosProfesor.fxml";
 }

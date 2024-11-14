@@ -29,7 +29,8 @@ public class gestionarComisionControl {
 
     @FXML
     void clickBtnAviso(ActionEvent event) {
-
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(Path.configurarAvisosProfesor, stage, "Configurar avisos");
     }
 
     @FXML

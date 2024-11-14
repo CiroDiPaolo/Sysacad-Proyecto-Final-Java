@@ -68,14 +68,15 @@ public class editarAvisosAdministradorControl {
         String subtitulo = txtSubtitulo.getText().trim();
         String descripcion = txtMensaje.getText().trim();
         AccesoAviso accesoAviso = null;
-        HashSet<String> legajos = new HashSet<>();
+        HashSet<String> legajos;
+        legajos = Data.getAviso().getLegajos();
         try{
             accesoAviso = AccesoAviso.valueOf(choiceboxVisibilidad.getValue());
         }catch (NullPointerException e)
         {
             excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
         }
-        Avisos aviso = new Avisos(Data.getAviso().getId(),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
+        Avisos aviso = new Avisos(Data.getAviso().getId(),Data.getLegajo(),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
         try{
             if(aviso.actualizar(pathAvisos,aviso.AvisoAJSONObject()))
             {

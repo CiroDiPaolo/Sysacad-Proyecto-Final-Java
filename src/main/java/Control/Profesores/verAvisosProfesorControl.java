@@ -1,6 +1,7 @@
-package Control.Administrador;
+package Control.Profesores;
 
 import Control.EscenaControl;
+import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosAvisos;
 import Modelo.Avisos;
 import javafx.application.Platform;
@@ -13,11 +14,9 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-import static Path.Path.configurarAvisosAdministrador;
-import static Path.Path.pathAvisos;
+import static Path.Path.*;
 
-public class verAvisosAdministradorControl {
-
+public class verAvisosProfesorControl {
     @FXML
     private Button btnVolver;
 
@@ -37,19 +36,21 @@ public class verAvisosAdministradorControl {
             stage = (Stage) btnVolver.getScene().getWindow();
         });
 
-        ArrayList<Avisos> avisos = new ArrayList<>();
+        ArrayList<Avisos> avisos;
         avisos = manejoArchivosAvisos.retornarAvisos(pathAvisos);
         StringBuilder stringAvisos = new StringBuilder();
         for(Avisos aviso : avisos)
-        {
-            stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
+        {   if(aviso.getLegajoAutor().equals(Data.getLegajo()) || aviso.getLegajos().contains(Data.getComision().getId()) || aviso.getAccesoAviso().toString().equals("TODOS"))
+            {
+                stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
+            }
         }
         txtAreaAvisos.setText(String.valueOf(stringAvisos));
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(configurarAvisosAdministrador,stage,"Configurar avisos");
+        escena.cambiarEscena(configurarAvisosProfesor,stage,"Configurar avisos");
     }
 
 }

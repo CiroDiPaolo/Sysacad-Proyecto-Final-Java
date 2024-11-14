@@ -1,29 +1,36 @@
 [
     {
-        "descripcion": "pene",
+        "descripcion": "HOLISSS",
         "fecha": "2024-11-14",
-        "subtitulo": "a",
+        "legajoAutor": "A123",
+        "subtitulo": "AAAAA",
         "legajos": [],
-        "titulo": "a",
+        "titulo": "HOLA ME TENGO QUE VER",
         "id": 1,
         "accesoAviso": "TODOS"
     },
     {
-        "descripcion": "a",
+        "descripcion": "AAAAAAA",
         "fecha": "2024-11-14",
-        "subtitulo": "a",
+        "legajoAutor": "A123",
+        "subtitulo": "AAAA",
         "legajos": [],
-        "titulo": "pene",
+        "titulo": "HOLA NO ME TENGO QUE VERA",
         "id": 2,
-        "accesoAviso": "TODOS"
+        "accesoAviso": "OCULTO"
     },
     {
-        "descripcion": "a",
+        "descripcion": "das",
         "fecha": "2024-11-14",
-        "subtitulo": "a",
-        "legajos": [],
-        "titulo": "cola",
+        "legajoAutor": "A123",
+        "subtitulo": "dsa",
+        "legajos": [
+            "2022001",
+            "2022002",
+            "001-1"
+        ],
+        "titulo": "ahora es de A123",
         "id": 3,
-        "accesoAviso": "TODOS"
+        "accesoAviso": "RESTRINGIDO"
     }
 ]
