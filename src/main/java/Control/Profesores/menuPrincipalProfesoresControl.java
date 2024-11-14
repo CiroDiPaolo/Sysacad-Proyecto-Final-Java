@@ -17,25 +17,13 @@ import static Path.Path.*;
 public class menuPrincipalProfesoresControl {
 
     @FXML
-    private Label tctMenuPrincipal;
+    private Button btnComisiones;
 
     @FXML
     private Button btnSalir;
 
     @FXML
     private Text txtBienvenida;
-
-    @FXML
-    private Button btnCrearExcel;
-
-    @FXML
-    private Button btnVerComisiones;
-
-    @FXML
-    private Button btnVerMaterias;
-
-    @FXML
-    private Button btnVerMesas;
 
     private Stage stage;
 
@@ -55,33 +43,7 @@ public class menuPrincipalProfesoresControl {
         }
     }
 
-    @FXML
-    void clickBtnCrearExcel(ActionEvent event) {
 
-        escena.cambiarEscena(crearExcelProfesores,stage,"Crear Excel");
-
-    }
-
-    @FXML
-    void clickBtnVerComisiones(ActionEvent event) {
-
-        escena.cambiarEscena(comisionesProfesores,stage,"Comisiones");
-
-    }
-
-    @FXML
-    void clickBtnVerMaterias(ActionEvent event) {
-
-        escena.cambiarEscena(materiasProfesores,stage,"Materias");
-
-    }
-
-    @FXML
-    void clickBtnVerMesas(ActionEvent event) {
-
-        escena.cambiarEscena(mesasProfesores,stage,"Mesas");
-
-    }
 
     @FXML
     void clickBtnSalir(ActionEvent event) {
@@ -93,12 +55,20 @@ public class menuPrincipalProfesoresControl {
     }
 
     @FXML
+    void clickBtnComisiones(ActionEvent event) {
+
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(Path.elegirComisionProfesor, stage, "Elegir comision");
+
+    }
+
+    @FXML
     protected void initialize() {
 
         Platform.runLater(() -> {
 
-            setTxtBienvenida();
             stage = (Stage) btnSalir.getScene().getWindow();
+            setTxtBienvenida();
 
         });
 

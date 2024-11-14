@@ -36,7 +36,6 @@ public final class Path {
     public static final String inscripcionMateriaCompletada = "/App/Estudiante/inscripcionFinalCompletada.fxml";
 
     //Profesor
-    public static final String comisionesProfesores = "/App/Profesores/comisionesProfesor.fxml";
     public static final String materiasProfesores = "/App/Profesores/materiasProfesores.fxml";
     public static final String mesasProfesores = "/App/Profesores/mesasProfesores.fxml";
     public static final String crearExcelProfesores = "/App/Profesores/crearExcelProfesores.fxml";
@@ -45,7 +44,6 @@ public final class Path {
     public static final String configurarMateriasAdministrador = "/App/Administrador/configurarMateriasAdministrador.fxml";
     public static final String configurarAlumnosAdministrador = "/App/Administrador/configuracionAlumnosAdministrador.fxml";
     public static final String configurarProfesorAdministrador = "/App/Administrador/configurarProfesorAdministrador.fxml";
-    public static final String configurarMesaExamenAdministrador = "/App/Administrador/configurarMesaExamenAdministrador.fxml";
     public static final String cargarAlumnoAdministrador = "/App/Administrador/cargarAlumnoAdministrador.fxml";
     public static final String busquedaAlumnoAdministrador = "/App/Administrador/busquedaAlumnoAdministrador.fxml";
     public static final String cargaProfesorAdministrador = "/App/Administrador/cargarProfesorAdministrador.fxml";
