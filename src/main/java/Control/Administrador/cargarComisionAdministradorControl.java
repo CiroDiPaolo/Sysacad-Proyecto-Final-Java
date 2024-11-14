@@ -16,22 +16,16 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Control.EscenaControl;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static Path.Path.*;
 
 public class cargarComisionAdministradorControl {
-    @FXML
-    private Button btnCargar;
 
     @FXML
     private Button btnVolver;
@@ -56,9 +50,6 @@ public class cargarComisionAdministradorControl {
 
     @FXML
     private Spinner<Integer> spinnerCupos;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtAula;
@@ -99,6 +90,7 @@ public class cargarComisionAdministradorControl {
         Comision comision = new Comision(id,turno,nombre,codigoMateria,codigoCarrera,codigoProfesor,descripcion,anio,aula,cupos,apertura,actividad,hashSet);
         try{
             if(comision.crear(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(codigoCarrera,anio))){
+                Excepciones.excepcionPersonalizada.alertaConfirmacion("Comision cargada con exito.");
                 txtNombre.clear();
                 txtAula.clear();
                 txtDescripcion.clear();
