@@ -225,13 +225,4 @@ public final class Carrera implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
 }
