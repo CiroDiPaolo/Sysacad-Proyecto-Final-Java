@@ -21,29 +21,20 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        //Carga archivo fxml
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(Path.inicioSesion));
-        //Representa un nodo
         Parent root = fxmlLoader.load();
-        //Representa una escena
         Scene scene = new Scene(root);
-        //Setea el titulo de la ventana
         stage.setTitle("Sysacad Programación");
 
-        //Maximiza la ventana
         stage.setMaximized(true);
 
-        //Crea el icono
         Image icon = new Image(getClass().getResourceAsStream(icono));
 
-        //Setea el icono a la ventana
         stage.getIcons().add(icon);
 
-        //Le pasa el control del stage a la clase inicioSesionControl
         inicioSesionControl controller = fxmlLoader.getController();
         controller.setStage(stage);
 
-        //Setea la escena y la muestra
         stage.setScene(scene);
         stage.show();
 
