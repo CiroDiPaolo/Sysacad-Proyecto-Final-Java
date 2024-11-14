@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verProfesorAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verProfesorAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-769.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -52,25 +52,25 @@
             </font>
         </Text>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="470.0" layoutY="372.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="477.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="973.0" />
-        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="468.0" layoutY="372.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="972.0">
+        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="468.0" layoutY="372.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="972.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="468.0" layoutY="487.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="972.0" />
-        <TextField fx:id="txtApellido" alignment="CENTER" blendMode="COLOR_BURN" layoutX="468.0" layoutY="487.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="972.0">
+        <TextField fx:id="txtApellido" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="468.0" layoutY="487.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="972.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="469.0" layoutY="591.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="971.0" />
-        <TextField fx:id="txtDni" alignment="CENTER" blendMode="COLOR_BURN" layoutX="469.0" layoutY="591.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="971.0">
+        <TextField fx:id="txtDni" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="469.0" layoutY="591.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="971.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="1039.0" layoutY="591.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="477.0" AnchorPane.leftAnchor="1039.0" AnchorPane.rightAnchor="404.0" />
-        <TextField fx:id="txtCorreo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="1037.0" layoutY="591.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="1037.0" AnchorPane.rightAnchor="403.0">
+        <TextField fx:id="txtCorreo" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="1037.0" layoutY="591.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="1037.0" AnchorPane.rightAnchor="403.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
@@ -85,7 +85,7 @@
             </cursor>
         </Button>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="1039.0" layoutY="487.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="477.0" />
-        <TextField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" layoutX="1037.0" layoutY="487.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtContrasenia" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="1037.0" layoutY="487.0" prefHeight="53.0" prefWidth="480.0" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>

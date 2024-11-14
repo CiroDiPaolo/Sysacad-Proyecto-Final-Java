@@ -76,7 +76,7 @@
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="179.0" layoutX="183.0" layoutY="428.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
-        <TextArea fx:id="txtDescripcion" blendMode="DARKEN" layoutX="188.0" layoutY="435.0" prefHeight="168.0" prefWidth="394.0" promptText="Ingrese una descripción">
+        <TextArea fx:id="txtDescripcion" blendMode="DARKEN" editable="false" layoutX="188.0" layoutY="435.0" prefHeight="168.0" prefWidth="394.0" promptText="Ingrese una descripción">
             <font>
                 <Font size="29.0" />
             </font>
@@ -132,7 +132,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="#8cc5e8" layoutX="41.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="143.18586730957077">
+      <Text fill="#8cc5e8" layoutX="47.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="135.18586730957077">
          <font>
             <Font size="25.0" />
          </font>
