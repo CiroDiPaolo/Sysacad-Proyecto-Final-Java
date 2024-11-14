@@ -1,6 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosAvisos;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
@@ -62,11 +63,12 @@ public class cargarAvisoAdministradorControl {
         {
             excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
         }
-        Avisos aviso = new Avisos(manejoArchivosAvisos.obtenerSiguienteId(pathAvisos),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
+        Avisos aviso = new Avisos(manejoArchivosAvisos.obtenerSiguienteId(pathAvisos), Data.getLegajo(),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
         try{
             if(aviso.crear(pathAvisos))
             {
                 excepcionPersonalizada.alertaConfirmacion("Aviso cargado correctamente");
+                escena.cambiarEscena(configurarAvisosAdministrador,stage,"Configurar avisos");
             }
         } catch (CamposVaciosException e) {
             e.getMessage();
