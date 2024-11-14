@@ -26,16 +26,10 @@ import static Path.Path.pathCarreras;
 public class editarCarreraAdministradorControl {
 
     @FXML
-    private Button btnActualizar;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
     private CheckBox checkBoxActividad;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtID;
