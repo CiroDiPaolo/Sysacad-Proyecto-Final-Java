@@ -30,7 +30,7 @@ public class opcionEditarCarreraAdministradorControl {
 
     @FXML
     void clickBtnCarrera(ActionEvent event) {
-        excepcionPersonalizada.alertaAtencion("NO TIENES EL PAQUETE SYSACAD PRO GOLD.");
+        escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
     }
 
     @FXML
