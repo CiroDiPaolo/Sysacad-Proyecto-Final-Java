@@ -1,5 +1,6 @@
 package Modelo;
 
+import Control.InicioSesion.Data;
 import Excepciones.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -316,6 +317,8 @@ public final class Comision implements iCRUD{
         } else {
             nuevoID = "001" + "-" + codigoMateria;
         }
+
+        Data.setAux3(nuevoID);
 
         return nuevoID;
     }
