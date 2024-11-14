@@ -182,10 +182,8 @@ public final class manejoArchivos {
             jsonArray = new JSONArray(jsonStringBuilder.toString());
             reader.close();
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
             jsonArray = new JSONArray();
         } catch (JSONException e) {
-            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
             jsonArray = new JSONArray();
         }
 
