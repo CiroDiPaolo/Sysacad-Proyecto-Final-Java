@@ -75,13 +75,13 @@
             </cursor>
         </Button>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="353.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="342.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el titulo" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="342.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el título" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="434.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="343.0" layoutY="434.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtitulo" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="343.0" layoutY="434.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtítulo" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>

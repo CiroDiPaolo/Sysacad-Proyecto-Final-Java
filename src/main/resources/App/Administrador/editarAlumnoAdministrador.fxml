@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarAlumnoAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarAlumnoAdministradorControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -102,7 +102,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="858.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dni del alumno" wrappingWidth="203.47015380859375" AnchorPane.leftAnchor="858.0" AnchorPane.rightAnchor="858.5298461914062">
+      <Text fill="WHITE" layoutX="858.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI del alumno" wrappingWidth="239.47015380859375" AnchorPane.leftAnchor="858.0" AnchorPane.rightAnchor="822.5298461914062">
          <font>
             <Font size="30.0" />
          </font>

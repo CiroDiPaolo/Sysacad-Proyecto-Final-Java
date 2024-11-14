@@ -98,5 +98,11 @@
                 <Font size="25.0" />
             </font>
         </TextArea>
+      <Text fill="#8cc5e8" layoutX="361.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La visibilidad del aviso está restringida solamente a la comisión actual" wrappingWidth="385.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="63.0" layoutX="343.0" layoutY="618.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
     </children>
 </AnchorPane>

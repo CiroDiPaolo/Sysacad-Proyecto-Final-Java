@@ -35,7 +35,7 @@
          <columns>
             <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
             <TableColumn fx:id="colMateria" prefWidth="342.33331298828125" text="MATERIA" />
-            <TableColumn fx:id="colComision" prefWidth="66.66668701171875" text="COMISION" />
+            <TableColumn fx:id="colComision" prefWidth="66.66668701171875" text="COMISIÓN" />
             <TableColumn fx:id="colPParcial" minWidth="0.0" prefWidth="115.0" text="1ER PARCIAL" />
             <TableColumn fx:id="colSParcial" prefWidth="115.0" sortType="DESCENDING" text="2DO Parcial" />
             <TableColumn fx:id="colFinal" prefWidth="116.0" text="FINAL" />
