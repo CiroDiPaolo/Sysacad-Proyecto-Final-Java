@@ -50,16 +50,10 @@ public final class editarMesaExamenAlumnoAdministradorControl {
                 throw new DatosIncorrectosException("La nota debe ser un número entero entre 0 y 10.");
             }
 
-            for (int i = 0 ; i < e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().size(); i++){
-
-                System.out.println(e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).getCodigoMesa() + "codigo de mesa");
-
-                if(e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).getCodigoMesa().equals(choiceMesa.getValue())){
-
-                    e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().get("Mesa"+(i+1)).setNota(nota);
-
+            for (Map.Entry<String, EstadoAlumnoMesa> entry : e.getMaterias().get(Integer.parseInt(Data.getAux2())).getMesasExamen().entrySet()) {
+                if (entry.getValue().getCodigoMesa().equals(choiceMesa.getValue())) {
+                    entry.getValue().setNota(nota);
                 }
-
             }
 
             if(estudianteOriginal.actualizar(Path.fileNameAlumnos,e.estudianteAJSONObject())){

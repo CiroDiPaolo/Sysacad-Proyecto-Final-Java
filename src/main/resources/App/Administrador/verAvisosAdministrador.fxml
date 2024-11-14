@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verAvisosAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verAvisosAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -63,7 +63,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <TextArea fx:id="txtAreaAvisos" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0" style="-fx-background-color: black;">
+      <TextArea fx:id="txtAreaAvisos" blendMode="OVERLAY" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
          <font>
             <Font size="26.0" />
          </font></TextArea>
