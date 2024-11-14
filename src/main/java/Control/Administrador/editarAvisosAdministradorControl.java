@@ -75,7 +75,7 @@ public class editarAvisosAdministradorControl {
         {
             excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
         }
-        Avisos aviso = new Avisos(Data.getAviso().getId(),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
+        Avisos aviso = new Avisos(Data.getAviso().getId(),Data.getLegajo(),titulo,subtitulo,descripcion,legajos, LocalDate.now(),accesoAviso);
         try{
             if(aviso.actualizar(pathAvisos,aviso.AvisoAJSONObject()))
             {
