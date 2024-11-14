@@ -293,8 +293,7 @@ public final class manejoArchivosCarrera {
 
     public static ArrayList<String> obtenerNombresMaterias(String fileName, HashSet<String> idsMaterias) {
 
-        ArrayList<String> nombresMaterias = new ArrayList<>();
-
+        HashSet<String> nombresMateriasSet = new HashSet<>();
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
 
         for (int i = 0; i < arreglo.length(); i++) {
@@ -302,74 +301,63 @@ public final class manejoArchivosCarrera {
             JSONArray materias = carreraJSON.optJSONArray("materias");
 
             if (materias != null) {
-
                 for (int j = 0; j < materias.length(); j++) {
                     JSONObject materiaActual = materias.getJSONObject(j);
-
-                    // Obtener el id de la materia
                     String idMateria = materiaActual.getString("id");
 
                     if (idsMaterias.contains(idMateria)) {
-
                         String nombreMateria = materiaActual.getString("nombre");
-                        nombresMaterias.add(nombreMateria);
+                        nombresMateriasSet.add(nombreMateria);
                     }
                 }
             }
         }
 
-        return nombresMaterias;
+        return new ArrayList<>(nombresMateriasSet);
     }
 
     public static boolean actualizarCarrera(String path, JSONObject carrera, String idviejo) {
+        JSONArray jsonArray;
 
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder jsonStringBuilder = new StringBuilder();
+            String line;
 
-            JSONArray jsonArray;
-
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(path));
-                StringBuilder jsonStringBuilder = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    jsonStringBuilder.append(line);
-                }
-
-                jsonArray = new JSONArray(jsonStringBuilder.toString());
-                reader.close();
-            } catch (IOException e) {
-                System.out.println("Error al leer el archivo: " + e.getMessage());
-                jsonArray = new JSONArray();
-            } catch (JSONException e) {
-                System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
-                jsonArray = new JSONArray();
+            while ((line = reader.readLine()) != null) {
+                jsonStringBuilder.append(line);
             }
 
-            JSONArray jsonArray1 = new JSONArray();
-            for(int i = 0; i<jsonArray.length(); i++)
-            {
-                if(jsonArray.getJSONObject(i).getString("id").equals(idviejo))
-                {
-                    jsonArray1.put(carrera);
-                }else {
-                    jsonArray1.put(jsonArray.getJSONObject(i));
-                }
-            }
+            jsonArray = new JSONArray(jsonStringBuilder.toString());
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            jsonArray = new JSONArray();
+        } catch (JSONException e) {
+            System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
+            jsonArray = new JSONArray();
+        }
 
-            try {
+        JSONArray jsonArray1 = new JSONArray();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.getJSONObject(i).getString("id").equals(idviejo)) {
                 jsonArray1.put(carrera);
-
-                FileWriter file = new FileWriter(path);
-                file.write(jsonArray1.toString(4));
-                file.close();
-                return true;
-
-            } catch (IOException e) {
-                System.out.println("Error al escribir en el archivo: " + e.getMessage());
-            } catch (JSONException e) {
-                System.out.println("Error al convertir la carrera a JSON: " + e.getMessage());
+            } else {
+                jsonArray1.put(jsonArray.getJSONObject(i));
             }
+        }
 
+        try {
+            FileWriter file = new FileWriter(path);
+            file.write(jsonArray1.toString(4));
+            file.close();
+            return true;
+
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        } catch (JSONException e) {
+            System.out.println("Error al convertir la carrera a JSON: " + e.getMessage());
+        }
 
         return false;
     }
