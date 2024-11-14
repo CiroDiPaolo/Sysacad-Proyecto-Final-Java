@@ -78,32 +78,38 @@ public class cargarMesaExamenAdministradorControl {
     @FXML
     void clickBtnCargar(ActionEvent event) {
 
-        if(manejoArchivos.esFormatoFechaValida(txtFecha.getText()) && manejoArchivos.esFormatoHoraValida(txtHora.getText()))
-        {
+        if(manejoArchivos.esFormatoFechaValida(txtFecha.getText()) && manejoArchivos.esFormatoHoraValida(txtHora.getText())) {
             LocalDate fecha = null;
             LocalTime hora = null;
-            try{
+            try {
                 fecha = LocalDate.parse(txtFecha.getText());
                 hora = LocalTime.parse(txtHora.getText());
-            }catch (DateTimeException e)
-            {
+            } catch (DateTimeException e) {
                 excepcionPersonalizada.excepcion("Ingresaste una fecha inválida.");
             }
 
-            String id = MesaExamen.generarIDMesaExamen(Data.getCarrera().getId(),Materia.cortarString(choiceBoxMateria.getValue()),pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()));
+            String id = MesaExamen.generarIDMesaExamen(Data.getCarrera().getId(), Materia.cortarString(choiceBoxMateria.getValue()), pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(), fecha.getYear()));
             Turno turno = null;
-            try{
+            try {
                 turno = Turno.valueOf(choiceBoxTurno.getValue());
-            }catch (NullPointerException e)
-            {
+            } catch (NullPointerException e) {
                 excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
             }
             String codigoCarrera = Data.getCarrera().getId();
             String codigoMateria = Materia.cortarString(choiceBoxMateria.getValue());
             String codigoPresidente = Materia.cortarString(choiceBoxProfesor.getValue());
             HashSet<String> vocales = new HashSet<>();
-            vocales.add(Materia.cortarString(choiceBoxVocal1.getValue()));
-            vocales.add(Materia.cortarString(choiceBoxVocal2.getValue()));
+            try {
+                if (choiceBoxVocal1.getValue() != null && choiceBoxVocal2.getValue() != null) {
+                    vocales.add(Materia.cortarString(choiceBoxVocal1.getValue()));
+                    vocales.add(Materia.cortarString(choiceBoxVocal2.getValue()));
+                } else {
+                    throw new CamposVaciosException("Debes completar todos los campos");
+                }
+            } catch (CamposVaciosException e)
+            {
+                e.getMessage();
+            }
             int cupos = spinnerCupos.getValue();
             String aula = txtAula.getText();
             boolean apertura = checkBoxApertura.isSelected();

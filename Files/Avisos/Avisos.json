@@ -32,5 +32,15 @@
         "titulo": "ahora es de A123",
         "id": 3,
         "accesoAviso": "RESTRINGIDO"
+    },
+    {
+        "descripcion": "no quebró la facu,  no la explotamos.",
+        "fecha": "2024-11-14",
+        "legajoAutor": "A123",
+        "subtitulo": "mentira",
+        "legajos": [],
+        "titulo": "Aviso 2",
+        "id": 4,
+        "accesoAviso": "OCULTO"
     }
 ]

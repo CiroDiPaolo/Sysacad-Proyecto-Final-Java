@@ -1,15 +1,32 @@
-[{
-    "descripcion": "Miercoles 14:00-16:00",
-    "aula": "1",
-    "codigoMateria": "006",
-    "codigoCarrera": "001",
-    "turno": "TARDE",
-    "cupos": 38,
-    "nombre": "Comision 8",
-    "apertura": false,
-    "actividad": true,
-    "codigoProfesor": "P000001",
-    "id": "001-006",
-    "estadoAlumnoComision": [],
-    "anio": 2025
-}]
+[
+    {
+        "descripcion": "Miercoles 14:00-16:00",
+        "aula": "1",
+        "codigoMateria": "006",
+        "codigoCarrera": "001",
+        "turno": "TARDE",
+        "cupos": 38,
+        "nombre": "Comision 8",
+        "apertura": false,
+        "actividad": true,
+        "codigoProfesor": "P000001",
+        "id": "001-006",
+        "estadoAlumnoComision": [],
+        "anio": 2025
+    },
+    {
+        "descripcion": "LA MEJOR COMISION DE TODAS",
+        "aula": "Aula maligna",
+        "codigoMateria": "13",
+        "codigoCarrera": "001",
+        "turno": "MEDIA_MANIANA",
+        "cupos": 10,
+        "nombre": "Com 8",
+        "apertura": true,
+        "actividad": true,
+        "codigoProfesor": "P000004",
+        "id": "001-13",
+        "estadoAlumnoComision": [],
+        "anio": 2025
+    }
+]

@@ -279,7 +279,7 @@ public MesaExamen(MesaExamen mesa) {
 
         if(manejoArchivos.esFormatoFechaValida(this.getFecha().toString()) && manejoArchivos.esFormatoHoraValida(this.getHora().toString())&& manejoArchivos.esFechaValidaEnRango(fecha) && manejoArchivos.esHoraValidaEnRango(hora))
         {
-            if(codigoMateria == null || vocales == null || codigoPresidente == null || aula == null)
+            if(codigoMateria == null || vocales == null || codigoPresidente == null || aula == null || vocales.size() !=2)
             {
                 throw new CamposVaciosException("Debes completar todos los campos.");
             }
