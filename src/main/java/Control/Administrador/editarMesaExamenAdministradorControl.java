@@ -84,7 +84,7 @@ public class editarMesaExamenAdministradorControl {
             try{
                 fecha = LocalDate.parse(txtFecha.getText());
                 hora = LocalTime.parse(txtHora.getText());
-                String id = MesaExamen.generarIDMesaExamen(Data.getCarrera().getId(),Materia.cortarString(choiceBoxMateria.getValue()),pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()));
+                String id = Data.getMesaExamen().getId();
                 Turno turno = null;
                 try{
                     turno = Turno.valueOf(choiceBoxTurno.getValue());
