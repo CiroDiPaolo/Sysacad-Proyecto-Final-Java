@@ -215,17 +215,6 @@ public final class Materia implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String legajo) {
-        return false;
-    }
-
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
-
     /**
      * Convierte un jsonObject a una materia
      * @param jsonObject
