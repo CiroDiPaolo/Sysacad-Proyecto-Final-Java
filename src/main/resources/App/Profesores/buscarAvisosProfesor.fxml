@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.buscarAvisosProfesorControl">
+    <children>
+        <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+            <image>
+                <Image url="@../../images/lenguaje-min.jpg" />
+            </image>
+            <effect>
+                <BoxBlur iterations="2" />
+            </effect>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-31.0" layoutY="-18.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1996.0" />
+        <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="190.0" prefWidth="708.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="606.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="96.0" />
+                    </font>
+                </Label>
+                <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Módulo de autogestión de alumnos" wrappingWidth="490.47015380859375">
+                    <font>
+                        <Font size="31.0" />
+                    </font>
+                </Text>
+                <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" text="MODO ADMINISTRADOR" wrappingWidth="359.47015380859375">
+                    <font>
+                        <Font size="31.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+        <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
+            <image>
+                <Image url="@../../images/utn.png" />
+            </image>
+        </ImageView>
+        <Rectangle fill="#2e3b43" height="407.0" layoutX="650.0" layoutY="306.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="620.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="640.0" />
+        <Text fill="#8cc5e8" layoutX="816.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR AVISO" wrappingWidth="287.47015380859375" AnchorPane.leftAnchor="816.0" AnchorPane.rightAnchor="816.5298461914062">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Text>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="756.0" layoutY="590.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="753.0" layoutY="580.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="995.0" layoutY="592.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+        <Button fx:id="btnElegir" alignment="CENTER" contentDisplay="CENTER" layoutX="988.0" layoutY="580.0" mnemonicParsing="false" onAction="#clickBtnElegir" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Elegir" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ChoiceBox fx:id="choiceboxAvisos" layoutX="692.0" layoutY="460.0" prefHeight="31.0" prefWidth="550.0" />
+    </children>
+</AnchorPane>
