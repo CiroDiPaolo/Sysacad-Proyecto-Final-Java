@@ -312,5 +312,41 @@
         "fecha": "2024-12-19",
         "alumnosInscriptos": [],
         "id": "001-17"
+    },
+    {
+        "codigoPresidente": "P000004",
+        "aula": "1",
+        "codigoMateria": "3",
+        "hora": "22:00",
+        "codigoCarrera": "001",
+        "vocales": [
+            "P000002",
+            "P000001"
+        ],
+        "turno": "MANIANA",
+        "cupos": 12,
+        "apertura": true,
+        "actividad": true,
+        "fecha": "2024-11-15",
+        "alumnosInscriptos": [],
+        "id": "002-3"
+    },
+    {
+        "codigoPresidente": "P000002",
+        "aula": "2",
+        "codigoMateria": "2",
+        "hora": "21:00",
+        "codigoCarrera": "001",
+        "vocales": [
+            "P000003",
+            "P000001"
+        ],
+        "turno": "NOCHE",
+        "cupos": 10,
+        "apertura": true,
+        "actividad": true,
+        "fecha": "2024-12-02",
+        "alumnosInscriptos": [],
+        "id": "002-2"
     }
 ]
