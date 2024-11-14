@@ -3,7 +3,7 @@ package ControlArchivos;
 import Excepciones.CamposVaciosException;
 import Excepciones.EntidadYaExistente;
 import Excepciones.excepcionPersonalizada;
-import Modelo.Comision;
+import Modelo.EstadoAlumnoMesa;
 import Modelo.MesaExamen;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Iterator;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static Path.Path.pathMesaExamen;
@@ -260,4 +260,19 @@ public class manejoArchivosMesaExamen {
         }
         return numeros;
     }
+
+    public static void actualizarEstadoEstudiante(MesaExamen mesa, String idEstudiante, int nota) {
+
+        Iterator<EstadoAlumnoMesa> it = mesa.getAlumnosInscriptos().iterator();
+
+        while (it.hasNext()) {
+            EstadoAlumnoMesa estado = it.next();
+            if (estado.getCodigoMesa().equals(idEstudiante)) {
+                estado.setNota(nota);
+                break;
+            }
+        }
+
+    }
+
 }
