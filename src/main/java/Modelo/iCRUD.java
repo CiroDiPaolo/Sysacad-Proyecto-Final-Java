@@ -27,19 +27,4 @@ public interface iCRUD {
      */
     boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException ;
 
-    /**
-     * Lee una entidad de un archivo
-     * @param path
-     * @param id
-     * @return
-     */
-    boolean leer(String path, String id);
-
-    /**
-     * Elimina(baja logica) una entidad en un archivo.
-     * @param path
-     * @return
-     */
-    boolean borrar(String path);
-
 }
