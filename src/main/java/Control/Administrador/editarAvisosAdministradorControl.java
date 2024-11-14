@@ -68,7 +68,8 @@ public class editarAvisosAdministradorControl {
         String subtitulo = txtSubtitulo.getText().trim();
         String descripcion = txtMensaje.getText().trim();
         AccesoAviso accesoAviso = null;
-        HashSet<String> legajos = new HashSet<>();
+        HashSet<String> legajos;
+        legajos = Data.getAviso().getLegajos();
         try{
             accesoAviso = AccesoAviso.valueOf(choiceboxVisibilidad.getValue());
         }catch (NullPointerException e)

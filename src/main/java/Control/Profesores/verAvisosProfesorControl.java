@@ -40,7 +40,7 @@ public class verAvisosProfesorControl {
         avisos = manejoArchivosAvisos.retornarAvisos(pathAvisos);
         StringBuilder stringAvisos = new StringBuilder();
         for(Avisos aviso : avisos)
-        {   if((aviso.getLegajoAutor().equals(Data.getLegajo()) && aviso.getLegajos().contains(Data.getComision().getId())) ||aviso.getAccesoAviso().toString().equals("TODOS"))
+        {   if(aviso.getLegajoAutor().equals(Data.getLegajo()) || aviso.getLegajos().contains(Data.getComision().getId()) || aviso.getAccesoAviso().toString().equals("TODOS"))
             {
                 stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
             }

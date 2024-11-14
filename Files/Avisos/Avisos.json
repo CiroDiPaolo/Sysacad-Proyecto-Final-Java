@@ -20,48 +20,17 @@
         "accesoAviso": "OCULTO"
     },
     {
-        "descripcion": "sadasdasd",
+        "descripcion": "das",
         "fecha": "2024-11-14",
         "legajoAutor": "A123",
-        "subtitulo": "ads",
-        "legajos": [],
-        "titulo": "asd",
-        "id": 3,
-        "accesoAviso": "OCULTO"
-    },
-    {
-        "descripcion": "aaaaaaaaaaaaa",
-        "fecha": "2024-11-14",
-        "legajoAutor": "P000001",
-        "subtitulo": "aaaaaaa",
-        "legajos": ["001-2"],
-        "titulo": "aaaaaaaa",
-        "id": 4,
-        "accesoAviso": "RESTRINGIDO"
-    },
-    {
-        "descripcion": "asdasdasdasd",
-        "fecha": "2024-11-14",
-        "legajoAutor": "P000001",
-        "subtitulo": "dasasdasd",
-        "legajos": ["001-2"],
-        "titulo": "holisss",
-        "id": 5,
-        "accesoAviso": "RESTRINGIDO"
-    },
-    {
-        "descripcion": "saddsaasd",
-        "fecha": "2024-11-14",
-        "legajoAutor": "P000001",
-        "subtitulo": "sdadasadsasdads",
+        "subtitulo": "dsa",
         "legajos": [
             "2022001",
             "2022002",
-            "001-1",
-            "E1"
+            "001-1"
         ],
-        "titulo": "adsasdasdasdasdasd",
-        "id": 6,
+        "titulo": "ahora es de A123",
+        "id": 3,
         "accesoAviso": "RESTRINGIDO"
     }
 ]

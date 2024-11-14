@@ -44,7 +44,7 @@ public class buscarAvisosProfesorControl {
         ArrayList<Avisos> avisos = manejoArchivosAvisos.retornarAvisos(pathAvisos);
 
         for(Avisos aviso : avisos)
-        {   if(aviso.getLegajoAutor().equals(Data.getLegajo())) {
+        {   if(aviso.getLegajoAutor().equals(Data.getLegajo()) && aviso.getLegajos().contains(Data.getComision().getId())) {
                  choiceboxAvisos.getItems().add(aviso.getId() + " - " + aviso.getFecha().toString() + " - " + aviso.getTitulo());
             }
         }

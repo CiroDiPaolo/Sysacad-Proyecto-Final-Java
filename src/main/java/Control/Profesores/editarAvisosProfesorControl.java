@@ -66,11 +66,8 @@ public class editarAvisosProfesorControl {
         String subtitulo = txtSubtitulo.getText().trim();
         String descripcion = txtMensaje.getText().trim();
         AccesoAviso accesoAviso = null;
-        HashSet<String> legajos = new HashSet<>();
-        for(EstadoAlumnoComision estadoAlumnoComision : Data.getComision().getEstadoAlumnoComisionHashSet())
-        {
-            legajos.add(estadoAlumnoComision.getLejagoAlumno());
-        }
+        HashSet<String> legajos;
+        legajos = Data.getAviso().getLegajos();
         try{
             accesoAviso = AccesoAviso.valueOf(choiceboxVisibilidad.getValue());
         }catch (NullPointerException e)
