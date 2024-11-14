@@ -84,43 +84,42 @@ public class editarMesaExamenAdministradorControl {
             try{
                 fecha = LocalDate.parse(txtFecha.getText());
                 hora = LocalTime.parse(txtHora.getText());
+                String id = MesaExamen.generarIDMesaExamen(Data.getCarrera().getId(),Materia.cortarString(choiceBoxMateria.getValue()),pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()));
+                Turno turno = null;
+                try{
+                    turno = Turno.valueOf(choiceBoxTurno.getValue());
+                }catch (NullPointerException e)
+                {
+                    System.out.println("Ingresaste un campo vacio.");
+                    excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
+                }
+                String codigoCarrera = Data.getCarrera().getId();
+                String codigoMateria = Materia.cortarString(choiceBoxMateria.getValue());
+                String codigoPresidente = Materia.cortarString(choiceBoxProfesor.getValue());
+                HashSet<String> vocales = new HashSet<>();
+                vocales.add(Materia.cortarString(choiceBoxVocal1.getValue()));
+                vocales.add(Materia.cortarString(choiceBoxVocal2.getValue()));
+                int cupos = spinnerCupos.getValue();
+                String aula = txtAula.getText();
+                boolean apertura = checkBoxApertura.isSelected();
+                boolean actividad = checkBoxActividad.isSelected();
+
+                MesaExamen mesaExamen = new MesaExamen(id,turno,codigoCarrera,codigoMateria,codigoPresidente,vocales,fecha,hora,cupos,aula,apertura,actividad, Data.getMesaExamen().getAlumnosInscriptos());
+
+                try{
+                    if(mesaExamen.actualizar(pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()),mesaExamen.toJSONObject()))
+                    {
+                        excepcionPersonalizada.alertaConfirmacion("¡Mesa de examen actualizada exitosamente!");
+                        escena.cambiarEscena(opcionEditarMesaExamenAdministrador, stage, "Configurar mesa de examen");
+                    }
+                } catch (CamposVaciosException e) {
+                    e.getMessage();
+                } catch (DatosIncorrectosException e) {
+                    e.getMessage();
+                }
             }catch (DateTimeException e)
             {
-                excepcionPersonalizada.excepcion("Ingresaste una fecha inválida.");
-            }
-
-            String id = MesaExamen.generarIDMesaExamen(Data.getCarrera().getId(),Materia.cortarString(choiceBoxMateria.getValue()),pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()));
-            Turno turno = null;
-            try{
-                turno = Turno.valueOf(choiceBoxTurno.getValue());
-            }catch (NullPointerException e)
-            {
-                System.out.println("Ingresaste un campo vacio.");
-                excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
-            }
-            String codigoCarrera = Data.getCarrera().getId();
-            String codigoMateria = Materia.cortarString(choiceBoxMateria.getValue());
-            String codigoPresidente = Materia.cortarString(choiceBoxProfesor.getValue());
-            HashSet<String> vocales = new HashSet<>();
-            vocales.add(Materia.cortarString(choiceBoxVocal1.getValue()));
-            vocales.add(Materia.cortarString(choiceBoxVocal2.getValue()));
-            int cupos = spinnerCupos.getValue();
-            String aula = txtAula.getText();
-            boolean apertura = checkBoxApertura.isSelected();
-            boolean actividad = checkBoxActividad.isSelected();
-
-            MesaExamen mesaExamen = new MesaExamen(id,turno,codigoCarrera,codigoMateria,codigoPresidente,vocales,fecha,hora,cupos,aula,apertura,actividad, Data.getMesaExamen().getAlumnosInscriptos());
-
-            try{
-                if(mesaExamen.actualizar(pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear()),mesaExamen.toJSONObject()))
-                {
-                    excepcionPersonalizada.alertaConfirmacion("¡Mesa de examen actualizada exitosamente!");
-                    escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
-                }
-            } catch (CamposVaciosException e) {
-                e.getMessage();
-            } catch (DatosIncorrectosException e) {
-                e.getMessage();
+                excepcionPersonalizada.excepcion("Ingresaste una hora y/o fecha inválida.");
             }
         }else
         {

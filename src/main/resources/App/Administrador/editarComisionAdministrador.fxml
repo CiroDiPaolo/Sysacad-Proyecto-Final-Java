@@ -53,7 +53,7 @@
             </image>
         </ImageView>
         <Rectangle fill="#2e3b43" height="635.0" layoutX="88.0" layoutY="240.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1749.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="93.0" />
-        <Text fill="#8cc5e8" layoutX="791.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARGAR COMISIÓN" wrappingWidth="361.803466796875" AnchorPane.leftAnchor="791.0" AnchorPane.rightAnchor="767.196533203125">
+        <Text fill="#8cc5e8" layoutX="791.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR COMISIÓN" wrappingWidth="361.803466796875" AnchorPane.leftAnchor="791.0" AnchorPane.rightAnchor="767.196533203125">
             <font>
                 <Font size="40.0" />
             </font>
@@ -67,8 +67,8 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="1014.0" layoutY="785.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-        <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="1004.0" layoutY="773.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Cargar" textAlignment="CENTER" textFill="WHITE">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="1014.0" layoutY="785.0" stroke="BLACK" strokeType="INSIDE" width="205.0" />
+        <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="1004.0" layoutY="773.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>

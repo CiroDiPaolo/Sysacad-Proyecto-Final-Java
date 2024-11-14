@@ -87,11 +87,11 @@ public class editarComisionAdministradorControl {
         HashSet<EstadoAlumnoComision> hashSet = Data.getComision().getEstadoAlumnoComisionHashSet();
         Comision comision = new Comision(id,turno,nombre,codigoMateria,codigoCarrera,codigoProfesor,descripcion,anio,aula,cupos,apertura,actividad,hashSet);
         try{
-
-            comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject());
-            manejoArchivosComisiones.actualizarEstudiantesDeUnaComision(codigoMateria);
-
-            escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
+            if(comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject()))
+            {
+                manejoArchivosComisiones.actualizarEstudiantesDeUnaComision(codigoMateria);
+                escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
+            }
         } catch (CamposVaciosException | DatosIncorrectosException e) {
             e.getMessage();
         }
