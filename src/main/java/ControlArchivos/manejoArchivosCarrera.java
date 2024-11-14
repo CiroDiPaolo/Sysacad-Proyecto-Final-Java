@@ -14,7 +14,6 @@ import java.util.HashSet;
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 import static Path.Path.pathComisiones;
-import static ControlArchivos.manejoArchivos.sobreescribirArchivoJSON;
 
 public final class manejoArchivosCarrera {
 
@@ -322,5 +321,56 @@ public final class manejoArchivosCarrera {
         return nombresMaterias;
     }
 
+    public static boolean actualizarCarrera(String path, JSONObject carrera, String idviejo) {
 
+
+            JSONArray jsonArray;
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(path));
+                StringBuilder jsonStringBuilder = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    jsonStringBuilder.append(line);
+                }
+
+                jsonArray = new JSONArray(jsonStringBuilder.toString());
+                reader.close();
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo: " + e.getMessage());
+                jsonArray = new JSONArray();
+            } catch (JSONException e) {
+                System.out.println("El archivo no contiene un JSON válido, se creará uno nuevo.");
+                jsonArray = new JSONArray();
+            }
+
+            JSONArray jsonArray1 = new JSONArray();
+            for(int i = 0; i<jsonArray.length(); i++)
+            {
+                if(jsonArray.getJSONObject(i).getString("id").equals(idviejo))
+                {
+                    jsonArray1.put(carrera);
+                }else {
+                    jsonArray1.put(jsonArray.getJSONObject(i));
+                }
+            }
+
+            try {
+                jsonArray1.put(carrera);
+
+                FileWriter file = new FileWriter(path);
+                file.write(jsonArray1.toString(4));
+                file.close();
+                return true;
+
+            } catch (IOException e) {
+                System.out.println("Error al escribir en el archivo: " + e.getMessage());
+            } catch (JSONException e) {
+                System.out.println("Error al convertir la carrera a JSON: " + e.getMessage());
+            }
+
+
+        return false;
+    }
 }
