@@ -55,6 +55,8 @@ public class editarCarreraAdministradorControl {
         try{
             if(carrera.actualizar(pathCarreras,carrera.carreraAJSONObject())){
                 excepcionPersonalizada.alertaConfirmacion("¡La carrera ha sido correctamente actualizada!");
+                Data data = new Data();
+                data.setCarrera(carrera);
                 escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
             }
         } catch (CamposVaciosException e) {
