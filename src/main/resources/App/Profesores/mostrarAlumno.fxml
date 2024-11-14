@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.mostrarAlumnoControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.mostrarAlumnoControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -113,6 +113,11 @@
       <Text fill="WHITE" layoutX="699.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de alumnos con mismo nombre cambie la elección" wrappingWidth="521.4701538085938" AnchorPane.leftAnchor="699.0" AnchorPane.rightAnchor="699.5298461914062">
          <font>
             <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#8cc5e8" layoutX="833.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MODO PROFESOR" wrappingWidth="254.13671875">
+         <font>
+            <Font size="31.0" />
          </font>
       </Text>
     </children>

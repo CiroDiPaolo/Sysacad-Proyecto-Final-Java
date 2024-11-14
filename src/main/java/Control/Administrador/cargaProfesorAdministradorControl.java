@@ -1,6 +1,7 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import ControlArchivos.manejoArchivos;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
@@ -56,7 +57,7 @@ public class cargaProfesorAdministradorControl {
 
             if(p1.crear(Path.fileNameProfesores)){
 
-                Excepciones.excepcionPersonalizada.alertaConfirmacion("Profesor cargado con exito");
+                Excepciones.excepcionPersonalizada.alertaConfirmacion("Profesor cargado con exito. LEGAJO: " + manejoArchivos.ultimoLegajo(Path.fileNameProfesores));
 
             }else{
 

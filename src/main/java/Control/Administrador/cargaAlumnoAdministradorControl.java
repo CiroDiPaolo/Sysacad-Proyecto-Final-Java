@@ -59,7 +59,7 @@ public class cargaAlumnoAdministradorControl {
                 Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, codigoCarrera,correo);
                 if(nuevoEstudiante.crear(fileNameAlumnos))
                 {
-                    Excepciones.excepcionPersonalizada.alertaConfirmacion("Estudiante cargado");
+                    Excepciones.excepcionPersonalizada.alertaConfirmacion("Estudiante cargado. LEGAJO: " + manejoArchivos.ultimoLegajo(fileNameAlumnos));
                     EscenaControl escena = new EscenaControl();
                     escena.cambiarEscena(Path.configurarAlumnosAdministrador,stage,"Configurar alumno");
                 }
