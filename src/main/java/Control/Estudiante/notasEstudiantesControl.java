@@ -56,9 +56,6 @@ public class notasEstudiantesControl {
     @FXML
     private TableView<NotasMateriaTableData> tableView;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     /**
      * Método que se ejecuta al clickear el botón volver.
      * @param event El evento de clic.
@@ -77,37 +74,28 @@ public class notasEstudiantesControl {
     protected void initialize() {
         Platform.runLater(() -> {
 
-            // Obtener el estudiante logueado desde la clase Data.
             Estudiante estudiante = Data.getEstudiante();
 
-            // Obtener las materias del estudiante.
             ArrayList<EstadoAlumnoMateria> estadoAlumnoMaterias = (ArrayList<EstadoAlumnoMateria>) estudiante.getMaterias();
 
-            // Crear una lista observable para la tabla.
             ObservableList<NotasMateriaTableData> data = FXCollections.observableArrayList();
 
-            // Recorrer las materias y agregar los datos a la lista.
             for (EstadoAlumnoMateria estadoMateria : estadoAlumnoMaterias) {
 
-                // Obtener las notas del estudiante para la materia actual.
                 HashMap<String, Integer> notas = estadoMateria.getNotas();
 
-                // Obtener las claves y los valores del HashMap de notas.
-                String pParcial = notas.containsKey("primerParcial") ? String.valueOf(notas.get("primerParcial")) : "N/A";
-                String sParcial = notas.containsKey("segundoParcial") ? String.valueOf(notas.get("segundoParcial")) : "N/A";
+                String pParcial = (notas.containsKey("primerParcial") && notas.get("primerParcial") != 0) ? String.valueOf(notas.get("primerParcial")) : "N/A";
+                String sParcial = (notas.containsKey("segundoParcial") && notas.get("segundoParcial") != 0) ? String.valueOf(notas.get("segundoParcial")) : "N/A";
                 String finalNota = notas.containsKey("final") ? String.valueOf(notas.get("final")) : "N/A";
 
-                // Obtener otros datos de la materia
                 String materiaCodigo = estadoMateria.getCodigoMateria(); // Nombre de la materia.
                 String materia = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getNombre();
                 String anio = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getAnio();
                 String comision = estadoMateria.getCodigoComision(); // Comisión de la materia.
 
-                // Agregar la fila a la lista observable.
                 data.add(new NotasMateriaTableData(materia, anio, comision, pParcial, sParcial, finalNota));
             }
 
-            // Asociar las columnas de la tabla con las propiedades del objeto NotasMateriaTableData.
             colMateria.setCellValueFactory(cellData -> cellData.getValue().materiaProperty());
             colAnio.setCellValueFactory(cellData -> cellData.getValue().anioProperty());
             colComision.setCellValueFactory(cellData -> cellData.getValue().comisionProperty());
@@ -115,7 +103,6 @@ public class notasEstudiantesControl {
             colSParcial.setCellValueFactory(cellData -> cellData.getValue().segundoParcialProperty());
             colFinal.setCellValueFactory(cellData -> cellData.getValue().notaFinalProperty());
 
-            // Asociar la lista de datos con la tabla.
             tableView.setItems(data);
         });
     }
@@ -152,18 +139,6 @@ public class notasEstudiantesControl {
 
         public String getComision() {
             return comision.get();
-        }
-
-        public String getPrimerParcial() {
-            return primerParcial.get();
-        }
-
-        public String getSegundoParcial() {
-            return segundoParcial.get();
-        }
-
-        public String getNotaFinal() {
-            return notaFinal.get();
         }
 
         // Métodos de propiedad para que la tabla pueda observar los valores
