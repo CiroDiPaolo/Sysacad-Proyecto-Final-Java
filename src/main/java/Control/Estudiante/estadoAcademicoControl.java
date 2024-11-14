@@ -82,47 +82,40 @@ public class estadoAcademicoControl {
             try {
                 Carrera carrera = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera());
 
-            // Obtener el estudiante logueado desde la clase Data.
-            Estudiante estudiante = Data.getEstudiante();
+                Estudiante estudiante = Data.getEstudiante();
 
-            // Obtener las materias del estudiante.
-            ArrayList<EstadoAlumnoMateria> estadoAlumnoMaterias = (ArrayList<EstadoAlumnoMateria>) estudiante.getMaterias();
+                ArrayList<EstadoAlumnoMateria> estadoAlumnoMaterias = (ArrayList<EstadoAlumnoMateria>) estudiante.getMaterias();
 
-            // Crear una lista observable para la tabla.
-            ObservableList<EstadoMateriaTableData> data = FXCollections.observableArrayList();
+                ObservableList<EstadoMateriaTableData> data = FXCollections.observableArrayList();
 
-            // Recorrer las materias y agregar los datos a la lista.
-            for (EstadoAlumnoMateria estadoMateria : estadoAlumnoMaterias) {
+                for (EstadoAlumnoMateria estadoMateria : estadoAlumnoMaterias) {
 
-                // Obtener los datos específicos de cada materia.
-                String materiaCodigo = estadoMateria.getCodigoMateria(); // Nombre de la materia.
-                String materia = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getNombre();
-                String anio = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getAnio(); // Año de la materia.
-                String estado = estadoMateria.getEstado().toString(); // Estado (aprobado, pendiente, etc.).
-                String folio = estadoMateria.getFolio(); // Folio de la materia.
-                String plan = carrera.getPlan(); // Plan de la materia.
-                String tomo = estadoMateria.getTomo(); // Tomo de la materia.
+                    String materiaCodigo = estadoMateria.getCodigoMateria(); // Nombre de la materia.
+                    String materia = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getNombre();
+                    String anio = (manejoArchivosCarrera.obtenerMateria(pathCarreras, materiaCodigo)).getAnio(); // Año de la materia.
+                    String estado = estadoMateria.getEstado().toString(); // Estado (aprobado, pendiente, etc.).
+                    String folio = estadoMateria.getFolio(); // Folio de la materia.
+                    String plan = carrera.getPlan(); // Plan de la materia.
+                    String tomo = estadoMateria.getTomo(); // Tomo de la materia.
 
-                // Agregar la fila a la lista observable.
-                data.add(new EstadoMateriaTableData(materia, anio, estado, folio, plan, tomo));
-            }
+                    data.add(new EstadoMateriaTableData(materia, anio, estado, folio, plan, tomo));
+                }
 
-            // Asociar las columnas de la tabla con las propiedades del objeto EstadoMateriaTableData.
-            colMateria.setCellValueFactory(cellData -> cellData.getValue().materiaProperty());
-            colAnio.setCellValueFactory(cellData -> cellData.getValue().anioProperty());
-            colEstado.setCellValueFactory(cellData -> cellData.getValue().estadoProperty());
-            colFolio.setCellValueFactory(cellData -> cellData.getValue().folioProperty());
-            colPlan.setCellValueFactory(cellData -> cellData.getValue().planProperty());
-            colTomo.setCellValueFactory(cellData -> cellData.getValue().tomoProperty());
+                colMateria.setCellValueFactory(cellData -> cellData.getValue().materiaProperty());
+                colAnio.setCellValueFactory(cellData -> cellData.getValue().anioProperty());
+                colEstado.setCellValueFactory(cellData -> cellData.getValue().estadoProperty());
+                colFolio.setCellValueFactory(cellData -> cellData.getValue().folioProperty());
+                colPlan.setCellValueFactory(cellData -> cellData.getValue().planProperty());
+                colTomo.setCellValueFactory(cellData -> cellData.getValue().tomoProperty());
 
-            // Asociar la lista de datos con la tabla.
+
                 tableView.setItems(data);
 
-            } catch (CamposVaciosException e) {
-                throw new RuntimeException(e);
-            } catch (DatosIncorrectosException e) {
-                throw new RuntimeException(e);
-            }
+                } catch (CamposVaciosException e) {
+                    throw new RuntimeException(e);
+                } catch (DatosIncorrectosException e) {
+                    throw new RuntimeException(e);
+                }
 
         });
     }
@@ -161,16 +154,8 @@ public class estadoAcademicoControl {
             return estado.get();
         }
 
-        public String getFolio() {
-            return folio.get();
-        }
-
         public String getPlan() {
             return plan.get();
-        }
-
-        public String getTomo() {
-            return tomo.get();
         }
 
         // Métodos de propiedad para que la tabla pueda observar los valores
