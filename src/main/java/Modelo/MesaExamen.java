@@ -306,13 +306,8 @@ public MesaExamen(MesaExamen mesa) {
         {
             if(!codigoMateria.isEmpty() && !vocales.isEmpty() && !codigoPresidente.isEmpty() && !aula.isEmpty())
             {
-                try{
-                    if(manejoArchivosMesaExamen.actualizarMesaExamenAJSON(path,this.toJSONObject())){
-                        return true;
-                    }
-                }catch (EntidadYaExistente e)
-                {
-                    e.getMessage();
+                if(manejoArchivosMesaExamen.actualizarMesaExamenAJSON(path,this.toJSONObject())){
+                    return true;
                 }
 
             }else {
@@ -324,13 +319,4 @@ public MesaExamen(MesaExamen mesa) {
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
 }

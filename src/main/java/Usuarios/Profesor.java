@@ -114,16 +114,6 @@ public final class Profesor extends Usuario implements iCRUD {
     }
 
     @Override
-    public boolean leer(String path, String legajo) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
-
-    @Override
     public String toString() {
         return super.toString();
     }
