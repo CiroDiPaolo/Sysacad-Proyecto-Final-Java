@@ -42,7 +42,7 @@ public class verAvisosAdministradorControl {
         StringBuilder stringAvisos = new StringBuilder();
         for(Avisos aviso : avisos)
         {
-            stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
+            stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
         }
         txtAreaAvisos.setText(String.valueOf(stringAvisos));
     }
