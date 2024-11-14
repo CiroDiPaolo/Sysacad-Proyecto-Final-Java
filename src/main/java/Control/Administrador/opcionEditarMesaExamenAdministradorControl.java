@@ -19,6 +19,9 @@ public class opcionEditarMesaExamenAdministradorControl {
     private Button btnCargar;
 
     @FXML
+    private Button btnVer;
+
+    @FXML
     private Button btnVolver;
 
     @FXML
@@ -37,6 +40,11 @@ public class opcionEditarMesaExamenAdministradorControl {
     @FXML
     void clickBtnCargar(ActionEvent event) {
         escena.cambiarEscena(cargarMesaExamenAdministrador,stage,"Cargar mesa de examen");
+    }
+
+    @FXML
+    void clickBtnVer(ActionEvent event) {
+        escena.cambiarEscena(verMesaExamenAdministrador,stage,"Ver mesa de examen");
     }
 
     @FXML
