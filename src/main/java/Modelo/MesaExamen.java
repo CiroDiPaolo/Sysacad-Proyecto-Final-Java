@@ -1,12 +1,10 @@
 package Modelo;
 
-import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivos;
 import ControlArchivos.manejoArchivosMesaExamen;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
-import Excepciones.excepcionPersonalizada;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -15,7 +13,6 @@ import java.time.LocalTime;
 import java.util.HashSet;
 
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
-import static Path.Path.pathMesaExamen;
 
 public final class MesaExamen implements iCRUD{
 
@@ -282,6 +279,11 @@ public MesaExamen(MesaExamen mesa) {
 
         if(manejoArchivos.esFormatoFechaValida(this.getFecha().toString()) && manejoArchivos.esFormatoHoraValida(this.getHora().toString())&& manejoArchivos.esFechaValidaEnRango(fecha) && manejoArchivos.esHoraValidaEnRango(hora))
         {
+            if(codigoMateria == null || vocales == null || codigoPresidente == null || aula == null)
+            {
+                throw new CamposVaciosException("Debes completar todos los campos.");
+            }
+
             if(!codigoMateria.isEmpty() && !vocales.isEmpty() && !codigoPresidente.isEmpty() && !aula.isEmpty())
             {
                 if(manejoArchivosMesaExamen.cargarMesaExamenAJSON(path,this.toJSONObject()))
