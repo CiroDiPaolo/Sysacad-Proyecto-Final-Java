@@ -2,10 +2,7 @@ package Control.InicioSesion;
 
 import ControlArchivos.manejoArchivosEstudiante;
 import ControlArchivos.manejoArchivosProfesor;
-import Modelo.Carrera;
-import Modelo.Comision;
-import Modelo.Materia;
-import Modelo.MesaExamen;
+import Modelo.*;
 import Usuarios.*;
 import static Path.Path.*;
 
@@ -20,6 +17,7 @@ public final class Data {
     private static String aux2;
     private static Profesor profesor;
     private static MesaExamen mesaExamen;
+    private static Avisos aviso;
 
     //Getters
 
@@ -38,6 +36,8 @@ public final class Data {
     public static Comision getComision(){ return comision;}
 
     public static MesaExamen getMesaExamen(){return mesaExamen;}
+
+    public static Avisos getAviso(){return aviso;}
 
     //Setters
 
@@ -63,5 +63,6 @@ public final class Data {
     public static void setAux2(String aux2) { Data.aux2 = aux2; }
 
     public void setMesaExamen(MesaExamen mesaExamen){this.mesaExamen = mesaExamen;}
+    public static void setAviso(Avisos aviso) { Data.aviso = aviso; }
 
 }
