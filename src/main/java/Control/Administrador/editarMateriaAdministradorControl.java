@@ -156,11 +156,12 @@ public class editarMateriaAdministradorControl {
         }
         Materia m = new Materia(txtCodigo.getText(),txtNombre.getText(),txtAnio.getText(),txtCuatrimestre.getText(),checkBoxSeCursa.isSelected(),checkBoxSeRinde.isSelected(),idsMateriasCursar,idsMateriasRendir, checkBoxActividad.isSelected());
         try{
-            m.actualizar(pathCarreras, m.materiaAJSONObject());
-            Data.getCarrera().getMaterias().put(m.getId(),m);
-            EscenaControl escena = new EscenaControl();
-            Stage stage = (Stage) btnVolver.getScene().getWindow();
-            escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
+            if(m.actualizar(pathCarreras, m.materiaAJSONObject())){
+                Data.getCarrera().getMaterias().put(m.getId(),m);
+                EscenaControl escena = new EscenaControl();
+                Stage stage = (Stage) btnVolver.getScene().getWindow();
+                escena.cambiarEscena(elegirMateriaAdministrador, stage, "Configurar materias");
+            }
         }catch (DatosIncorrectosException e)
         {
             e.getMessage();
