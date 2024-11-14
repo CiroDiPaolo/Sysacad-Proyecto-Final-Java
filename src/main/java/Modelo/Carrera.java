@@ -1,7 +1,11 @@
 package Modelo;
 
+import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.ArchivoYaExistenteException;
+import Excepciones.CamposVaciosException;
+import Excepciones.DatosIncorrectosException;
+import Excepciones.EntidadYaExistente;
 import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,11 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static Path.Path.pathCarreras;
+
 /**
  * La clase Carrera identifica una carrera segun su id y el año del plan;
  * Tiene un nombre y un HashMap de Materia.
  */
-public final class Carrera {
+public final class Carrera implements iCRUD{
 
     //Atributos
 
@@ -106,7 +112,7 @@ public final class Carrera {
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
         manejoArchivosCarrera.crearCarpetaCarrera(id);
-        manejoArchivosCarrera.crearJSONCarrera(Path.pathCarreras, this);
+        manejoArchivosCarrera.crearJSONCarrera(pathCarreras, this);
 
     }
 
@@ -193,4 +199,39 @@ public final class Carrera {
         }
     }
 
+    @Override
+    public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
+        return false;
+    }
+
+    @Override
+    public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
+        if(!plan.isEmpty() && !id.isEmpty() && !nombre.isEmpty())
+        {
+            if(plan.length()<50 && id.length()<10 && nombre.length()<100)
+            {
+                if(manejoArchivosCarrera.actualizarCarrera(pathCarreras,this.carreraAJSONObject(), Data.getCarrera().getId()))
+                {
+                    Data data = new Data();
+                    data.setCarrera(this);
+                    return true;
+                }
+            }else {
+                throw new DatosIncorrectosException("Excediste los límites de caracteres en los campos.Plan (hasta 50). Id (hasta 10). Nombre (hasta 100)");
+            }
+        }else {
+            throw new CamposVaciosException("Intentaste ingresar campos vacíos.");
+        }
+        return false;
+    }
+
+    @Override
+    public boolean leer(String path, String id) {
+        return false;
+    }
+
+    @Override
+    public boolean borrar(String path) {
+        return false;
+    }
 }
