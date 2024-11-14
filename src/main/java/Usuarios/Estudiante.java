@@ -130,7 +130,7 @@ public final class Estudiante extends Usuario implements iCRUD {
 
 
         } else {
-            throw new DatosIncorrectosException("El dni es invalido. Solo puede contener numeros.");
+            throw new DatosIncorrectosException("El dni es invalido.");
         }
 
 
@@ -173,23 +173,6 @@ public final class Estudiante extends Usuario implements iCRUD {
 
         return resultado;
 
-    }
-
-    /**
-     * Lee un estudiante del archivo JSON
-     *
-     * @param path
-     * @param legajo
-     * @return true si lo leyó
-     */
-    @Override
-    public boolean leer(String path, String legajo) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
     }
 
     /**
