@@ -13,6 +13,14 @@ import static ControlArchivos.manejoArchivos.*;
 
 public final class consultaArchivo {
 
+    /**
+     * Metodo que busca un usuario en el archivo JSON
+     *
+     * @param fileName
+     * @param dato
+     * @param buscado
+     * @return boolean
+     */
     public static boolean buscarClave(String fileName, String dato, String buscado) {
 
         boolean flag = false;
@@ -40,6 +48,13 @@ public final class consultaArchivo {
         return flag;
     }
 
+    /**
+     * Metodo que busca un usuario en el archivo JSON y cambia su contrasenia
+     *
+     * @param fileName
+     * @param legajo
+     * @return String
+     */
     public static void cambiarContrasenia(String fileName, String legajo, String nuevaContrasenia) {
 
         try {
@@ -113,48 +128,6 @@ public final class consultaArchivo {
         return nombre + " " + apellido;
 
     }
-
-    /**
-     * Metodo que obtiene un estudiante del archivo JSON
-     *
-     * @param fileName
-     * @param legajo
-     * @return
-     */
-    public static Estudiante obtenerEstudiante(String fileName, String legajo) {
-
-        Estudiante estudiante = new Estudiante();
-
-        try {
-
-            JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
-
-            for (int i = 0; i < arreglo.length(); i++) {
-
-                JSONObject obj = arreglo.getJSONObject(i);
-
-                if (obj.getString("legajo").equals(legajo)) {
-
-                    estudiante.setLegajo(obj.getString("legajo"));
-                    estudiante.setNombre(obj.getString("nombre"));
-                    estudiante.setApellido(obj.getString("apellido"));
-                    estudiante.setDni(obj.getString("dni"));
-                    estudiante.setContrasenia(obj.getString("contrasenia"));
-
-                    i = arreglo.length();
-
-                }
-
-            }
-
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-
-        return estudiante;
-    }
-
-
 
 }
 
