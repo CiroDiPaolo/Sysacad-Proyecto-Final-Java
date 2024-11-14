@@ -9,6 +9,7 @@ public final class Path {
     public static final String pathComisiones = "Files/Comisiones/";
     public static final String pathCarreras = "Files/Carreras/Carreras.json";
     public static final String pathMesaExamen = "Files/MesaExamen/";
+    public static final String pathAvisos = "Files/Avisos/Avisos.json";
     //Imagenes
     public static final String icono = "/images/UTN-iso-new.png";
 
@@ -67,6 +68,12 @@ public final class Path {
     public static final String verEstudianteAdministrador = "/App/Administrador/verEstudianteAdministrador.fxml";
     public static final String buscarAlumnoAdministrador = "/App/Administrador/buscarAlumnoAdministrador.fxml";
     public static final String verComisionAdministrador = "/App/Administrador/verComisionAdministrador.fxml";
+    public static final String verMesaExamenAdministrador = "/App/Administrador/verMesaExamenAdministrador.fxml";
+    public static final String configurarAvisosAdministrador = "/App/Administrador/configurarAvisosAdministrador.fxml";
+    public static final String cargarAvisoAdministrador = "/App/Administrador/cargarAvisoAdministrador.fxml";
+    public static final String editarAvisosAdministrador = "/App/Administrador/editarAvisosAdministrador.fxml";
+    public static final String buscarAvisosAdministrador = "/App/Administrador/buscarAvisoAdministrador.fxml";
+    public static final String verAvisosAdministrador = "/App/Administrador/verAvisosAdministrador.fxml";
     //Profesor
     public static final String elegirComisionProfesor = "/App/Profesores/elegirComision.fxml";
     public static final String gestionarComisionProfesor = "/App/Profesores/gestionComision.fxml";
