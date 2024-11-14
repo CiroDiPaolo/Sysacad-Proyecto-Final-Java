@@ -14,15 +14,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.UnaryOperator;
 
 public class gestionarNotasAlumnosControl {
-
-    @FXML
-    private Button btnAplicar;
 
     @FXML
     private Button btnVolver;
@@ -53,44 +49,71 @@ public class gestionarNotasAlumnosControl {
 
         try {
 
-            Estudiante e = new Estudiante(Data.getEstudiante());
 
-            for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
 
-                if (e.getMaterias().get(i).getCodigoComision().equals(Data.getComision().getId())) {
+            if(choiceAlumno.getSelectionModel().getSelectedItem() == null) {
+                Excepciones.excepcionPersonalizada.excepcion("Seleccione un alumno");
 
-                    HashMap<String, Integer> notas = new HashMap<>();
+            } else {
 
-                    // Usamos un valor por defecto de 0 si el texto es "-"
-                    int primerParcial = txtPrimerParcial.getText().equals("-") ? 0 : Integer.parseInt(txtPrimerParcial.getText());
-                    int segundoParcial = txtSegundoParcial.getText().equals("-") ? 0 : Integer.parseInt(txtSegundoParcial.getText());
+                Estudiante e = new Estudiante(Data.getEstudiante());
 
-                    notas.put("primerParcial", primerParcial);
-                    notas.put("segundoParcial", segundoParcial);
+                for (int i = 0; i < Data.getEstudiante().getMaterias().size(); i++) {
 
-                    e.getMaterias().get(i).setNotas(notas);
+                    if (e.getMaterias().get(i).getCodigoComision().equals(Data.getComision().getId())) {
 
-                    // Determinamos el estado de la materia
-                    if (checkPromocionado.isSelected()) {
-                        e.getMaterias().get(i).setEstado(EstadoMateria.APROBADA);
-                    } else {
-                        if (primerParcial > 5 && segundoParcial > 5) {
-                            e.getMaterias().get(i).setEstado(EstadoMateria.REGULARIZADA);
+                        HashMap<String, Integer> notas = new HashMap<>();
+
+                        // Usamos un valor por defecto de 0 si el texto es "-"
+                        int primerParcial = txtPrimerParcial.getText().equals("-") ? 0 : Integer.parseInt(txtPrimerParcial.getText());
+                        int segundoParcial = txtSegundoParcial.getText().equals("-") ? 0 : Integer.parseInt(txtSegundoParcial.getText());
+
+                        notas.put("primerParcial", primerParcial);
+                        notas.put("segundoParcial", segundoParcial);
+
+                        e.getMaterias().get(i).setNotas(notas);
+
+                        if ( (primerParcial >= 0 && primerParcial <= 10) && (segundoParcial >= 0 && segundoParcial <= 10)) {
+
+                            // Determinamos el estado de la materia
+                            if (checkPromocionado.isSelected()) {
+                                e.getMaterias().get(i).setEstado(EstadoMateria.APROBADA);
+
+                                if (Data.getEstudiante().actualizar(Path.fileNameAlumnos, e.estudianteAJSONObject())) {
+                                    Excepciones.excepcionPersonalizada.alertaConfirmacion("Notas actualizadas correctamente!");
+                                }
+
+                            }else{
+
+                                if (primerParcial > 5 && segundoParcial > 5) {
+                                    e.getMaterias().get(i).setEstado(EstadoMateria.REGULARIZADA);
+                                } else {
+                                    e.getMaterias().get(i).setEstado(EstadoMateria.NO_REGULARIZADA);
+                                }
+
+                                if (Data.getEstudiante().actualizar(Path.fileNameAlumnos, e.estudianteAJSONObject())) {
+                                    Excepciones.excepcionPersonalizada.alertaConfirmacion("Notas actualizadas correctamente!");
+                                }
+
+                            }
+
+
                         } else {
-                            e.getMaterias().get(i).setEstado(EstadoMateria.NO_REGULARIZADA);
+
+                            Excepciones.excepcionPersonalizada.excepcion("Ingrese notas validas");
+
+
                         }
+
+
                     }
                 }
-            }
-
-            if (Data.getEstudiante().actualizar(Path.fileNameAlumnos, e.estudianteAJSONObject())) {
-                Excepciones.excepcionPersonalizada.alertaConfirmacion("Notas actualizadas correctamente!");
             }
 
         } catch (CamposVaciosException e) {
             throw new CamposVaciosException("Debe seleccionar un alumno");
         } catch (DatosIncorrectosException e) {
-            throw new DatosIncorrectosException("Datos incorrectos");
+            throw new DatosIncorrectosException(e.getMessage());
         } catch (NumberFormatException e) {
             Excepciones.excepcionPersonalizada.alertaAtencion("Por favor ingrese un número válido o '-' para indicar que no hay nota.");
         }

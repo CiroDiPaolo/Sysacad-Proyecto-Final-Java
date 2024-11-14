@@ -2,9 +2,11 @@ package Control.Estudiante;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
+import ControlArchivos.manejoArchivosCarrera;
 import ControlArchivos.manejoArchivosProfesor;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
+import Excepciones.excepcionPersonalizada;
 import Modelo.EstadoAlumnoMesa;
 import Modelo.MesaExamen;
 import Path.Path;
@@ -60,7 +62,16 @@ public class inscripcionFinalCompletada {
             mesa.getAlumnosInscriptos().add(estado);
 
             try {
-                mesa.actualizar(Path.pathMesaExamen + "EXAMEN_" + mesa.getCodigoCarrera() + "_" + LocalDate.now().getYear() + ".json", mesa.toJSONObject());
+
+                if(mesa.actualizar(Path.pathMesaExamen + "EXAMEN_" + mesa.getCodigoCarrera() + "_" + LocalDate.now().getYear() + ".json", mesa.toJSONObject())){
+
+                    estado.setCodigoMesa(mesa.getId());
+                    Data.getEstudiante().inscribirse(estado);
+                    Data.getEstudiante().actualizar(Path.fileNameAlumnos, Data.getEstudiante().estudianteAJSONObject());
+                    excepcionPersonalizada.alertaConfirmacion("¡Inscripcion a examen final exitosa!");
+
+                }
+
             } catch (CamposVaciosException e) {
                 throw new RuntimeException(e);
             } catch (DatosIncorrectosException e) {
@@ -71,7 +82,7 @@ public class inscripcionFinalCompletada {
                     "ID: " + mesa.getId() + "\n" +
                     "Turno: " + mesa.getTurno() + "\n" +
                     "Carrera: " + mesa.getCodigoCarrera() + "\n" +
-                    "Materia: " + mesa.getCodigoMateria() + "\n" +
+                    "Materia: " + (manejoArchivosCarrera.obtenerMateria(Path.pathCarreras,mesa.getCodigoMateria())).getNombre() + "\n" +
                     "Presidente: " + p1.getApellido() + " " + p1.getNombre() + "\n" +
                     "Vocales: " + p2.getApellido() + " " + p2.getNombre() + " y " + p3.getApellido() + " " + p3.getNombre() + "\n" +
                     "Fecha: " + mesa.getFecha() + "\n" +
