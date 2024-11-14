@@ -7,7 +7,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -20,9 +19,6 @@ public class verAvisosAdministradorControl {
 
     @FXML
     private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextArea txtAreaAvisos;
@@ -42,7 +38,7 @@ public class verAvisosAdministradorControl {
         StringBuilder stringAvisos = new StringBuilder();
         for(Avisos aviso : avisos)
         {
-            stringAvisos.append("===============================================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
+            stringAvisos.append("===============================================================================================================\n").append(aviso.getTitulo()).append("\n").append(aviso.getFecha().toString()).append("\n").append("Autor: " + aviso.getLegajoAutor()).append("\n").append(aviso.getSubtitulo()).append("\n").append(aviso.getDescripcion() + "\n\n" );
         }
         txtAreaAvisos.setText(String.valueOf(stringAvisos));
     }
