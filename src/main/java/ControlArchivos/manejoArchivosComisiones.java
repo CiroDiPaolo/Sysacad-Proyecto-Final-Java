@@ -1,5 +1,6 @@
 package ControlArchivos;
 
+import Control.InicioSesion.Data;
 import Excepciones.*;
 import Modelo.Comision;
 import Usuarios.Estudiante;
@@ -13,6 +14,7 @@ import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static ControlArchivos.manejoArchivos.*;
+import static Path.Path.fileNameAlumnos;
 import static Path.Path.pathComisiones;
 
 public final class manejoArchivosComisiones {
@@ -55,8 +57,15 @@ public final class manejoArchivosComisiones {
 
     }
 
+    /**
+     * Método que carga una comisión a un archivo JSON.
+     *
+     * @param path     Ruta del archivo JSON donde se cargará la comisión.
+     * @param comision Objeto JSON que representa la comisión a cargar.
+     * @return true si la comisión se cargó con éxito, false en caso contrario.
+     * @throws EntidadYaExistente Si la comisión ya existe en el archivo.
+     */
     public static boolean cargarComisionAJSON(String path, JSONObject comision) throws EntidadYaExistente {
-
         JSONArray jsonArray;
 
         try {
@@ -73,20 +82,17 @@ public final class manejoArchivosComisiones {
             jsonArray = new JSONArray();
         }
 
-        boolean flag= false;
+        boolean flag = false;
 
         int i = 0;
-        while(i<jsonArray.length() && !flag)
-        {
-            if(comision.getString("codigoMateria").equals(jsonArray.getJSONObject(i).getString("codigoMateria")) && comision.getString("nombre").equals(jsonArray.getJSONObject(i).getString("nombre")))
-            {
+        while (i < jsonArray.length() && !flag) {
+            if (comision.getString("codigoMateria").equals(jsonArray.getJSONObject(i).getString("codigoMateria")) && comision.getString("nombre").equals(jsonArray.getJSONObject(i).getString("nombre"))) {
                 flag = true;
             }
             i++;
         }
 
-        if(!flag)
-        {
+        if (!flag) {
             jsonArray.put(comision);
             try (FileWriter file = new FileWriter(path)) {
                 file.write(jsonArray.toString(4));
@@ -94,23 +100,26 @@ public final class manejoArchivosComisiones {
             } catch (IOException | JSONException e) {
                 excepcionPersonalizada.excepcion("Ocurrió un error en el programa. Si el problema persiste, comuníquese con su distribuidor.");
             }
-        }else
-        {
+        } else {
             throw new EntidadYaExistente("El nombre de la comisión ya existe en la materia");
         }
 
         return false;
     }
 
-    public static ArrayList<Comision> obtenerComisionesPorAnio(int anio, String idCarrera)
-    {
-        JSONArray jsonArray =new JSONArray(leerArchivoJSON(pathComisiones+generarNombreArchivoComision(idCarrera,anio)));
+    /**
+     * Método que obtiene todas las comisiones de un archivo JSON para un año y carrera específicos.
+     *
+     * @param anio      Año de las comisiones a obtener.
+     * @param idCarrera Código de la carrera de las comisiones a obtener.
+     * @return Lista de objetos Comision correspondientes al año y carrera especificados.
+     */
+    public static ArrayList<Comision> obtenerComisionesPorAnio(int anio, String idCarrera) {
+        JSONArray jsonArray = new JSONArray(leerArchivoJSON(pathComisiones + generarNombreArchivoComision(idCarrera, anio)));
         ArrayList<Comision> comisiones = new ArrayList<>();
 
-        if(!jsonArray.isEmpty())
-        {
-            for(int i = 0; i<jsonArray.length(); i++)
-            {
+        if (!jsonArray.isEmpty()) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 comisiones.add(Comision.JSONObjectAComision(jsonObject));
             }
@@ -118,6 +127,13 @@ public final class manejoArchivosComisiones {
         return comisiones;
     }
 
+    /**
+     * Actualiza una comisión en un archivo JSON.
+     *
+     * @param path     Ruta del archivo JSON que contiene las comisiones.
+     * @param comision Objeto JSON que representa los datos actualizados de la comisión.
+     * @return true si la comisión fue actualizada con éxito, false en caso contrario.
+     */
     public static boolean actualizarComisionAJSON(String path, JSONObject comision) {
         JSONArray jsonArray;
 
@@ -164,9 +180,17 @@ public final class manejoArchivosComisiones {
         return false;
     }
 
-    public static Comision buscarComision(String filename, String dato, String clave) throws CamposVaciosException
-    {
-        if(!clave.isEmpty() && clave != null){
+    /**
+     * Método que retorna una comisión de un archivo JSON.
+     *
+     * @param filename Nombre del archivo JSON que contiene las comisiones.
+     * @param dato     Clave del dato a buscar en el archivo JSON.
+     * @param clave    Valor de la clave a buscar en el archivo JSON.
+     * @return Objeto Comision correspondiente a la clave dada.
+     * @throws CamposVaciosException Si la clave está vacía o es nula.
+     */
+    public static Comision buscarComision(String filename, String dato, String clave) throws CamposVaciosException {
+        if (clave != null && !clave.isEmpty()) {
             JSONArray jsonArray;
 
             try {
@@ -185,56 +209,55 @@ public final class manejoArchivosComisiones {
 
             Comision comision = null;
 
-            for(int i = 0; i<jsonArray.length();i++)
-            {
-
-                if(clave.equals(jsonArray.getJSONObject(i).getString(dato)))
-                {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                if (clave.equals(jsonArray.getJSONObject(i).getString(dato))) {
                     comision = Comision.JSONObjectAComision(jsonArray.getJSONObject(i));
                 }
             }
 
             return comision;
-        }else {
+        } else {
             throw new CamposVaciosException("No elegiste ninguna comisión");
         }
     }
 
-    public static ArrayList<Comision> obtenerComisionesDeUnaMateria(String path,String codigoMateria) {
-
+    /**
+     * Método que retorna una lista de comisiones activas de una materia específica con cupos disponibles.
+     *
+     * @param path          Ruta del archivo JSON que contiene las comisiones.
+     * @param codigoMateria Código de la materia para filtrar las comisiones.
+     * @return Lista de objetos Comision correspondientes a la materia especificada.
+     */
+    public static ArrayList<Comision> obtenerComisionesDeUnaMateria(String path, String codigoMateria) {
         JSONArray jsonArray = new JSONArray(leerArchivoJSON(path));
-
         ArrayList<Comision> comisiones = new ArrayList<>();
 
-        for(int i = 0 ; i < jsonArray.length() ; i++){
-
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
 
-            if(obj.getString("codigoMateria").equals(codigoMateria)){
-
-                if(obj.getBoolean("actividad") == true){
-
-                    if(Comision.JSONObjectAComision(obj).getCupos() > 0){
-
+            if (obj.getString("codigoMateria").equals(codigoMateria)) {
+                if (obj.getBoolean("actividad")) {
+                    if (Comision.JSONObjectAComision(obj).getCupos() > 0) {
                         comisiones.add(Comision.JSONObjectAComision(obj));
-
                     }
-
                 }
-
             }
-
         }
 
         return comisiones;
-
     }
 
+    /**
+     * Obtiene un conjunto de comisiones para un año específico.
+     *
+     * @param path Ruta del directorio que contiene los archivos JSON de comisiones.
+     * @param anio Año para filtrar las comisiones.
+     * @return Conjunto de objetos Comision correspondientes al año especificado.
+     */
     public static HashSet<Comision> obtenerComisionesPorAnio(String path, String anio) {
         HashSet<Comision> comisiones = new HashSet<>();
-        Path dirPath = Paths.get(path);  // Asumimos que path ya es "Files/Comisiones"
+        Path dirPath = Paths.get(path);
 
-        // Expresión regular para el nombre de archivo "COMISIONES_idDeMateria_<anio>.json"
         String regex = "COMISIONES_\\d+_" + anio + "\\.json";
         Pattern pattern = Pattern.compile(regex);
 
@@ -243,21 +266,18 @@ public final class manejoArchivosComisiones {
                 String fileName = entry.getFileName().toString();
                 Matcher matcher = pattern.matcher(fileName);
 
-                // Procesa solo los archivos que coinciden con el formato y el año especificado
                 if (matcher.matches()) {
                     try {
                         String content = Files.readString(entry).trim();
 
-                        // Verifica que el contenido esté en formato JSON y empieza con '[' (indicando que es un arreglo)
                         if (!content.isEmpty() && content.startsWith("[")) {
-                            // Convertir el contenido a un JSONArray, ya que el archivo es un arreglo de objetos JSON
+
                             JSONArray jsonArray = new JSONArray(content);
 
-                            // Iterar sobre cada objeto en el arreglo
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject json = jsonArray.getJSONObject(i);  // Obtener cada objeto
-                                Comision comision = Comision.JSONObjectAComision(json);  // Convertir el JSONObject en un objeto Comision
-                                comisiones.add(comision);  // Agregar la comisión a la lista
+                                JSONObject json = jsonArray.getJSONObject(i);
+                                Comision comision = Comision.JSONObjectAComision(json);
+                                comisiones.add(comision);
                             }
                         } else {
                             System.err.println("El archivo " + fileName + " no contiene un arreglo JSON válido.");
@@ -276,6 +296,13 @@ public final class manejoArchivosComisiones {
         return comisiones;
     }
 
+    /**
+     * Filtra un conjunto de comisiones por su nombre.
+     *
+     * @param nombre     Nombre de la comisión a buscar.
+     * @param comisiones Conjunto de comisiones a filtrar.
+     * @return Conjunto de comisiones que coinciden con el nombre dado.
+     */
     public static HashSet<Comision> filtrarComisionesPorNombre(String nombre, HashSet<Comision> comisiones) {
         HashSet<Comision> comisionesFiltradas = new HashSet<>();
         for (Comision comision : comisiones) {
@@ -286,6 +313,13 @@ public final class manejoArchivosComisiones {
         return comisionesFiltradas;
     }
 
+    /**
+     * Obtiene una lista de estudiantes que pertenecen a una comisión específica.
+     *
+     * @param pathAlumnos    Ruta del archivo JSON que contiene los datos de los estudiantes.
+     * @param codigoComision Código de la comisión a buscar.
+     * @return Lista de objetos Estudiante que pertenecen a la comisión especificada.
+     */
     public static ArrayList<Estudiante> obtenerEstudiantesDeUnaComision(String pathAlumnos, String codigoComision) {
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
@@ -309,6 +343,14 @@ public final class manejoArchivosComisiones {
         return estudiantes;
     }
 
+    /**
+     * Obtiene una lista de números de archivos JSON que contienen comisiones para una carrera específica.
+     *
+     * @param path          Ruta del directorio que contiene los archivos JSON.
+     * @param codigoCarrera Código de la carrera para filtrar los archivos.
+     * @return Lista de números de archivos correspondientes a la carrera especificada.
+     * @throws IOException Si ocurre un error al acceder al directorio o leer los archivos.
+     */
     public static ArrayList<Integer> obtenerNumerosDeArchivos(String path, String codigoCarrera) throws IOException {
         ArrayList<Integer> numeros = new ArrayList<>();
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(path))) {
@@ -329,6 +371,46 @@ public final class manejoArchivosComisiones {
             }
         }
         return numeros;
+    }
+
+    public static boolean actualizarEstudiantesDeUnaComision(String codigoMateria) {
+
+        String codigoAnterior = Data.getComision().getId();
+
+        String codigoNuevo = Data.getAux3();
+
+        boolean resultado = false;
+
+        ArrayList<Estudiante> estudiantes = obtenerEstudiantesDeUnaComision(fileNameAlumnos, codigoAnterior);
+
+        for (Estudiante estudiante : estudiantes) {
+
+            boolean actualizado = false;
+
+            for (int j = 0; j < estudiante.getMaterias().size(); j++) {
+
+                if (estudiante.getMaterias().get(j).getCodigoComision().equals(codigoAnterior)) {
+
+                    estudiante.getMaterias().get(j).setCodigoComision(codigoNuevo);
+                    System.out.println("Estudiante " + estudiante.getNombre() + " actualizado");
+                    actualizado = true;
+                    resultado = true;
+
+                }
+            }
+
+            if (actualizado) {
+                try {
+
+                    estudiante.actualizar(fileNameAlumnos, estudiante.estudianteAJSONObject());
+
+                } catch (Exception e) {
+                    Excepciones.excepcionPersonalizada.alertaAtencion("Error al actualizar los estudiantes de la comisión");
+                }
+            }
+        }
+
+        return resultado;
     }
 
 }

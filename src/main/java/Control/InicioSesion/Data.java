@@ -18,6 +18,7 @@ public final class Data {
     private static Profesor profesor;
     private static MesaExamen mesaExamen;
     private static Avisos aviso;
+    private static String aux3;
 
     //Getters
 
@@ -38,6 +39,8 @@ public final class Data {
     public static MesaExamen getMesaExamen(){return mesaExamen;}
 
     public static Avisos getAviso(){return aviso;}
+
+    public static String getAux3() { return aux3; }
 
     //Setters
 
@@ -65,4 +68,5 @@ public final class Data {
     public void setMesaExamen(MesaExamen mesaExamen){this.mesaExamen = mesaExamen;}
     public static void setAviso(Avisos aviso) { Data.aviso = aviso; }
 
+    public static void setAux3(String aux3) { Data.aux3 = aux3; }
 }

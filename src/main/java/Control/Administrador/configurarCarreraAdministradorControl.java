@@ -6,27 +6,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import static Path.Path.*;
-import static Path.Path.menuPrincipalAdministrador;
 
 public class configurarCarreraAdministradorControl {
-    @FXML
-    private Button btnVer;
 
     @FXML
     private Button btnVolver;
-
-    @FXML
-    private Button clickBtnCargar;
-
-    @FXML
-    private Button clickBtnEditar;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     private Stage stage;
 
@@ -49,7 +36,7 @@ public class configurarCarreraAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(menuPrincipalAdministrador,stage,"Menú principal");
+        escena.cambiarEscena(opcionEditarCarreraAdministrador,stage,"Menú principal");
     }
 
     @FXML

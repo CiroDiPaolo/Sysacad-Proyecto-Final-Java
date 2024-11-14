@@ -3,28 +3,18 @@ package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.DatosIncorrectosException;
-import Excepciones.excepcionPersonalizada;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import static Path.Path.*;
 
 public class opcionEditarCarreraAdministradorControl {
-    @FXML
-    private Button btnCarrera;
-
-    @FXML
-    private Button btnMaterias;
 
     @FXML
     private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     private Stage stage;
 

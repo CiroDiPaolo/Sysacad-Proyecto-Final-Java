@@ -17,24 +17,14 @@ import Modelo.Turno;
 import Usuarios.Profesor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import Control.EscenaControl;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static Path.Path.*;
 
 public class editarComisionAdministradorControl {
-    @FXML
-    private Button btnCargar;
 
     @FXML
     private Button btnVolver;
@@ -59,9 +49,6 @@ public class editarComisionAdministradorControl {
 
     @FXML
     private Spinner<Integer> spinnerCupos;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtAula;
@@ -91,17 +78,19 @@ public class editarComisionAdministradorControl {
             turno = Turno.valueOf(choiceBoxTurno.getValue());
         }catch (NullPointerException e)
         {
-            System.out.println("Ingresaste un campo vacio.");
             excepcionPersonalizada.excepcion("Ingresaste un campo vacio.");
         }
         int anio = choiceBoxAnio.getValue();
         int cupos = spinnerCupos.getValue();
-        System.out.println(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(codigoCarrera,anio));
+
         String id = Data.getComision().getId();
         HashSet<EstadoAlumnoComision> hashSet = Data.getComision().getEstadoAlumnoComisionHashSet();
         Comision comision = new Comision(id,turno,nombre,codigoMateria,codigoCarrera,codigoProfesor,descripcion,anio,aula,cupos,apertura,actividad,hashSet);
         try{
+
             comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject());
+            manejoArchivosComisiones.actualizarEstudiantesDeUnaComision(codigoMateria);
+
             escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
         } catch (CamposVaciosException | DatosIncorrectosException e) {
             e.getMessage();

@@ -80,6 +80,12 @@ public final class manejoArchivos {
         return tokener;
     }
 
+    /**
+     * Metodo que verifica si un archivo fue creado
+     * @param path
+     * @param fileName
+     * @return
+     */
     public static boolean verificarArchivoCreado(String path, String fileName) {
 
         File file = new File(path + fileName + ".json");
@@ -203,7 +209,11 @@ public final class manejoArchivos {
         return false;
     }
 
-
+    /**
+     * Metodo que guarda un arreglo de alumnos en un archivo JSON
+     * @param path
+     * @param arreglo
+     */
     public static boolean guardarArchivo(String path, JSONArray arreglo) {
 
         try {
@@ -219,6 +229,11 @@ public final class manejoArchivos {
         }
     }
 
+    /**
+     * Metodo que sobreescribe un archivo JSON
+     * @param fileName
+     * @param jsonArray
+     */
     public static void sobreescribirArchivoJSON(String fileName, JSONArray jsonArray) throws ParametroPeligrosoException {
         if (jsonArray == null || jsonArray.isEmpty()) {
             throw new ParametroPeligrosoException("Ocurrió un error. No se pudo completar la operación. Si el problema persiste llame a su distribuidor");
@@ -232,16 +247,31 @@ public final class manejoArchivos {
         }
     }
 
+    /**
+     * Metodo que verifica si una fecha es valida
+     * @param fecha
+     * @return
+     */
     public static boolean esFormatoFechaValida(String fecha) {
         String regexFecha = "\\d{4}-\\d{2}-\\d{2}";
         return Pattern.matches(regexFecha, fecha);
     }
 
+    /**
+     * Metodo que verifica si una hora es valida
+     * @param hora
+     * @return
+     */
     public static boolean esFormatoHoraValida(String hora) {
         String regexHora = "\\d{2}:\\d{2}";
         return Pattern.matches(regexHora, hora);
     }
 
+    /**
+     * Metodo que verifica si una hora es valida en un rango horario
+     * @param hora
+     * @return
+     */
     public static boolean esHoraValidaEnRango(LocalTime hora) {
         LocalTime horaInicio = LocalTime.of(0, 0);  // 00:00
         LocalTime horaFin = LocalTime.of(23, 59);   // 23:59
@@ -249,6 +279,11 @@ public final class manejoArchivos {
         return !hora.isBefore(horaInicio) && !hora.isAfter(horaFin);
     }
 
+    /**
+     * Metodo que verifica si una fecha es valida en un rango de fechas
+     * @param fecha
+     * @return
+     */
     public static boolean esFechaValidaEnRango(LocalDate fecha) {
         LocalDate fechaActual = LocalDate.now();
         LocalDate ultimoDiaAnioSiguiente = LocalDate.of(fechaActual.getYear() + 1, 12, 31);

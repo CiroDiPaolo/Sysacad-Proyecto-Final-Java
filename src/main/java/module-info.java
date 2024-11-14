@@ -5,6 +5,7 @@ module com.example.sysacad_programacion {
     requires org.json;
     requires org.apache.poi.ooxml;
     requires java.desktop;
+    requires jdk.unsupported.desktop;
 
 
     opens Modelo to javafx.base;
