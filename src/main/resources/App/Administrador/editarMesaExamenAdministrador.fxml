@@ -128,7 +128,7 @@
         </Text>
         <ChoiceBox fx:id="choiceBoxVocal2" layoutX="260.0" layoutY="577.0" prefHeight="40.0" prefWidth="333.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="771.0" layoutY="482.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtFecha" alignment="CENTER" blendMode="COLOR_BURN" layoutX="771.0" layoutY="482.0" prefHeight="53.0" prefWidth="404.0" promptText="Ejemplo: año-mes-dia" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtFecha" alignment="CENTER" blendMode="COLOR_BURN" layoutX="771.0" layoutY="482.0" prefHeight="53.0" prefWidth="404.0" promptText="Ejemplo: año-mes-día" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>

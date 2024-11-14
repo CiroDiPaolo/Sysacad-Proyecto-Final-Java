@@ -110,7 +110,7 @@
             </cursor>
         </Button>
       <ChoiceBox fx:id="choiceAlumno" layoutX="817.0" layoutY="276.0" prefHeight="25.0" prefWidth="285.0" AnchorPane.leftAnchor="817.0" AnchorPane.rightAnchor="818.0" />
-      <Text fill="WHITE" layoutX="699.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de alumnos con mismo nombre cambie la elección" wrappingWidth="521.4701538085938" AnchorPane.leftAnchor="699.0" AnchorPane.rightAnchor="699.5298461914062">
+      <Text fill="WHITE" layoutX="709.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de alumnos con mismo nombre, cambie la elección" wrappingWidth="546.4701538085938" AnchorPane.leftAnchor="709.0" AnchorPane.rightAnchor="664.5298461914062">
          <font>
             <Font size="20.0" />
          </font>

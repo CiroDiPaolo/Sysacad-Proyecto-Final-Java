@@ -46,7 +46,7 @@
             </image>
         </ImageView>
         <Rectangle fx:id="lista" fill="#2e3b43" height="705.0" layoutX="409.0" layoutY="238.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="1164.0" AnchorPane.leftAnchor="399.0" AnchorPane.rightAnchor="357.0" />
-        <Text fill="WHITE" layoutX="874.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver profesor" wrappingWidth="233.47015380859375" AnchorPane.leftAnchor="874.0" AnchorPane.rightAnchor="812.5298461914062">
+        <Text fill="WHITE" layoutX="853.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VER PROFESOR" wrappingWidth="299.47015380859375" AnchorPane.leftAnchor="853.0" AnchorPane.rightAnchor="767.5298461914062">
             <font>
                 <Font size="40.0" />
             </font>

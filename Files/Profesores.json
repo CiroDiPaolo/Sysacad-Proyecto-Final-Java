@@ -38,5 +38,15 @@
         "nombre": "Yanki",
         "dni": "21001021",
         "actividad": true
+    },
+    {
+        "legajo": "P000005",
+        "apellido": "Chanchito",
+        "correo": "profe5@gmail.com",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "46557000",
+        "nombre": "Chanchix",
+        "dni": "46557000",
+        "actividad": true
     }
 ]
