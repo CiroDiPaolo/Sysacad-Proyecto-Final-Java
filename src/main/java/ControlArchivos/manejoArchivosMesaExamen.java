@@ -95,7 +95,7 @@ public class manejoArchivosMesaExamen {
         return false;
     }
 
-    public static boolean actualizarMesaExamenAJSON(String path, JSONObject mesaExamen) throws EntidadYaExistente {
+    public static boolean actualizarMesaExamenAJSON(String path, JSONObject mesaExamen) {
         JSONArray jsonArray;
 
         try {
@@ -112,48 +112,18 @@ public class manejoArchivosMesaExamen {
             jsonArray = new JSONArray();
         }
 
-        boolean conflictoEncontrado = false;
         boolean materiaDiferente = false;
-        HashSet<Object> vocalesNuevos = new HashSet<>(mesaExamen.getJSONArray("vocales").toList());
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject mesaExistente = jsonArray.getJSONObject(i);
-            LocalDate fechaExistente = LocalDate.parse(mesaExistente.getString("fecha"));
-            LocalTime horaExistente = LocalTime.parse(mesaExistente.getString("hora"));
-
             if (mesaExamen.getString("id").equals(mesaExistente.getString("id"))) {
                 if (!mesaExamen.getString("codigoMateria").equals(mesaExistente.getString("codigoMateria"))) {
                     materiaDiferente = true;
                 }
-                continue;
-            }
-
-            if (mesaExamen.getString("codigoPresidente").equals(mesaExistente.getString("codigoPresidente")) &&
-                    fechaExistente.equals(LocalDate.parse(mesaExamen.getString("fecha"))) &&
-                    horaExistente.equals(LocalTime.parse(mesaExamen.getString("hora")))) {
-                conflictoEncontrado = true;
-                break;
-            }
-
-            HashSet<Object> vocalesExistentes = new HashSet<>(mesaExistente.getJSONArray("vocales").toList());
-            if (fechaExistente.equals(LocalDate.parse(mesaExamen.getString("fecha"))) &&
-                    horaExistente.equals(LocalTime.parse(mesaExamen.getString("hora"))) &&
-                    (vocalesNuevos.stream().anyMatch(vocalesExistentes::contains))) {
-                conflictoEncontrado = true;
-                break;
-            }
-
-            if (vocalesNuevos.contains(mesaExistente.getString("codigoPresidente")) &&
-                    fechaExistente.equals(LocalDate.parse(mesaExamen.getString("fecha"))) &&
-                    horaExistente.equals(LocalTime.parse(mesaExamen.getString("hora")))) {
-                conflictoEncontrado = true;
-                break;
             }
         }
 
-        if (conflictoEncontrado) {
-            throw new EntidadYaExistente("Conflicto encontrado: presidente o vocal en el mismo horario y fecha en otra mesa de examen.");
-        }
+        String idViejo = mesaExamen.getString("id");
 
         if (materiaDiferente) {
             mesaExamen.put("id", MesaExamen.generarIDMesaExamen(mesaExamen.getString("codigoCarrera"), mesaExamen.getString("codigoMateria"), path));
@@ -165,12 +135,13 @@ public class manejoArchivosMesaExamen {
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject mesaExistente = jsonArray.getJSONObject(i);
 
-            if (mesaExistente.getString("id").equals(mesaExamen.getString("id"))) {
+            if (mesaExistente.getString("id").equals(idViejo)) {
                 jsonActualizado.put(mesaExamen);
                 mesaActualizada = true;
             } else {
                 jsonActualizado.put(mesaExistente);
             }
+
         }
 
         if (!mesaActualizada) {
