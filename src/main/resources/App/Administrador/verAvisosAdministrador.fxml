@@ -63,7 +63,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <TextArea fx:id="txtAreaAvisos" blendMode="OVERLAY" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
+      <TextArea fx:id="txtAreaAvisos" blendMode="OVERLAY" editable="false" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
          <font>
             <Font size="26.0" />
          </font></TextArea>
