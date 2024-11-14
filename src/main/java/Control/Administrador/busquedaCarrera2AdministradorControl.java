@@ -37,10 +37,13 @@ public class busquedaCarrera2AdministradorControl {
     @FXML
     void clickBtnBuscar(ActionEvent event) {
         Data data = new Data();
-        try{
+        try {
             data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras, txtIdCarrera.getText()));
-            escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
-
+            if (Data.getCarrera().isActividad()){
+                escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
+            }else{
+                throw new DatosIncorrectosException("La carrera está inactiva. No se puede modificar.");
+            }
         }catch (CamposVaciosException e)
         {
             e.getMessage();
