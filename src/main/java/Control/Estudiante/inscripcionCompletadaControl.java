@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import static ControlArchivos.manejoArchivosComisiones.generarNombreArchivoComision;
+import static ControlArchivos.manejoArchivosComisiones.*;
 import static Path.Path.*;
 
 public class inscripcionCompletadaControl {
