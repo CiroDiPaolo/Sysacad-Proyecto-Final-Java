@@ -2,6 +2,8 @@ package Control;
 
 import Control.InicioSesion.Data;
 import Excepciones.DatosIncorrectosException;
+import Excepciones.excepcionPersonalizada;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,11 +47,8 @@ public class cambiarContraControl {
      */
     @FXML
     void clickBtnVolver(ActionEvent event) {
-
-        stage = (Stage) btnVolver.getScene().getWindow();
         EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(menuPrincipalAlumnos, stage, "Menu Principal");
-
     }
 
     /**
@@ -79,15 +78,28 @@ public class cambiarContraControl {
 
             if(Data.getLegajo().charAt(0) == 'E') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, Data.getLegajo(), nuevaContra);
+                if(Consultas.consultaArchivo.cambiarContrasenia(fileNameAlumnos, Data.getLegajo(), nuevaContra)){
+                    excepcionPersonalizada.alertaConfirmacion("¡Contraseña cambiada!");
+                    EscenaControl escena = new EscenaControl();
+                    escena.cambiarEscena(menuPrincipalAlumnos,stage,"Menú principal");
+                }
 
             } else if (Data.getLegajo().charAt(0) == 'P') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameProfesores, Data.getLegajo(), nuevaContra);
+                if(Consultas.consultaArchivo.cambiarContrasenia(fileNameProfesores, Data.getLegajo(), nuevaContra)){
+                    excepcionPersonalizada.alertaConfirmacion("¡Contraseña cambiada!");
+                    EscenaControl escena = new EscenaControl();
+                    escena.cambiarEscena(menuPrincipalProfesores,stage,"Menú principal");
+                }
 
             } else if (Data.getLegajo().charAt(0) == 'A') {
 
-                Consultas.consultaArchivo.cambiarContrasenia(fileNameAdministrador, Data.getLegajo(), nuevaContra);
+                if(Consultas.consultaArchivo.cambiarContrasenia(fileNameAdministrador, Data.getLegajo(), nuevaContra))
+                {
+                    excepcionPersonalizada.alertaConfirmacion("¡Contraseña cambiada!");
+                    EscenaControl escena = new EscenaControl();
+                    escena.cambiarEscena(menuPrincipalAdministrador,stage,"Menú principal");
+                }
 
             }
 
@@ -95,6 +107,15 @@ public class cambiarContraControl {
 
     }
 
+    @FXML
+    protected void initialize() {
 
+        Platform.runLater(() -> {
+
+            stage = (Stage) btnVolver.getScene().getWindow();
+
+        });
+
+    }
 
 }

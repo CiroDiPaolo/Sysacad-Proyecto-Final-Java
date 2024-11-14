@@ -1,6 +1,8 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
+import Control.InicioSesion.Data;
+import Excepciones.DatosIncorrectosException;
 import Excepciones.excepcionPersonalizada;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -35,7 +37,18 @@ public class opcionEditarCarreraAdministradorControl {
 
     @FXML
     void clickBtnMaterias(ActionEvent event) {
-        escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar materias");
+        try{
+            if(Data.getCarrera().isActividad())
+            {
+                escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar materias");
+            }else{
+                throw new DatosIncorrectosException("La carrera no está activa. No se puede modificar");
+            }
+        }catch (DatosIncorrectosException e)
+        {
+            e.getMessage();
+        }
+
     }
 
     @FXML

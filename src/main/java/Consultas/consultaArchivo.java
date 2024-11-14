@@ -40,10 +40,9 @@ public final class consultaArchivo {
         return flag;
     }
 
-    public static void cambiarContrasenia(String fileName, String legajo, String nuevaContrasenia) {
+    public static boolean cambiarContrasenia(String fileName, String legajo, String nuevaContrasenia) {
 
         try {
-
             JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
 
             for (int i = 0; i < arreglo.length(); i++) {
@@ -58,14 +57,13 @@ public final class consultaArchivo {
             // Guardar los cambios en el archivo
             try (FileWriter file = new FileWriter(fileName)) {
                 file.write(arreglo.toString());
+                return true;
             } catch (IOException e) {
                 throw new RuntimeException("Error al escribir en el archivo: " + e.getMessage());
             }
-
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 
