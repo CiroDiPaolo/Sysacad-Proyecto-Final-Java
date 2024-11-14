@@ -279,16 +279,6 @@ public final class Comision implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
-
     public static String generarIDComision(String codigoCarrera, String codigoMateria, String fileName) {
         JSONArray comisiones = new JSONArray(leerArchivoJSON(fileName));
         String ultimoCodigo = null;
