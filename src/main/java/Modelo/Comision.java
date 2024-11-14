@@ -248,7 +248,7 @@ public final class Comision implements iCRUD{
             if(!this.getNombre().isEmpty() && !this.getAula().isEmpty() && this.anio > 0 && this.codigoProfesor != null && this.codigoCarrera != null && this.codigoMateria != null)
             {
                 if(cargarComisionAJSON(pathComisiones+generarNombreArchivoComision(this.getCodigoCarrera(), this.getAnio()), this.ComisionAJSONObject())){
-                    excepcionPersonalizada.alertaConfirmacion("¡Comision cargada exitosamente!");
+
                     return true;
                 }
             }else{
