@@ -72,9 +72,6 @@ public class verComisionAdministradorControl {
     private TableView<EstadoAlumnoComision> tableViewAlumnos;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtAula;
 
     @FXML
