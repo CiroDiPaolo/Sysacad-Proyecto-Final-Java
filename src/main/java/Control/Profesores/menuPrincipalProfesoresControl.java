@@ -8,7 +8,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -16,8 +15,6 @@ import static Path.Path.*;
 
 public class menuPrincipalProfesoresControl {
 
-    @FXML
-    private Button btnComisiones;
 
     @FXML
     private Button btnSalir;
@@ -26,8 +23,6 @@ public class menuPrincipalProfesoresControl {
     private Text txtBienvenida;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     /**
      * Metodo que setea el texto de bienvenida

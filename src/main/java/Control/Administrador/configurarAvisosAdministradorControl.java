@@ -1,6 +1,5 @@
 package Control.Administrador;
 
-
 import Control.EscenaControl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -14,41 +13,31 @@ import static Path.Path.*;
 public class configurarAvisosAdministradorControl {
 
     @FXML
-    private Button btnVer;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Button clickBtnCargar;
-
-    @FXML
-    private Button clickBtnEditar;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnEditar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarAvisosAdministrador,stage,"Buscar aviso");
     }
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(cargarAvisoAdministrador,stage,"Cargar aviso");
     }
 
     @FXML
     void clickBtnVer(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(verAvisosAdministrador,stage,"Ver avisos");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(menuPrincipalAdministrador,stage,"Menú principal");
     }
 

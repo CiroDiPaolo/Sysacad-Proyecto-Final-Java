@@ -25,8 +25,6 @@ import java.util.ArrayList;
 
 public class verComisionControl {
 
-    @FXML
-    private Button btnExcel;
 
     @FXML
     private Button btnVolver;
@@ -48,9 +46,6 @@ public class verComisionControl {
 
     @FXML
     private TableView<Estudiante> tableTablaAlumnos;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     private Stage stage;
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.opcionConfigurarComisionAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.opcionConfigurarComisionAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -47,10 +47,10 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="473.0" layoutX="742.0" layoutY="384.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="438.0" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="732.0" AnchorPane.rightAnchor="730.0" AnchorPane.topAnchor="374.0" />
+        <Rectangle fill="#2e3b43" height="394.0" layoutX="739.0" layoutY="398.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="442.0" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="729.0" AnchorPane.rightAnchor="729.0" AnchorPane.topAnchor="388.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="812.0" layoutY="429.0" stroke="BLACK" strokeType="INSIDE" width="297.0" AnchorPane.leftAnchor="812.0" AnchorPane.rightAnchor="811.0" />
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="811.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" width="297.0" AnchorPane.leftAnchor="811.0" AnchorPane.rightAnchor="812.0" />
-        <Button fx:id="btnActualizar" alignment="CENTER" contentDisplay="CENTER" layoutX="809.0" layoutY="528.0" mnemonicParsing="false" onAction="#clickBtnActualizar" prefHeight="84.0" prefWidth="302.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="809.0" AnchorPane.rightAnchor="809.0">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="813.0" layoutY="522.0" stroke="BLACK" strokeType="INSIDE" width="297.0" AnchorPane.leftAnchor="813.0" AnchorPane.rightAnchor="810.0" />
+        <Button fx:id="btnActualizar" alignment="CENTER" contentDisplay="CENTER" layoutX="813.0" layoutY="511.0" mnemonicParsing="false" onAction="#clickBtnActualizar" prefHeight="84.0" prefWidth="302.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="813.0" AnchorPane.rightAnchor="805.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -66,8 +66,8 @@
                 <Font size="40.0" />
             </font>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="877.0" layoutY="749.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0" />
-        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="738.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="878.0" layoutY="699.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="878.0" AnchorPane.rightAnchor="875.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="689.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -75,13 +75,13 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fill="#8cc5e8" layoutX="839.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMISIONES" wrappingWidth="243.47015380859375" AnchorPane.bottomAnchor="737.0" AnchorPane.leftAnchor="839.0" AnchorPane.rightAnchor="837.5298461914062" AnchorPane.topAnchor="285.0">
+        <Text fill="WHITE" layoutX="838.0" layoutY="345.1640625" strokeType="OUTSIDE" strokeWidth="0.0" text="COMISIONES" wrappingWidth="243.47015380859375" AnchorPane.bottomAnchor="724.796875" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="838.5298461914062" AnchorPane.topAnchor="302.0">
             <font>
                 <Font size="40.0" />
             </font>
         </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="812.0" layoutY="655.0" stroke="BLACK" strokeType="INSIDE" width="297.0" />
-      <Button fx:id="btnVer" alignment="CENTER" contentDisplay="CENTER" layoutX="810.0" layoutY="643.0" mnemonicParsing="false" onAction="#clickBtnVer" prefHeight="84.0" prefWidth="302.0" style="-fx-background-color: transparent;" text="Ver" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="811.0" layoutY="614.0" stroke="BLACK" strokeType="INSIDE" width="297.0" />
+      <Button fx:id="btnVer" alignment="CENTER" contentDisplay="CENTER" layoutX="809.0" layoutY="604.0" mnemonicParsing="false" onAction="#clickBtnVer" prefHeight="84.0" prefWidth="302.0" style="-fx-background-color: transparent;" text="Ver" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

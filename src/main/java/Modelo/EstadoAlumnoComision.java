@@ -1,6 +1,5 @@
 package Modelo;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Objects;
@@ -9,9 +8,13 @@ import java.util.Objects;
  * La clase representa el estado de un Estudiante/Alumno en una comision
  */
 public final class EstadoAlumnoComision {
+
+    //ATRIBUTOS
     private String lejagoAlumno;
     private String nombreAlumno;
     private boolean actividad;
+
+    //CONSTRUCTOR
 
     public EstadoAlumnoComision(String lejagoAlumno, String nombreAlumno, boolean actividad) {
         this.lejagoAlumno = lejagoAlumno;
@@ -83,6 +86,10 @@ public final class EstadoAlumnoComision {
         return Objects.hashCode(lejagoAlumno);
     }
 
+    /**
+     * Convierte un EstadoAlumnoComision a un JSONObject
+     * @return JSONObject
+     */
     public JSONObject AlumnoComisionAJSONObject ()
     {
         JSONObject jsonObject = new JSONObject();
@@ -93,8 +100,12 @@ public final class EstadoAlumnoComision {
         return jsonObject;
     }
 
-    public static EstadoAlumnoComision JSONObjectAEstadoAlumnoComision(JSONObject jsonObject)
-    {
+/**
+     * Convierte un JSONObject a un EstadoAlumnoComision
+     * @param jsonObject JSONObject que contiene los datos del estado del alumno
+     * @return EstadoAlumnoComision
+     */
+    public static EstadoAlumnoComision JSONObjectAEstadoAlumnoComision(JSONObject jsonObject)    {
         return new EstadoAlumnoComision(jsonObject.getString("legajoAlumno"),jsonObject.getString("nombreAlumno"),jsonObject.getBoolean("actividad"));
     }
 

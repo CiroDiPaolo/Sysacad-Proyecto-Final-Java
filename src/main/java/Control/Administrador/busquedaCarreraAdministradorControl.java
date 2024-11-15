@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 import static Path.Path.opcionEditarCarreraAdministrador;
 import static Path.Path.pathCarreras;
 
-
 public class busquedaCarreraAdministradorControl {
 
     @FXML
@@ -27,13 +26,12 @@ public class busquedaCarreraAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnBuscar(ActionEvent event) {
         Data data = new Data();
         try{
             data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras, txtIdCarrera.getText()));
+            EscenaControl escena = new EscenaControl();
             escena.cambiarEscena(opcionEditarCarreraAdministrador, stage, "Configurar carrera");
 
         }catch (CamposVaciosException e)
@@ -47,6 +45,7 @@ public class busquedaCarreraAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(Path.menuPrincipalAdministrador, stage, "Menu Principal");
     }
 

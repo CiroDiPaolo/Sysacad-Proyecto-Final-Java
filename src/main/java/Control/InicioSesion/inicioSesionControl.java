@@ -122,17 +122,14 @@ int inicioSesionContrasenia() {
 
         String constante = "";
 
-        //Se guarda el legajo
         String legajo = txtLegajo.getText();
 
-        //Se setea el legajo
         Data.setLegajo(legajo);
 
         if(index == 1){
 
             constante = Path.menuPrincipalAlumnos;
 
-            //Se obtiene el estudiante que ingreso al sistema
             Data.setEstudiante(legajo);
 
         }else if (index == 2){
@@ -147,10 +144,8 @@ int inicioSesionContrasenia() {
 
         }
 
-        // Obtener el Stage actual
         Stage stage = (Stage) btnAcceder.getScene().getWindow();
 
-        // Cambiar la escena
         EscenaControl escenaControl = new EscenaControl();
 
         stage.close();

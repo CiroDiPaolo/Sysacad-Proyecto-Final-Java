@@ -10,24 +10,13 @@ import Usuarios.Profesor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class cargaProfesorAdministradorControl {
 
     @FXML
-    private Button btnCargar;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Rectangle lista;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtApellido;

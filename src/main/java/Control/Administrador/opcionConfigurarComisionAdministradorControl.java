@@ -11,43 +11,33 @@ import javafx.stage.Stage;
 import static Path.Path.*;
 
 public class opcionConfigurarComisionAdministradorControl {
-    @FXML
-    private Button btnCargar;
-
-    @FXML
-    private Button btnActualizar;
-
-    @FXML
-    private Button btnVer;
 
     @FXML
     private Button btnVolver;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(cargarComisionAdministrador, stage, "Cargar comisión");
     }
 
     @FXML
     void clickBtnActualizar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(busquedaComisionAdministrador,stage,"Elegir comisión");
     }
 
     @FXML
-    void clickBtnVer(ActionEvent event)
-    {
+    void clickBtnVer(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(verComisionAdministrador,stage,"Ver comisión");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
     }
 

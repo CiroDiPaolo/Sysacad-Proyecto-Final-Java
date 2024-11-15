@@ -10,9 +10,7 @@ import Modelo.Comision;
 import Modelo.iCRUD;
 import Path.Path;
 import org.json.JSONObject;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -21,6 +19,8 @@ import java.util.Iterator;
  * Tiene los mismos atributos que un Usuario.
  */
 public final class Profesor extends Usuario implements iCRUD {
+
+    //CONSTRUCTORES
 
     public Profesor(String nombre, String dni, String legajo, String correo) {
         super(nombre, dni, legajo, correo);
@@ -32,6 +32,15 @@ public final class Profesor extends Usuario implements iCRUD {
         super(nombre, apellido, dni, legajo, contrasenia, correo, fechaDeAlta, actividad);
     }
 
+    /**
+     * Crea un nuevo profesor y lo guarda en el archivo especificado.
+     *
+     * @param path La ruta del archivo donde se guardará el profesor.
+     * @return true si el profesor fue creado y guardado exitosamente, false en caso contrario.
+     * @throws EntidadYaExistente Si ya existe un profesor con el mismo DNI.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si el DNI o el correo no son válidos.
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
 
@@ -81,6 +90,15 @@ public final class Profesor extends Usuario implements iCRUD {
         return creado;
     }
 
+    /**
+     * Actualiza la información de un profesor en el archivo especificado.
+     *
+     * @param path La ruta del archivo donde se actualizará el profesor.
+     * @param jsonObject El objeto JSON con los datos actualizados del profesor.
+     * @return true si el profesor fue actualizado exitosamente, false en caso contrario.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si el DNI o el correo no son válidos.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if(!this.getDni().isEmpty() && !this.getNombre().isEmpty() && !this.getCorreo().isEmpty())
@@ -111,21 +129,6 @@ public final class Profesor extends Usuario implements iCRUD {
             throw new CamposVaciosException("Faltan campos obligatorios");
         }
         return false;
-    }
-
-    @Override
-    public boolean leer(String path, String legajo) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     /**
@@ -169,6 +172,12 @@ public final class Profesor extends Usuario implements iCRUD {
 
     }
 
+    /**
+     * Obtiene las comisiones asignadas al profesor en el año actual.
+     *
+     * @param path La ruta del archivo donde se encuentran las comisiones.
+     * @return Un conjunto de comisiones asignadas al profesor.
+     */
     public HashSet<Comision> obtenerComisiones(String path){
 
         HashSet<Comision> comisiones = (manejoArchivosComisiones.obtenerComisionesPorAnio(Path.pathComisiones,String.valueOf(LocalDate.now().getYear())));

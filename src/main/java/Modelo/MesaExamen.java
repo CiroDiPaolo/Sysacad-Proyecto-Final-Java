@@ -7,7 +7,6 @@ import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -15,6 +14,8 @@ import java.util.HashSet;
 import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
 public final class MesaExamen implements iCRUD{
+
+    //ATRIBUTOS
 
     private String id;
     private Turno turno;
@@ -29,6 +30,8 @@ public final class MesaExamen implements iCRUD{
     private boolean apertura;
     private boolean actividad;
     private HashSet<EstadoAlumnoMesa> alumnosInscriptos;
+
+    //CONSTRUCTORES
 
     public MesaExamen(String id, Turno turno, String codigoCarrera, String codigoMateria, String codigoPresidente, HashSet<String> vocales, LocalDate fecha, LocalTime hora, int cupos, String aula, boolean apertura, boolean actividad, HashSet<EstadoAlumnoMesa> alumnosInscriptos) {
         this.id = id;
@@ -175,7 +178,10 @@ public MesaExamen(MesaExamen mesa) {
 
     public void setAlumnosInscriptos(HashSet<EstadoAlumnoMesa> alumnosInscriptos) { this.alumnosInscriptos = alumnosInscriptos; }
 
-    // Conversion to JSON
+    /**
+     * Convierte una MesaExamen a un JSONObject.
+     * @return JSONObject que representa la MesaExamen.
+     */
     public JSONObject toJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id", id);
@@ -200,6 +206,11 @@ public MesaExamen(MesaExamen mesa) {
         return json;
     }
 
+    /**
+     * Convierte un JSONObject a una instancia de MesaExamen.
+     * @param json JSONObject que contiene los datos de la MesaExamen.
+     * @return Una nueva instancia de MesaExamen con los datos del JSONObject.
+     */
     public static MesaExamen fromJSONObject(JSONObject json) {
         MesaExamen instancia = new MesaExamen();
         instancia.id = json.getString("id");
@@ -221,7 +232,6 @@ public MesaExamen(MesaExamen mesa) {
         instancia.apertura = json.getBoolean("apertura");
         instancia.actividad = json.getBoolean("actividad");
 
-        // Check if "alumnosInscriptos" exists before accessing it
         if (json.has("alumnosInscriptos")) {
             JSONArray alumnosArray = json.getJSONArray("alumnosInscriptos");
             instancia.alumnosInscriptos = new HashSet<>();
@@ -231,14 +241,19 @@ public MesaExamen(MesaExamen mesa) {
                 instancia.alumnosInscriptos.add(alumno);
             }
         } else {
-            // Handle case where "alumnosInscriptos" is missing
             instancia.alumnosInscriptos = new HashSet<>();
         }
 
         return instancia;
     }
 
-
+    /**
+     * Genera un ID único para una MesaExamen basado en el código de carrera y materia.
+     * @param codigoCarrera El código de la carrera.
+     * @param codigoMateria El código de la materia.
+     * @param fileName El nombre del archivo JSON que contiene las mesas de examen.
+     * @return Un ID único para la MesaExamen.
+     */
     public static String generarIDMesaExamen(String codigoCarrera, String codigoMateria, String fileName) {
         JSONArray mesaExamen = new JSONArray(leerArchivoJSON(fileName));
         String ultimoCodigo = null;
@@ -274,6 +289,14 @@ public MesaExamen(MesaExamen mesa) {
         return nuevoID;
     }
 
+    /**
+     * Crea una nueva MesaExamen y la guarda en el archivo especificado.
+     * @param path Ruta del archivo donde se guardará la MesaExamen.
+     * @return true si la MesaExamen se creó y guardó correctamente, false en caso contrario.
+     * @throws EntidadYaExistente Si la MesaExamen ya existe.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
 
@@ -300,19 +323,22 @@ public MesaExamen(MesaExamen mesa) {
         return false;
     }
 
+    /**
+     * Actualiza una MesaExamen existente en el archivo especificado.
+     * @param path Ruta del archivo donde se actualizará la MesaExamen.
+     * @param jsonObject JSONObject que contiene los datos actualizados de la MesaExamen.
+     * @return true si la MesaExamen se actualizó correctamente, false en caso contrario.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if(manejoArchivos.esFormatoFechaValida(this.getFecha().toString()) && manejoArchivos.esFormatoHoraValida(this.getHora().toString())&& manejoArchivos.esFechaValidaEnRango(fecha) && manejoArchivos.esHoraValidaEnRango(hora))
         {
             if(!codigoMateria.isEmpty() && !vocales.isEmpty() && !codigoPresidente.isEmpty() && !aula.isEmpty())
             {
-                try{
-                    if(manejoArchivosMesaExamen.actualizarMesaExamenAJSON(path,this.toJSONObject())){
-                        return true;
-                    }
-                }catch (EntidadYaExistente e)
-                {
-                    e.getMessage();
+                if(manejoArchivosMesaExamen.actualizarMesaExamenAJSON(path,this.toJSONObject())){
+                    return true;
                 }
 
             }else {
@@ -324,13 +350,4 @@ public MesaExamen(MesaExamen mesa) {
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
 }

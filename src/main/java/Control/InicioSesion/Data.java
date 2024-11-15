@@ -66,6 +66,7 @@ public final class Data {
     public static void setAux2(String aux2) { Data.aux2 = aux2; }
 
     public void setMesaExamen(MesaExamen mesaExamen){this.mesaExamen = mesaExamen;}
+
     public static void setAviso(Avisos aviso) { Data.aviso = aviso; }
 
     public static void setAux3(String aux3) { Data.aux3 = aux3; }

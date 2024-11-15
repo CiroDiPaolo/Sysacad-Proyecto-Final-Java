@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarAvisosAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarAvisosAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -50,8 +50,8 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="675.0" layoutX="235.0" layoutY="247.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1351.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="324.0" />
-        <Text fill="#8cc5e8" layoutX="826.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR AVISO" wrappingWidth="268.803466796875" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="825.196533203125">
+        <Rectangle fill="#2e3b43" height="551.0" layoutX="310.0" layoutY="321.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1318.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="302.0" />
+        <Text fill="WHITE" layoutX="833.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR AVISO" wrappingWidth="254.803466796875" AnchorPane.leftAnchor="833.0" AnchorPane.rightAnchor="832.196533203125">
             <font>
                 <Font size="40.0" />
             </font>
@@ -75,13 +75,13 @@
             </cursor>
         </Button>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="353.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="342.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el titulo" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="342.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el titulo" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="434.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="343.0" layoutY="434.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtitulo" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="343.0" layoutY="434.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtitulo" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
@@ -93,7 +93,7 @@
         </Text>
         <ChoiceBox fx:id="choiceboxVisibilidad" layoutX="553.0" layoutY="552.0" prefHeight="25.0" prefWidth="180.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="395.0" layoutX="830.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="708.0" />
-        <TextArea fx:id="txtMensaje" layoutX="867.0" layoutY="376.0" prefHeight="344.0" prefWidth="624.0" promptText="Ingrese el mensaje (hasta 1000 caracteres)">
+        <TextArea fx:id="txtMensaje" blendMode="OVERLAY" layoutX="837.0" layoutY="358.0" prefHeight="383.0" prefWidth="696.0" promptText="Ingrese el mensaje (hasta 1000 caracteres)">
             <font>
                 <Font size="25.0" />
             </font>

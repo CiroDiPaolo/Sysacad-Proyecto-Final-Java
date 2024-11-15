@@ -3,6 +3,9 @@ package Modelo;
 import java.util.ArrayList;
 
 public class EstadoAlumnoMateriaFX {
+
+    //ATRIBUTOS
+
     private String codMateria;
     private EstadoMateria estadoMateria;
     private Integer notaParcial1;
@@ -13,6 +16,8 @@ public class EstadoAlumnoMateriaFX {
     private String tomo;
     private String folio;
     private String codComision;
+
+    //CONSTRUCTOR
 
     public EstadoAlumnoMateriaFX(String codMateria, EstadoMateria estadoMateria, Integer notaParcial1, Integer notaParcial2, ArrayList<EstadoAlumnoMesa> estadoAlumnoMesa, String tomo, String folio, String codComision) {
         this.codMateria = codMateria;
@@ -27,6 +32,8 @@ public class EstadoAlumnoMateriaFX {
 
     public EstadoAlumnoMateriaFX() {
     }
+
+    //GETTERS
 
     public String getCodMateria() {
         return codMateria;
@@ -61,7 +68,7 @@ public class EstadoAlumnoMateriaFX {
     }
 
     public String getCodigosMesa(){
-        StringBuilder string = new StringBuilder(); // Inicialización correcta
+        StringBuilder string = new StringBuilder();
         if(this.getEstadoAlumnoMesa() == null || this.getEstadoAlumnoMesa().isEmpty()) {
             return "";
         }
@@ -74,19 +81,21 @@ public class EstadoAlumnoMateriaFX {
         return string.toString();
     }
     public String getNotasMesa(){
-        StringBuilder string = new StringBuilder(); // Inicialización correcta
+        StringBuilder string = new StringBuilder();
         if(this.getEstadoAlumnoMesa() == null || this.getEstadoAlumnoMesa().isEmpty()) {
-            return ""; // Si no hay notas, retorna una cadena vacía
+            return "";
         }
         for(EstadoAlumnoMesa estadoAlumnoMesa1 : this.getEstadoAlumnoMesa()) {
             string.append(estadoAlumnoMesa1.getNota()).append(", ");
         }
-        // Eliminar la última coma y espacio si es necesario
+
         if (string.length() > 0) {
-            string.setLength(string.length() - 2); // Eliminar el último ", "
+            string.setLength(string.length() - 2);
         }
         return string.toString();
     }
+
+    //SETTERS
 
     public void setCodMateria(String codMateria) {
         this.codMateria = codMateria;

@@ -18,10 +18,9 @@ public class opcionEditarCarreraAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnCarrera(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
     }
 
@@ -30,6 +29,7 @@ public class opcionEditarCarreraAdministradorControl {
         try{
             if(Data.getCarrera().isActividad())
             {
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar materias");
             }else{
                 throw new DatosIncorrectosException("La carrera no está activa. No se puede modificar");
@@ -43,6 +43,7 @@ public class opcionEditarCarreraAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(busquedaCarreraAdministrador, stage, "Configurar carrera");
     }
 

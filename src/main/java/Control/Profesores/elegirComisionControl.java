@@ -6,7 +6,6 @@ import ControlArchivos.manejoArchivosCarrera;
 import ControlArchivos.manejoArchivosComisiones;
 import Excepciones.CamposVaciosException;
 import Modelo.Comision;
-import Modelo.Materia;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -15,21 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class elegirComisionControl {
 
     @FXML
-    private Button btnAplicar;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private ChoiceBox<String> choiceComision;

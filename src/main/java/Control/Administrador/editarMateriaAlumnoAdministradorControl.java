@@ -19,13 +19,7 @@ import java.util.*;
 public class editarMateriaAlumnoAdministradorControl{
 
     @FXML
-    private Button btnCargar;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Button btnEditarMesa;
 
     @FXML
     private ChoiceBox<String> choiceMateria;

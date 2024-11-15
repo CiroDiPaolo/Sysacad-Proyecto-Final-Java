@@ -1,4 +1,5 @@
 package Control.Administrador;
+
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.CamposVaciosException;
@@ -11,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,16 +25,10 @@ import static Path.Path.pathAvisos;
 public class editarAvisosAdministradorControl {
 
     @FXML
-    private Button btnActualizar;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
     private ChoiceBox<String> choiceboxVisibilidad;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextArea txtMensaje;
@@ -46,8 +40,6 @@ public class editarAvisosAdministradorControl {
     private TextField txtTitulo;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     public void initialize() {
@@ -81,6 +73,7 @@ public class editarAvisosAdministradorControl {
             if(aviso.actualizar(pathAvisos,aviso.AvisoAJSONObject()))
             {
                 excepcionPersonalizada.alertaConfirmacion("Aviso cargado correctamente");
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(buscarAvisosAdministrador,stage,"Buscar aviso");
             }
         } catch (CamposVaciosException e) {
@@ -92,6 +85,7 @@ public class editarAvisosAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarAvisosAdministrador,stage,"Buscar aviso");
     }
 

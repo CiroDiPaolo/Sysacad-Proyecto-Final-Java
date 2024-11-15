@@ -12,7 +12,6 @@ import Modelo.Materia;
 import Path.Path;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,9 +42,6 @@ public class correlatividadParaRendirEstudianteControl {
 
     @FXML
     private TableColumn<Materia, String> colPlan;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TableView<Materia> tableView;

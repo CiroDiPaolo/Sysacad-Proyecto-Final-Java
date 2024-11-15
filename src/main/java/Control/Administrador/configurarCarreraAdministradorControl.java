@@ -17,25 +17,27 @@ public class configurarCarreraAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnEditar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(editarCarreraAdministrador,stage,"Editar carrera");
     }
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         excepcionPersonalizada.alertaAtencion("NO TIENES EL PAQUETE SYSACAD PRO GOLD.");
     }
 
     @FXML
     void clickBtnVer(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(verCarreraAdministrador,stage,"Ver carrera");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionEditarCarreraAdministrador,stage,"Menú principal");
     }
 

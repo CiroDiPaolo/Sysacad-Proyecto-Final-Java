@@ -18,7 +18,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -29,8 +28,6 @@ import java.util.Map;
 import static Path.Path.*;
 
 public class cargarMesaExamenAdministradorControl {
-    @FXML
-    private Button btnCargar;
 
     @FXML
     private Button btnVolver;
@@ -60,9 +57,6 @@ public class cargarMesaExamenAdministradorControl {
     private Spinner<Integer> spinnerCupos;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtAula;
 
     @FXML
@@ -72,8 +66,6 @@ public class cargarMesaExamenAdministradorControl {
     private TextField txtHora;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
@@ -121,6 +113,7 @@ public class cargarMesaExamenAdministradorControl {
                 if(mesaExamen.crear(pathMesaExamen + manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(),fecha.getYear())))
                 {
                     excepcionPersonalizada.alertaConfirmacion("¡Mesa de examen cargada exitosamente!");
+                    EscenaControl escena = new EscenaControl();
                     escena.cambiarEscena(opcionEditarMesaExamenAdministrador, stage, "Configurar mesa de examen");
                 }
             } catch (CamposVaciosException e) {
@@ -138,6 +131,7 @@ public class cargarMesaExamenAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionEditarMesaExamenAdministrador,stage,"Configurar mesa de examen");
     }
 

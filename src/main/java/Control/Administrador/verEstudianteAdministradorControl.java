@@ -51,9 +51,6 @@ public class verEstudianteAdministradorControl {
     private TableView<EstadoAlumnoMateriaFX> tableView;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtApellido;
 
     @FXML
@@ -69,14 +66,9 @@ public class verEstudianteAdministradorControl {
     private TextField txtDni;
 
     @FXML
-    private Text txtEditarAlumno;
-
-    @FXML
     private TextField txtNombre;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     public void initialize() {
@@ -158,6 +150,7 @@ public class verEstudianteAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarAlumnoAdministrador,stage,"Busqueda alumno");
     }
 

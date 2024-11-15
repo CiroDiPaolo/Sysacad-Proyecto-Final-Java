@@ -7,7 +7,6 @@ import Excepciones.DatosIncorrectosException;
 import Excepciones.excepcionPersonalizada;
 import Modelo.AccesoAviso;
 import Modelo.Avisos;
-import Modelo.EstadoAlumnoComision;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,17 +22,12 @@ import java.util.HashSet;
 import static Path.Path.*;
 
 public class editarAvisosProfesorControl {
-    @FXML
-    private Button btnActualizar;
 
     @FXML
     private Button btnVolver;
 
     @FXML
     private ChoiceBox<String> choiceboxVisibilidad;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextArea txtMensaje;
@@ -45,8 +39,6 @@ public class editarAvisosProfesorControl {
     private TextField txtTitulo;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     public void initialize() {
@@ -79,6 +71,7 @@ public class editarAvisosProfesorControl {
             if(aviso.actualizar(pathAvisos,aviso.AvisoAJSONObject()))
             {
                 excepcionPersonalizada.alertaConfirmacion("Aviso cargado correctamente");
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(buscarAvisosProfesor,stage,"Buscar aviso");
             }
         } catch (CamposVaciosException e) {
@@ -90,6 +83,7 @@ public class editarAvisosProfesorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarAvisosProfesor,stage,"Buscar aviso");
     }
 }

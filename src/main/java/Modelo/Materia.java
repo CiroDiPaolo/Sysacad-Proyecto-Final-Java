@@ -171,6 +171,14 @@ public final class Materia implements iCRUD{
                 '}';
     }
 
+    /**
+     * Crea una entidad en un archivo.
+     * @param path La ruta del archivo donde se creará la entidad.
+     * @return true si la entidad se creó exitosamente, false en caso contrario.
+     * @throws EntidadYaExistente Si la entidad ya existe.
+     * @throws CamposVaciosException Si hay campos vacíos.
+     * @throws DatosIncorrectosException Si los datos son incorrectos.
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
 
@@ -198,6 +206,14 @@ public final class Materia implements iCRUD{
         return false;
     }
 
+    /**
+     * Actualiza una entidad en un archivo.
+     * @param path La ruta del archivo donde se actualizará la entidad.
+     * @param jsonObject El JSONObject con los datos actualizados de la entidad.
+     * @return true si la entidad se actualizó exitosamente, false en caso contrario.
+     * @throws CamposVaciosException Si hay campos vacíos.
+     * @throws DatosIncorrectosException Si los datos son incorrectos.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if (this.getAnio().matches("[1-9]") && this.getCuatrimestre().matches("[1-2]")) {
@@ -212,17 +228,6 @@ public final class Materia implements iCRUD{
         }else {
             throw new DatosIncorrectosException("El año y/o cuatrimestre ingresados son incorrectos. Vuelva a intentarlo");
         }
-        return false;
-    }
-
-    @Override
-    public boolean leer(String path, String legajo) {
-        return false;
-    }
-
-
-    @Override
-    public boolean borrar(String path) {
         return false;
     }
 

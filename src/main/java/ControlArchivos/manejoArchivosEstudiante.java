@@ -42,7 +42,13 @@ public final class manejoArchivosEstudiante {
         return false;
     }
 
-
+    /**
+     * Retorna un objeto JSON que representa a un estudiante dado su legajo.
+     *
+     * @param legajo   El legajo del estudiante a buscar.
+     * @param fileName El nombre del archivo JSON que contiene los datos de los estudiantes.
+     * @return Un objeto JSON que representa al estudiante, o null si no se encuentra.
+     */
     public static JSONObject retornarEstudiante(String legajo,  String fileName)
     {
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
@@ -70,6 +76,13 @@ public final class manejoArchivosEstudiante {
         return null;
     }
 
+    /**
+     * Filtra las notas de parciales de una materia específica.
+     *
+     * @param parciales     Mapa que contiene las notas de parciales por materia.
+     * @param codigoMateria Código de la materia a filtrar.
+     * @return Lista de notas de parciales correspondientes a la materia especificada.
+     */
     public static ArrayList<String> filtrarParcialesPorMateria(Map<String, List<Integer>> parciales, String codigoMateria){
 
         ArrayList<String> parcialesMateria = new ArrayList<>();

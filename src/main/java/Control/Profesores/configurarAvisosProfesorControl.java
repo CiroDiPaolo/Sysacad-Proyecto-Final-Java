@@ -1,51 +1,43 @@
 package Control.Profesores;
+
 import Control.EscenaControl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import static Path.Path.*;
+
 public class configurarAvisosProfesorControl {
-    @FXML
-    private Button btnVer;
 
     @FXML
     private Button btnVolver;
 
-    @FXML
-    private Button clickBtnCargar;
-
-    @FXML
-    private Button clickBtnEditar;
-
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnEditar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarAvisosProfesor,stage,"Buscar aviso");
     }
 
     @FXML
     void clickBtnOp1(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(cargarAvisosProfesor,stage,"Cargar aviso");
     }
 
     @FXML
     void clickBtnVer(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(verAvisosProfesor,stage,"Ver avisos");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
-        escena.cambiarEscena(menuPrincipalProfesores,stage,"Menú principal");
+        EscenaControl escena = new EscenaControl();
+        escena.cambiarEscena(gestionarComisionProfesor,stage,"Gestionar Comision");
     }
 
     @FXML

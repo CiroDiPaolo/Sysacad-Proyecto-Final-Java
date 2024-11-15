@@ -1,11 +1,9 @@
 package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
-import ControlArchivos.manejoArchivosComisiones;
 import ControlArchivos.manejoArchivosMesaExamen;
 import Excepciones.CamposVaciosException;
 import Excepciones.excepcionPersonalizada;
-import Modelo.Comision;
 import Modelo.Materia;
 import Modelo.MesaExamen;
 import javafx.application.Platform;
@@ -25,9 +23,6 @@ import static Path.Path.*;
 public class buscarMesaExamenAdministradorControl {
 
     @FXML
-    private Button btnElegir;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
@@ -36,12 +31,7 @@ public class buscarMesaExamenAdministradorControl {
     @FXML
     private ChoiceBox<String> choiceBoxMesaExamen;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnElegir(ActionEvent event) {
@@ -49,6 +39,7 @@ public class buscarMesaExamenAdministradorControl {
         Data data = new Data();
         try{
             data.setMesaExamen(manejoArchivosMesaExamen.buscarMesaExamen(pathMesaExamen+manejoArchivosMesaExamen.generarNombreArchivoMesaExamen(Data.getCarrera().getId(), choiceBoxAnio.getValue()),"id",idMesa));
+            EscenaControl escena = new EscenaControl();
             escena.cambiarEscena(editarMesaExamenAdministrador,stage,"Actualizar mesa de examen");
         } catch (CamposVaciosException e) {
             e.getMessage();
@@ -57,6 +48,7 @@ public class buscarMesaExamenAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionEditarMesaExamenAdministrador,stage,"Configuración mesa de examen");
     }
 

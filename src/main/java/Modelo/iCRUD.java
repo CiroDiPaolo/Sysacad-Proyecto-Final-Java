@@ -6,7 +6,7 @@ import Excepciones.EntidadYaExistente;
 import org.json.JSONObject;
 
 /**
- * Interfaz para el CRUD (CREACION, ACTUALIZACION, LEER Y ELIMINACION) de entidades
+ * Interfaz para el CRUD (CREACION, ACTUALIZACION) de entidades
  */
 public interface iCRUD {
     /**
@@ -26,20 +26,5 @@ public interface iCRUD {
      * @return
      */
     boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException ;
-
-    /**
-     * Lee una entidad de un archivo
-     * @param path
-     * @param id
-     * @return
-     */
-    boolean leer(String path, String id);
-
-    /**
-     * Elimina(baja logica) una entidad en un archivo.
-     * @param path
-     * @return
-     */
-    boolean borrar(String path);
 
 }

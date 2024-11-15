@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.inscripcionCompletadaControl">
     <children>
-        <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+        <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
                 <Image url="@../../images/lenguaje-min.jpg" />
             </image>
@@ -53,7 +53,8 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <TextArea fx:id="textArea" blendMode="OVERLAY" editable="false" layoutX="684.0" layoutY="376.0" prefHeight="200.0" prefWidth="552.0" AnchorPane.leftAnchor="684.0" AnchorPane.rightAnchor="684.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="241.0" layoutX="675.0" layoutY="342.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="569.0" AnchorPane.leftAnchor="675.0" AnchorPane.rightAnchor="676.0" />
+      <TextArea fx:id="textArea" blendMode="COLOR_BURN" editable="false" layoutX="684.0" layoutY="349.0" prefHeight="227.0" prefWidth="552.0" AnchorPane.leftAnchor="684.0" AnchorPane.rightAnchor="684.0">
          <font>
             <Font name="Arial" size="20.0" />
          </font></TextArea>

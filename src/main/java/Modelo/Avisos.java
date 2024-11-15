@@ -6,14 +6,14 @@ import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 
 import static Path.Path.pathAvisos;
 
 public class Avisos implements iCRUD{
+
+    //ATRIBUTOS
     private int id;
     private String legajoAutor;
     private String titulo;
@@ -22,6 +22,8 @@ public class Avisos implements iCRUD{
     private HashSet<String> legajos;
     private LocalDate fecha;
     private AccesoAviso accesoAviso;
+
+    //CONSTRUCTORES
 
     public Avisos(int id, String legajoAutor, String titulo, String subtitulo, String descripcion, HashSet<String> legajos, LocalDate fecha, AccesoAviso accesoAviso) {
         this.id = id;
@@ -124,6 +126,10 @@ public class Avisos implements iCRUD{
         this.legajoAutor = legajoAutor;
     }
 
+    /**
+     * Convierte el objeto Avisos a un JSONObject.
+     * @return JSONObject que representa el objeto Avisos.
+     */
     public JSONObject AvisoAJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id",id);
@@ -139,6 +145,11 @@ public class Avisos implements iCRUD{
         return json;
     }
 
+    /**
+     * Convierte un JSONObject a un objeto Avisos.
+     * @param json JSONObject que representa el objeto Avisos.
+     * @return Objeto Avisos.
+     */
     public static Avisos JSONObjectAaviso(JSONObject json) {
 
         String titulo = json.getString("titulo");
@@ -167,6 +178,14 @@ public class Avisos implements iCRUD{
         return aviso;
     }
 
+    /**
+     * Crea un nuevo aviso y lo guarda en el archivo especificado.
+     * @param path Ruta del archivo donde se guardará el aviso.
+     * @return true si el aviso se creó y guardó correctamente, false en caso contrario.
+     * @throws EntidadYaExistente Si el aviso ya existe.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
         if(!this.titulo.isEmpty() && !this.subtitulo.isEmpty() && !this.descripcion.isEmpty())
@@ -195,6 +214,14 @@ public class Avisos implements iCRUD{
         return false;
     }
 
+    /**
+     * Actualiza un aviso existente en el archivo especificado.
+     * @param path Ruta del archivo donde se actualizará el aviso.
+     * @param jsonObject JSONObject que contiene los datos actualizados del aviso.
+     * @return true si el aviso se actualizó correctamente, false en caso contrario.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if(!this.titulo.isEmpty() && !this.subtitulo.isEmpty() && !this.descripcion.isEmpty())
@@ -223,13 +250,4 @@ public class Avisos implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
 }

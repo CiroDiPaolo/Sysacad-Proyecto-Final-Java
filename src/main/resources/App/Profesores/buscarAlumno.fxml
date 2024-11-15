@@ -48,20 +48,20 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-      <Rectangle fill="#2e3b43" height="365.0" layoutX="683.0" layoutY="338.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="553.0" AnchorPane.leftAnchor="673.0" AnchorPane.rightAnchor="674.0" />
+      <Rectangle fill="#2e3b43" height="287.0" layoutX="673.0" layoutY="426.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="573.0" AnchorPane.leftAnchor="663.0" AnchorPane.rightAnchor="664.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="774.0" layoutY="494.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="372.0" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="774.0" />
-      <TextField fx:id="txtNombreAlumno" alignment="CENTER" blendMode="COLOR_BURN" layoutX="774.0" layoutY="494.0" prefHeight="53.0" prefWidth="372.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="774.0">
+      <TextField fx:id="txtNombreAlumno" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="774.0" layoutY="494.0" prefHeight="53.0" prefWidth="372.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="774.0">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text fill="#8cc5e8" layoutX="797.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR ALUMNO" wrappingWidth="325.803466796875" AnchorPane.leftAnchor="797.0" AnchorPane.rightAnchor="797.196533203125">
+      <Text fill="WHITE" layoutX="830.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar alumno" wrappingWidth="260.803466796875" AnchorPane.leftAnchor="830.0" AnchorPane.rightAnchor="829.196533203125">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="766.0" layoutY="600.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="763.0" layoutY="590.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="757.0" layoutY="602.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="752.0" layoutY="592.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -69,8 +69,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="1005.0" layoutY="602.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnBuscar" alignment="CENTER" contentDisplay="CENTER" layoutX="998.0" layoutY="590.0" mnemonicParsing="false" onAction="#clickBtnBuscar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Buscar" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="996.0" layoutY="604.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Button fx:id="btnBuscar" alignment="CENTER" contentDisplay="CENTER" layoutX="987.0" layoutY="592.0" mnemonicParsing="false" onAction="#clickBtnBuscar" prefHeight="84.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Buscar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -78,7 +78,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fill="#8cc5e8" layoutX="737.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese el nombre completo del alumno" wrappingWidth="444.803466796875">
+      <Text fill="WHITE" layoutX="737.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese el nombre completo del alumno" wrappingWidth="444.803466796875" AnchorPane.leftAnchor="737.0" AnchorPane.rightAnchor="738.196533203125">
          <font>
             <Font size="25.0" />
          </font>

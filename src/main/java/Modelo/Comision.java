@@ -190,6 +190,10 @@ public final class Comision implements iCRUD{
                 '}';
     }
 
+    /**
+     * Convierte una Comision a un JSONObject
+     * @return JSONObject
+     */
     public JSONObject ComisionAJSONObject() {
         JSONObject jsonObject = new JSONObject();
 
@@ -215,6 +219,11 @@ public final class Comision implements iCRUD{
         return jsonObject;
     }
 
+    /**
+     * Convierte un JSONObject a una Comision
+     * @param jsonObject JSONObject que contiene los datos de la comision
+     * @return Comision
+     */
     public static Comision JSONObjectAComision(JSONObject jsonObject) {
         Comision comision = new Comision();
 
@@ -242,7 +251,14 @@ public final class Comision implements iCRUD{
         return comision;
     }
 
-
+    /**
+     * Crea una nueva comision y la guarda en el archivo especificado.
+     * @param path Ruta del archivo donde se guardará la comision.
+     * @return true si la comision se creó correctamente, false en caso contrario.
+     * @throws EntidadYaExistente Si la comision ya existe.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
         if(this.getDescripcion().length() < 200) {
@@ -261,6 +277,14 @@ public final class Comision implements iCRUD{
         return false;
     }
 
+    /**
+     * Actualiza una comision existente en el archivo especificado.
+     * @param path Ruta del archivo donde se actualizará la comision.
+     * @param jsonObject JSONObject que contiene los datos actualizados de la comision.
+     * @return true si la comision se actualizó correctamente, false en caso contrario.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if(this.getDescripcion().length() < 200) {
@@ -279,16 +303,13 @@ public final class Comision implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
-
+    /**
+     * Genera un ID único para una comisión basada en la carrera y la materia.
+     * @param codigoCarrera El código de la carrera.
+     * @param codigoMateria El código de la materia.
+     * @param fileName El nombre del archivo que contiene las comisiones.
+     * @return Un ID único para la comisión.
+     */
     public static String generarIDComision(String codigoCarrera, String codigoMateria, String fileName) {
         JSONArray comisiones = new JSONArray(leerArchivoJSON(fileName));
         String ultimoCodigo = null;

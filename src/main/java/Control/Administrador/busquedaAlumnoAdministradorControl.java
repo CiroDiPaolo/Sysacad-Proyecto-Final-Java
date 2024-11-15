@@ -3,7 +3,6 @@ package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.ArchivoNoEncontrado;
-import Excepciones.excepcionPersonalizada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,13 +16,7 @@ import static Path.Path.fileNameAlumnos;
 public class busquedaAlumnoAdministradorControl {
 
     @FXML
-    private Button btnBuscar;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtLegajoAlumno;

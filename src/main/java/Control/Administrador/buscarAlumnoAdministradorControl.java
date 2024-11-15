@@ -4,12 +4,10 @@ import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosEstudiante;
 import Excepciones.ArchivoNoEncontrado;
-import Excepciones.excepcionPersonalizada;
 import Usuarios.Estudiante;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,13 +16,7 @@ import static Path.Path.*;
 public class buscarAlumnoAdministradorControl {
 
     @FXML
-    private Button btnBuscar;
-
-    @FXML
     private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtLegajoAlumno;

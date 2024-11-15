@@ -7,7 +7,6 @@ import Modelo.Carrera;
 import Modelo.Materia;
 import Modelo.MateriaFX;
 import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,12 +20,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -34,9 +29,6 @@ import static Path.Path.configurarMateriasAdministrador;
 import static Path.Path.pathCarreras;
 
 public class verMateriaAdministradorControl {
-
-    @FXML
-    private Button btnSeleccionar;
 
     @FXML
     private Button btnVolver;
@@ -63,13 +55,7 @@ public class verMateriaAdministradorControl {
     private TableColumn<MateriaFX, Boolean> colSeRinde;
 
     @FXML
-    private Rectangle lista;
-
-    @FXML
     private TableView<MateriaFX> tableMaterias;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtAnio;
@@ -87,8 +73,6 @@ public class verMateriaAdministradorControl {
     private CheckBox checkBoxActividad;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     private Carrera carrera = Data.getCarrera();
 
@@ -184,6 +168,7 @@ public class verMateriaAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarMateriasAdministrador,stage,"Configurar materias");
     }
 

@@ -1,6 +1,5 @@
 package ControlArchivos;
 
-import Excepciones.ArchivoYaExistenteException;
 import Excepciones.ParametroPeligrosoException;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -23,32 +22,6 @@ import java.time.LocalTime;
 import java.util.regex.Pattern;
 
 public final class manejoArchivos {
-
-    /**
-     * Metodo que crea un archivo JSON
-     * @param fileName
-     * @param arreglo
-     */
-    public static void crearArchivoJSON(String path, String fileName, JSONArray arreglo) throws ArchivoYaExistenteException {
-
-        try {
-
-            if(!verificarArchivoCreado(path,fileName)){
-
-                FileWriter fileWriter = new FileWriter(path + "/" + fileName);
-                fileWriter.write(arreglo.toString(4));
-                fileWriter.close();
-
-            }else{
-
-                throw new ArchivoYaExistenteException("El archivo ya existe");
-
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     /**
      * Metodo que lee un archivo JSON

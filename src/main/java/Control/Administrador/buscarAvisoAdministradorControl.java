@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -21,20 +20,12 @@ import static Path.Path.*;
 public class buscarAvisoAdministradorControl {
 
     @FXML
-    private Button btnElegir;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
     private ChoiceBox<String> choiceboxAvisos;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     public void initialize() {
@@ -57,6 +48,7 @@ public class buscarAvisoAdministradorControl {
             {
                 Integer id = Integer.parseInt(Materia.cortarString(choiceboxAvisos.getValue()));
                 Data.setAviso(manejoArchivosAvisos.retornarAviso(pathAvisos,id));
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(editarAvisosAdministrador,stage,"Editar aviso");
             }else {
                 throw new CamposVaciosException("No ingresaste ningún aviso");
@@ -69,6 +61,7 @@ public class buscarAvisoAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarAvisosAdministrador,stage,"Configurar avisos");
     }
 

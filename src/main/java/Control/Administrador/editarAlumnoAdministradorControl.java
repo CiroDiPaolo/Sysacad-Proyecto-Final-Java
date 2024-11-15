@@ -3,18 +3,18 @@ package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosEstudiante;
+import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.excepcionPersonalizada;
 import Path.Path;
 import Usuarios.Estudiante;
+import Usuarios.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
@@ -25,15 +25,6 @@ public class editarAlumnoAdministradorControl {
 
     @FXML
     private Button btnCargar;
-
-    @FXML
-    private Button btnEditarMaterias;
-
-    @FXML
-    private Button btnVolver;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtApellido;
@@ -47,8 +38,6 @@ public class editarAlumnoAdministradorControl {
     @FXML
     private TextField txtContrasenia;
 
-    @FXML
-    private Text txtEditarAlumno;
 
     @FXML
     private TextField txtNombre;
@@ -59,9 +48,9 @@ public class editarAlumnoAdministradorControl {
     private Stage stage;
 
     @FXML
-    void clickBtnCargar(ActionEvent event) {
+    void clickBtnCargar(ActionEvent event) throws CamposVaciosException, DatosIncorrectosException {
         Estudiante original = Data.getEstudiante();
-        Estudiante e = new Estudiante(original); // Crear una copia del estudiante original
+        Estudiante e = new Estudiante(original);
 
         e.setNombre(txtNombre.getText());
         e.setApellido(txtApellido.getText());
@@ -69,6 +58,18 @@ public class editarAlumnoAdministradorControl {
         e.setCorreo(txtCorreo.getText());
         e.setActividad(checkActivo.isSelected());
         e.setContrasenia(txtContrasenia.getText());
+
+        if(e.getNombre().isEmpty() || e.getApellido().isEmpty() || e.getDni().isEmpty() || e.getCorreo().isEmpty() || e.getContrasenia().isEmpty()) {
+
+            throw new CamposVaciosException("No se permiten campos vacios");
+
+        }
+
+        if(!Usuario.esCorreoValido(e.getCorreo())) {
+
+            throw new DatosIncorrectosException("Ingrese un correo valido.");
+
+        }
 
         if (!original.compararEstudiantes(e)) {
 

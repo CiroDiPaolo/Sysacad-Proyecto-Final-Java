@@ -56,9 +56,6 @@ public class cargaMateriaAdministradorControl {
     private TableView<MateriaFX> tableMaterias;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtAnio;
 
     @FXML

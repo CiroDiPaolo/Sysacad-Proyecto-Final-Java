@@ -25,8 +25,6 @@ public class verAvisosAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
@@ -45,6 +43,7 @@ public class verAvisosAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarAvisosAdministrador,stage,"Configurar avisos");
     }
 

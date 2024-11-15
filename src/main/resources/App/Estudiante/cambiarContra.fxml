@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.cambiarContraControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-138.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -24,7 +24,7 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-1.0" layoutY="-6.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <Rectangle fill="#2a3b47" height="488.0" layoutX="611.0" layoutY="362.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="718.0" AnchorPane.leftAnchor="601.0" AnchorPane.rightAnchor="601.0" />
+      <Rectangle fill="#2a3b47" height="528.0" layoutX="687.0" layoutY="342.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="545.0" AnchorPane.leftAnchor="677.0" AnchorPane.rightAnchor="678.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="780.0" layoutY="683.0" stroke="BLACK" strokeType="INSIDE" width="360.0" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="780.0" />
       <Button fx:id="btnConfirmarCambio" alignment="CENTER" contentDisplay="CENTER" layoutX="771.0" layoutY="670.0" mnemonicParsing="false" onAction="#confirmarCambio" prefHeight="84.0" prefWidth="378.0" style="-fx-background-color: transparent;" text="Confirmar cambio" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="771.0" AnchorPane.rightAnchor="771.0">
          <font>

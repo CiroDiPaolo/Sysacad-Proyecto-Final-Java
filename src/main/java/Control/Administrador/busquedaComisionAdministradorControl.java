@@ -1,19 +1,17 @@
 package Control.Administrador;
+
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosComisiones;
 import Excepciones.CamposVaciosException;
 import Modelo.Comision;
 import Modelo.Materia;
-import Usuarios.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import Path.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +19,6 @@ import java.util.List;
 import static Path.Path.*;
 
 public class busquedaComisionAdministradorControl {
-    @FXML
-    private Button btnElegir;
 
     @FXML
     private Button btnVolver;
@@ -33,12 +29,7 @@ public class busquedaComisionAdministradorControl {
     @FXML
     private ChoiceBox<String> choiceBoxComision;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnElegir(ActionEvent event) {
@@ -46,6 +37,7 @@ public class busquedaComisionAdministradorControl {
         Data data = new Data();
         try{
             data.setComision(manejoArchivosComisiones.buscarComision(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(Data.getCarrera().getId(), choiceBoxAnio.getValue()),"id",idComision));
+            EscenaControl escena = new EscenaControl();
             escena.cambiarEscena(editarComisionAdministrador,stage,"Actualizar comisión");
         } catch (NullPointerException | CamposVaciosException e) {
             e.getMessage();
@@ -54,6 +46,7 @@ public class busquedaComisionAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionConfigurarComisionAdministrador,stage,"Configurar comisión");
     }
 

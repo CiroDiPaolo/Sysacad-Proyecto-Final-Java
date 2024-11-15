@@ -1,38 +1,22 @@
 package ControlArchivos;
 
-import Excepciones.EntidadYaExistente;
 import Modelo.Avisos;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class manejoArchivosAvisos {
 
-    public static boolean comprobarAvisoNoRepetido(JSONArray jsonArray, int id) {
-
-        boolean encontrado = false;
-        int i = 0;
-        if(!jsonArray.isEmpty())
-        {
-            while(i<jsonArray.length() && !encontrado)
-            {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                if(id == jsonObject.getInt("id"))
-                {
-                    encontrado = true;
-                }
-            }
-        }
-        return encontrado;
-    }
-
+    /**
+     * Obtiene el siguiente ID disponible en el archivo JSON.
+     * @param path Ruta del archivo JSON.
+     * @return El siguiente ID disponible.
+     */
     public static int obtenerSiguienteId(String path) {
 
         JSONArray jsonArray;
@@ -71,6 +55,12 @@ public class manejoArchivosAvisos {
         return (id+1);
     }
 
+    /**
+     * Guarda un aviso en el archivo JSON.
+     * @param path Ruta del archivo JSON.
+     * @param aviso Objeto JSON del aviso a guardar.
+     * @return true si el aviso se guardó correctamente, false en caso contrario.
+     */
     public static boolean guardarAvisoAJSON(String path, JSONObject aviso)
     {
 
@@ -121,6 +111,12 @@ public class manejoArchivosAvisos {
         return false;
     }
 
+    /**
+     * Actualiza un aviso en el archivo JSON.
+     * @param path Ruta del archivo JSON.
+     * @param aviso Objeto JSON del aviso a actualizar.
+     * @return true si el aviso se actualizó correctamente, false en caso contrario.
+     */
     public static boolean actualizarAvisoAJSON(String path, JSONObject aviso)
     {
 
@@ -171,6 +167,12 @@ public class manejoArchivosAvisos {
         return false;
     }
 
+    /**
+     * Retorna todos los avisos del archivo JSON.
+     * @param path Ruta del archivo JSON.
+     * @param id ID del aviso a retornar.
+     * @return Lista de todos los avisos.
+     */
     public static Avisos retornarAviso(String path, int id)
     {
         JSONArray jsonArray;
@@ -207,6 +209,11 @@ public class manejoArchivosAvisos {
         return aviso;
     }
 
+    /**
+     * Retorna un aviso específico del archivo JSON.
+     * @param path Ruta del archivo JSON.
+     * @return El aviso correspondiente al ID proporcionado.
+     */
     public static ArrayList<Avisos> retornarAvisos(String path)
     {
         JSONArray jsonArray;

@@ -54,8 +54,8 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="675.0" layoutX="41.0" layoutY="247.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1838.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" />
-        <Text fill="#8cc5e8" layoutX="826.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VER COMISIÓN" wrappingWidth="295.803466796875" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="798.196533203125">
+        <Rectangle fill="#2e3b43" height="612.0" layoutX="38.0" layoutY="301.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1843.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="29.0" />
+        <Text fill="WHITE" layoutX="845.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver comisión" wrappingWidth="229.803466796875" AnchorPane.leftAnchor="845.0" AnchorPane.rightAnchor="845.196533203125">
             <font>
                 <Font size="40.0" />
             </font>
@@ -69,94 +69,94 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="183.0" layoutY="355.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="183.0" layoutY="355.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el nombre" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="184.0" layoutY="461.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" editable="false" focusTraversable="false" layoutX="183.0" layoutY="461.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="179.0" layoutX="183.0" layoutY="428.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
-        <TextArea fx:id="txtDescripcion" blendMode="DARKEN" layoutX="188.0" layoutY="435.0" prefHeight="168.0" prefWidth="394.0" promptText="Ingrese una descripción">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="179.0" layoutX="184.0" layoutY="548.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="184.0" layoutY="767.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" editable="false" focusTraversable="false" layoutX="183.0" layoutY="767.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
+            <font>
+                <Font name="Arial" size="29.0" />
+            </font>
+        </TextField>
+        <CheckBox fx:id="checkBoxApertura" layoutX="749.0" layoutY="720.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="193.0" text="Apertura" textFill="WHITE">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="checkBoxActividad" layoutX="973.0" layoutY="720.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="244.0" text="Actividad" textFill="WHITE">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </CheckBox>
+        <ChoiceBox fx:id="choiceBoxAnio" layoutX="794.0" layoutY="364.0" prefHeight="40.0" prefWidth="333.0" AnchorPane.leftAnchor="794.0" AnchorPane.rightAnchor="793.0" />
+        <Text fill="WHITE" layoutX="744.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año:" wrappingWidth="50.85261535644554">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <ChoiceBox fx:id="choiceBoxMateria" layoutX="793.0" layoutY="443.0" prefHeight="40.0" prefWidth="333.0" AnchorPane.leftAnchor="793.0" AnchorPane.rightAnchor="794.0" />
+        <Text fill="WHITE" layoutX="702.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Materia:" wrappingWidth="93.18586730957031">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <ChoiceBox fx:id="choiceBoxProfesor" layoutX="794.0" layoutY="528.0" prefHeight="40.0" prefWidth="333.0" />
+        <Text fill="WHITE" layoutX="694.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profesor:" wrappingWidth="99.85261535644554" AnchorPane.leftAnchor="694.0" AnchorPane.rightAnchor="1126.1473846435545">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <TextArea fx:id="txtDescripcion" blendMode="COLOR_BURN" editable="false" focusTraversable="false" layoutX="189.0" layoutY="553.0" prefHeight="168.0" prefWidth="394.0">
             <font>
                 <Font size="29.0" />
             </font>
         </TextArea>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="185.0" layoutY="639.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="185.0" layoutY="639.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el aula" style="-fx-background-radius: 15;">
-            <font>
-                <Font name="Arial" size="29.0" />
-            </font>
-        </TextField>
-        <CheckBox fx:id="checkBoxApertura" layoutX="185.0" layoutY="815.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="193.0" text="Apertura" textFill="WHITE">
-            <font>
-                <Font size="29.0" />
-            </font>
-        </CheckBox>
-        <CheckBox fx:id="checkBoxActividad" layoutX="442.0" layoutY="814.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="244.0" text="Actividad" textFill="WHITE">
-            <font>
-                <Font size="29.0" />
-            </font>
-        </CheckBox>
-        <ChoiceBox fx:id="choiceBoxAnio" layoutX="807.0" layoutY="368.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="741.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año:" wrappingWidth="367.85261535644554">
+        <Spinner fx:id="spinnerCupos" layoutX="1478.0" layoutY="809.0" prefHeight="54.0" prefWidth="143.0" style="-fx-font-size: 20;" />
+        <Text fill="WHITE" layoutX="1373.0" layoutY="845.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cupos:" wrappingWidth="93.18586730957054">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxMateria" layoutX="807.0" layoutY="457.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="703.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Materia:" wrappingWidth="367.85261535644554">
+        <ChoiceBox fx:id="choiceBoxTurno" layoutX="793.0" layoutY="617.0" prefHeight="40.0" prefWidth="333.0" />
+        <Text fill="WHITE" layoutX="719.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turno:" wrappingWidth="73.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxProfesor" layoutX="806.0" layoutY="556.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="694.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profesor:" wrappingWidth="367.85261535644554">
-            <font>
-                <Font size="25.0" />
-            </font>
-        </Text>
-        <Spinner fx:id="spinnerCupos" layoutX="199.0" layoutY="714.0" prefHeight="54.0" prefWidth="143.0" style="-fx-font-size: 20;" />
-        <Text fill="#8cc5e8" layoutX="98.0" layoutY="751.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cupos:" wrappingWidth="93.18586730957054">
-            <font>
-                <Font size="25.0" />
-            </font>
-        </Text>
-        <ChoiceBox fx:id="choiceBoxTurno" layoutX="805.0" layoutY="639.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="719.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turno:" wrappingWidth="367.85261535644554">
-            <font>
-                <Font size="25.0" />
-            </font>
-        </Text>
-      <Text fill="#8cc5e8" layoutX="74.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="108.18586730957077">
+      <Text fill="WHITE" layoutX="73.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="108.18586730957077">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="#8cc5e8" layoutX="41.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="143.18586730957077">
+      <Text fill="WHITE" layoutX="47.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="135.18586730957077">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="#8cc5e8" layoutX="113.0" layoutY="679.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aula:" wrappingWidth="63.18586730957077">
+      <Text fill="WHITE" layoutX="115.0" layoutY="804.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aula:" wrappingWidth="63.18586730957077">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <TableView fx:id="tableViewAlumnos" layoutX="1246.0" layoutY="299.0" prefHeight="416.0" prefWidth="607.0">
+      <TableView fx:id="tableViewAlumnos" layoutX="1246.0" layoutY="363.0" prefHeight="416.0" prefWidth="607.0">
         <columns>
           <TableColumn fx:id="colLegajo" prefWidth="75.0" text="Legajo" />
           <TableColumn fx:id="colNombre" prefWidth="397.0" text="Nombre" />
             <TableColumn fx:id="colEstado" prefWidth="134.0" text="Estado" />
         </columns>
       </TableView>
-      <ChoiceBox fx:id="choiceBoxAnioElegir" layoutX="1375.0" layoutY="793.0" prefHeight="25.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="choiceboxComision" layoutX="1367.0" layoutY="857.0" prefHeight="25.0" prefWidth="484.0" />
-      <Text fill="#8cc5e8" layoutX="1167.0" layoutY="814.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione el año:" wrappingWidth="208.185867309571">
+      <ChoiceBox fx:id="choiceBoxAnioElegir" layoutX="336.0" layoutY="340.0" prefHeight="25.0" prefWidth="230.0" />
+      <ChoiceBox fx:id="choiceboxComision" layoutX="336.0" layoutY="387.0" prefHeight="25.0" prefWidth="230.0" />
+      <Text fill="#f8f8f8" layoutX="118.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione el año:" underline="true" wrappingWidth="208.185867309571">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="#8cc5e8" layoutX="1109.0" layoutY="879.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione la comisión:" wrappingWidth="257.185867309571">
+      <Text fill="WHITE" layoutX="60.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione la comisión:" underline="true" wrappingWidth="257.185867309571">
          <font>
             <Font size="25.0" />
          </font>

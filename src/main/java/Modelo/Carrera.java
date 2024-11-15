@@ -6,10 +6,8 @@ import Excepciones.ArchivoYaExistenteException;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Excepciones.EntidadYaExistente;
-import Path.Path;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -61,8 +59,6 @@ public final class Carrera implements iCRUD{
         actividad = true;
     }
 
-
-
     //Getters
 
     public String getId() {
@@ -109,19 +105,15 @@ public final class Carrera implements iCRUD{
 
     //Metodos
 
+    /**
+     * Crea un archivo para la carrera actual.
+     * @throws ArchivoYaExistenteException Si el archivo de la carrera ya existe.
+     */
     public void crearArchivoCarrera() throws ArchivoYaExistenteException {
 
         manejoArchivosCarrera.crearCarpetaCarrera(id);
         manejoArchivosCarrera.crearJSONCarrera(pathCarreras, this);
 
-    }
-
-    @Override
-    public String toString() {
-        return "Carrera{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                '}';
     }
 
     @Override
@@ -201,9 +193,18 @@ public final class Carrera implements iCRUD{
 
     @Override
     public boolean crear(String path) throws EntidadYaExistente, CamposVaciosException, DatosIncorrectosException {
+        System.out.println("Comprar pack premium");
         return false;
     }
 
+    /**
+     * Actualiza una carrera existente en el archivo especificado.
+     * @param path Ruta del archivo donde se actualizará la carrera.
+     * @param jsonObject JSONObject que contiene los datos actualizados de la carrera.
+     * @return true si la carrera se actualizó correctamente, false en caso contrario.
+     * @throws CamposVaciosException Si alguno de los campos obligatorios está vacío.
+     * @throws DatosIncorrectosException Si alguno de los datos es incorrecto.
+     */
     @Override
     public boolean actualizar(String path, JSONObject jsonObject) throws CamposVaciosException, DatosIncorrectosException {
         if(!plan.isEmpty() && !id.isEmpty() && !nombre.isEmpty())
@@ -225,13 +226,4 @@ public final class Carrera implements iCRUD{
         return false;
     }
 
-    @Override
-    public boolean leer(String path, String id) {
-        return false;
-    }
-
-    @Override
-    public boolean borrar(String path) {
-        return false;
-    }
 }

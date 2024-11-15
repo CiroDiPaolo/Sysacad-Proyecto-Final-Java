@@ -1,279 +1,182 @@
 [
     {
         "legajo": "E000001",
-        "apellido": "Carrizo",
-        "correo": "melisacarrizo5@gmail.com",
+        "apellido": "Di Paolo",
+        "correo": "cirodipaolo@gmail.com",
         "codigoCarrera": "001",
-        "fechaDeAlta": "2024-10-27",
-        "contrasenia": "1",
-        "nombre": "Melisaa",
-        "materias": [
-            {
-                "estado": "APROBADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-1",
-                "id": "1",
-                "tomo": "0"
-            },
-            {
-                "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "id": "2",
-                "tomo": "0",
-                "codigoComision": "001-1"
-            },
-            {
-                "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-4",
-                "id": "4",
-                "tomo": "0"
-            },
-            {
-                "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [],
-                "codigoComision": "001-3",
-                "id": "3",
-                "tomo": "0"
-            }
-        ],
-        "dni": "46557012",
-        "actividad": true
-    },
-    {
-        "legajo": "E000003",
-        "apellido": "yanki",
-        "correo": "dadiyanki@gmail.com",
-        "codigoCarrera": "001",
-        "fechaDeAlta": "2024-11-12",
-        "contrasenia": "12345678",
-        "nombre": "dadi ",
-        "materias": [{
-            "estado": "NO_REGULARIZADA",
-            "notas": [
-                {"segundoParcial": 0},
-                {"primerParcial": 0}
-            ],
-            "folio": "0",
-            "mesasExamen": [],
-            "codigoComision": "001-3",
-            "id": "3",
-            "tomo": "0"
-        }],
-        "dni": "1",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "46557199",
+        "nombre": "Ciro",
+        "materias": [],
+        "dni": "46557199",
         "actividad": true
     },
     {
         "legajo": "E000002",
-        "apellido": "Carrizo",
-        "correo": "melisacarrizo5@gmail.com",
+        "apellido": "Gomez",
+        "correo": "mariagomez@gmail.com",
         "codigoCarrera": "001",
-        "fechaDeAlta": "2024-10-27",
-        "contrasenia": "12",
-        "nombre": "Melisaa",
-        "materias": [
-            {
-                "estado": "APROBADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-1-1",
-                        "nota": 6,
-                        "presente": true
-                    },
-                    {
-                        "codigoMesa": "MESA-1-2",
-                        "nota": 4,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-1-3",
-                        "nota": 7,
-                        "presente": true
-                    }
-                ],
-                "codigoComision": "001-1",
-                "id": "1",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-2-1",
-                        "nota": 9,
-                        "presente": true
-                    },
-                    {
-                        "codigoMesa": "MESA-2-2",
-                        "nota": 5,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-2-3",
-                        "nota": 8,
-                        "presente": true
-                    }
-                ],
-                "codigoComision": "001-2",
-                "id": "2",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 10},
-                    {"primerParcial": 10}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-3-1",
-                        "nota": 5,
-                        "presente": true
-                    },
-                    {
-                        "codigoMesa": "MESA-3-2",
-                        "nota": 6,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-3-3",
-                        "nota": 7,
-                        "presente": true
-                    }
-                ],
-                "codigoComision": "001-3",
-                "id": "3",
-                "tomo": "0"
-            },
-            {
-                "estado": "NO_REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-4-1",
-                        "nota": 0,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-4-2",
-                        "nota": 0,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-4-3",
-                        "nota": 0,
-                        "presente": false
-                    }
-                ],
-                "codigoComision": "001-8",
-                "id": "8",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-5-1",
-                        "nota": 5,
-                        "presente": true
-                    },
-                    {
-                        "codigoMesa": "MESA-5-2",
-                        "nota": 6,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-5-3",
-                        "nota": 7,
-                        "presente": true
-                    }
-                ],
-                "codigoComision": "001-7",
-                "id": "7",
-                "tomo": "0"
-            },
-            {
-                "estado": "REGULARIZADA",
-                "notas": [
-                    {"segundoParcial": 0},
-                    {"primerParcial": 0}
-                ],
-                "folio": "0",
-                "mesasExamen": [
-                    {
-                        "codigoMesa": "MESA-6-1",
-                        "nota": 6,
-                        "presente": true
-                    },
-                    {
-                        "codigoMesa": "MESA-6-2",
-                        "nota": 7,
-                        "presente": false
-                    },
-                    {
-                        "codigoMesa": "MESA-6-3",
-                        "nota": 5,
-                        "presente": true
-                    }
-                ],
-                "codigoComision": "001-5",
-                "id": "5",
-                "tomo": "0"
-            }
-        ],
-        "dni": "46557012",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "87654321",
+        "nombre": "Maria",
+        "materias": [],
+        "dni": "87654321",
         "actividad": true
     },
     {
         "legajo": "E000003",
-        "apellido": "dassad",
-        "correo": "me@gmail.com",
+        "apellido": "Ramirez",
+        "correo": "ramirezjose@gmail.com",
         "codigoCarrera": "001",
         "fechaDeAlta": "2024-11-14",
-        "contrasenia": "46557013",
-        "nombre": "melisa",
+        "contrasenia": "99887766",
+        "nombre": "Jose",
         "materias": [],
-        "dni": "46557013",
+        "dni": "99887766",
+        "actividad": true
+    },
+    {
+        "legajo": "E000004",
+        "apellido": "Diaz",
+        "correo": "danid@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "33445566",
+        "nombre": "Daniel",
+        "materias": [],
+        "dni": "33445566",
+        "actividad": true
+    },
+    {
+        "legajo": "E000005",
+        "apellido": "Perez",
+        "correo": "perezl@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "55667788",
+        "nombre": "Laura",
+        "materias": [],
+        "dni": "55667788",
+        "actividad": true
+    },
+    {
+        "legajo": "E000006",
+        "apellido": "Lopez",
+        "correo": "lopezp@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "22334455",
+        "nombre": "Pedro",
+        "materias": [],
+        "dni": "22334455",
+        "actividad": true
+    },
+    {
+        "legajo": "E000007",
+        "apellido": "Silva",
+        "correo": "silva@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "66554433",
+        "nombre": "Luis",
+        "materias": [],
+        "dni": "66554433",
+        "actividad": true
+    },
+    {
+        "legajo": "E000008",
+        "apellido": "Martinez",
+        "correo": "martinezanita@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "88776655",
+        "nombre": "Anita",
+        "materias": [],
+        "dni": "88776655",
+        "actividad": true
+    },
+    {
+        "legajo": "E000009",
+        "apellido": "Torres",
+        "correo": "torrespatricia@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "33445566",
+        "nombre": "Patricia",
+        "materias": [],
+        "dni": "33445566",
+        "actividad": true
+    },
+    {
+        "legajo": "E000010",
+        "apellido": "Castro",
+        "correo": "castrovero@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "22334455",
+        "nombre": "Veronica",
+        "materias": [],
+        "dni": "22334455",
+        "actividad": true
+    },
+    {
+        "legajo": "E000011",
+        "apellido": "Ortega",
+        "correo": "ortegaalicia@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "11223344",
+        "nombre": "Alicia",
+        "materias": [],
+        "dni": "11223344",
+        "actividad": true
+    },
+    {
+        "legajo": "E000012",
+        "apellido": "Hernandez",
+        "correo": "hernandezluis@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "55667788",
+        "nombre": "Luis",
+        "materias": [],
+        "dni": "55667788",
+        "actividad": true
+    },
+    {
+        "legajo": "E000013",
+        "apellido": "Rojas",
+        "correo": "rojasjose@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "66778899",
+        "nombre": "Jose",
+        "materias": [],
+        "dni": "66778899",
+        "actividad": true
+    },
+    {
+        "legajo": "E000014",
+        "apellido": "Mendez",
+        "correo": "mendezana@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "99887766",
+        "nombre": "Ana",
+        "materias": [],
+        "dni": "99887766",
+        "actividad": true
+    },
+    {
+        "legajo": "E000015",
+        "apellido": "Fernandez",
+        "correo": "fernandezjorge@gmail.com",
+        "codigoCarrera": "001",
+        "fechaDeAlta": "2024-11-14",
+        "contrasenia": "44556677",
+        "nombre": "Jorge",
+        "materias": [],
+        "dni": "44556677",
         "actividad": true
     }
 ]

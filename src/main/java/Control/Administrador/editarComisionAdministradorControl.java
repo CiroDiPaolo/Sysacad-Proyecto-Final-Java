@@ -61,8 +61,6 @@ public class editarComisionAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnCargar(ActionEvent event) {
         String nombre = txtNombre.getText().trim();
@@ -90,6 +88,7 @@ public class editarComisionAdministradorControl {
             if(comision.actualizar(pathComisiones+manejoArchivosComisiones.generarNombreArchivoComision(comision.getCodigoCarrera(),comision.getAnio()),comision.ComisionAJSONObject()))
             {
                 manejoArchivosComisiones.actualizarEstudiantesDeUnaComision(codigoMateria);
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
             }
         } catch (CamposVaciosException | DatosIncorrectosException e) {
@@ -99,6 +98,7 @@ public class editarComisionAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
     }
 

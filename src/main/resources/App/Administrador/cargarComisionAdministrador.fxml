@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.cargarComisionAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.cargarComisionAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -77,19 +77,19 @@
             </cursor>
         </Button>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="184.0" layoutY="353.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="184.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el nombre" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="184.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el nombre" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="179.0" layoutX="183.0" layoutY="428.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
-        <TextArea fx:id="txtDescripcion" layoutX="207.0" layoutY="445.0" prefHeight="139.0" prefWidth="357.0" promptText="Ingrese una descripción">
+        <TextArea fx:id="txtDescripcion" blendMode="MULTIPLY" focusTraversable="false" layoutX="188.0" layoutY="434.0" prefHeight="168.0" prefWidth="393.0" promptText="Ingrese una descripción">
             <font>
                 <Font size="29.0" />
             </font>
         </TextArea>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="185.0" layoutY="639.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" layoutX="185.0" layoutY="639.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el aula" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="185.0" layoutY="639.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el aula" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>

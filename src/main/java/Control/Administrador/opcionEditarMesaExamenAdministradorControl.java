@@ -13,42 +13,32 @@ import static Path.Path.*;
 public class opcionEditarMesaExamenAdministradorControl {
 
     @FXML
-    private Button btnActualizar;
-
-    @FXML
-    private Button btnCargar;
-
-    @FXML
-    private Button btnVer;
-
-    @FXML
     private Button btnVolver;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
 
     @FXML
     void clickBtnActualizar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarMesaExamenAdministrador,stage,"Elegir mesa de examen");
     }
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(cargarMesaExamenAdministrador,stage,"Cargar mesa de examen");
     }
 
     @FXML
     void clickBtnVer(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(verMesaExamenAdministrador,stage,"Ver mesa de examen");
     }
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(elegirOpcionInscripcionAdministrador,stage,"Elegir opción");
     }
 

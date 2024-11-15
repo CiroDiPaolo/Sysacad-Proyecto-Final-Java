@@ -13,12 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
-import java.util.HashSet;
 
 import static Path.Path.configurarCarreraAdministrador;
 import static Path.Path.pathCarreras;
@@ -42,8 +39,6 @@ public class editarCarreraAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnActualizar(ActionEvent event) {
         String id = txtID.getText().trim();
@@ -57,6 +52,7 @@ public class editarCarreraAdministradorControl {
                 excepcionPersonalizada.alertaConfirmacion("¡La carrera ha sido correctamente actualizada!");
                 Data data = new Data();
                 data.setCarrera(carrera);
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
             }
         } catch (CamposVaciosException e) {
@@ -69,6 +65,7 @@ public class editarCarreraAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
     }
 

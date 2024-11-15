@@ -3,44 +3,15 @@ package Control.Administrador;
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.ArchivoNoEncontrado;
-import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import static Path.Path.*;
 
-
 public final class  menuPrincipalAdministradorControl {
-
-
-    @FXML
-    private Button btnOp1;
-
-    @FXML
-    private Button btnOp2;
-
-    @FXML
-    private Button btnOp3;
-
-    @FXML
-    private Button btnOp4;
-
-    @FXML
-    private Button btnOp5;
-
-    @FXML
-    private Button btnOp6;
-
-    @FXML
-    private Button btnOp8;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private Text txtBienvenida;

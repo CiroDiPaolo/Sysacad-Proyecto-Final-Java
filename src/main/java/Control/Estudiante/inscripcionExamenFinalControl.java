@@ -6,7 +6,6 @@ import ControlArchivos.manejoArchivosMesaExamen;
 import Modelo.EstadoMateria;
 import Modelo.Materia;
 import Modelo.MesaExamen;
-import Usuarios.Estudiante;
 import Usuarios.Profesor;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -21,8 +20,6 @@ import javafx.scene.control.TableCell;
 import javafx.util.Callback;
 import ControlArchivos.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-
 import static Path.Path.*;
 
 public class inscripcionExamenFinalControl {
@@ -66,7 +63,6 @@ public class inscripcionExamenFinalControl {
             stage = (Stage) btnVolver.getScene().getWindow();
         });
 
-        // Configuración de la columna de Materia
         colMateria.setCellValueFactory(cellData -> {
             MesaExamen mesa = cellData.getValue();
             String codigoMateria = mesa.getCodigoMateria();
@@ -74,11 +70,9 @@ public class inscripcionExamenFinalControl {
             return new SimpleStringProperty(nombreMateria);
         });
 
-        // Configuración de las columnas Día y Horario
         colDia.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         colHorario.setCellValueFactory(new PropertyValueFactory<>("hora"));
 
-        // Configuración de la columna Profesor para mostrar el nombre del profesor
         colProfesor.setCellValueFactory(cellData -> {
             MesaExamen mesa = cellData.getValue();
             String codigoProfesor = mesa.getCodigoPresidente();
@@ -91,7 +85,6 @@ public class inscripcionExamenFinalControl {
             return new SimpleStringProperty(nombreProfesor);
         });
 
-        // Configuración de la columna de botones "Inscribirse"
         colBotones.setCellFactory(new Callback<>() {
             @Override
             public TableCell<MesaExamen, Void> call(final TableColumn<MesaExamen, Void> param) {
