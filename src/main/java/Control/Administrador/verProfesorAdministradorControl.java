@@ -1,7 +1,6 @@
 package Control.Administrador;
 
 import Control.EscenaControl;
-import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosComisiones;
 import ControlArchivos.manejoArchivosMesaExamen;
 import ControlArchivos.manejoArchivosProfesor;
@@ -19,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -46,12 +44,6 @@ public class verProfesorAdministradorControl {
     private ChoiceBox<String> choiceboxProfesor;
 
     @FXML
-    private Rectangle lista;
-
-    @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtApellido;
 
     @FXML
@@ -68,10 +60,9 @@ public class verProfesorAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarProfesorAdministrador,stage,"Configurar profesor");
     }
 

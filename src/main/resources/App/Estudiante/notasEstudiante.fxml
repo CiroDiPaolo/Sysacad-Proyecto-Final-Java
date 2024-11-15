@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.notasEstudiantesControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.notasEstudiantesControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-763.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-763.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -24,13 +24,13 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-26.0" layoutY="-50.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-21.0" layoutY="-53.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
       <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="22.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
          <image>
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2a3b47" height="750.0" layoutX="494.0" layoutY="222.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="932.0" AnchorPane.leftAnchor="484.0" AnchorPane.rightAnchor="484.0" />
+      <Rectangle fill="#2a3b47" height="705.0" layoutX="503.0" layoutY="268.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="914.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="493.0" />
       <TableView fx:id="tableView" layoutX="544.0" layoutY="288.0" prefHeight="589.0" prefWidth="832.0" style="-fx-background-color: #475d6b;" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0">
          <columns>
             <TableColumn fx:id="colAnio" prefWidth="75.0" text="AÑO" />
@@ -50,9 +50,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fill="#8cc5e8" layoutX="917.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notas" wrappingWidth="86.1368408203125" AnchorPane.leftAnchor="917.0" AnchorPane.rightAnchor="916.0">
+      <Text fill="WHITE" layoutX="907.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notas" wrappingWidth="105.1368408203125" AnchorPane.leftAnchor="907.0" AnchorPane.rightAnchor="907.8631591796875">
          <font>
-            <Font name="Arial" size="31.0" />
+            <Font name="Arial" size="40.0" />
          </font>
       </Text>
       <VBox alignment="TOP_CENTER" layoutX="616.0" layoutY="40.0" prefHeight="168.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">

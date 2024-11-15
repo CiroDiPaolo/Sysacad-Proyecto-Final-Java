@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarMateriaAlumnoAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarMateriaAlumnoAdministradorControl">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -25,7 +25,11 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-23.0" layoutY="-18.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1962.0" />
-      <Rectangle fill="#2e3b43" height="703.0" layoutX="693.0" layoutY="280.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="554.0" AnchorPane.leftAnchor="683.0" AnchorPane.rightAnchor="683.0" />
+      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
+         <image>
+            <Image url="@../../images/utn.png" />
+         </image>
+      </ImageView>
       <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="144.0" prefWidth="1029.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
@@ -45,79 +49,75 @@
             </Text>
          </children>
       </VBox>
-      <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
-         <image>
-            <Image url="@../../images/utn.png" />
-         </image>
-      </ImageView>
-      <ChoiceBox fx:id="choiceMateria" layoutX="837.0" layoutY="382.0" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="838.0" />
-      <Text fill="WHITE" layoutX="860.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la materia" wrappingWidth="199.47015380859375" AnchorPane.leftAnchor="860.0" AnchorPane.rightAnchor="860.0">
+      <Rectangle fill="#2e3b43" height="638.0" layoutX="673.0" layoutY="294.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="574.0" AnchorPane.leftAnchor="663.0" AnchorPane.rightAnchor="663.0" />
+      <ChoiceBox fx:id="choiceMateria" layoutX="838.0" layoutY="348.0" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="838.0" />
+      <Text fill="WHITE" layoutX="862.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la materia" wrappingWidth="198.99999999999977" AnchorPane.leftAnchor="862.0" AnchorPane.rightAnchor="859.0000000000002">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="720.0" layoutY="520.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="1001.0" />
-      <TextField fx:id="txtTomo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="720.0" layoutY="520.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="704.0" layoutY="459.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" AnchorPane.leftAnchor="704.0" AnchorPane.rightAnchor="1017.0" />
+      <TextField fx:id="txtTomo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="704.0" layoutY="459.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text fill="WHITE" layoutX="779.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomo" wrappingWidth="80.47015380859375">
+      <Text fill="WHITE" layoutX="763.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomo" wrappingWidth="80.47015380859375">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1053.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folio" wrappingWidth="80.47015380859375">
+      <Text fill="WHITE" layoutX="1075.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folio" wrappingWidth="69.47015380859375">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="994.0" layoutY="520.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
-      <TextField fx:id="txtFolio" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="994.0" layoutY="520.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="1010.0" layoutY="459.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
+      <TextField fx:id="txtFolio" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="1010.0" layoutY="459.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="720.0" layoutY="657.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
-      <TextField fx:id="txtComision" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="720.0" layoutY="657.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="702.0" layoutY="596.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
+      <Text fill="WHITE" layoutX="736.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión" wrappingWidth="131.99999999999955">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="709.0" layoutY="716.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primer parcial" wrappingWidth="187.99999999999955">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="703.0" layoutY="730.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="1010.0" layoutY="730.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
+      <TextField fx:id="txtPrimerParcial" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="703.0" layoutY="730.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text fill="WHITE" layoutX="753.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión" wrappingWidth="131.99999999999955">
+      <Text fill="WHITE" layoutX="999.0" layoutY="716.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Segundo parcial" wrappingWidth="220.99999999999955">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="726.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primer parcial" wrappingWidth="187.99999999999955">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="721.0" layoutY="791.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="56.0" layoutX="994.0" layoutY="791.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="199.0" />
-      <TextField fx:id="txtPrimerParcial" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="721.0" layoutY="791.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
+      <TextField fx:id="txtSegundoParcial" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="1010.0" layoutY="730.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text fill="WHITE" layoutX="983.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Segundo parcial" wrappingWidth="220.99999999999955">
+      <Text fill="WHITE" layoutX="994.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa de examen" wrappingWidth="231.99999999999955">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <TextField fx:id="txtSegundoParcial" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="994.0" layoutY="791.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="720.0" layoutY="836.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <TextField fx:id="txtComision" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="702.0" layoutY="596.0" prefHeight="56.0" prefWidth="199.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Arial" size="29.0" />
          </font>
       </TextField>
-      <Text fill="WHITE" layoutX="977.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mesa de examen" wrappingWidth="231.99999999999955">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="736.0" layoutY="896.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="734.0" layoutY="886.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transperent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="720.0" layoutY="825.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transperent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -125,8 +125,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="972.0" layoutY="896.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="969.0" layoutY="886.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="227.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="999.0" layoutY="835.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <Button fx:id="btnCargar" alignment="CENTER" contentDisplay="CENTER" layoutX="995.0" layoutY="825.0" mnemonicParsing="false" onAction="#clickBtnCargar" prefHeight="84.0" prefWidth="227.0" style="-fx-background-color: transparent;" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
@@ -134,8 +134,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="56.0" layoutX="994.0" layoutY="657.0" stroke="BLACK" strokeType="INSIDE" width="199.0" />
-      <Button fx:id="btnEditarMesa" alignment="CENTER" contentDisplay="CENTER" layoutX="994.0" layoutY="653.0" mnemonicParsing="false" onAction="#clickbtnEditarMesa" prefHeight="65.0" prefWidth="199.0" style="-fx-background-color: transperent;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="56.0" layoutX="1009.0" layoutY="596.0" stroke="BLACK" strokeType="INSIDE" width="199.0" />
+      <Button fx:id="btnEditarMesa" alignment="CENTER" contentDisplay="CENTER" layoutX="1009.0" layoutY="592.0" mnemonicParsing="false" onAction="#clickbtnEditarMesa" prefHeight="65.0" prefWidth="199.0" style="-fx-background-color: transperent;" text="Editar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>
@@ -143,5 +143,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Text fill="WHITE" layoutX="835.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar materia" wrappingWidth="249.99999999999977" AnchorPane.leftAnchor="835.0" AnchorPane.rightAnchor="835.0000000000002">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

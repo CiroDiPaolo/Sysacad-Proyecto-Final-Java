@@ -62,8 +62,6 @@ public class cargarComisionAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnCargar(ActionEvent event) {
         String nombre = txtNombre.getText().trim();
@@ -114,6 +112,7 @@ public class cargarComisionAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionConfigurarComisionAdministrador, stage, "Configurar comisiones");
     }
 

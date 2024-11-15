@@ -29,9 +29,6 @@ import static Path.Path.*;
 public class editarMateriaAdministradorControl {
 
     @FXML
-    private Button btnCargar;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
@@ -56,13 +53,7 @@ public class editarMateriaAdministradorControl {
     private TableColumn<MateriaFX, Boolean> colSeRinde;
 
     @FXML
-    private Rectangle lista;
-
-    @FXML
     private TableView<MateriaFX> tableMaterias;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtAnio;
@@ -77,7 +68,6 @@ public class editarMateriaAdministradorControl {
     private TextField txtNombre;
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
     private Carrera carrera = Data.getCarrera();
     private Materia materiaData = new Materia(Data.getMateria());
     private ObservableList<MateriaFX> materias = FXCollections.observableArrayList();

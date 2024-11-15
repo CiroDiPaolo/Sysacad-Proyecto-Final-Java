@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarMesaExamenAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.editarMesaExamenAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -51,8 +51,8 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="635.0" layoutX="88.0" layoutY="240.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1749.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="93.0" />
-        <Text fill="#8cc5e8" layoutX="668.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACTUALIZAR MESA DE EXAMEN" wrappingWidth="584.803466796875" AnchorPane.leftAnchor="668.0" AnchorPane.rightAnchor="667.196533203125">
+        <Rectangle fill="#2e3b43" height="528.0" layoutX="200.0" layoutY="338.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1560.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="170.0" />
+        <Text fill="WHITE" layoutX="720.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualizar mesa de examen" wrappingWidth="480.803466796875" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="719.196533203125">
             <font>
                 <Font size="40.0" />
             </font>
@@ -75,79 +75,84 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="767.0" layoutY="373.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" layoutX="767.0" layoutY="373.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el aula" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="774.0" layoutY="372.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="373.0" />
+        <TextField fx:id="txtAula" alignment="CENTER" blendMode="COLOR_BURN" layoutX="774.0" layoutY="372.0" prefHeight="53.0" prefWidth="373.0" promptText="Ingrese el aula" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="773.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <CheckBox fx:id="checkBoxApertura" layoutX="1327.0" layoutY="498.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="244.0" text="Apertura" textFill="WHITE">
+        <CheckBox fx:id="checkBoxApertura" layoutX="1325.0" layoutY="486.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="167.0" text="Apertura" textFill="WHITE">
             <font>
                 <Font size="29.0" />
             </font>
         </CheckBox>
-        <CheckBox fx:id="checkBoxActividad" layoutX="1327.0" layoutY="590.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="244.0" text="Actividad" textFill="WHITE">
+        <CheckBox fx:id="checkBoxActividad" layoutX="1325.0" layoutY="592.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="177.0" text="Actividad" textFill="WHITE">
             <font>
                 <Font size="29.0" />
             </font>
         </CheckBox>
-        <ChoiceBox fx:id="choiceBoxMateria" layoutX="260.0" layoutY="666.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="143.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Materia:" wrappingWidth="99.85261535644554">
+        <ChoiceBox fx:id="choiceBoxMateria" layoutX="349.0" layoutY="666.0" prefHeight="40.0" prefWidth="257.0" />
+        <Text fill="WHITE" layoutX="255.0" layoutY="692.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Materia:" wrappingWidth="93.18586730957077">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxProfesor" layoutX="260.0" layoutY="399.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="136.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Presidente:" wrappingWidth="137.85261535644554">
+        <ChoiceBox fx:id="choiceBoxProfesor" layoutX="350.0" layoutY="380.0" prefHeight="40.0" prefWidth="257.0" />
+        <Text fill="WHITE" layoutX="225.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Presidente:" wrappingWidth="123.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <Spinner fx:id="spinnerCupos" layoutX="1345.0" layoutY="381.0" prefHeight="54.0" prefWidth="233.0" style="-fx-font-size: 20;" />
-        <Text fill="#8cc5e8" layoutX="1243.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cupos:" wrappingWidth="93.18586730957054">
+        <Spinner fx:id="spinnerCupos" layoutX="1325.0" layoutY="372.0" prefHeight="54.0" prefWidth="233.0" style="-fx-font-size: 20;" />
+        <Text fill="WHITE" layoutX="1231.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cupos:" wrappingWidth="93.18586730957054">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxTurno" layoutX="807.0" layoutY="682.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="709.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turno:" wrappingWidth="82.85261535644554">
+        <ChoiceBox fx:id="choiceBoxTurno" layoutX="774.0" layoutY="678.0" prefHeight="40.0" prefWidth="373.0" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="773.0" />
+        <Text fill="WHITE" layoutX="696.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turno:" wrappingWidth="74.85261535644577">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxVocal1" layoutX="260.0" layoutY="488.0" prefHeight="40.0" prefWidth="333.0" />
-        <Text fill="#8cc5e8" layoutX="151.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volcal 1:" wrappingWidth="108.85261535644554">
+        <ChoiceBox fx:id="choiceBoxVocal1" layoutX="350.0" layoutY="489.0" prefHeight="40.0" prefWidth="257.0" />
+        <Text fill="WHITE" layoutX="255.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volcal 1:" wrappingWidth="93.18586730957077">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <Text fill="#8cc5e8" layoutX="151.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volcal 2:" wrappingWidth="108.85261535644554">
+        <Text fill="WHITE" layoutX="255.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volcal 2:" wrappingWidth="93.18586730957077">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceBoxVocal2" layoutX="260.0" layoutY="577.0" prefHeight="40.0" prefWidth="333.0" />
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="771.0" layoutY="482.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtFecha" alignment="CENTER" blendMode="COLOR_BURN" layoutX="771.0" layoutY="482.0" prefHeight="53.0" prefWidth="404.0" promptText="Ejemplo: año-mes-día" style="-fx-background-radius: 15;">
+        <ChoiceBox fx:id="choiceBoxVocal2" layoutX="349.0" layoutY="577.0" prefHeight="40.0" prefWidth="257.0" />
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="773.0" layoutY="482.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="373.0" />
+        <TextField fx:id="txtFecha" alignment="CENTER" blendMode="COLOR_BURN" layoutX="773.0" layoutY="482.0" prefHeight="53.0" prefWidth="373.0" promptText="año-mes-día" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="773.0" AnchorPane.rightAnchor="774.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="771.0" layoutY="585.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtHora" alignment="CENTER" blendMode="COLOR_BURN" layoutX="771.0" layoutY="585.0" prefHeight="53.0" prefWidth="404.0" promptText="Ejemplo: 12:00" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="774.0" layoutY="584.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="373.0" />
+        <TextField fx:id="txtHora" alignment="CENTER" blendMode="COLOR_BURN" layoutX="774.0" layoutY="584.0" prefHeight="53.0" prefWidth="373.0" promptText="Ejemplo: 12:00" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="774.0" AnchorPane.rightAnchor="773.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Text fill="#8cc5e8" layoutX="696.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" wrappingWidth="74.85261535644554">
+        <Text fill="WHITE" layoutX="696.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" wrappingWidth="74.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <Text fill="#8cc5e8" layoutX="696.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:" wrappingWidth="74.85261535644554">
+        <Text fill="WHITE" layoutX="696.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:" wrappingWidth="74.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
+      <Text fill="WHITE" layoutX="704.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aula:" wrappingWidth="58.85261535644554">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

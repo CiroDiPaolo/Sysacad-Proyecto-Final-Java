@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.cargarAvisosProfesorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.cargarAvisosProfesorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -50,8 +50,8 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="675.0" layoutX="235.0" layoutY="247.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1351.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="324.0" />
-        <Text fill="#8cc5e8" layoutX="822.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARGAR AVISO" wrappingWidth="289.803466796875" AnchorPane.leftAnchor="822.0" AnchorPane.rightAnchor="808.196533203125">
+        <Rectangle fill="#2e3b43" height="573.0" layoutX="308.0" layoutY="317.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1304.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="298.0" />
+        <Text fill="WHITE" layoutX="851.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargar aviso" wrappingWidth="217.803466796875" AnchorPane.leftAnchor="851.0" AnchorPane.rightAnchor="851.196533203125">
             <font>
                 <Font size="40.0" />
             </font>
@@ -74,35 +74,34 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="353.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="342.0" layoutY="353.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el titulo" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="344.0" layoutY="362.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtTitulo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="343.0" layoutY="362.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el titulo" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="343.0" layoutY="434.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" layoutX="343.0" layoutY="434.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtitulo" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="344.0" layoutY="443.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtSubtitulo" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="343.0" layoutY="443.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese un subtitulo" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Text fill="#8cc5e8" layoutX="370.0" layoutY="575.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visibilidad:" wrappingWidth="153.47015380859375">
+        <Text fill="WHITE" layoutX="370.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visibilidad:" wrappingWidth="153.47015380859375">
             <font>
                 <Font size="31.0" />
             </font>
         </Text>
-        <ChoiceBox fx:id="choiceboxVisibilidad" layoutX="553.0" layoutY="552.0" prefHeight="25.0" prefWidth="180.0" />
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="395.0" layoutX="830.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="708.0" />
-        <TextArea fx:id="txtMensaje" layoutX="867.0" layoutY="376.0" prefHeight="344.0" prefWidth="624.0" promptText="Ingrese el mensaje (hasta 1000 caracteres)">
+        <ChoiceBox fx:id="choiceboxVisibilidad" layoutX="553.0" layoutY="561.0" prefHeight="25.0" prefWidth="180.0" />
+        <TextArea fx:id="txtMensaje" blendMode="COLOR_BURN" focusTraversable="false" layoutX="840.0" layoutY="362.0" prefHeight="378.0" prefWidth="689.0" promptText="Ingrese el mensaje (hasta 1000 caracteres)">
             <font>
                 <Font size="25.0" />
             </font>
         </TextArea>
-      <Text fill="#8cc5e8" layoutX="361.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La visibilidad del aviso está restringida solamente a la comisión actual" wrappingWidth="385.0">
+      <Text fill="#d7d7d7" layoutX="362.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La visibilidad del aviso está restringida solamente a la comisión actual" wrappingWidth="385.0">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="63.0" layoutX="343.0" layoutY="618.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" blendMode="OVERLAY" fill="#73b3ee" height="63.0" layoutX="343.0" layoutY="627.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="404.0" />
     </children>
 </AnchorPane>

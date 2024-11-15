@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -21,20 +20,12 @@ import static Path.Path.*;
 public class buscarProfesorAdministradorControl {
 
     @FXML
-    private Button btnElegir;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
     private ChoiceBox<String> choiceBoxProfesor;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnElegir(ActionEvent event) {
@@ -43,6 +34,7 @@ public class buscarProfesorAdministradorControl {
         if(idProfesorElegido!=null)
         {
             Data.setProfesor(idProfesorElegido);
+            EscenaControl escena = new EscenaControl();
             escena.cambiarEscena(editarProfesorAdministrador,stage,"Editar profesor");
         }else{
             excepcionPersonalizada.excepcion("No eligió ningún profesor. Vuelva a intentarlo.");
@@ -52,6 +44,7 @@ public class buscarProfesorAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarProfesorAdministrador,stage,"Configurar profesor");
     }
 

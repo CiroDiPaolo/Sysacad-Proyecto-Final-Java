@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.elegirOpcionInscripcionAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.elegirOpcionInscripcionAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -58,7 +58,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="btnMesaExamen" alignment="CENTER" contentDisplay="CENTER" layoutX="773.0" layoutY="418.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnMesaExamen" prefHeight="84.0" prefWidth="377.0" style="-fx-background-color: transparent;" text="Mesa de examen" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="773.0" AnchorPane.rightAnchor="770.0">
+        <Button fx:id="btnMesaExamen" alignment="CENTER" contentDisplay="CENTER" layoutX="772.0" layoutY="418.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnMesaExamen" prefHeight="84.0" prefWidth="377.0" style="-fx-background-color: transparent;" text="Mesa de examen" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="772.0" AnchorPane.rightAnchor="771.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -75,7 +75,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fill="#8cc5e8" layoutX="735.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la opción que desea" wrappingWidth="449.47015380859375" AnchorPane.bottomAnchor="725.0" AnchorPane.leftAnchor="735.0" AnchorPane.rightAnchor="735.5298461914062" AnchorPane.topAnchor="297.0">
+        <Text fill="WHITE" layoutX="820.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija una opción" wrappingWidth="278.47015380859375" AnchorPane.bottomAnchor="718.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="821.5298461914062" AnchorPane.topAnchor="304.0">
             <font>
                 <Font size="40.0" />
             </font>

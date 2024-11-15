@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.buscarMesaExamenAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.buscarMesaExamenAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -49,7 +49,7 @@
             </image>
         </ImageView>
         <Rectangle fill="#2e3b43" height="407.0" layoutX="650.0" layoutY="306.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="620.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="640.0" />
-        <Text fill="#8cc5e8" layoutX="719.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR MESA DE EXAMEN" wrappingWidth="496.47015380859375" AnchorPane.leftAnchor="719.0" AnchorPane.rightAnchor="704.5298461914062">
+        <Text fill="#8cc5e8" layoutX="715.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR MESA DE EXAMEN" wrappingWidth="490.47015380859375" AnchorPane.leftAnchor="715.0" AnchorPane.rightAnchor="714.5298461914062">
             <font>
                 <Font size="40.0" />
             </font>

@@ -24,7 +24,7 @@
             </effect>
         </ImageView>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="1146.0" layoutX="-31.0" layoutY="-18.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="1996.0" />
-        <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="190.0" prefWidth="708.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="606.0" AnchorPane.topAnchor="30.0">
+        <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="144.0" prefWidth="708.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="606.0" AnchorPane.topAnchor="30.0">
             <children>
                 <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
                     <font>
@@ -36,11 +36,6 @@
                         <Font size="31.0" />
                     </font>
                 </Text>
-                <Text fill="#8cc5e8" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="252.47015380859375">
-                    <font>
-                        <Font size="31.0" />
-                    </font>
-                </Text>
             </children>
         </VBox>
         <ImageView fitHeight="176.0" fitWidth="515.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
@@ -48,14 +43,9 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="737.0" layoutX="265.0" layoutY="276.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="1438.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="227.0" />
-        <Text fill="#8cc5e8" layoutX="890.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVISOS" wrappingWidth="154.47015380859375" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="875.5298461914062">
-            <font>
-                <Font size="40.0" />
-            </font>
-        </Text>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="890.0" layoutY="942.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="884.0" layoutY="931.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+        <Rectangle fill="#2e3b43" height="699.0" layoutX="251.0" layoutY="310.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="1417.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="242.0" />
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="928.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="917.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -63,9 +53,14 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <TextArea fx:id="txtAreaAvisos" blendMode="OVERLAY" editable="false" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
+        <TextArea fx:id="txtAreaAvisos" blendMode="COLOR_BURN" editable="false" layoutX="274.0" layoutY="332.0" prefHeight="581.0" prefWidth="1371.0" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="275.0">
             <font>
                 <Font size="26.0" />
             </font></TextArea>
+      <Text fill="WHITE" layoutX="899.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avisos" wrappingWidth="122.1368408203125" AnchorPane.leftAnchor="899.0" AnchorPane.rightAnchor="898.8631591796875">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

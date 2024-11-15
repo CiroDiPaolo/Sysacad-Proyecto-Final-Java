@@ -10,31 +10,23 @@ import Excepciones.excepcionPersonalizada;
 import Modelo.AccesoAviso;
 import Modelo.Avisos;
 import Modelo.EstadoAlumnoComision;
-import Modelo.Turno;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 
 import static Path.Path.*;
 
 public class cargarAvisosProfesorControl {
-    @FXML
-    private Button btnCargar;
 
     @FXML
     private Button btnVolver;
 
     @FXML
     private ChoiceBox<String> choiceboxVisibilidad;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextArea txtMensaje;
@@ -46,8 +38,6 @@ public class cargarAvisosProfesorControl {
     private TextField txtTitulo;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnCargar(ActionEvent event) {
@@ -72,6 +62,7 @@ public class cargarAvisosProfesorControl {
             if(aviso.crear(pathAvisos))
             {
                 excepcionPersonalizada.alertaConfirmacion("Aviso cargado correctamente");
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(configurarAvisosProfesor,stage,"Configurar avisos");
             }
         } catch (CamposVaciosException e) {
@@ -86,6 +77,7 @@ public class cargarAvisosProfesorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarAvisosProfesor,stage,"Configurar avisos");
     }
 

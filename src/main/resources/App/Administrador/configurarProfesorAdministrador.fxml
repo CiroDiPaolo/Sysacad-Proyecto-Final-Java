@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.configurarProfesorAdministrador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.configurarProfesorAdministrador">
    <children>
       <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-732.0" layoutY="-164.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
@@ -47,15 +47,15 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2e3b43" height="474.0" layoutX="758.0" layoutY="397.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="424.0" AnchorPane.leftAnchor="748.0" AnchorPane.rightAnchor="748.0" />
+      <Rectangle fill="#2e3b43" height="434.0" layoutX="733.0" layoutY="401.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="455.0" AnchorPane.leftAnchor="723.0" AnchorPane.rightAnchor="722.0" />
       <Text fill="WHITE" layoutX="786.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configurar profesor" wrappingWidth="347.47015380859375" AnchorPane.leftAnchor="786.0" AnchorPane.rightAnchor="786.5298461914062">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="801.0" layoutY="457.0" stroke="BLACK" strokeType="INSIDE" width="319.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="800.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="801.0" layoutY="561.0" stroke="BLACK" strokeType="INSIDE" width="319.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="800.0" />
-      <Button fx:id="btnEditarProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="551.0" mnemonicParsing="false" onAction="#clickBtnEditarProfesor" prefHeight="84.0" prefWidth="316.0" style="-fx-background-color: transparent;" text="Editar profesor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="794.0" AnchorPane.rightAnchor="794.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="800.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="319.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="801.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="800.0" layoutY="536.0" stroke="BLACK" strokeType="INSIDE" width="319.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="801.0" />
+      <Button fx:id="btnEditarProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="525.0" mnemonicParsing="false" onAction="#clickBtnEditarProfesor" prefHeight="84.0" prefWidth="316.0" style="-fx-background-color: transparent;" text="Editar profesor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="794.0" AnchorPane.rightAnchor="794.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -63,7 +63,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnCargarProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="445.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnCargarProfesor" prefHeight="84.0" prefWidth="332.0" style="-fx-background-color: transparent;" text="Cargar profesor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="794.0" AnchorPane.rightAnchor="794.0">
+      <Button fx:id="btnCargarProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="430.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnCargarProfesor" prefHeight="84.0" prefWidth="332.0" style="-fx-background-color: transparent;" text="Cargar profesor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="794.0" AnchorPane.rightAnchor="794.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -71,8 +71,8 @@
             <Font size="40.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="783.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0" />
-      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="876.0" layoutY="772.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="740.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0" />
+      <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="730.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="877.0" AnchorPane.rightAnchor="876.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -80,8 +80,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="805.0" layoutY="662.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
-      <Button fx:id="btnVerProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="798.0" layoutY="652.0" mnemonicParsing="false" onAction="#clickBtnVerProfesor" prefHeight="84.0" prefWidth="332.0" style="-fx-background-color: transparent;" text="Ver profesor" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="800.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="319.0" />
+      <Button fx:id="btnVerProfesor" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="625.0" mnemonicParsing="false" onAction="#clickBtnVerProfesor" prefHeight="84.0" prefWidth="332.0" style="-fx-background-color: transparent;" text="Ver profesor" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

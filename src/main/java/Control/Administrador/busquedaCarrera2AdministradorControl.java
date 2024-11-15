@@ -1,6 +1,5 @@
 package Control.Administrador;
 
-
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosCarrera;
@@ -18,21 +17,14 @@ import javafx.stage.Stage;
 import static Path.Path.*;
 
 public class busquedaCarrera2AdministradorControl {
-    @FXML
-    private Button btnBuscar;
 
     @FXML
     private Button btnVolver;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtIdCarrera;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     void clickBtnBuscar(ActionEvent event) {
@@ -40,6 +32,7 @@ public class busquedaCarrera2AdministradorControl {
         try {
             data.setCarrera(manejoArchivosCarrera.retornarCarrera(pathCarreras, txtIdCarrera.getText()));
             if (Data.getCarrera().isActividad()){
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(elegirOpcionInscripcionAdministrador, stage, "Elegir opción");
             }else{
                 throw new DatosIncorrectosException("La carrera está inactiva. No se puede modificar.");
@@ -55,6 +48,7 @@ public class busquedaCarrera2AdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(Path.menuPrincipalAdministrador, stage, "Menu Principal");
     }
 

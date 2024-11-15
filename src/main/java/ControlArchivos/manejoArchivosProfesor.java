@@ -6,7 +6,6 @@ import Usuarios.Usuario;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +13,12 @@ import static ControlArchivos.manejoArchivos.leerArchivoJSON;
 
 public class manejoArchivosProfesor {
 
+    /**
+     * Retorna una lista de profesores a partir de un archivo JSON.
+     *
+     * @param fileName El nombre del archivo JSON que contiene los datos de los profesores.
+     * @return Una lista de objetos Profesor.
+     */
     public static ArrayList<Profesor> retornarProfesores(String fileName){
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
         if(!arreglo.isEmpty())
@@ -30,6 +35,13 @@ public class manejoArchivosProfesor {
         return null;
     }
 
+    /**
+     * Retorna un objeto JSON que representa a un profesor específico a partir de su legajo.
+     *
+     * @param legajo   El legajo del profesor a buscar.
+     * @param fileName El nombre del archivo JSON que contiene los datos de los profesores.
+     * @return Un objeto JSON que representa al profesor encontrado, o null si no se encuentra.
+     */
     public static JSONObject retornarProfesor(String legajo,  String fileName)
     {
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));
@@ -57,6 +69,13 @@ public class manejoArchivosProfesor {
         return null;
     }
 
+    /**
+     * Actualiza la información de un profesor en el archivo JSON.
+     *
+     * @param profesor El objeto JSON que representa al profesor con la información actualizada.
+     * @param fileName El nombre del archivo JSON que contiene los datos de los profesores.
+     * @return true si la actualización fue exitosa, false en caso contrario.
+     */
     public static boolean actualizarProfesor(JSONObject profesor,  String fileName)
     {
         JSONArray arreglo = new JSONArray(leerArchivoJSON(fileName));

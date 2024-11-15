@@ -1,46 +1,152 @@
 [
     {
-        "descripcion": "HOLISSS",
-        "fecha": "2024-11-14",
-        "legajoAutor": "A123",
-        "subtitulo": "AAAAA",
+        "descripcion": "Receso de actividades por el feriado nacional.",
+        "fecha": "2024-11-20",
+        "legajoAutor": "A124",
+        "subtitulo": "Feriado Nacional",
         "legajos": [],
-        "titulo": "HOLA ME TENGO QUE VER",
-        "id": 1,
+        "titulo": "Cierre de actividades por feriado",
+        "id": 2,
         "accesoAviso": "TODOS"
     },
     {
-        "descripcion": "AAAAAAA",
-        "fecha": "2024-11-14",
-        "legajoAutor": "A123",
-        "subtitulo": "AAAA",
+        "descripcion": "Actualización de la plataforma virtual este fin de semana.",
+        "fecha": "2024-11-22",
+        "legajoAutor": "A125",
+        "subtitulo": "Mantenimiento Plataforma",
         "legajos": [],
-        "titulo": "HOLA NO ME TENGO QUE VERA",
-        "id": 2,
-        "accesoAviso": "OCULTO"
-    },
-    {
-        "descripcion": "das",
-        "fecha": "2024-11-14",
-        "legajoAutor": "A123",
-        "subtitulo": "dsa",
-        "legajos": [
-            "2022001",
-            "2022002",
-            "001-1"
-        ],
-        "titulo": "ahora es de A123",
+        "titulo": "Mantenimiento de plataforma",
         "id": 3,
-        "accesoAviso": "RESTRINGIDO"
+        "accesoAviso": "TODOS"
     },
     {
-        "descripcion": "no quebró la facu,  no la explotamos.",
-        "fecha": "2024-11-14",
-        "legajoAutor": "A123",
-        "subtitulo": "mentira",
+        "descripcion": "Recordatorio para finalizar las inscripciones.",
+        "fecha": "2024-11-25",
+        "legajoAutor": "A126",
+        "subtitulo": "Inscripciones 2024",
         "legajos": [],
-        "titulo": "Aviso 2",
+        "titulo": "Cierre de inscripciones",
         "id": 4,
-        "accesoAviso": "OCULTO"
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Se suspenden actividades por la tormenta.",
+        "fecha": "2024-11-27",
+        "legajoAutor": "A127",
+        "subtitulo": "Alerta Meteorológica",
+        "legajos": [],
+        "titulo": "Suspensión de actividades",
+        "id": 5,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Se abre la convocatoria a ayudantías.",
+        "fecha": "2024-12-01",
+        "legajoAutor": "A128",
+        "subtitulo": "Ayudantías 2024",
+        "legajos": [],
+        "titulo": "Convocatoria a ayudantías",
+        "id": 6,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Confirmación de fechas de exámenes finales.",
+        "fecha": "2024-12-05",
+        "legajoAutor": "A129",
+        "subtitulo": "Fechas finales",
+        "legajos": [],
+        "titulo": "Calendario de exámenes finales",
+        "id": 7,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Cambio de horarios de bibliotecas en verano.",
+        "fecha": "2024-12-10",
+        "legajoAutor": "A130",
+        "subtitulo": "Biblioteca en verano",
+        "legajos": [],
+        "titulo": "Horarios de bibliotecas",
+        "id": 8,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Recordatorio de entrega de informes finales.",
+        "fecha": "2024-12-12",
+        "legajoAutor": "A131",
+        "subtitulo": "Informes finales",
+        "legajos": [],
+        "titulo": "Entrega de informes",
+        "id": 9,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Nueva política de uso de espacios comunes.",
+        "fecha": "2024-12-15",
+        "legajoAutor": "A132",
+        "subtitulo": "Reglamento",
+        "legajos": [],
+        "titulo": "Uso de espacios comunes",
+        "id": 10,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Asambleas y elecciones estudiantiles.",
+        "fecha": "2024-12-18",
+        "legajoAutor": "A133",
+        "subtitulo": "Elecciones 2024",
+        "legajos": [],
+        "titulo": "Convocatoria a elecciones",
+        "id": 11,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Cierre del año académico.",
+        "fecha": "2024-12-20",
+        "legajoAutor": "A134",
+        "subtitulo": "Fin de año académico",
+        "legajos": [],
+        "titulo": "Cierre del ciclo lectivo",
+        "id": 12,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Atención al nuevo protocolo de seguridad en laboratorios.",
+        "fecha": "2024-12-22",
+        "legajoAutor": "A135",
+        "subtitulo": "Protocolo de seguridad",
+        "legajos": [],
+        "titulo": "Actualización de protocolos",
+        "id": 13,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Renovación de matrícula para el próximo ciclo.",
+        "fecha": "2025-01-05",
+        "legajoAutor": "A136",
+        "subtitulo": "Matrícula 2025",
+        "legajos": [],
+        "titulo": "Inscripción 2025",
+        "id": 14,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Convocatoria a la primera reunión de profesores.",
+        "fecha": "2025-01-10",
+        "legajoAutor": "A137",
+        "subtitulo": "Reunión académica",
+        "legajos": [],
+        "titulo": "Reunión de profesores",
+        "id": 15,
+        "accesoAviso": "TODOS"
+    },
+    {
+        "descripcion": "Se inicia el ciclo de conferencias de bienvenida.",
+        "fecha": "2025-01-20",
+        "legajoAutor": "A138",
+        "subtitulo": "Bienvenida",
+        "legajos": [],
+        "titulo": "Conferencias de bienvenida",
+        "id": 16,
+        "accesoAviso": "TODOS"
     }
 ]

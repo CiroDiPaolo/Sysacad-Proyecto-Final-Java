@@ -18,10 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 
 import static Path.Path.*;
 
@@ -48,10 +45,7 @@ public class materiasDelPlanEstudianteControl {
     private TableColumn<Materia, String> seRinde;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
-    private TableView<Materia> tableView; // La tabla donde se mostrarán las materias
+    private TableView<Materia> tableView;
 
     /**
      * Metodo que se ejecuta al clickear el boton volver

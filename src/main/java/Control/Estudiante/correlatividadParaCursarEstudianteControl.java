@@ -84,7 +84,6 @@ public class correlatividadParaCursarEstudianteControl {
                     }
                 });
 
-                // Configuración de la columna Plan
                 colPlan.setCellValueFactory(cellData -> {
                     try {
                         return new SimpleStringProperty((manejoArchivosCarrera.retornarCarrera(Path.pathCarreras, Data.getEstudiante().getCodigoCarrera())).getPlan());

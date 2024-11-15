@@ -11,6 +11,8 @@ import java.util.Map;
  */
 public final class EstadoAlumnoMateria {
 
+    //ATRIBUTOS
+
     private String codigoMateria;
     private EstadoMateria estado;
     private HashMap<String, Integer> notas;
@@ -18,6 +20,8 @@ public final class EstadoAlumnoMateria {
     private String tomo;
     private String folio;
     private String codigoComision;
+
+    //CONSTRUCTORES
 
     public EstadoAlumnoMateria(String codigoMateria, EstadoMateria estado, HashMap<String, Integer> notas, HashMap<String, EstadoAlumnoMesa> mesasExamen, String tomo, String folio, String codigoComision) {
         this.codigoMateria = codigoMateria;

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.mostrarAlumnoControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Profesores.mostrarAlumnoControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -25,7 +25,7 @@
             </effect>
         </ImageView>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="1176.0" layoutX="-72.0" layoutY="-46.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="2062.0" />
-        <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="121.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0">
+        <VBox alignment="TOP_CENTER" layoutX="474.0" layoutY="41.0" prefHeight="121.0" prefWidth="707.0" AnchorPane.leftAnchor="606.0" AnchorPane.rightAnchor="607.0" AnchorPane.topAnchor="30.0">
             <children>
                 <Label fx:id="tctMenuPrincipal" prefHeight="111.0" prefWidth="747.0" text="SYSACAD PRO" textAlignment="CENTER" textFill="WHITE">
                     <font>
@@ -44,7 +44,7 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="637.0" layoutX="643.0" layoutY="245.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="655.0" AnchorPane.leftAnchor="633.0" AnchorPane.rightAnchor="632.0" />
+        <Rectangle fill="#2e3b43" height="637.0" layoutX="633.0" layoutY="245.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="655.0" AnchorPane.leftAnchor="623.0" AnchorPane.rightAnchor="622.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="719.0" layoutY="687.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="204.0" AnchorPane.leftAnchor="719.0" AnchorPane.rightAnchor="997.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="719.0" layoutY="578.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="719.0" AnchorPane.rightAnchor="721.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="719.0" layoutY="361.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="480.0" AnchorPane.leftAnchor="719.0" AnchorPane.rightAnchor="721.0" />
@@ -109,8 +109,8 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <ChoiceBox fx:id="choiceAlumno" layoutX="817.0" layoutY="276.0" prefHeight="25.0" prefWidth="285.0" AnchorPane.leftAnchor="817.0" AnchorPane.rightAnchor="818.0" />
-      <Text fill="WHITE" layoutX="709.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de alumnos con mismo nombre, cambie la elección" wrappingWidth="546.4701538085938" AnchorPane.leftAnchor="709.0" AnchorPane.rightAnchor="664.5298461914062">
+      <ChoiceBox fx:id="choiceAlumno" layoutX="817.0" layoutY="279.0" prefHeight="25.0" prefWidth="285.0" AnchorPane.leftAnchor="817.0" AnchorPane.rightAnchor="818.0" />
+      <Text fill="WHITE" layoutX="697.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En caso de alumnos con mismo nombre, cambie la elección" wrappingWidth="524.4701538085938" AnchorPane.leftAnchor="697.0" AnchorPane.rightAnchor="698.5298461914062">
          <font>
             <Font size="20.0" />
          </font>

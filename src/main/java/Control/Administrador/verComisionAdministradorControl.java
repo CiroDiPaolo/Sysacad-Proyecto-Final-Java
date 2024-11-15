@@ -82,8 +82,6 @@ public class verComisionAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
@@ -198,6 +196,7 @@ public class verComisionAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionConfigurarComisionAdministrador,stage,"Configurar comisión");
     }
 

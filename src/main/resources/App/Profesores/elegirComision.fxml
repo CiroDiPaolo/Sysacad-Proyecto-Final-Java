@@ -48,7 +48,7 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2a3b47" height="450.0" layoutX="668.0" layoutY="345.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="584.0" AnchorPane.leftAnchor="658.0" AnchorPane.rightAnchor="658.0" />
+        <Rectangle fill="#2a3b47" height="324.0" layoutX="742.0" layoutY="441.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="436.0" AnchorPane.leftAnchor="732.0" AnchorPane.rightAnchor="732.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="681.0" stroke="BLACK" strokeType="INSIDE" width="166.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="878.0" />
         <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="876.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="82.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="878.0">
             <font>
@@ -58,12 +58,12 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Text fill="WHITE" layoutX="686.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la comisión a la que quiere acceder" wrappingWidth="546.4701538085938" AnchorPane.leftAnchor="686.0" AnchorPane.rightAnchor="687.5298461914062">
+      <Text fill="WHITE" layoutX="686.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija la comisión a la que quiere acceder" wrappingWidth="546.4701538085938" AnchorPane.leftAnchor="686.0" AnchorPane.rightAnchor="687.5298461914062">
          <font>
             <Font size="31.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="choiceComision" layoutX="787.0" layoutY="533.0" prefHeight="25.0" prefWidth="346.0" AnchorPane.leftAnchor="787.0" AnchorPane.rightAnchor="787.0" />
+      <ChoiceBox fx:id="choiceComision" layoutX="787.0" layoutY="495.0" prefHeight="25.0" prefWidth="346.0" AnchorPane.leftAnchor="787.0" AnchorPane.rightAnchor="787.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="872.0" layoutY="599.0" stroke="BLACK" strokeType="INSIDE" width="176.0" AnchorPane.leftAnchor="872.0" AnchorPane.rightAnchor="872.0" />
       <Button fx:id="btnAplicar" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="872.0" layoutY="590.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clickBtnAplicar" prefHeight="82.0" prefWidth="176.0" style="-fx-background-color: transparent;" text="Aplicar" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="872.0" AnchorPane.rightAnchor="872.0">
          <font>

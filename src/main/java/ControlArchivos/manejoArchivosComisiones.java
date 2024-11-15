@@ -20,31 +20,6 @@ import static Path.Path.pathComisiones;
 public final class manejoArchivosComisiones {
 
     /**
-     * Metodo que crea un archivo JSON por cada comision
-     *
-     * @param codigoCarrera
-     * @param fileName
-     */
-    public static void crearArchivoComision(String fileName, String codigoCarrera) {
-
-        if (!verificarArchivoCreado(pathComisiones + codigoCarrera + "/", fileName)) {
-
-            try {
-
-                FileWriter file = new FileWriter(pathComisiones + codigoCarrera + "/" + fileName + ".json");
-
-                file.write("");
-                file.close();
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-
-    }
-
-    /**
      * Metodo que genera el nombre de un archivo de comision
      *
      * @param codigoCarrera

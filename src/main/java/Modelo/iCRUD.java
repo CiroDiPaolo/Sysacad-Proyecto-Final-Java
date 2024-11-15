@@ -6,7 +6,7 @@ import Excepciones.EntidadYaExistente;
 import org.json.JSONObject;
 
 /**
- * Interfaz para el CRUD (CREACION, ACTUALIZACION, LEER Y ELIMINACION) de entidades
+ * Interfaz para el CRUD (CREACION, ACTUALIZACION) de entidades
  */
 public interface iCRUD {
     /**

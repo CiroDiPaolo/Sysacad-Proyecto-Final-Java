@@ -14,17 +14,12 @@ import Usuarios.Profesor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
 import java.util.Iterator;
 
 public class inscripcionFinalCompletada {
-
-    @FXML
-    private Button btnVolver;
 
     @FXML
     private TextArea textArea;

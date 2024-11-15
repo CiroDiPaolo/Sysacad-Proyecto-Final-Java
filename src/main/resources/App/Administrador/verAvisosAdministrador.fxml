@@ -49,6 +49,7 @@
             </image>
         </ImageView>
         <Rectangle fill="#2e3b43" height="737.0" layoutX="265.0" layoutY="276.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="1438.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="227.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="587.0" layoutX="299.0" layoutY="342.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="1361.0" />
         <Text fill="#8cc5e8" layoutX="890.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVISOS" wrappingWidth="154.47015380859375" AnchorPane.leftAnchor="890.0" AnchorPane.rightAnchor="875.5298461914062">
             <font>
                 <Font size="40.0" />
@@ -63,7 +64,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <TextArea fx:id="txtAreaAvisos" blendMode="OVERLAY" editable="false" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
+      <TextArea fx:id="txtAreaAvisos" blendMode="MULTIPLY" editable="false" layoutX="313.0" layoutY="355.0" prefHeight="558.0" prefWidth="1334.0">
          <font>
             <Font size="26.0" />
          </font></TextArea>

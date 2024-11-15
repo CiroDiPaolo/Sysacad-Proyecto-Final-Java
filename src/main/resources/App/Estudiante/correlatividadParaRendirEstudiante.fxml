@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Estudiante.correlatividadParaRendirEstudianteControl">
    <children>
-      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-758.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
+      <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-748.0" layoutY="-162.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
          <image>
             <Image url="@../../images/lenguaje-min.jpg" />
          </image>
@@ -44,7 +44,7 @@
             <Image url="@../../images/utn.png" />
          </image>
       </ImageView>
-      <Rectangle fill="#2a3b47" height="778.0" layoutX="504.0" layoutY="212.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="912.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="494.0" />
+      <Rectangle fill="#2a3b47" height="745.0" layoutX="494.0" layoutY="252.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="932.0" AnchorPane.leftAnchor="484.0" AnchorPane.rightAnchor="484.0" />
       <TableView fx:id="tableView" layoutX="538.0" layoutY="276.0" prefHeight="610.0" prefWidth="844.0" style="-fx-background-color: #475d6b;" AnchorPane.leftAnchor="538.0" AnchorPane.rightAnchor="538.0" AnchorPane.topAnchor="276.0">
          <columns>
             <TableColumn fx:id="colAnio" prefWidth="57.0" text="AÑO" />
@@ -62,9 +62,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fill="#8cc5e8" layoutX="790.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correlatividad para rendir" wrappingWidth="339.8033447265625" AnchorPane.leftAnchor="790.0" AnchorPane.rightAnchor="790.1966552734375">
+      <Text fill="WHITE" layoutX="734.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correlatividad para rendir" wrappingWidth="451.8033447265625" AnchorPane.leftAnchor="734.0" AnchorPane.rightAnchor="734.1966552734375">
          <font>
-            <Font name="Arial" size="30.0" />
+            <Font name="Arial" size="40.0" />
          </font>
       </Text>
    </children>

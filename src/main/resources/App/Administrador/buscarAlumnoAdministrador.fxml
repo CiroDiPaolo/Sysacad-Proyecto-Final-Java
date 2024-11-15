@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.buscarAlumnoAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.buscarAlumnoAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -48,14 +48,14 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="407.0" layoutX="650.0" layoutY="306.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="620.0" AnchorPane.leftAnchor="640.0" AnchorPane.rightAnchor="640.0" />
+        <Rectangle fill="#2e3b43" height="327.0" layoutX="705.0" layoutY="406.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" width="510.0" AnchorPane.leftAnchor="695.0" AnchorPane.rightAnchor="695.0" />
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="758.0" layoutY="471.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="759.0" />
-        <TextField fx:id="txtLegajoAlumno" alignment="CENTER" blendMode="COLOR_BURN" layoutX="758.0" layoutY="471.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el legajo del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="758.0">
+        <TextField fx:id="txtLegajoAlumno" alignment="CENTER" blendMode="COLOR_BURN" focusTraversable="false" layoutX="758.0" layoutY="471.0" prefHeight="53.0" prefWidth="404.0" promptText="Ingrese el legajo del alumno" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="758.0" AnchorPane.rightAnchor="758.0">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Text fill="#8cc5e8" layoutX="838.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VER ALUMNO" wrappingWidth="257.803466796875" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="824.196533203125">
+        <Text fill="WHITE" layoutX="857.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver alumno" wrappingWidth="204.803466796875" AnchorPane.leftAnchor="857.0" AnchorPane.rightAnchor="858.196533203125">
             <font>
                 <Font size="40.0" />
             </font>

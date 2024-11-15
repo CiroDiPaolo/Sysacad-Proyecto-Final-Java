@@ -19,16 +19,10 @@ public class cambiarContraControl {
     private Button btnVolver;
 
     @FXML
-    private Button btnConfirmarCambio;
-
-    @FXML
     private PasswordField PfContraActual;
 
     @FXML
     private PasswordField PfNuevaContra;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private PasswordField PfVerificarNuevaContra;

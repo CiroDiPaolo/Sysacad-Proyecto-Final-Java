@@ -302,18 +302,17 @@ public final class Estudiante extends Usuario implements iCRUD {
             for (int k = 0; k < mesasExamenJsonArray.length(); k++) {
                 JSONObject mesaExamenJson = mesasExamenJsonArray.getJSONObject(k);
 
-                // Recuperamos la clave de la mesa (que es dinámica)
-                String key = mesaExamenJson.getString("codigoMesa"); // Aquí se asigna la clave dinámica
+                String key = mesaExamenJson.getString("codigoMesa");
 
                 EstadoAlumnoMesa estadoMesa = new EstadoAlumnoMesa();
                 estadoMesa.setCodigoMesa(mesaExamenJson.getString("codigoMesa"));
                 estadoMesa.setNota(mesaExamenJson.getInt("nota"));
                 estadoMesa.setPresente(mesaExamenJson.getBoolean("presente"));
 
-                mesasExamen.put(key, estadoMesa); // Asignamos al HashMap
+                mesasExamen.put(key, estadoMesa);
             }
 
-            materia.setMesasExamen(mesasExamen); // Guardamos las mesas de examen en el objeto materia
+            materia.setMesasExamen(mesasExamen);
 
             materias.add(materia);
         }
@@ -476,35 +475,27 @@ public final class Estudiante extends Usuario implements iCRUD {
      */
     public HashMap<String, Materia> obtenerMateriasParaCursar() throws CamposVaciosException, DatosIncorrectosException {
 
-        // Obtiene todas las materias de la carrera del estudiante
         HashMap<String, Materia> materias = manejoArchivosCarrera.retornarCarrera(pathCarreras, Data.getEstudiante().getCodigoCarrera()).getMaterias();
 
-        // Recopila los códigos de materias que el estudiante ya ha cursado (cursadas, regularizadas, aprobadas)
         HashSet<String> materiasEstudiante = Data.getEstudiante().getMaterias().stream()
                 .map(EstadoAlumnoMateria::getCodigoMateria)
                 .collect(Collectors.toCollection(HashSet::new));
 
-        // Obtiene las materias aprobadas y regularizadas por el estudiante
         HashSet<String> materiasAprobadas = obtenerMateriasSegunEstado(EstadoMateria.APROBADA);
         HashSet<String> materiasRegularizadas = obtenerMateriasSegunEstado(EstadoMateria.REGULARIZADA);
 
-        // Remueve materias aprobadas, cursadas y regularizadas del conjunto de materias
         materiasAprobadas.forEach(materias::remove);
-        materiasRegularizadas.forEach(materias::remove); // También eliminamos materias regularizadas
+        materiasRegularizadas.forEach(materias::remove);
 
-        // Itera sobre las materias restantes y verifica las correlativas
         Iterator<Map.Entry<String, Materia>> iterator = materias.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, Materia> entry = iterator.next();
             HashSet<String> correlativasCursar = entry.getValue().getCodigoCorrelativasCursado();
 
-            // Verifica si todas las correlativas están aprobadas o regularizadas
             boolean todasCorrelativasCumplidas = correlativasCursar.stream().allMatch(correlativa -> {
-                // Verificar si la correlativa está regularizada o aprobada
                 return materiasRegularizadas.contains(correlativa) || materiasAprobadas.contains(correlativa);
             });
 
-            // Si alguna correlativa no está ni regularizada ni aprobada, remueve la materia del mapa
             if (!todasCorrelativasCumplidas) {
                 iterator.remove();
             }
@@ -520,9 +511,6 @@ public final class Estudiante extends Usuario implements iCRUD {
 
         return materias;
     }
-
-
-
 
     /**
      * Obtiene las materias que aprobo el estudiante
@@ -559,6 +547,11 @@ public final class Estudiante extends Usuario implements iCRUD {
         return this;
     }
 
+    /**
+     * Obtiene las notas de los parciales rendidos por el estudiante.
+     *
+     * @return Un mapa donde la clave es el código de la materia y el valor es una lista de enteros con las notas de los parciales.
+     */
     public Map<String, List<Integer>> obtenerParcialesRendidos() {
         Map<String, List<Integer>> parcialesRendidos = new HashMap<>();
 
@@ -581,20 +574,23 @@ public final class Estudiante extends Usuario implements iCRUD {
         return parcialesRendidos;
     }
 
+    /**
+     * Filtra las mesas de examen en las que el estudiante puede inscribirse.
+     *
+     * @param materiasAprobadas Conjunto de materias aprobadas por el estudiante.
+     * @param mesasExamen Lista de todas las mesas de examen disponibles.
+     * @return Conjunto de mesas de examen filtradas en las que el estudiante puede inscribirse.
+     */
     public HashSet<MesaExamen> obtenerMesasExamenesParaAnotarse(HashSet<String> materiasAprobadas, ArrayList<MesaExamen> mesasExamen) {
         HashSet<MesaExamen> mesasExamenFiltradas = new HashSet<>();
 
-        // Primer bucle: filtrar según materias aprobadas, regularizadas y otras condiciones
         for (MesaExamen mesaExamen : mesasExamen) {
-            // Si la materia no está aprobada y cumple con las otras condiciones
             if (!(materiasAprobadas.contains(mesaExamen.getCodigoMateria()))) {
                 if (mesaExamen.isActividad() && mesaExamen.isApertura() && mesaExamen.getCupos() > 0) {
 
-                    // Verificar si la materia está regularizada
                     boolean materiaRegularizada = false;
                     for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
                         if (materia.getCodigoMateria().equals(mesaExamen.getCodigoMateria())) {
-                            // Si la materia está regularizada o tiene una nota aprobatoria
                             if (materia.getEstado().equals(EstadoMateria.REGULARIZADA)) {
                                 materiaRegularizada = true;
                                 break;
@@ -602,7 +598,6 @@ public final class Estudiante extends Usuario implements iCRUD {
                         }
                     }
 
-                    // Si la materia está regularizada te va permitir la inscripción
                     if (materiaRegularizada) {
                         mesasExamenFiltradas.add(mesaExamen);
                     }
@@ -610,27 +605,28 @@ public final class Estudiante extends Usuario implements iCRUD {
             }
         }
 
-        // Segundo bucle: filtrar según EstadoMateria.NO_REGULARIZADA (eliminamos las mesas con materias no regularizadas)
         HashSet<MesaExamen> aEliminar = new HashSet<>();
 
         for (MesaExamen mesaExamen : mesasExamenFiltradas) {
-            // Iterar a través de todas las materias del estudiante
             for (EstadoAlumnoMateria materia : Data.getEstudiante().getMaterias()) {
                 if (materia.getCodigoMateria().equals(mesaExamen.getCodigoMateria())) {
                     if (materia.getEstado().equals(EstadoMateria.NO_REGULARIZADA)) {
-                        // Si la materia está NO_REGULARIZADA, marcar la mesaExamen para eliminar
                         aEliminar.add(mesaExamen);
                     }
                 }
             }
         }
 
-        // Eliminar las mesasExamen que deben ser filtradas
         mesasExamenFiltradas.removeAll(aEliminar);
 
         return mesasExamenFiltradas;
     }
 
+    /**
+     * Inscribe al estudiante en una mesa de examen.
+     *
+     * @param mesa La mesa de examen en la que se inscribe el estudiante.
+     */
     public void inscribirse(EstadoAlumnoMesa mesa){
 
         EstadoAlumnoMesa materia = new EstadoAlumnoMesa();

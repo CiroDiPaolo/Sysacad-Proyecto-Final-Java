@@ -50,7 +50,7 @@ public class editarAlumnoAdministradorControl {
     @FXML
     void clickBtnCargar(ActionEvent event) throws CamposVaciosException, DatosIncorrectosException {
         Estudiante original = Data.getEstudiante();
-        Estudiante e = new Estudiante(original); // Crear una copia del estudiante original
+        Estudiante e = new Estudiante(original);
 
         e.setNombre(txtNombre.getText());
         e.setApellido(txtApellido.getText());

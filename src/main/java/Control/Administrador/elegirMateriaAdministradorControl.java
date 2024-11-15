@@ -2,17 +2,13 @@ package Control.Administrador;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
-import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.excepcionPersonalizada;
 import Modelo.Materia;
-import Path.Path;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -21,8 +17,6 @@ import java.util.Map;
 import static Path.Path.*;
 
 public class elegirMateriaAdministradorControl {
-    @FXML
-    private Button btnElegir;
 
     @FXML
     private Button btnVolver;
@@ -30,12 +24,7 @@ public class elegirMateriaAdministradorControl {
     @FXML
     private ChoiceBox<String> choiceBoxElegirMateria;
 
-    @FXML
-    private Label tctMenuPrincipal;
-
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     private ArrayList<String> materias;
 
@@ -78,6 +67,7 @@ public class elegirMateriaAdministradorControl {
                 {
                     data.setMateria(materiasArray.get(i));
                     flag = true;
+                    EscenaControl escena = new EscenaControl();
                     escena.cambiarEscena(editarMateriaAdministrador,stage,"Editar materia");
                 }
                 i++;
@@ -95,6 +85,7 @@ public class elegirMateriaAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarMateriasAdministrador, stage, "Configurar materia");
     }
 }

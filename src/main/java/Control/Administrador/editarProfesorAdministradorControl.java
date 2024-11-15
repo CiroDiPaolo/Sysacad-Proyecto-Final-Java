@@ -1,6 +1,5 @@
 package Control.Administrador;
 
-
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Excepciones.CamposVaciosException;
@@ -23,19 +22,10 @@ import static Path.Path.fileNameProfesores;
 public class editarProfesorAdministradorControl {
 
     @FXML
-    private Button btnCargar;
-
-    @FXML
     private Button btnVolver;
 
     @FXML
     private CheckBox checkBoxActividad;
-
-    @FXML
-    private Rectangle lista;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     @FXML
     private TextField txtApellido;
@@ -54,8 +44,6 @@ public class editarProfesorAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnCargar(ActionEvent event) {
         String nombre = txtNombre.getText();
@@ -72,6 +60,7 @@ public class editarProfesorAdministradorControl {
             if(profesor.actualizar(fileNameProfesores,profesor.profesorAJSONObject()))
             {
                 excepcionPersonalizada.alertaConfirmacion("Profesor actualizado correctamente");
+                EscenaControl escena = new EscenaControl();
                 escena.cambiarEscena(buscarProfesorAdministrador,stage,"Buscar profesor");
             }
         }catch(DatosIncorrectosException e)
@@ -85,6 +74,7 @@ public class editarProfesorAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(buscarProfesorAdministrador,stage,"Buscar profesor");
     }
 

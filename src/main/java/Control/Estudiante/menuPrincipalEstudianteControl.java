@@ -6,7 +6,6 @@ import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -15,40 +14,7 @@ import static Path.Path.*;
 public final class menuPrincipalEstudianteControl {
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
-    private Button op1;
-
-    @FXML
     private Button btnOp1;
-
-    @FXML
-    private Button btnOp2;
-
-    @FXML
-    private Button btnOp3;
-
-    @FXML
-    private Button btnOp4;
-
-    @FXML
-    private Button btnOp5;
-
-    @FXML
-    private Button btnOp6;
-
-    @FXML
-    private Button btnOp7;
-
-    @FXML
-    private Button btnOp8;
-
-    @FXML
-    private Button btnOp9;
-
-    @FXML
-    private Button btnVerAvisos;
 
     @FXML
     private Text txtBienvenida;
@@ -161,6 +127,7 @@ public final class menuPrincipalEstudianteControl {
     void clickBtnVerAvisos(ActionEvent event) {
         escena.cambiarEscena(verAvisosEstudiante,stage,"Ver avisos");
     }
+
     /**
      * Metodo que se ejecuta al inicializar la pantalla
      */

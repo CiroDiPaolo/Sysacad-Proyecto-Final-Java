@@ -7,8 +7,6 @@ import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
 import Modelo.Carrera;
 import Modelo.EstadoAlumnoMateria;
-import Modelo.Materia;
-import Path.Path;
 import Usuarios.Estudiante;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,11 +15,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 
 import static Path.Path.menuPrincipalAlumnos;
@@ -57,9 +53,6 @@ public class estadoAcademicoControl {
 
     @FXML
     private TableView<EstadoMateriaTableData> tableView;
-
-    @FXML
-    private Label tctMenuPrincipal;
 
     /**
      * Método que se ejecuta al clickear el botón volver.

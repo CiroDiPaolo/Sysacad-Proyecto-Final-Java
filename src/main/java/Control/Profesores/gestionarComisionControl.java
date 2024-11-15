@@ -11,19 +11,8 @@ import javafx.stage.Stage;
 public class gestionarComisionControl {
 
     @FXML
-    private Button btnAviso;
-
-    @FXML
-    private Button btnGestionarNotas;
-
-    @FXML
-    private Button btnVerEstudiantes;
-
-    @FXML
     private Button btnVolver;
 
-    @FXML
-    private Button btnBuscarAlumno;
 
     private Stage stage;
 

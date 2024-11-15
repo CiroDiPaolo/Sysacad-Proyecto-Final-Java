@@ -8,10 +8,14 @@ import javafx.beans.property.SimpleBooleanProperty;
  */
 public final class MateriaFX {
 
+    //ATRIBUTOS
+
     private String id;
     private String nombre;
     private BooleanProperty seCursa ;
     private BooleanProperty seRinde ;
+
+    //CONSTRUCTORES
 
     public MateriaFX(String id, String nombre, boolean seCursa, boolean seRinde) {
         this.id = id;
@@ -27,6 +31,8 @@ public final class MateriaFX {
         this.seRinde = new SimpleBooleanProperty(false);
     }
 
+    //GETTERS
+
     public String getId() {
         return id;
     }
@@ -38,6 +44,8 @@ public final class MateriaFX {
     public boolean isSeCursa() {
         return seCursa.get();
     }
+
+    //SETTERS
 
     public void setSeCursa(boolean seCursa) {
         this.seCursa.set(seCursa);

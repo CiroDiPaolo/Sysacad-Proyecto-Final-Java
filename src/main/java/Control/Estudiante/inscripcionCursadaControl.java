@@ -2,10 +2,8 @@ package Control.Estudiante;
 
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
-import ControlArchivos.manejoArchivosCarrera;
 import Excepciones.CamposVaciosException;
 import Excepciones.DatosIncorrectosException;
-import Modelo.EstadoAlumnoMateria;
 import Modelo.Materia;
 import Path.Path;
 import javafx.application.Platform;
@@ -14,13 +12,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import static Path.Path.menuPrincipalAlumnos;
-import static Path.Path.pathCarreras;
 
 public class inscripcionCursadaControl {
 

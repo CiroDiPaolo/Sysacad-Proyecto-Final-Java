@@ -5,7 +5,6 @@ import Control.InicioSesion.Data;
 import ControlArchivos.manejoArchivosMesaExamen;
 import Excepciones.CamposVaciosException;
 import Excepciones.excepcionPersonalizada;
-import Modelo.EstadoAlumnoComision;
 import Modelo.EstadoAlumnoMesa;
 import Modelo.Materia;
 import Modelo.MesaExamen;
@@ -17,7 +16,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,9 +53,6 @@ public class verMesaExamenAdministradorControl {
     private TableView<EstadoAlumnoMesa> tableviewAlumnos;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtAula;
 
     @FXML
@@ -85,8 +80,6 @@ public class verMesaExamenAdministradorControl {
     private TextField txtVocal2;
 
     private Stage stage;
-
-    private EscenaControl escena = new EscenaControl();
 
     @FXML
     public void initialize() {
@@ -203,6 +196,7 @@ public class verMesaExamenAdministradorControl {
 
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(opcionEditarMesaExamenAdministrador,stage,"Configurar mesa de examen");
     }
 }

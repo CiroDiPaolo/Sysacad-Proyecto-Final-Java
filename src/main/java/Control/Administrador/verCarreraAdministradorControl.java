@@ -1,4 +1,5 @@
 package Control.Administrador;
+
 import Control.EscenaControl;
 import Control.InicioSesion.Data;
 import Modelo.Materia;
@@ -56,9 +57,6 @@ public class verCarreraAdministradorControl {
     private TableView<Materia> tableViewMaterias;
 
     @FXML
-    private Label tctMenuPrincipal;
-
-    @FXML
     private TextField txtID;
 
     @FXML
@@ -69,10 +67,9 @@ public class verCarreraAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnVolver(ActionEvent event) {
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarCarreraAdministrador,stage,"Configurar carrera");
     }
 

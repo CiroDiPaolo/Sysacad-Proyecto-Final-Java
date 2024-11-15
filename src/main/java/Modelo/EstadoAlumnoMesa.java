@@ -8,9 +8,13 @@ import org.json.JSONObject;
  */
 public final class EstadoAlumnoMesa {
 
+    //ATRIBUTOS
+
     private String codigoMesa;
     private int nota;
     private boolean presente;
+
+    //CONSTRUCTORES
 
     public EstadoAlumnoMesa(String codigoMesa, int nota, boolean presente) {
         this.codigoMesa = codigoMesa;
@@ -58,6 +62,11 @@ public final class EstadoAlumnoMesa {
         this.presente = presente;
     }
 
+    /**
+     * Convierte un JSONObject a una instancia de EstadoAlumnoMesa.
+     * @param jsonObject El JSONObject que contiene los datos del EstadoAlumnoMesa.
+     * @return Una nueva instancia de EstadoAlumnoMesa con los datos del JSONObject.
+     */
     public static EstadoAlumnoMesa JSONObjectAEstadoAlumnoMesa(JSONObject jsonObject) {
         return new EstadoAlumnoMesa(
                 jsonObject.getString("codigoAlumno"),
@@ -79,13 +88,4 @@ public final class EstadoAlumnoMesa {
         return json;
     }
 
-
-    @Override
-    public String toString() {
-        return "EstadoAlumnoMesa{" +
-                "codigoMesa='" + codigoMesa + '\'' +
-                ", nota=" + nota +
-                ", presente=" + presente +
-                '}';
-    }
 }

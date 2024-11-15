@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verCarreraAdministradorControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Administrador.verCarreraAdministradorControl">
     <children>
         <ImageView fitHeight="1345.0" fitWidth="3788.0" layoutX="-758.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-12.6395263671875" AnchorPane.leftAnchor="-755.0" AnchorPane.rightAnchor="-1110.0" AnchorPane.topAnchor="-172.0">
             <image>
@@ -51,14 +51,14 @@
                 <Image url="@../../images/utn.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#2e3b43" height="755.0" layoutX="52.0" layoutY="234.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1821.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="57.0" />
-        <Text fill="#8cc5e8" layoutX="830.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VER CARRERA" wrappingWidth="277.47015380859375" AnchorPane.leftAnchor="830.0" AnchorPane.rightAnchor="812.5298461914062">
+        <Rectangle fill="#2e3b43" height="657.0" layoutX="42.0" layoutY="321.0" stroke="#475d6b" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-font-size: 50;" width="1836.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" />
+        <Text fill="WHITE" layoutX="835.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VER CARRERA" wrappingWidth="249.47015380859375" AnchorPane.leftAnchor="835.0" AnchorPane.rightAnchor="835.5298461914062">
             <font>
                 <Font size="40.0" />
             </font>
         </Text>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="855.0" layoutY="898.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="855.0" layoutY="887.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#3b4c57" height="63.0" layoutX="876.0" layoutY="898.0" stroke="BLACK" strokeType="INSIDE" width="167.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0" />
+        <Button fx:id="btnVolver" alignment="CENTER" contentDisplay="CENTER" layoutX="876.0" layoutY="887.0" mnemonicParsing="false" onAction="#clickBtnVolver" prefHeight="84.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Volver" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="877.0">
             <font>
                 <Font size="40.0" />
             </font>
@@ -66,40 +66,40 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="222.0" layoutY="371.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtID" alignment="CENTER" blendMode="COLOR_BURN" layoutX="221.0" layoutY="372.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="223.0" layoutY="398.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtID" alignment="CENTER" blendMode="COLOR_BURN" layoutX="222.0" layoutY="398.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <CheckBox fx:id="checkBoxActividad" layoutX="307.0" layoutY="713.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="188.0" text="Actividad" textFill="WHITE">
+        <CheckBox fx:id="checkBoxActividad" layoutX="329.0" layoutY="650.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="188.0" text="Actividad" textFill="WHITE">
             <font>
                 <Font size="29.0" />
             </font>
         </CheckBox>
         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="222.0" layoutY="481.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="221.0" layoutY="481.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
+        <TextField fx:id="txtNombre" alignment="CENTER" blendMode="COLOR_BURN" layoutX="222.0" layoutY="481.0" prefHeight="53.0" prefWidth="403.0" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="222.0" layoutY="585.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-        <TextField fx:id="txtPlan" alignment="CENTER" blendMode="COLOR_BURN" layoutX="222.0" layoutY="585.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#73b3ee" height="53.0" layoutX="222.0" layoutY="558.0" opacity="0.2" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <TextField fx:id="txtPlan" alignment="CENTER" blendMode="COLOR_BURN" layoutX="221.0" layoutY="558.0" prefHeight="53.0" prefWidth="404.0" style="-fx-background-radius: 15;">
             <font>
                 <Font name="Arial" size="29.0" />
             </font>
         </TextField>
-        <Text fill="#8cc5e8" layoutX="91.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="106.85261535644554">
+        <Text fill="WHITE" layoutX="114.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="106.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <Text fill="#8cc5e8" layoutX="136.0" layoutY="611.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan:" wrappingWidth="55.85261535644554">
+        <Text fill="WHITE" layoutX="152.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan:" wrappingWidth="55.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <Text fill="#8cc5e8" layoutX="75.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID/Código:" wrappingWidth="122.85261535644554">
+        <Text fill="WHITE" layoutX="91.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID/Código:" wrappingWidth="122.85261535644554">
             <font>
                 <Font size="25.0" />
             </font>
