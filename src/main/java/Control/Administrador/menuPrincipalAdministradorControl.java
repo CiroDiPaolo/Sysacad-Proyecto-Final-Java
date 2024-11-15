@@ -18,8 +18,6 @@ public final class  menuPrincipalAdministradorControl {
 
     private Stage stage;
 
-    private EscenaControl escena = new EscenaControl();
-
     @FXML
     void clickBtnOp1(ActionEvent event) {
 
@@ -39,6 +37,7 @@ public final class  menuPrincipalAdministradorControl {
     @FXML
     void clickBtnOp3(ActionEvent event) {
 
+        EscenaControl escena = new EscenaControl();
         escena.cambiarEscena(configurarProfesorAdministrador,stage,"Configurar Profesor");
 
     }
